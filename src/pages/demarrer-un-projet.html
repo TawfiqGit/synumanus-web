@@ -1,0 +1,283 @@
+<main id="main">
+  <section class="project-hero">
+    <div class="container project-hero-layout">
+      <div class="project-hero-copy">
+        <h1>Parlons de votre <br> <em>application métier</em></h1>
+        <p>5 minutes pour aller à l’essentiel. Pas de cahier des charges interminable : donnez-moi <br>juste le contexte
+          pour qu'on prépare un premier échange vraiment efficace</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-form-section" id="formulaire">
+    <div class="container form-shell">
+      <div class="project-wizard">
+        <div class="form-progress-track" role="progressbar" aria-label="Progression du formulaire" aria-valuemin="0"
+          aria-valuemax="5" aria-valuenow="1"><span data-progress-bar></span></div>
+        <aside class="project-history" aria-label="Historique de vos choix">
+          <h2>Votre parcours</h2>
+          <ol>
+            <li data-history-step="0"><button type="button" data-history-button="0" disabled><span
+                  class="history-number" aria-hidden="true">1</span><span><strong>Votre projet</strong><span
+                    class="history-answer" data-history-answer>À venir</span></span></button></li>
+            <li data-history-step="1"><button type="button" data-history-button="1" disabled><span
+                  class="history-number" aria-hidden="true">2</span><span><strong>Le besoin métier</strong><span
+                    class="history-answer" data-history-answer>À venir</span></span></button></li>
+            <li data-history-step="2"><button type="button" data-history-button="2" disabled><span
+                  class="history-number" aria-hidden="true">3</span><span><strong>Budget et calendrier</strong><span
+                    class="history-answer" data-history-answer>À venir</span></span></button></li>
+            <li data-history-step="3"><button type="button" data-history-button="3" disabled><span
+                  class="history-number" aria-hidden="true">4</span><span><strong>Vos coordonnées</strong><span
+                    class="history-answer" data-history-answer>À venir</span></span></button></li>
+            <li data-history-step="4"><button type="button" data-history-button="4" disabled><span
+                  class="history-number" aria-hidden="true">5</span><span><strong>Choisir un créneau</strong><span
+                    class="history-answer" data-history-answer>À venir</span></span></button></li>
+          </ol>
+        </aside>
+        <div class="project-workspace">
+          <div class="form-progress-wrap" aria-label="Progression du formulaire">
+            <div class="form-progress-meta">
+              <span data-step-label>Étape 1 / 5</span>
+            </div>
+          </div>
+
+          <form class="project-form" data-project-form novalidate>
+            <input class="project-honeypot" type="text" name="website" tabindex="-1" autocomplete="off"
+              aria-hidden="true" />
+
+            <section class="form-step is-active" data-step="1" data-title="Votre projet">
+              <div class="form-step-heading">
+                <div>
+                  <h2>Quel projet avez-vous en tête&nbsp;?</h2>
+                  <p class="step-description">Commençons par le contexte</p>
+                </div>
+              </div>
+
+              <fieldset class="form-fieldset">
+                <legend>Nature du projet <span>*</span></legend>
+                <div class="choice-grid choice-grid-2">
+                  <label class="choice-card">
+                    <input type="radio" name="projectType" value="Nouvelle application" required />
+                    <span class="choice-indicator"></span>
+                    <strong>Nouvelle application</strong>
+                    <small>Créer un produit mobile ou un nouvel outil métier.</small>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="projectType" value="Refonte ou reprise" required />
+                    <span class="choice-indicator"></span>
+                    <strong>Refonte / reprise</strong>
+                    <small>Repenser ou reprendre une application existante.</small>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="projectType" value="Evolution" required />
+                    <span class="choice-indicator"></span>
+                    <strong>Évolution</strong>
+                    <small>Ajouter un nouveau périmètre ou de nouvelles fonctions.</small>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="projectType" value="Cadrage" required />
+                    <span class="choice-indicator"></span>
+                    <strong>Cadrage</strong>
+                    <small>Clarifier l’idée, le périmètre et les priorités avant développement.</small>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-fieldset">
+                <legend>Où en êtes-vous aujourd’hui&nbsp;? <span>*</span></legend>
+                <div class="pill-grid">
+                  <label class="choice-pill"><input type="radio" name="maturity" value="Idée / besoin identifié"
+                      required /><span>Idée / besoin identifié</span></label>
+                  <label class="choice-pill"><input type="radio" name="maturity" value="Périmètre déjà défini"
+                      required /><span>Périmètre déjà défini</span></label>
+                  <label class="choice-pill"><input type="radio" name="maturity" value="Maquettes disponibles"
+                      required /><span>Maquettes disponibles</span></label>
+                  <label class="choice-pill"><input type="radio" name="maturity" value="Application existante"
+                      required /><span>Application existante</span></label>
+                </div>
+              </fieldset>
+            </section>
+
+            <section class="form-step" data-step="2" data-title="Le besoin métier">
+              <div class="form-step-heading">
+                <div>
+                  <h2>Quel problème voulez-vous résoudre&nbsp;?</h2>
+                  <p class="step-description">Le métier avant les écrans</p>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="businessProblem">Décrivez le problème ou l’opportunité <span>*</span></label>
+                <textarea id="businessProblem" name="businessProblem" rows="6" maxlength="1800" required
+                  placeholder="Ex. Aujourd’hui, nos équipes saisissent les mêmes informations dans plusieurs outils. Nous voulons centraliser ce parcours sur mobile et réduire les erreurs..."></textarea>
+                <small>Pas besoin d’être technique. Décrivez surtout la situation actuelle et ce qui doit
+                  changer.</small>
+              </div>
+            </section>
+
+            <section class="form-step" data-step="3" data-title="Budget et calendrier">
+              <div class="form-step-heading">
+                <div>
+                  <h2>Quel niveau d’investissement envisagez-vous&nbsp;?</h2>
+                  <p class="step-description">Le cadre</p>
+                </div>
+              </div>
+
+              <fieldset class="form-fieldset">
+                <legend>Budget envisagé <span>*</span></legend>
+                <div class="choice-grid choice-grid-2">
+                  <label class="choice-card choice-card-short"><input type="radio" name="budget"
+                      value="Moins de 7 000 € HT" required /><span class="choice-indicator"></span><strong>Moins de 7
+                      000 € HT</strong></label>
+                  <label class="choice-card choice-card-short"><input type="radio" name="budget"
+                      value="7 000 à 10 000 € HT" required /><span class="choice-indicator"></span><strong>7 000 – 10
+                      000 € HT</strong></label>
+                  <label class="choice-card choice-card-short"><input type="radio" name="budget"
+                      value="10 000 à 20 000 € HT" required /><span class="choice-indicator"></span><strong>10 000 – 20
+                      000 € HT</strong></label>
+                  <label class="choice-card choice-card-short"><input type="radio" name="budget"
+                      value="20 000 à 40 000 € HT" required /><span class="choice-indicator"></span><strong>20 000 – 40
+                      000 € HT</strong></label>
+                  <label class="choice-card choice-card-short"><input type="radio" name="budget"
+                      value="40 000 à 80 000 € HT" required /><span class="choice-indicator"></span><strong>40 000 – 80
+                      000 € HT</strong></label>
+                  <label class="choice-card choice-card-short"><input type="radio" name="budget"
+                      value="Plus de 80 000 € HT" required /><span class="choice-indicator"></span><strong>Plus de 80
+                      000 € HT</strong></label>
+                </div>
+              </fieldset>
+
+              <div class="two-columns">
+                <div class="field-group">
+                  <label for="startWindow">Quand souhaitez-vous démarrer&nbsp;?</label>
+                  <select id="startWindow" name="startWindow">
+                    <option value="">Sélectionnez une option</option>
+                    <option>Dès que possible</option>
+                    <option>Dans le trimestre</option>
+                    <option>Dans les 12 prochains mois</option>
+                    <option>Pas encore défini</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label for="targetDate">Avez-vous une échéance précise&nbsp;?</label>
+                  <input id="targetDate" name="targetDate" type="text" maxlength="120"
+                    placeholder="Ex. lancement avant mars 2027" />
+                </div>
+              </div>
+            </section>
+
+            <section class="form-step" data-step="4" data-title="Vos coordonnées">
+              <div class="form-step-heading">
+                <div>
+                  <h2>Comment puis-je vous recontacter&nbsp;?</h2>
+                  <p class="step-description">Dernière étape</p>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="company">Entreprise / projet</label>
+                <input id="company" name="company" type="text" autocomplete="organization" maxlength="160"
+                  placeholder="Nom de votre entreprise ou de votre projet" />
+              </div>
+
+              <div class="field-group">
+                <label for="lastName">Nom <span>*</span></label>
+                <input id="lastName" name="lastName" type="text" autocomplete="family-name" maxlength="100" required
+                  placeholder="Votre nom" />
+              </div>
+
+              <div class="field-group">
+                <label for="firstName">Prénom <span>*</span></label>
+                <input id="firstName" name="firstName" type="text" autocomplete="given-name" maxlength="100" required
+                  placeholder="Votre prénom" />
+              </div>
+
+              <div class="field-group">
+                <label for="email">Email <span>*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" maxlength="180" required
+                  placeholder="vous@entreprise.fr" />
+              </div>
+
+              <div class="field-group">
+                <label for="phone">Téléphone <span>*</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" required
+                  placeholder="Ex. 06 12 34 56 78" />
+              </div>
+            </section>
+
+            <div class="form-error" data-form-error role="alert" hidden></div>
+
+            <div class="form-navigation" data-form-navigation>
+              <button class="button button-back" type="button" data-prev-step disabled>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M15 10H5M9 6l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Précédent
+              </button>
+              <button class="button button-primary" type="button" data-next-step>
+                Continuer
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M5 10h10M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="button button-primary form-submit" type="submit" data-submit-project hidden>
+                Choisir mon créneau
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M3.5 4.5l13 5.5-13 5.5 2-5.5zM5.5 10h6" fill="none" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <section class="project-booking-stage" data-booking-stage hidden aria-labelledby="booking-title">
+            <div class="flow-stage-heading">
+              <div>
+                <h2 id="booking-title">Réservez directement votre échange avec Synumanus.</h2>
+                <p class="step-description">Choisissez votre créneau</p>
+              </div>
+            </div>
+
+            <div class="systemeio-calendar-shell">
+              <iframe class="systemeio-calendar-frame" data-systemeio-calendar-frame
+                title="Calendrier de réservation systeme.io — Synumanus" loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin" hidden></iframe>
+
+              <div class="calendar-local-mock" data-calendar-local-mock hidden>
+                <div class="calendar-local-head">
+                  <div><small>Mode test local</small><strong>Calendrier systeme.io simulé</strong></div>
+                  <span>30 min</span>
+                </div>
+                <div class="calendar-local-grid" aria-hidden="true">
+                  <div class="calendar-local-month"><strong>Septembre 2026</strong><span>‹ &nbsp; ›</span></div>
+                  <div class="calendar-local-week">
+                    <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+                  </div>
+                  <div class="calendar-local-days">
+                    <span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                    <span>7</span><span>8</span><span class="is-today">9</span><span>10</span><span
+                      class="is-selected">11</span><span>12</span><span>13</span>
+                    <span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+                  </div>
+                </div>
+                <div class="calendar-local-slots">
+                  <button type="button">09:30</button><button type="button" class="is-selected">11:00</button><button
+                    type="button">14:30</button><button type="button">16:00</button>
+                </div>
+                <button class="button button-primary calendar-local-confirm" type="button"
+                  data-local-booking-confirm>Simuler la réservation</button>
+                <p>Ce calendrier de démonstration apparaît uniquement en local tant que l’URL systeme.io n’est pas
+                  configurée.</p>
+              </div>
+
+            </div>
+
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

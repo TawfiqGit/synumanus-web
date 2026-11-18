@@ -1,0 +1,78 @@
+{
+  "services": [
+    {
+      "key": "cadrage-prototypage",
+      "number": "01",
+      "title": "Cadrage & prototypage",
+      "href": "/services/cadrage-prototypage/",
+      "description": "Clarifier le besoin, la V1 et tester les parcours."
+    },
+    {
+      "key": "developpement-application-mobile",
+      "number": "02",
+      "title": "Développement mobile",
+      "href": "/services/developpement-application-mobile/",
+      "description": "Concevoir et livrer une application iOS & Android."
+    },
+    {
+      "key": "refonte-application-mobile",
+      "number": "03",
+      "title": "Refonte",
+      "href": "/services/refonte-application-mobile/",
+      "description": "Moderniser, refactoriser ou reconstruire l’existant."
+    },
+    {
+      "key": "maintenance-evolution",
+      "number": "04",
+      "title": "Maintenance & évolution",
+      "href": "/services/maintenance-evolution/",
+      "description": "Corriger, maintenir à niveau et faire évoluer."
+    }
+  ],
+  "sectors": [
+    {
+      "key": "industrie",
+      "number": "01",
+      "title": "Industrie",
+      "href": "/secteurs/industrie/",
+      "description": "Terrain, production, maintenance et traçabilité."
+    },
+    {
+      "key": "finance-assurance",
+      "number": "02",
+      "title": "Finance & assurance",
+      "href": "/secteurs/finance-assurance/",
+      "description": "Parcours clients, dossiers, sinistres et outils conseillers."
+    },
+    {
+      "key": "sante",
+      "number": "03",
+      "title": "Santé",
+      "href": "/secteurs/sante/",
+      "description": "Parcours patients, professionnels et données sensibles."
+    }
+  ],
+  "resources": [
+    {
+      "key": "generateur-cahier-des-charges",
+      "number": "01",
+      "title": "Générateur de cahier des charges",
+      "href": "/ressources/generateur-cahier-des-charges/",
+      "description": "Transformer une idée en premier brief structuré."
+    },
+    {
+      "key": "radars-tech",
+      "number": "02",
+      "title": "Radars Tech",
+      "href": "/ressources/radars-tech/",
+      "description": "Suivre les technologies que Synumanus adopte ou évalue."
+    },
+    {
+      "key": "actus",
+      "number": "03",
+      "title": "Actus & veille",
+      "href": "/actus/",
+      "description": "Mobile, produit, IA générative et architecture."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+Formulaire complet traité par api/project.php : OK
+Tous les champs obligatoires renseignés, options supplémentaires renseignées.
+Prospect enregistré : appointment_booked=false ; relance_started=false.
+Notification interne de soumission simulée ; relance Systeme.io exécutée séparément en réel.

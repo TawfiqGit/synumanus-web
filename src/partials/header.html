@@ -1,0 +1,41 @@
+
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Synumanus — Accueil">{{BRAND_ICON}}<img class="brand-mark brand-mark-light" src="/assets/v-claire.png" width="34" height="34" alt="" /><span>synumanus</span></a>
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <div class="nav-hub nav-hub-service{{SERVICE_HUB_ACTIVE}}" data-service-hub>
+        <button class="nav-hub-trigger{{SERVICE_TRIGGER_ACTIVE}}" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="service-hub-menu" data-service-hub-trigger><span>Service</span>{{CHEVRON_SVG}}</button>
+        <div class="nav-hub-menu" id="service-hub-menu">{{SERVICE_ITEMS}}</div>
+      </div>
+      <div class="nav-hub nav-hub-sector{{SECTOR_HUB_ACTIVE}}" data-sector-hub>
+        <button class="nav-hub-trigger{{SECTOR_TRIGGER_ACTIVE}}" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="sector-hub-menu" data-sector-hub-trigger><span>Secteurs</span>{{CHEVRON_SVG}}</button>
+        <div class="nav-hub-menu sector-hub-menu" id="sector-hub-menu">{{SECTOR_ITEMS}}</div>
+      </div>
+      <a class="nav-simple-link{{IA_ACTIVE}}" href="/conseil-ia-generative/">Conseil IA</a>
+      <div class="nav-hub nav-hub-resource{{RESOURCE_HUB_ACTIVE}}" data-resource-hub>
+        <button class="nav-hub-trigger{{RESOURCE_TRIGGER_ACTIVE}}" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="resource-hub-menu" data-resource-hub-trigger><span>Ressources</span>{{CHEVRON_SVG}}</button>
+        <div class="nav-hub-menu" id="resource-hub-menu">{{RESOURCE_ITEMS}}</div>
+      </div>
+      <a class="nav-simple-link{{ABOUT_ACTIVE}}" href="/a-propos/agence/">Agence</a>
+    </nav>
+    <a class="button button-sm button-primary header-cta" href="/demarrer-un-projet/">Démarrer un projet</a>
+    <button class="menu-button" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-menu-button><span></span><span></span></button>
+  </div>
+  <nav class="mobile-nav" aria-label="Navigation mobile" data-mobile-nav>
+    <div class="mobile-service-hub{{SERVICE_HUB_ACTIVE}}" data-mobile-service-hub>
+      <button class="mobile-hub-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-service-hub-menu" data-mobile-service-hub-trigger><span>Service</span>{{CHEVRON_SVG}}</button>
+      <div class="mobile-hub-menu" id="mobile-service-hub-menu">{{MOBILE_SERVICE_ITEMS}}</div>
+    </div>
+    <div class="mobile-service-hub mobile-sector-hub{{SECTOR_HUB_ACTIVE}}" data-mobile-sector-hub>
+      <button class="mobile-hub-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-sector-hub-menu" data-mobile-sector-hub-trigger><span>Secteurs</span>{{CHEVRON_SVG}}</button>
+      <div class="mobile-hub-menu" id="mobile-sector-hub-menu">{{MOBILE_SECTOR_ITEMS}}</div>
+    </div>
+    <a class="mobile-simple-link{{IA_ACTIVE}}" href="/conseil-ia-generative/">Conseil IA générative</a>
+    <div class="mobile-service-hub mobile-resource-hub{{RESOURCE_HUB_ACTIVE}}" data-mobile-resource-hub>
+      <button class="mobile-hub-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-resource-hub-menu" data-mobile-resource-hub-trigger><span>Ressources</span>{{CHEVRON_SVG}}</button>
+      <div class="mobile-hub-menu" id="mobile-resource-hub-menu">{{MOBILE_RESOURCE_ITEMS}}</div>
+    </div>
+    <a class="mobile-simple-link{{ABOUT_ACTIVE}}" href="/a-propos/agence/">Agence</a>
+    <a class="button button-primary" href="/demarrer-un-projet/">Démarrer un projet</a>
+  </nav>
+</header>

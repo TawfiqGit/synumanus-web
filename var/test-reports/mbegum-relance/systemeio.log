@@ -1,0 +1,18 @@
+2026-09-21T13:24:24+00:00 GET /contacts?email=[contact-test]&limit=10 : succès
+2026-09-21T13:24:24+00:00 GET /tags?query=appointment-reminder&limit=100&order=asc : succès
+2026-09-21T13:24:24+00:00 GET /tags?query=appointment-valid&limit=100&order=asc : succès
+Départ + 14 min 59 s simulés : aucune relance.
+2026-09-21T13:24:24+00:00 GET /tags?query=appointment-valid&limit=100&order=asc : succès
+2026-09-21T13:24:24+00:00 GET /contacts?email=[contact-test]&limit=10 : succès
+2026-09-21T13:24:25+00:00 GET /tags?query=appointment-reminder&limit=100&order=asc : succès
+2026-09-21T13:24:25+00:00 GET /contact_fields : succès
+2026-09-21T13:24:26+00:00 POST /contacts : succès
+2026-09-21T13:24:26+00:00 GET /contacts/444448423 : succès
+2026-09-21T13:24:26+00:00 GET /contacts/444448423 : succès
+2026-09-21T13:24:26+00:00 POST /contacts/444448423/tags : succès
+RESULTAT {"booked":0,"reminded":1,"deferred":0,"errors":0}
+2026-09-21T13:24:26+00:00 GET /contacts?email=[contact-test]&limit=10 : succès
+2026-09-21T13:24:27+00:00 GET /contacts/444448423 : succès
+Tous les champs envoyés sont conformes après relecture REST.
+ETAT {"appointment_booked":0,"relance_started":1,"reminder_sent_at":1789997964}
+TAGS [{"id":2182906,"name":"appointment-reminder"}]

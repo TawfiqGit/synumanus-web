@@ -1,0 +1,28 @@
+# Journal des décisions — Site Synumanus
+
+| Date | Décision | Justification | Décideur |
+|---|---|---|---|
+| 16/11/2026 | ~~Hero photo plein fond + voile bleu, modèle commun des pages services~~ — limité au site actuel (`fix/05`) ; remplacé pour la refonte le 17/11 | Cohérence inter-services | TawfiqDev |
+| 16/11/2026 | Encarts de preuve : carte titre + sous-titre, alignée à gauche (desktop et mobile) | Cohérence, lisibilité | TawfiqDev |
+| 16/11/2026 | Sous-titres d'encarts ≥ 12 px, contraste ≥ 4,5:1 | WCAG 2.2 AA | TawfiqDev |
+| 16/11/2026 | Refonte complète du site avant tout nouveau développement ; corrections `fix/05` limitées aux écarts bloquants | Ne pas corriger un design qui sera remplacé | TawfiqDev |
+| 16/11/2026 | Objectif : demandes qualifiées / rendez-vous pris | Le parcours de conversion est l'actif central du site | TawfiqDev |
+| 16/11/2026 | Cible primaire TPE/PME et entrepreneurs ; secteurs industrie/finance/santé → cas d'usage (lot 2) | Alignement sur la stratégie (Organisation V2) | TawfiqDev |
+| 16/11/2026 | Offre en 3 piliers : Mobile · Web & métier · Automatisation & IA ; mobile = expertise phare | Couvrir l'offre réelle sans diluer le positionnement | TawfiqDev |
+| 16/11/2026 | ~~Identité : évolution (logo + palette conservés)~~ — remplacée ci-dessous | — | TawfiqDev |
+| 16/11/2026 | MVP / lot 2 définis ; URLs conservées, 301 si suppression | Mise en ligne rapide sans perte SEO | TawfiqDev |
+| 16/11/2026 | Voix « nous / Synumanus », « je » sur Agence ; CTA unique « Échanger sur mon projet » | Crédibilité agence + interlocuteur unique | TawfiqDev |
+| 16/11/2026 | Planning hypothèse : conception 4 sem., dev 4 sem., mise en ligne mi-février 2027 | Rythme Scrum, capacité à confirmer par Shanks | TawfiqDev (hypothèse) |
+| 16/11/2026 | Identité : direction « Graphite » (DESIGN.md) comme base de la refonte | Choix CEO : image premium et tech | TawfiqDev |
+| 16/11/2026 | Aucun prix affiché sur le site | Choix CEO | TawfiqDev |
+| 16/11/2026 | Pas de références au lancement ; réalisations = futures apps Synumanus, ajoutées après la mise en ligne | Aucune référence publiable aujourd'hui | TawfiqDev |
+| 16/11/2026 | Identité : option B « Graphite × bleu Synumanus » (structure Graphite, accent bleu ciel #7DD3FC au lieu de l'orange, aperçus d'apps encadrés, ajustements AA obligatoires) | Image premium, cohérence logo, coût faible, accessibilité | TawfiqDev |
+| 17/11/2026 | Lancement de la conception de la refonte par Lili, sur la base Graphite (DESIGN.md) option B ; aucun développement avant la gate G3 | Refonte complète avant développement | TawfiqDev |
+| 17/11/2026 | Proposition de tokens v0.1 (specs) : Ash et Steel exclus du texte et des bordures de contrôle, écart entre sections ramené de 224 à 128 px, hero illustré par un aperçu d'app plutôt qu'un polygone abstrait — **à valider** | Contrastes AA calculés ; cible TPE | Lili (proposition) |
+| 17/11/2026 | ~~Proposition~~ **Validé (option B)** — Remplacer, dans la refonte, le hero « photo plein fond + voile bleu » (décision du 16/11) par un hero Graphite : fond `#0a0a0a`, titre à gauche, aperçu d'application fictive encadré à droite. La photo reste réservée à la page Agence. Le modèle photo reste sur le site actuel (`fix/05`) jusqu'à la mise en ligne, avec images converties en WebP. | Incohérent avec Graphite, photos génériques, 1,8 à 2,3 Mo par image ; un aperçu concret répond mieux à H2 | TawfiqDev |
+| 17/11/2026 | B1 Cadrage validé (v1.0) | Gate G3 — étape 1 | TawfiqDev |
+| 17/11/2026 | Outil d'audience : Plausible | RGPD, simplicité | TawfiqDev |
+| 17/11/2026 | B2 validé (v1.0) ; pages lot 2 retirées du menu, URLs conservées | Cohérence visuelle sans perte SEO | TawfiqDev |
+| 17/11/2026 | « Méthode » = section de l'accueil + ancre `/#methode` | Moins de pages à maintenir | TawfiqDev |
+| 17/11/2026 | Formulaire : explorer une variante en 4 étapes en B3 | Réduire l'abandon ; à mesurer | TawfiqDev |
+| 17/11/2026 | Bouton WhatsApp flottant masqué pendant la saisie du formulaire (étapes 1 à 3), réaffiché à l'étape créneau et en cas d'erreur | Ne pas couvrir le bouton « Continuer » sur mobile | TawfiqDev |
