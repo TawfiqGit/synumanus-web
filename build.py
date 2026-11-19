@@ -39,6 +39,26 @@ def render_footer_items(items: list[dict]) -> str:
     """Construit les liens d'une colonne de footer."""
     return ''.join(f'<a href="{x["href"]}">{x["title"]}</a>' for x in items)
 
+ARROW_SVG = '<svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+
+def render_v2_menu(nav: dict, current_key: str | None, mobile: bool=False) -> str:
+    """Construit le sous-menu « Solutions » (refonte v2) : 3 piliers + 4 services mobiles."""
+    def link(item: dict, cls: str) -> str:
+        is_current = item['key'] == current_key
+        aria = ' aria-current="page"' if is_current else ''
+        badge = f'<span class="tag tag-accent">{item["badge"]}</span>' if item.get('badge') and not mobile else ''
+        desc = '' if mobile else f'<small>{item["description"]}</small>'
+        return (f'<a class="{cls}{" is-current" if is_current else ""}" href="{item["href"]}"{aria}>'
+                f'<span class="menu-link-title">{item["title"]}{badge}</span>{desc}</a>')
+    pillars = ''.join(link(x, 'menu-link menu-link-pillar') for x in nav['pillars'])
+    services = ''.join(link(x, 'menu-link') for x in nav['services'])
+    return (f'<div class="menu-col"><p class="menu-label">Nos solutions</p>{pillars}</div>'
+            f'<div class="menu-col"><p class="menu-label">Applications mobiles</p>{services}</div>')
+
+def render_v2_footer_items(items: list[dict]) -> str:
+    """Liens de colonne de footer (refonte v2)."""
+    return ''.join(f'<li><a href="{x["href"]}">{x["title"]}</a></li>' for x in items)
+
 def copy_static() -> None:
     """Copie les assets et endpoints, jamais les fichiers d'environnement."""
     static = SRC/'static'
@@ -68,9 +88,62 @@ def build() -> None:
     header_tpl = read(SRC/'partials/header.html')
     footer_tpl = read(SRC/'partials/footer.html')
     whatsapp_tpl = read(SRC/'partials/whatsapp.html')
+    base_v2 = read(SRC/'templates/base-v2.html')
+    header_v2_tpl = read(SRC/'partials/header-v2.html')
+    footer_v2_tpl = read(SRC/'partials/footer-v2.html')
     built_routes = []
 
     for output_rel, meta in pages.items():
+        if meta.get('design') == 'v2':
+            # Refonte v2 (Graphite × papier technique) : gabarit, header et footer dédiés.
+            # Les pages du lot 2 gardent l'ancien design pendant la transition (décision B2 du 17/11).
+            nav_key = meta.get('nav_key')
+            in_solutions = bool(meta.get('service_key') or meta.get('pillar_key'))
+            current = meta.get('service_key') or meta.get('pillar_key')
+            header = replace_tokens(header_v2_tpl, {
+                'BRAND_ICON': BRAND_ICON,
+                'CHEVRON_SVG': CHEVRON_SVG,
+                'ARROW_SVG': ARROW_SVG,
+                'SOLUTIONS_CURRENT': ' is-current' if in_solutions else '',
+                'AGENCE_ARIA': ' aria-current="page"' if nav_key == 'agence' else '',
+                'SOLUTIONS_MENU': render_v2_menu(nav, current),
+                'MOBILE_SOLUTIONS_MENU': render_v2_menu(nav, current, True),
+            })
+            footer = replace_tokens(footer_v2_tpl, {
+                'BRAND_ICON': BRAND_ICON,
+                'ARROW_SVG': ARROW_SVG,
+                'FOOTER_PILLAR_ITEMS': render_v2_footer_items(nav['pillars']),
+                'FOOTER_SERVICE_ITEMS': render_v2_footer_items(nav['services']),
+                'FOOTER_SECTOR_ITEMS': render_v2_footer_items(nav['sectors']),
+                'FOOTER_RESOURCE_ITEMS': render_v2_footer_items(nav['resources']),
+            })
+            whats = replace_tokens(whatsapp_tpl, {'WHATSAPP_SVG': WHATSAPP_SVG})
+            content = read(SRC/'pages'/meta['source']).replace('{{CTA_BAND}}', read(SRC/'partials/cta-v2.html'))
+            content = replace_tokens(content, {'ARROW_SVG': ARROW_SVG})
+            structured = meta.get('structured_data') or ''
+            if structured:
+                structured = '  <script type="application/ld+json">\n' + structured + '\n  </script>'
+            output = replace_tokens(base_v2, {
+                'TITLE': html.escape(meta['title'], quote=False),
+                'DESCRIPTION': html.escape(meta['description'], quote=True),
+                'OG_TITLE': html.escape(meta['og_title'], quote=True),
+                'OG_DESCRIPTION': html.escape(meta['og_description'], quote=True),
+                'CANONICAL': BASE_URL + meta['route'],
+                'EXTRA_STYLES': '\n'.join(f'  <link rel="stylesheet" href="/{s}" />' for s in meta.get('styles', [])),
+                'STRUCTURED_DATA': structured,
+                'BODY_CLASS': meta.get('body_class', ''),
+                'HEADER': header,
+                'CONTENT': content,
+                'FOOTER': footer,
+                'WHATSAPP': whats,
+                'EXTRA_SCRIPTS': '\n'.join(f'  <script src="/{s}" defer></script>' for s in meta.get('scripts', [])),
+            })
+            target = DIST/output_rel
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(output, encoding='utf-8')
+            built_routes.append(meta['route'])
+            continue
+
         service_key = meta.get('service_key')
         sector_key = meta.get('sector_key')
         resource_key = meta.get('resource_key')

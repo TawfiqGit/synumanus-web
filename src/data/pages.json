@@ -2,71 +2,108 @@
   "index.html": {
     "source": "index.html",
     "route": "/",
-    "title": "Synumanus — Applications mobiles sur mesure pour entrepreneurs",
-    "description": "Synumanus conçoit des applications mobiles métier sur mesure : cadrage, développement, refonte, maintenance et conseil IA générative.",
+    "title": "Synumanus — Applications mobiles, web et automatisations sur mesure",
+    "description": "Synumanus conçoit des applications mobiles, web et des automatisations sur mesure pour les TPE, PME et entrepreneurs : cadrage, développement, refonte et maintenance.",
     "styles": [],
-    "og_title": "Synumanus — Applications mobiles sur mesure pour entrepreneurs",
-    "og_description": "Synumanus conçoit des applications mobiles métier sur mesure : cadrage, développement, refonte, maintenance et conseil IA générative.",
+    "og_title": "Synumanus — Des applications pensées pour votre métier",
+    "og_description": "Applications mobiles, web et automatisations sur mesure pour TPE, PME et entrepreneurs. Premier échange de 30 min offert.",
     "scripts": [],
     "service_key": null,
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
+  },
+  "applications-mobiles/index.html": {
+    "route": "/applications-mobiles/",
+    "source": "pilier-mobile.html",
+    "title": "Applications mobiles sur mesure iOS et Android — Synumanus",
+    "og_title": "Applications mobiles sur mesure iOS et Android — Synumanus",
+    "description": "Applications mobiles iOS et Android pour vos équipes terrain et vos clients : cadrage, développement, refonte et maintenance.",
+    "og_description": "Applications mobiles iOS et Android pour vos équipes terrain et vos clients : cadrage, développement, refonte et maintenance.",
+    "design": "v2",
+    "pillar_key": "applications-mobiles",
+    "styles": [],
+    "scripts": [],
+    "structured_data": "",
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null
+  },
+  "applications-web-metier/index.html": {
+    "route": "/applications-web-metier/",
+    "source": "pilier-web.html",
+    "title": "Applications web et outils métier sur mesure — Synumanus",
+    "og_title": "Applications web et outils métier sur mesure — Synumanus",
+    "description": "Outils internes, plateformes clients, sites professionnels et intégration d’API : un seul outil au lieu de dix tableurs.",
+    "og_description": "Outils internes, plateformes clients, sites professionnels et intégration d’API : un seul outil au lieu de dix tableurs.",
+    "design": "v2",
+    "pillar_key": "applications-web-metier",
+    "styles": [],
+    "scripts": [],
+    "structured_data": "",
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null
+  },
+  "automatisation-ia/index.html": {
+    "route": "/automatisation-ia/",
+    "source": "pilier-automatisation.html",
+    "title": "Automatisation et IA pour TPE et PME — Synumanus",
+    "og_title": "Automatisation et IA pour TPE et PME — Synumanus",
+    "description": "Automatisez relances, devis et tri des demandes. L’IA uniquement quand elle apporte un vrai gain, avec vos données protégées.",
+    "og_description": "Automatisez relances, devis et tri des demandes. L’IA uniquement quand elle apporte un vrai gain, avec vos données protégées.",
+    "design": "v2",
+    "pillar_key": "automatisation-ia",
+    "styles": [],
+    "scripts": [],
+    "structured_data": "",
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null
   },
   "services/cadrage-prototypage/index.html": {
     "source": "cadrage.html",
     "route": "/services/cadrage-prototypage/",
     "title": "Cadrage & prototypage d’application mobile — Synumanus",
     "description": "Cadrage et prototypage : clarifier le besoin métier, prioriser la V1, tester les parcours et préparer le développement.",
-    "styles": [
-      "service-pages.css",
-      "cadrage-prototypage.css",
-      "service-news.css",
-      "service-hero-title.css"
-    ],
+    "styles": [],
     "service_key": "cadrage-prototypage",
     "og_title": "Cadrage & prototypage d’application mobile — Synumanus",
     "og_description": "Cadrage et prototypage : clarifier le besoin métier, prioriser la V1, tester les parcours et préparer le développement.",
-    "scripts": [
-      "cadrage-prototypage.js"
-    ],
+    "scripts": [],
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "services/developpement-application-mobile/index.html": {
     "source": "developpement-mobile.html",
     "route": "/services/developpement-application-mobile/",
     "title": "Développement d’application mobile iOS & Android — Synumanus",
     "description": "Développement d’applications mobiles métier sur mesure iOS et Android : Flutter, Kotlin, Swift, backend, API et publication.",
-    "styles": [
-      "mobile-development.css",
-      "service-news.css",
-      "service-hero-title.css"
-    ],
+    "styles": [],
     "service_key": "developpement-application-mobile",
     "og_title": "Développement d’application mobile iOS & Android — Synumanus",
     "og_description": "Développement d’applications mobiles métier sur mesure iOS et Android : Flutter, Kotlin, Swift, backend, API et publication.",
-    "scripts": [
-      "cadrage-prototypage.js"
-    ],
+    "scripts": [],
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "services/refonte-application-mobile/index.html": {
     "source": "refonte.html",
     "route": "/services/refonte-application-mobile/",
     "title": "Refonte d’application mobile — Synumanus",
     "description": "Audit et refonte d’applications mobiles : UX, dette technique, architecture, migration et remise à niveau iOS/Android.",
-    "styles": [
-      "service-pages.css",
-      "refonte.css",
-      "service-hero-title.css"
-    ],
+    "styles": [],
     "service_key": "refonte-application-mobile",
     "og_title": "Refonte d’application mobile — Synumanus",
     "og_description": "Audit et refonte d’applications mobiles : UX, dette technique, architecture, migration et remise à niveau iOS/Android.",
@@ -74,29 +111,24 @@
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "services/maintenance-evolution/index.html": {
     "source": "maintenance.html",
     "route": "/services/maintenance-evolution/",
     "title": "Maintenance & évolution d’application mobile — Synumanus",
     "description": "Maintenance corrective, préventive et évolutive d’applications mobiles iOS et Android.",
-    "styles": [
-      "service-pages.css",
-      "service-news.css",
-      "maintenance-evolution.css",
-      "service-hero-title.css"
-    ],
+    "styles": [],
     "service_key": "maintenance-evolution",
     "og_title": "Maintenance & évolution d’application mobile — Synumanus",
     "og_description": "Maintenance corrective, préventive et évolutive d’applications mobiles iOS et Android.",
-    "scripts": [
-      "cadrage-prototypage.js"
-    ],
+    "scripts": [],
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "secteurs/industrie/index.html": {
     "source": "industrie.html",
@@ -178,9 +210,7 @@
     "route": "/a-propos/agence/",
     "title": "L’agence Synumanus — À propos",
     "description": "Découvrez l’approche Synumanus : métier d’abord, cadrage pragmatique, expertise mobile et accompagnement de bout en bout.",
-    "styles": [
-      "editorial-pages.css"
-    ],
+    "styles": [],
     "direct_key": "about",
     "og_title": "L’agence Synumanus — À propos",
     "og_description": "Découvrez l’approche Synumanus : métier d’abord, cadrage pragmatique, expertise mobile et accompagnement de bout en bout.",
@@ -188,7 +218,9 @@
     "service_key": null,
     "sector_key": null,
     "resource_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2",
+    "nav_key": "agence"
   },
   "ressources/generateur-cahier-des-charges/index.html": {
     "source": "generateur-cahier-des-charges.html",
@@ -251,7 +283,7 @@
     "title": "Démarrer un projet — Synumanus",
     "description": "Décrivez votre projet, votre besoin métier, votre budget et votre calendrier pour préparer un premier échange utile.",
     "styles": [
-      "project.css"
+      "v2/project.css"
     ],
     "scripts": [
       "project.js"
@@ -262,16 +294,16 @@
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2",
+    "body_class": "page-project"
   },
   "politique-confidentialite/index.html": {
     "source": "politique-confidentialite.html",
     "route": "/politique-confidentialite/",
     "title": "Politique de confidentialité — Synumanus",
     "description": "Politique de confidentialité du site Synumanus et informations relatives aux données personnelles.",
-    "styles": [
-      "editorial-pages.css"
-    ],
+    "styles": [],
     "direct_key": "legal",
     "og_title": "Politique de confidentialité — Synumanus",
     "og_description": "Politique de confidentialité du site Synumanus et informations relatives aux données personnelles.",
@@ -279,16 +311,15 @@
     "service_key": null,
     "sector_key": null,
     "resource_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "mentions-legales/index.html": {
     "source": "mentions-legales.html",
     "route": "/mentions-legales/",
     "title": "Mentions légales — Synumanus",
     "description": "Mentions légales du site Synumanus.",
-    "styles": [
-      "editorial-pages.css"
-    ],
+    "styles": [],
     "direct_key": "legal",
     "og_title": "Mentions légales — Synumanus",
     "og_description": "Mentions légales du site Synumanus.",
@@ -296,6 +327,7 @@
     "service_key": null,
     "sector_key": null,
     "resource_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   }
 }

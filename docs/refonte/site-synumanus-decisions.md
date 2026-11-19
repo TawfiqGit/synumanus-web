@@ -26,3 +26,8 @@
 | 17/11/2026 | « Méthode » = section de l'accueil + ancre `/#methode` | Moins de pages à maintenir | TawfiqDev |
 | 17/11/2026 | Formulaire : explorer une variante en 4 étapes en B3 | Réduire l'abandon ; à mesurer | TawfiqDev |
 | 17/11/2026 | Bouton WhatsApp flottant masqué pendant la saisie du formulaire (étapes 1 à 3), réaffiché à l'étape créneau et en cas d'erreur | Ne pas couvrir le bouton « Continuer » sur mobile | TawfiqDev |
+| 19/11/2026 | Lancement de B4 (design system v2 + prototype HTML sur la branche de travail) à la demande de TawfiqDev, **sans validation formelle de B3 v0.2** — à régulariser à la revue G3 | Demande explicite du CEO ; le prototype sert de support à la validation B3 + B4 | TawfiqDev (demande) |
+| 19/11/2026 | **Proposition** — Synthèse des 3 références : base Graphite option B conservée ; ajouts Basis Theory (bande « papier » claire pour les sections de lecture, feuilles superposées, filets de construction, bandeau d'annonce) et Column (étiquettes mono à pastille, rangée de chiffres, bloc de données) — **à valider** | Lisibilité des sections denses pour la cible TPE ; alternance sombre/clair qui rythme les pages longues ; aucun coût de dev supplémentaire | Lili (proposition) |
+| 19/11/2026 | **Proposition** — Accent sur fond clair : `#0369a1` (le bleu `#7DD3FC` est interdit sur papier, 1,5:1) — à valider | WCAG 2.2 AA | Lili (proposition) |
+| 19/11/2026 | Formulaire « Démarrer un projet » : 5 étapes et HTML conservés en v2 (seul le style change) en attendant la réponse de Law sur le back-end | Back-end PHP hors périmètre ; question B3 n° 1 ouverte | Lili |
+| 19/11/2026 | Sélecteur de langue FR/EN retiré du footer v2 | Multilingue exclu du périmètre ; lien EN sans contenu = trompeur | Lili (à valider) |

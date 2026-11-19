@@ -1,0 +1,96 @@
+<main id="main">
+  <section class="hero hero-sub" aria-labelledby="hero-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li><span>Solutions</span></li><li><span aria-current="page">Automatisation & IA</span></li></ol></nav>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Automatisation & IA</p>
+          <h1 class="display" id="hero-title">Moins de tâches répétitives, <em>plus de temps pour votre métier</em></h1>
+          <p class="lead">Relances, devis, tri des demandes, comptes rendus : nous automatisons ce qui peut l’être et utilisons l’IA seulement quand elle apporte un vrai gain.</p>
+          <div class="actions">
+            <a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a>
+            <a class="btn btn-ghost btn-lg" href="#offre">Exemples d’automatisations</a>
+          </div>
+        </div>
+        <div class="preview" aria-hidden="true">
+          <div class="sheet sheet-back"></div>
+          <div class="sheet sheet-mid"></div>
+          <div class="flow">
+            <div class="flow-node"><b>01</b><div>Nouvelle demande par e-mail<small>« Bonjour, je souhaite un devis pour… »</small></div></div>
+            <div class="flow-link"></div>
+            <div class="flow-node is-ai"><b>IA</b><div>Lecture et classement<small>Type : devis · Urgence : normale</small></div></div>
+            <div class="flow-link"></div>
+            <div class="flow-node"><b>02</b><div>Brouillon de devis préparé<small>à valider par vous en 1 clic</small></div></div>
+            <div class="flow-link"></div>
+            <div class="flow-node"><b>03</b><div>Relance automatique à J+3<small>si pas de réponse</small></div></div>
+          </div>
+          <p class="preview-caption">Exemple de flux — données fictives</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-paper" aria-labelledby="problemes-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Ce que ça change</p>
+        <h2 class="h-section" id="problemes-title">De la situation actuelle <em>au résultat attendu</em></h2>
+      </div>
+      <div class="grid grid-3">
+        <article class="card"><span class="card-index">Avant</span><h3 class="h-card">Vos soirées passent en administratif</h3><p><strong>Après :</strong> les tâches récurrentes tournent seules, vous validez seulement.</p></article>
+        <article class="card"><span class="card-index">Avant</span><h3 class="h-card">Des demandes oubliées dans la boîte mail</h3><p><strong>Après :</strong> chaque demande est classée, attribuée et suivie.</p></article>
+        <article class="card"><span class="card-index">Avant</span><h3 class="h-card">L’IA, vous ne savez pas par où commencer</h3><p><strong>Après :</strong> un usage précis, mesuré, qui protège vos données.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="offre" aria-labelledby="offre-title">
+    <div class="container">
+      <div class="section-head section-head-split">
+        <div>
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Nos interventions</p>
+          <h2 class="h-section" id="offre-title">Automatiser d’abord, <em>l’IA quand elle est utile</em></h2>
+        </div>
+        <p class="lead">Une règle simple : si une automatisation classique suffit, nous ne vous vendons pas d’IA.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card"><span class="card-index">01</span><h3 class="h-feature">Automatisation de processus</h3><p>Relances, notifications, synchronisations, génération de documents entre vos outils.</p></article>
+        <article class="card"><span class="card-index">02</span><h3 class="h-feature">Assistants IA métier</h3><p>Classement des demandes, résumés, brouillons de réponses, recherche dans vos documents.</p></article>
+        <article class="card card-link"><span class="card-index">03</span><h3 class="h-feature">Conseil IA générative</h3><p>Identifier les usages utiles, les risques et le bon niveau d’automatisation pour votre activité.</p><p class="card-cta"><a class="link-arrow stretched" href="/conseil-ia-generative/">En savoir plus sur le conseil{{ARROW_SVG}}</a></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="garde-fous-title">
+    <div class="container split">
+      <div class="split-text">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Garde-fous</p>
+        <h2 class="h-section" id="garde-fous-title">Vous gardez <em>la main</em></h2>
+        <p class="lead">Chaque automatisation est décrite, testée et réversible. Les décisions importantes restent humaines.</p>
+      </div>
+      <pre class="data-block" aria-label="Exemple de règle d’automatisation (fictif)"><span class="data-head"><span>regle-relance-devis.json</span><span>exemple fictif</span></span>{
+  <span class="k">"declencheur"</span>: <span class="v">"devis envoyé"</span>,
+  <span class="k">"condition"</span>:   <span class="v">"aucune réponse après 3 jours"</span>,
+  <span class="k">"action"</span>:      <span class="v">"e-mail de relance"</span>,
+  <span class="k">"validation"</span>:  <span class="ok">"humaine, avant envoi"</span>,
+  <span class="k">"donnees"</span>:     <span class="v">"hébergées en Europe"</span>
+}</pre>
+    </div>
+  </section>
+
+  <section class="section band-paper" aria-labelledby="faq-title">
+    <div class="container faq">
+      <div>
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Questions fréquentes</p>
+        <h2 class="h-section" id="faq-title">Automatisation & IA</h2>
+      </div>
+      <div class="faq-list" data-faq-list>
+        <details class="faq-item" open><summary>Mes données sont-elles envoyées à une IA ?</summary><div><p>Seulement si c’est nécessaire et avec votre accord. Nous choisissons des services conformes au RGPD et limitons les données transmises au strict minimum.</p></div></details>
+        <details class="faq-item"><summary>Et si l’IA se trompe ?</summary><div><p>Les actions sensibles passent par une validation humaine. L’IA prépare, vous décidez.</p></div></details>
+        <details class="faq-item"><summary>Faut-il changer mes outils ?</summary><div><p>Rarement. Nous partons de vos outils actuels et les relions entre eux.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+{{CTA_BAND}}
+</main>

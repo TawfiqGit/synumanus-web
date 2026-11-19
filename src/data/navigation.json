@@ -74,5 +74,29 @@
       "href": "/actus/",
       "description": "Mobile, produit, IA générative et architecture."
     }
+  ],
+  "pillars": [
+    {
+      "key": "applications-mobiles",
+      "number": "01",
+      "title": "Applications mobiles",
+      "href": "/applications-mobiles/",
+      "description": "iOS et Android, du cadrage à la maintenance.",
+      "badge": "Expertise phare"
+    },
+    {
+      "key": "applications-web-metier",
+      "number": "02",
+      "title": "Applications web & métier",
+      "href": "/applications-web-metier/",
+      "description": "Outils internes, plateformes, sites et API."
+    },
+    {
+      "key": "automatisation-ia",
+      "number": "03",
+      "title": "Automatisation & IA",
+      "href": "/automatisation-ia/",
+      "description": "Supprimer les ressaisies, assister vos équipes."
+    }
   ]
 }

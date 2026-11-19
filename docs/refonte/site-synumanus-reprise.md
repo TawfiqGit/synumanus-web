@@ -1,31 +1,31 @@
 # Point de reprise — Refonte du site Synumanus
 
-Sauvegarde du 17/11/2026 (fin de session). À relire en premier à la reprise.
+Sauvegarde du 19/11/2026. À relire en premier à la reprise.
 
 ## Où en est-on
 | Livrable | Version | Statut |
 |---|---|---|
 | Fiche projet | v1.1 | Validée |
-| B1 Cadrage | v1.0 | Validé le 17/11 (outil d'audience : Plausible) |
+| B1 Cadrage | v1.0 | Validé le 17/11 |
 | B2 Personas, parcours, arborescence | v1.0 | Validé le 17/11 |
 | B3 Wireframes | v0.2 | ⛔ En attente de validation TawfiqDev |
-| Specs (tokens proposés) | v0.1 | Proposition, à confirmer en B4 |
-| Journal des décisions | à jour | — |
+| B4 Design system v2 + prototype HTML | v0.2 (specs) | ⛔ À valider — branche `claude/practical-bell-yr0jwk` |
+| Journal des décisions | à jour (19/11) | — |
 
-Décisions clés du 17/11 : direction Graphite option B (accent `#7DD3FC`, Inter) ; hero de la refonte = fond `#0a0a0a` + aperçu d'app fictive (option B), la photo plein fond reste seulement sur le site actuel (`fix/05`) ; « Méthode » = section de l'accueil `/#methode` ; pages du lot 2 hors menu, URLs conservées ; formulaire en 4 étapes à explorer ; bouton WhatsApp masqué pendant la saisie du formulaire.
+## Ce qui a été produit le 19/11
+- Design system v2 (`src/static/v2/`) : synthèse Graphite × Basis Theory × Column (détail dans les specs v0.2).
+- 12 pages en v2 : accueil, 3 piliers (nouvelles URLs `/applications-mobiles/`, `/applications-web-metier/`, `/automatisation-ia/`), 4 services, agence, formulaire, 2 pages légales.
+- Lot 2 (secteurs, ressources, actus, conseil IA) : ancien design conservé, hors menu, liens dans le footer.
+- Contrôles : axe-core 0 violation, pas de défilement horizontal à 375 px, aucune erreur JS.
 
-## Reste à trancher avant de valider B3
-1. **TawfiqDev** : garder les fourchettes de budget du formulaire telles quelles ?
-2. **Law** : le back-end PHP accepte-t-il les nouvelles valeurs de « Nature du projet » et le passage de 5 à 4 étapes (suivi d'étapes, relance systeme.io) ?
-3. **Law + TawfiqDev** : texte de la mention RGPD (absente du formulaire actuel).
-4. **TawfiqDev** : confirmer que le bouton WhatsApp réapparaît à l'étape créneau et en cas d'erreur.
+## Reste à trancher avant G3
+1. **TawfiqDev** : valider B3 + la synthèse visuelle (bande papier claire, accent `#0369a1` sur fond clair).
+2. **TawfiqDev** : valider les durées indicatives affichées (« 2 à 4 mois » pour une V1, « 1 à 3 semaines » de cadrage) et l'engagement « données hébergées en Europe » (pilier web).
+3. **TawfiqDev** : fournir les logos (`/assets/v-dark.png`, `/assets/v-claire.png`) et la photo de la page Agence (`/assets/agence/representant.png`) — absents du dépôt.
+4. **Law** : back-end et nouvelles valeurs « Nature du projet », passage à 4 étapes ; mention RGPD du formulaire.
+5. **TawfiqDev / Law** : la politique de confidentialité cite « Brevo Meetings » alors que le calendrier est systeme.io — à corriger.
 
 ## Prochaines actions
-1. Valider B3 → Lili lance B4 (maquettes, composants, aperçus d'apps), ou prototype HTML des wireframes si demandé.
-2. Site actuel, branche `fix/05-maintenance` (rien n'est commité) : Law convertit les photos de hero en WebP, `chmod 644` sur `developpement-hero-photo.png` et `tma-hero.png`, ajoute `dist/` et `.claude/` au `.gitignore`, puis commit + MR vers `main`.
-3. Dragon : installer Plausible sur le site actuel (4 semaines de mesure de référence).
-4. Ace : stratégie de test (un seul test est exécuté aujourd'hui).
-
-## Suivi ClickUp — dossier « PRJ — Site web Synumanus »
-- Sprint 1 — Reprise fix/05 : revue UX des heros (in review), commit + MR fix/05 (Open), QA 16 pages (Open).
-- Product Backlog (mis à jour le 17/11) : B1 et B2 → Closed ; B3 wireframes → in review ; Plausible (choix fait, installation à faire) ; stratégie de test (Ace) ; mentions légales.
+1. Revue visuelle du prototype par TawfiqDev (`python3 build.py && python3 local_server.py`).
+2. Ace : recette accessibilité manuelle (lecteurs d'écran, zoom 200 %, appareils réels) + formulaire de bout en bout en mode mock.
+3. Dragon : retirer du dépôt les bases SQLite et rapports de test de `var/` (données de prospects potentiellement réelles) et purger l'historique si nécessaire.
