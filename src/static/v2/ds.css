@@ -788,45 +788,31 @@ body.menu-open .whatsapp-float { display: none; }
 }
 
 /* ==========================================================================
-   Illustration interactive du hero (accueil) — B4 v0.5 (demande TawfiqDev du 20/11)
-   Sphère de points en trame + anneau, réagit au pointeur (souris ou doigt).
+   Illustration du hero (accueil) — B4 v0.6 (demande TawfiqDev du 20/11)
+   Rubans fluides translucides sur dégradé maillé ; réagit à la souris et au doigt.
+   Animation continue → bouton pause obligatoire (WCAG 2.2.2).
    ========================================================================== */
-.hero-field {
-  position: relative; min-height: 480px; aspect-ratio: 1 / 1; max-height: 580px; width: 100%;
+.hero-flow {
+  position: relative; width: 100%; aspect-ratio: 1 / 1; min-height: 460px; max-height: 580px; margin-bottom: 56px;
   touch-action: pan-y; -webkit-tap-highlight-color: transparent; user-select: none; isolation: isolate;
-  margin-bottom: 56px;
+  /* Sans JavaScript : dégradé maillé statique */
+  background:
+    radial-gradient(55% 50% at 72% 28%, rgba(125, 211, 252, .45), transparent 70%),
+    radial-gradient(50% 45% at 28% 78%, rgba(56, 189, 248, .18), transparent 70%),
+    radial-gradient(35% 35% at 55% 50%, rgba(186, 230, 253, .35), transparent 70%);
 }
-.hero-field-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-/* Sans JavaScript : sphère en trame statique (CSS) */
-.hero-field::before {
-  content: ""; position: absolute; left: 50%; top: 46%; width: 72%; aspect-ratio: 1; transform: translate(-48%, -50%); border-radius: 50%;
-  background: radial-gradient(circle, #0284c7 1.6px, transparent 1.9px) 0 0 / 14px 14px;
-  -webkit-mask-image: radial-gradient(circle at 70% 70%, #000 30%, rgba(0, 0, 0, .25) 72%);
-  mask-image: radial-gradient(circle at 70% 70%, #000 30%, rgba(0, 0, 0, .25) 72%);
-}
-.hero-field.is-ready::before { display: none; }
-.field-note {
-  position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; margin: 0;
-  padding: 6px 12px; border-radius: var(--r-btn); background: rgba(255, 255, 255, .9); border: 1px solid var(--c-border-strong);
-  box-shadow: var(--shadow-card); font-family: var(--font-mono); font-size: var(--fs-caption); color: var(--c-text);
-  transition: opacity .35s var(--ease), transform .35s var(--ease); pointer-events: none;
-}
-.field-note .dot { background: var(--c-text-2); }
-.field-note .route { width: 28px; height: 2px; border-radius: 2px; background: var(--gradient-signal); }
-.field-note-a { top: 6%; left: 2%; opacity: 0; transform: translateY(6px); }
-.field-note-b { top: 6%; right: 2%; }
-.hero-field.phase-chaos .field-note-a { opacity: 1; transform: none; }
-.hero-field.phase-chaos .field-note-b { opacity: 0; transform: translateY(6px); }
-.field-foot { position: absolute; z-index: 2; left: 0; right: 0; bottom: -56px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-.field-hint { font-family: var(--font-mono); font-size: var(--fs-caption); color: var(--c-text-2); margin: 0; }
-.field-foot .replay { margin-top: 0; }
+.hero-flow.is-ready { background: none; }
+.hero-flow-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%); }
+.flow-foot { position: absolute; z-index: 2; left: 0; right: 0; bottom: -56px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.flow-hint { font-family: var(--font-mono); font-size: var(--fs-caption); color: var(--c-text-2); margin: 0; }
+.hero-flow:not(.is-ready) .flow-hint { display: none; }
+.flow-foot .replay { margin-top: 0; }
+.flow-toggle .icon-play { display: none; }
+.flow-toggle.is-paused .icon-play { display: block; }
+.flow-toggle.is-paused .icon-pause { display: none; }
 .hint-touch { display: none; }
 @media (hover: none) { .hint-hover { display: none; } .hint-touch { display: inline; } }
-.hero-field:not(.is-ready) .field-hint { display: none; }
-@media (max-width: 959px) {
-  .hero-field { min-height: 0; aspect-ratio: 1 / 1.05; max-height: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .field-hint { visibility: hidden; }
-  .field-note { transition: none; }
-}
+@media (max-width: 959px) { .hero-flow { min-height: 0; max-height: none; } }
+@media (prefers-reduced-motion: reduce) { .flow-hint { visibility: hidden; } }

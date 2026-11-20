@@ -1,6 +1,35 @@
 # Specs — Refonte du site Synumanus
 
-## v0.5 — 20/11/2026 — Hero de l'accueil : illustration abstraite interactive (remplace le téléphone) — à valider G3
+## v0.6 — 20/11/2026 — Hero de l'accueil : rubans fluides sur dégradé maillé (remplace la sphère v0.5) — à valider G3
+Direction choisie par TawfiqDev : « formes organiques et rubans fluides (fluid / mesh gradients) : surfaces lisses, ondulées ou translucides qui évoquent la circulation des données, l'adaptabilité et l'accompagnement sur mesure ».
+Fichiers : `src/static/v2/hero-flow.js` (accueil uniquement ; `hero-field.js` supprimé), section « Illustration du hero » de `ds.css`, hero de `src/pages/index.html`.
+
+### Visuel
+- **Trois rubans translucides** faits de fines lignes (22 à 30 fils chacun), en diagonale du bas-gauche vers le haut-droite, qui ondulent et se torsadent lentement. Dégradés de bleus Synumanus du `#e0f2fe` au `#0369a1`, bords légèrement plus marqués.
+- **Fond en dégradé maillé** : trois halos bleus très doux qui dérivent ; le troisième suit le pointeur.
+- Arrivée : les rubans se dessinent de gauche à droite en 1,8 s, dès que l'illustration est visible.
+- Fondu sur les bords gauche et droit (pas de coupure nette).
+
+### Interaction
+| Geste | Effet |
+|---|---|
+| Survol à la souris / glisser du doigt | Les fils s'écartent en douceur autour du pointeur (effet de lentille, suivi avec un léger retard) et le halo du fond le rejoint |
+| Clic / tap | Une onde traverse les rubans |
+| Sortie du pointeur | Les rubans reprennent leur forme |
+| Bouton « Mettre en pause » / « Reprendre l'animation » | Fige ou relance tout (`aria-pressed`) |
+Le défilement vertical reste possible au doigt.
+
+### Accessibilité et performance
+- Animation **continue** : le bouton pause est obligatoire (WCAG 2.2.2) ; il est visible, fait 44 px et a un libellé explicite.
+- **Réduire les animations** : image fixe, pas d'interaction animée, bouton masqué.
+- **Sans JavaScript** : dégradé maillé statique en CSS.
+- Boucle arrêtée en pause, hors écran ou onglet masqué (mesuré : 0 dessin par seconde en pause) ; environ 60 images/s mesurées dans Chromium ; densité réduite sous 520 px ; résolution plafonnée à 1,5×.
+
+### Vérifié le 20/11 (Chromium)
+Arrivée, survol, onde au clic, pause/reprise, mobile tactile, mode « réduire les animations » ; axe-core : 0 violation sur les 12 pages ; aucun défilement horizontal ; aucune erreur JS.
+
+
+## v0.5 — 20/11/2026 — Hero de l'accueil : sphère de points interactive — **remplacée par la v0.6**
 Demande TawfiqDev : pas de téléphone, une illustration abstraite animée qui réagit au pointeur (référence citée : ruji.fr, **non consultée** car le site est bloqué par le réseau de l'environnement de travail).
 Fichiers : `src/static/v2/hero-field.js` (chargé uniquement sur l'accueil), section « Illustration interactive » de `ds.css`, hero de `src/pages/index.html`.
 

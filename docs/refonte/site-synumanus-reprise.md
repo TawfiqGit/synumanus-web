@@ -9,7 +9,7 @@ Sauvegarde du 20/11/2026. À relire en premier à la reprise.
 | B1 Cadrage | v1.0 | Validé le 17/11 |
 | B2 Personas, parcours, arborescence | v1.0 | Validé le 17/11 |
 | B3 Wireframes | v0.2 | ⛔ En attente de validation TawfiqDev |
-| B4 Design system v2 **clair** + prototype HTML + hero interactif (accueil) | v0.5 (specs) | ⛔ À valider — branche `claude/practical-bell-yr0jwk` |
+| B4 Design system v2 **clair** + prototype HTML + hero rubans fluides (accueil) | v0.6 (specs) | ⛔ À valider — branche `claude/practical-bell-yr0jwk` |
 | Journal des décisions | à jour (19/11) | — |
 
 ## Ce qui a été produit le 19/11
