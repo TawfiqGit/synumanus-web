@@ -31,3 +31,6 @@
 | 19/11/2026 | **Proposition** — Accent sur fond clair : `#0369a1` (le bleu `#7DD3FC` est interdit sur papier, 1,5:1) — à valider | WCAG 2.2 AA | Lili (proposition) |
 | 19/11/2026 | Formulaire « Démarrer un projet » : 5 étapes et HTML conservés en v2 (seul le style change) en attendant la réponse de Law sur le back-end | Back-end PHP hors périmètre ; question B3 n° 1 ouverte | Lili |
 | 19/11/2026 | Sélecteur de langue FR/EN retiré du footer v2 | Multilingue exclu du périmètre ; lien EN sans contenu = trompeur | Lili (à valider) |
+| 20/11/2026 | **Abandon du thème sombre** : la refonte passe en version claire (papier blanc Basis Theory, bandes `#f6f6f8` Column, structure Graphite). Remplace l'identité « Graphite option B » du 16/11 et la proposition « bande papier » du 19/11 | Choix CEO | TawfiqDev |
+| 20/11/2026 | Bouton principal en bleu ciel `#7DD3FC` avec texte `#18181b` ; accent en texte `#0369a1` (le bleu ciel est interdit en texte sur fond clair) | WCAG 2.2 AA ; continuité du bleu Synumanus | Lili (appliqué, à valider en G3) |
+| 20/11/2026 | Chiffres et engagements affichés **confirmés** : « 2 à 4 mois » pour une V1, « 1 à 3 semaines » de cadrage, « données hébergées en Europe » | Validation CEO | TawfiqDev |

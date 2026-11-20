@@ -1,6 +1,6 @@
 # Fiche projet — Refonte du site Synumanus
 
-Version 1.1 — 16/11/2026 — validée par TawfiqDev (identité révisée)
+Version 1.2 — 20/11/2026 — identité passée en version claire (décision TawfiqDev)
 
 | Champ | Valeur |
 |---|---|
@@ -13,7 +13,7 @@ Version 1.1 — 16/11/2026 — validée par TawfiqDev (identité révisée)
 | Offre | Promesse : « applications sur mesure orientées métier ». 3 piliers : Applications mobiles (cadrage, développement, refonte, TMA) · Applications web & métier (plateformes, sites, intégration d'API) · Automatisation & IA (processus, conseil IA générative). Accessibilité : argument transversal |
 | Plateformes | Web responsive, mobile-first |
 | Stack | Générateur statique Python (`build.py`) + templates ; PHP 8.1 (newsletter, formulaire projet, relances systeme.io) ; hébergement Hostinger |
-| Identité | **Révisée** : direction « Graphite » (DESIGN.md) — fond quasi noir, typographie blanche précise, bordures fines, accents lumineux rares — option B « Graphite × bleu Synumanus » : accent bleu ciel #7DD3FC, logo conservé, police Inter, ajustements AA (texte ≥ 12 px, Ash interdit en texte, bordures de champs #737373, interligne 1,5–1,6) |
+| Identité | **Révisée le 20/11/2026** : version **claire** — papier blanc et filets de construction (Basis Theory), bandes `#f6f6f8` (Column), structure Graphite (header flottant, cadres d'aperçu) ; bouton principal bleu ciel `#7DD3FC`, accent texte `#0369a1`, police Inter, logo conservé, WCAG 2.2 AA |
 | Voix | « Synumanus / nous » ; « je » uniquement sur la page Agence. CTA unique : « Échanger sur mon projet » |
 | Équipe & méthode | Lili (UX/UI), Law (dev), Ace (QA), Dragon (DevOps), pilotage Shanks — Scrum, Sprints de 2 semaines |
 | Preuves | Pas de prix affichés. Pas de références clients au lancement ; les applications que Synumanus créera après le site serviront de réalisations (section ajoutée plus tard) |

@@ -1,6 +1,34 @@
 # Specs — Refonte du site Synumanus
 
-## v0.2 — 19/11/2026 — B4 Maquettes et prototype : design system v2 + prototype HTML (**à valider, gate G3**)
+## v0.3 — 20/11/2026 — B4 : passage en **version claire** (décision TawfiqDev du 20/11) — à valider G3
+Le thème sombre « Graphite » est abandonné. La base devient le papier blanc de **Basis Theory**, avec le canevas gris très clair de **Column** pour les bandes alternées. De **Graphite**, on ne garde que la structure : header flottant bordé, cadres d'aperçu, rayons 10/8 px. Les gabarits HTML sont inchangés ; seuls les tokens et les composants (`src/static/v2/ds.css`, `project.css`) changent.
+
+### Tokens (remplacent les couleurs de la v0.1/v0.2)
+| Token | Valeur | Rôle | Contraste |
+|---|---|---|---|
+| `color/bg` | `#ffffff` | Canevas, cartes | — |
+| `color/bg-alt` | `#f6f6f8` | Bandes alternées (filets de construction), footer, historique du formulaire | — |
+| `color/bg-raised` | `#f4f4f5` | Surfaces atténuées | — |
+| `color/bg-sky` | `#f0f9ff` | Lavis bleu (bloc CTA, tags, choix sélectionné) | — |
+| `color/graphite` | `#27272a` | Blocs de code/données, coques de téléphone, pastilles d'étapes, icônes | — |
+| `color/border` · `border-strong` | `#e4e4e7` · `#d4d4d8` | Bordures et filets décoratifs | décoratif |
+| `color/border-control` | `#71717a` | Champs, contrôles | 4,83:1 ✅ |
+| `color/text` | `#18181b` | Texte principal | 17,7:1 ✅ |
+| `color/text-2` | `#52525b` | Texte secondaire | 7,7:1 ✅ |
+| `color/accent` | `#7DD3FC` | Aplats : bouton principal, pastilles, filets. **Jamais en texte sur fond clair** (1,5:1) | — |
+| `color/accent-text` | `#0369a1` | Mots en accent des titres, liens, états sélectionnés, focus | 5,9:1 ✅ |
+| `color/success` · `danger` | `#15803d` · `#b91c1c` | États (toujours avec un texte) | ≥ 5:1 ✅ |
+| Bouton principal | fond `#7DD3FC`, texte `#18181b`, liseré `rgba(3,105,161,.35)` | « Échanger sur mon projet » (Basis « aqua conversion button ») | 11,9:1 ✅ |
+| Bouton secondaire | fond `#27272a`, texte blanc | Newsletter (Basis « graphite button ») | 14,9:1 ✅ |
+| Ombres | piles « Cloud Product Card » de Basis | Cartes, menus, appareils | — |
+
+### Vérifications du 20/11 (Chromium, 1366 et 375 px)
+- axe-core 4 (WCAG 2.2 A/AA) : **0 violation** sur les 12 pages v2.
+- Aucun défilement horizontal ; aucune erreur JS ; menus et formulaire (étapes 1 → 3) fonctionnels ; WhatsApp masqué pendant la saisie.
+- Non vérifié : lecteurs d'écran, zoom 200 %, appareils réels, envoi PHP réel (→ Ace).
+
+
+## v0.2 — 19/11/2026 — B4 Maquettes et prototype : design system v2 sombre (**remplacé par la v0.3**)
 Demande TawfiqDev du 19/11 : « refonte complète en s'inspirant des 3 fichiers de style » (Basis Theory, Column, Graphite).
 Implémentation : branche `claude/practical-bell-yr0jwk`, fichiers `src/static/v2/ds.css`, `src/static/v2/ds.js`, `src/static/v2/project.css`, `src/templates/base-v2.html`, `src/partials/header-v2.html`, `footer-v2.html`, `cta-v2.html`. Les pages passent en v2 via `"design": "v2"` dans `src/data/pages.json` ; les pages du lot 2 gardent l'ancien design (décision B2 du 17/11).
 

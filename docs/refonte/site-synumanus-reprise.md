@@ -1,6 +1,6 @@
 # Point de reprise — Refonte du site Synumanus
 
-Sauvegarde du 19/11/2026. À relire en premier à la reprise.
+Sauvegarde du 20/11/2026. À relire en premier à la reprise.
 
 ## Où en est-on
 | Livrable | Version | Statut |
@@ -9,7 +9,7 @@ Sauvegarde du 19/11/2026. À relire en premier à la reprise.
 | B1 Cadrage | v1.0 | Validé le 17/11 |
 | B2 Personas, parcours, arborescence | v1.0 | Validé le 17/11 |
 | B3 Wireframes | v0.2 | ⛔ En attente de validation TawfiqDev |
-| B4 Design system v2 + prototype HTML | v0.2 (specs) | ⛔ À valider — branche `claude/practical-bell-yr0jwk` |
+| B4 Design system v2 **clair** + prototype HTML | v0.3 (specs) | ⛔ À valider — branche `claude/practical-bell-yr0jwk` |
 | Journal des décisions | à jour (19/11) | — |
 
 ## Ce qui a été produit le 19/11
@@ -19,9 +19,9 @@ Sauvegarde du 19/11/2026. À relire en premier à la reprise.
 - Contrôles : axe-core 0 violation, pas de défilement horizontal à 375 px, aucune erreur JS.
 
 ## Reste à trancher avant G3
-1. **TawfiqDev** : valider B3 + la synthèse visuelle (bande papier claire, accent `#0369a1` sur fond clair).
-2. **TawfiqDev** : valider les durées indicatives affichées (« 2 à 4 mois » pour une V1, « 1 à 3 semaines » de cadrage) et l'engagement « données hébergées en Europe » (pilier web).
-3. **TawfiqDev** : fournir les logos (`/assets/v-dark.png`, `/assets/v-claire.png`) et la photo de la page Agence (`/assets/agence/representant.png`) — absents du dépôt.
+1. **TawfiqDev** : valider B3 + la version claire (v0.3).
+2. ~~Durées et engagement « Europe »~~ — confirmés le 20/11.
+3. **TawfiqDev** (annoncé pour la prochaine requête) : fournir les logos (`/assets/v-dark.png`, `/assets/v-claire.png`) et la photo de la page Agence (`/assets/agence/representant.png`) — absents du dépôt.
 4. **Law** : back-end et nouvelles valeurs « Nature du projet », passage à 4 étapes ; mention RGPD du formulaire.
 5. **TawfiqDev / Law** : la politique de confidentialité cite « Brevo Meetings » alors que le calendrier est systeme.io — à corriger.
 
