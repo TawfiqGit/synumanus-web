@@ -16,26 +16,14 @@
         </ul>
       </div>
 
-      <div class="preview-wrap">
-      <div class="preview preview-story" aria-hidden="true" data-hero-anim>
-        <div class="sheet sheet-back"></div>
-        <div class="sheet sheet-mid"></div>
-        <div class="phone">
-          <div class="phone-screen">
-            <div class="app-bar"><div><small>Mardi 19 nov.</small><strong>Interventions</strong></div><span class="app-avatar">MD</span></div>
-            <div class="app-kpi"><span>À réaliser aujourd’hui</span><strong data-kpi data-kpi-start="6" data-kpi-end="5">5</strong><small>Mis à jour en temps réel</small></div>
-            <div class="app-title"><span>Prochaines</span><span>Tout voir</span></div>
-            <div class="app-row anim-row anim-row-tap"><b>09</b><div><strong>Fuite chaudière</strong><small>12 rue des Lilas · 09:00</small></div><i class="chip-swap"><span class="chip-before">Urgent</span><span class="chip-after">Signé</span></i><span class="tap"></span></div>
-            <div class="app-row anim-row anim-row-2"><b>11</b><div><strong>Entretien annuel</strong><small>Résidence du Parc · 11:30</small></div><i class="ok">Prêt</i></div>
-            <div class="app-row anim-row anim-row-3"><b>14</b><div><strong>Devis sur place</strong><small>Atelier Martin · 14:00</small></div><i class="ok">Prêt</i></div>
-            <div class="app-tabs"><span class="on">Accueil</span><span>Planning</span><span>Clients</span></div>
-          </div>
+      <div class="hero-field" data-hero-field>
+        <canvas class="hero-field-canvas" aria-hidden="true"></canvas>
+        <p class="field-note field-note-a" aria-hidden="true"><span class="dot"></span>Données éparses</p>
+        <p class="field-note field-note-b" aria-hidden="true"><span class="route"></span>Un seul outil, bien rangé</p>
+        <div class="field-foot">
+          <p class="field-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
+          <button class="replay" type="button" data-field-replay hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9M2.5 2.5v3h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Rejouer l’animation</button>
         </div>
-        <div class="sheet-label sheet-label-a"><span class="dot"></span><div><strong>Bon d’intervention signé</strong><small>envoyé au bureau à 09:42</small></div></div>
-        <div class="sheet-label sheet-label-b"><span class="route"></span><div><strong>Plus de ressaisie</strong><small>synchronisé avec la facturation</small></div></div>
-        <p class="preview-caption">Exemple d’interface — données fictives</p>
-      </div>
-      <button class="replay" type="button" data-hero-replay hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9M2.5 2.5v3h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Rejouer l’animation</button>
       </div>
     </div>
   </section>

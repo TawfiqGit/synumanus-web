@@ -7,7 +7,9 @@
     "styles": [],
     "og_title": "Synumanus — Des applications pensées pour votre métier",
     "og_description": "Applications mobiles, web et automatisations sur mesure pour TPE, PME et entrepreneurs. Premier échange de 30 min offert.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-field.js"
+    ],
     "service_key": null,
     "sector_key": null,
     "resource_key": null,

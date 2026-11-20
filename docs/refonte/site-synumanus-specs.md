@@ -1,6 +1,47 @@
 # Specs — Refonte du site Synumanus
 
-## v0.4 — 20/11/2026 — Animation du hero (demande TawfiqDev) — à valider G3
+## v0.5 — 20/11/2026 — Hero de l'accueil : illustration abstraite interactive (remplace le téléphone) — à valider G3
+Demande TawfiqDev : pas de téléphone, une illustration abstraite animée qui réagit au pointeur (référence citée : ruji.fr, **non consultée** car le site est bloqué par le réseau de l'environnement de travail).
+Fichiers : `src/static/v2/hero-field.js` (chargé uniquement sur l'accueil), section « Illustration interactive » de `ds.css`, hero de `src/pages/index.html`.
+
+### Concept
+Une **sphère de points en trame** (halftone, bleus Synumanus, ombrée en bas à droite), entourée d'un **anneau de points** incliné et de trois nœuds graphite (les outils connectés). Métaphore : vos données éparses deviennent un outil unique et bien rangé.
+
+### Séquence d'arrivée (≈ 4,3 s, une seule lecture)
+| Temps | Événement |
+|---|---|
+| 0 s | Points éparpillés dans tout le cadre ; étiquette « Données éparses » |
+| 0,25 – 1,5 s | Les points rejoignent la sphère, du centre vers le bord, puis l'anneau |
+| 1,5 s | L'étiquette devient « Un seul outil, bien rangé » |
+| 2,0 – 3,5 s | Pointeur de démonstration : il traverse la sphère, écarte les points et s'y relie par des lignes fines |
+| 3,5 s | Onde circulaire depuis le pointeur ; tout se stabilise avant 4,3 s |
+
+Sur mobile, l'illustration est sous la ligne de flottaison : la séquence démarre quand elle devient visible (35 % à l'écran).
+
+### Interaction
+| Geste | Effet |
+|---|---|
+| Survol à la souris / glisser du doigt | Les points à moins de 120 px s'écartent et grossissent ; jusqu'à 16 lignes relient le pointeur aux points proches ; halo autour du pointeur |
+| Clic / tap | Onde qui se propage dans la sphère |
+| Sortie du pointeur | Les points reviennent en place (ressort amorti) |
+| Bouton « Rejouer l'animation » | Relance la séquence d'arrivée |
+Le défilement vertical reste possible au doigt (`touch-action: pan-y`).
+
+### Accessibilité et performance
+- Canvas décoratif (`aria-hidden`) ; la légende « Illustration interactive — survolez-la / touchez-la » s'adapte au type d'écran (`hover`).
+- **WCAG 2.2.2** : la séquence automatique dure moins de 5 s et ne boucle pas ; ensuite, rien ne bouge sans action de l'utilisateur.
+- **Réduire les animations** : sphère statique, aucune interaction animée, bouton « Rejouer » masqué.
+- **Sans JavaScript** : sphère en trame statique en CSS.
+- La boucle de dessin s'arrête dès que tout est immobile, hors écran ou onglet masqué (mesuré : 0 dessin par seconde au repos).
+
+### Vérifié le 20/11 (Chromium)
+Séquence capturée image par image ; survol, clic (onde) ; mobile tactile ; mode « réduire les animations » ; axe-core : 0 violation sur les 12 pages ; aucun défilement horizontal ; aucune erreur JS.
+
+### Non traité
+Les pages piliers et services gardent leurs aperçus d'applications (décision du 17/11) : **à confirmer par TawfiqDev** s'il faut aussi les remplacer par des illustrations abstraites.
+
+
+## v0.4 — 20/11/2026 — Animation du hero (demande TawfiqDev) — scénario « téléphone » de l'accueil **remplacé par la v0.5** ; entrée animée des autres pages conservée
 Fichiers : `src/static/v2/ds.css` (section « Animation du hero »), `src/static/v2/ds.js`, script court dans `src/templates/base-v2.html`, aperçu de `src/pages/index.html`.
 
 ### Accueil — scénario « bon d'intervention » (≈ 4 s, une seule lecture)
