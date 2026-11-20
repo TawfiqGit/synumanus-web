@@ -714,3 +714,107 @@ body.menu-open .whatsapp-float { display: none; }
 .note { font-size: var(--fs-caption); color: var(--c-text-2); }
 .divider-signal { height: 2px; background: var(--gradient-signal); opacity: .6; border: 0; margin: 0; }
 .stack-sm > .tag, .card > .tag { justify-self: start; align-self: flex-start; }
+
+/* ==========================================================================
+   Animation du hero — B4 v0.4 (demande TawfiqDev du 20/11)
+   Principes : état final visible sans JS et avec « réduire les animations » ;
+   la séquence ne joue qu'une fois (< 5 s, WCAG 2.2.2) et peut être rejouée ;
+   l'aperçu est décoratif (aria-hidden), le texte n'est jamais masqué > 0,5 s.
+   Activée par ds.js : html.motion-ok (texte) et .is-playing sur l'aperçu.
+   ========================================================================== */
+@keyframes heroRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes heroFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sweep { from { background-size: 0% 4px; } to { background-size: 100% 4px; } }
+@keyframes sheetBackIn { from { opacity: 0; transform: rotate(0) translate(0, 6%); } to { opacity: 1; transform: rotate(-4deg) translate(-8%, 4%); } }
+@keyframes sheetMidIn { from { opacity: 0; transform: rotate(0) translate(0, 6%); } to { opacity: 1; transform: rotate(2.5deg) translate(6%, -2%); } }
+@keyframes deviceIn { from { opacity: 0; transform: translateY(32px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes rowIn { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+@keyframes labelPop { 0% { opacity: 0; transform: translateY(10px) scale(.94); } 70% { opacity: 1; transform: translateY(-2px) scale(1.02); } 100% { opacity: 1; transform: none; } }
+@keyframes routeDraw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes tapRipple { 0% { opacity: 0; transform: translate(-50%, -50%) scale(0); } 20% { opacity: .55; } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); } }
+@keyframes rowFlash { 0%, 100% { background: var(--c-bg); } 30% { background: var(--c-bg-sky); border-color: var(--c-cta-edge); } }
+@keyframes chipOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes chipIn { from { opacity: 0; transform: scale(.8); } to { opacity: 1; transform: none; } }
+@keyframes kpiBump { 0% { transform: none; } 40% { transform: scale(1.25); color: #fff; } 100% { transform: none; } }
+@keyframes dotPulse { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, .55); } 100% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } }
+
+/* Texte du hero : apparition échelonnée (≤ 0,5 s par élément) */
+.motion-ok .hero-copy > *, .motion-ok .hero-sub .breadcrumb { animation: heroRise .5s var(--ease) both; }
+.motion-ok .hero-copy > :nth-child(2) { animation-delay: .07s; }
+.motion-ok .hero-copy > :nth-child(3) { animation-delay: .14s; }
+.motion-ok .hero-copy > :nth-child(4) { animation-delay: .21s; }
+.motion-ok .hero-copy > :nth-child(5) { animation-delay: .28s; }
+.motion-ok .hero::after { animation: heroFade 1.2s ease-out both; }
+
+/* Soulignement « signal » sous le mot en accent du H1 (Basis « signal sweep ») */
+.hero .display em {
+  background-image: var(--gradient-signal); background-repeat: no-repeat;
+  background-position: 0 94%; background-size: 100% 4px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; padding-bottom: .06em;
+}
+.motion-ok .hero .display em { animation: sweep .7s var(--ease) .55s both; }
+
+/* Aperçu — entrée commune à tous les heros */
+.motion-ok .preview:not(.is-reset) .sheet-back { animation: sheetBackIn .8s var(--ease) .1s both; }
+.motion-ok .preview:not(.is-reset) .sheet-mid { animation: sheetMidIn .8s var(--ease) .18s both; }
+.motion-ok .preview:not(.is-reset) > .phone, .motion-ok .preview:not(.is-reset) > .window, .motion-ok .preview:not(.is-reset) > .flow,
+.motion-ok .preview:not(.is-reset) > .compare, .motion-ok .preview:not(.is-reset) > .data-block-preview { animation: deviceIn .8s var(--ease) .3s both; }
+.motion-ok .preview:not(.is-reset) .sheet-label-a { animation: labelPop .5s var(--ease) 1s both; }
+.motion-ok .preview:not(.is-reset) .sheet-label-b { animation: labelPop .5s var(--ease) 1.2s both; }
+.motion-ok .preview:not(.is-reset) .sheet-label .route { transform-origin: left; animation: routeDraw .5s var(--ease) 1.4s both; }
+.motion-ok .preview:not(.is-reset) .preview-caption { animation: heroFade .6s ease 1s both; }
+/* Flux d'automatisation : étapes une à une */
+.motion-ok .preview:not(.is-reset) .flow > * { animation: rowIn .45s var(--ease) both; }
+.motion-ok .preview:not(.is-reset) .flow > :nth-child(1) { animation-delay: .6s; }
+.motion-ok .preview:not(.is-reset) .flow > :nth-child(2) { animation-delay: .8s; animation-name: heroFade; }
+.motion-ok .preview:not(.is-reset) .flow > :nth-child(3) { animation-delay: 1s; }
+.motion-ok .preview:not(.is-reset) .flow > :nth-child(4) { animation-delay: 1.2s; animation-name: heroFade; }
+.motion-ok .preview:not(.is-reset) .flow > :nth-child(5) { animation-delay: 1.4s; }
+.motion-ok .preview:not(.is-reset) .flow > :nth-child(6) { animation-delay: 1.6s; animation-name: heroFade; }
+.motion-ok .preview:not(.is-reset) .flow > :nth-child(7) { animation-delay: 1.8s; }
+/* Fenêtres web : lignes du tableau une à une */
+.motion-ok .preview:not(.is-reset) .window-table div { animation: rowIn .4s var(--ease) both; }
+.motion-ok .preview:not(.is-reset) .window-table div:nth-child(2) { animation-delay: .9s; }
+.motion-ok .preview:not(.is-reset) .window-table div:nth-child(3) { animation-delay: 1.05s; }
+.motion-ok .preview:not(.is-reset) .window-table div:nth-child(4) { animation-delay: 1.2s; }
+
+/* Accueil — scénario « bon d'intervention » (~4 s) :
+   arrivée du téléphone → liste → appui sur l'intervention → « Signé » →
+   compteur 6 → 5 → bon envoyé au bureau → synchronisation facturation. */
+.chip-swap { display: inline-grid !important; padding: 0 !important; border: 0 !important; background: none !important; }
+.chip-swap > span { grid-area: 1 / 1; font-size: 9px; padding: 2px 6px; border-radius: 999px; text-align: center; }
+.chip-before { background: var(--c-bg-sky); border: 1px solid var(--c-cta-edge); color: var(--c-accent-text); opacity: 0; }
+.chip-after { background: #f0fdf4; border: 1px solid rgba(21, 128, 61, .35); color: var(--c-success); }
+.anim-row-tap { position: relative; overflow: hidden; }
+.tap { position: absolute; left: 30%; top: 50%; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(125, 211, 252, .7), rgba(125, 211, 252, 0) 70%); opacity: 0; pointer-events: none; transform: translate(-50%, -50%) scale(0); }
+[data-kpi] { display: inline-block; transform-origin: left center; font-variant-numeric: tabular-nums; }
+
+.motion-ok .preview-story:not(.is-reset) .anim-row { animation: rowIn .45s var(--ease) both; }
+.motion-ok .preview-story:not(.is-reset) .anim-row-2 { animation-delay: 1.15s; }
+.motion-ok .preview-story:not(.is-reset) .anim-row-3 { animation-delay: 1.3s; }
+.motion-ok .preview-story:not(.is-reset) .anim-row-tap { animation: rowIn .45s var(--ease) 1s both, rowFlash .9s ease 2s; }
+.motion-ok .preview-story:not(.is-reset) .tap { animation: tapRipple .8s ease-out 2s both; }
+.motion-ok .preview-story:not(.is-reset) .chip-before { animation: chipOut .2s ease 2.45s both; }
+.motion-ok .preview-story:not(.is-reset) .chip-after { animation: chipIn .3s var(--ease) 2.5s both; }
+.motion-ok .preview-story:not(.is-reset) [data-kpi].bump { animation: kpiBump .5s var(--ease); }
+.motion-ok .preview-story:not(.is-reset) .sheet-label-a { animation: labelPop .5s var(--ease) 2.75s both; }
+.motion-ok .preview-story:not(.is-reset) .sheet-label-a .dot { animation: dotPulse .9s ease-out 3.1s 2; }
+.motion-ok .preview-story:not(.is-reset) .sheet-label-b { animation: labelPop .5s var(--ease) 3.25s both; }
+.motion-ok .preview-story:not(.is-reset) .sheet-label .route { animation: routeDraw .5s var(--ease) 3.5s both; }
+.motion-ok .preview-story:not(.is-reset) .preview-caption { animation: heroFade .6s ease 3.6s both; }
+
+/* Bouton « Rejouer l'animation » (hors de la zone aria-hidden) */
+.preview-wrap { position: relative; display: grid; }
+.replay {
+  justify-self: end; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; margin-top: 8px;
+  border: 1px solid var(--c-border-strong); border-radius: var(--r-btn); background: var(--c-bg); color: var(--c-text-2);
+  font-size: var(--fs-caption); font-weight: 500; cursor: pointer;
+}
+.replay svg { width: 14px; height: 14px; }
+.replay:hover { color: var(--c-text-strong); border-color: var(--c-border-control); }
+.replay[hidden] { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .preview .sheet, .preview > *, .preview .sheet-label, .preview .anim-row, .hero-copy > *, .hero .display em, .chip-swap > span { animation: none !important; }
+  .chip-before { opacity: 0 !important; }
+}

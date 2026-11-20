@@ -15,6 +15,10 @@
   <link rel="canonical" href="{{CANONICAL}}" />
   <title>{{TITLE}}</title>
   <link rel="icon" href="/assets/v-dark.png" type="image/png" />
+  <script>
+    /* Animation du hero : activée avant le premier rendu, jamais si « réduire les animations ». */
+    if (window.matchMedia && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion-ok');
+  </script>
   <link rel="stylesheet" href="/v2/ds.css" />
 {{EXTRA_STYLES}}
 {{STRUCTURED_DATA}}

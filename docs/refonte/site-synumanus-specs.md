@@ -1,5 +1,34 @@
 # Specs — Refonte du site Synumanus
 
+## v0.4 — 20/11/2026 — Animation du hero (demande TawfiqDev) — à valider G3
+Fichiers : `src/static/v2/ds.css` (section « Animation du hero »), `src/static/v2/ds.js`, script court dans `src/templates/base-v2.html`, aperçu de `src/pages/index.html`.
+
+### Accueil — scénario « bon d'intervention » (≈ 4 s, une seule lecture)
+| Temps | Événement |
+|---|---|
+| 0 – 0,8 s | Le texte du hero apparaît par étapes (sur-titre, titre, chapeau, boutons, preuves : 70 ms d'écart, 0,5 s chacun) ; le soulignement « signal » se dessine sous « votre métier » (0,55 → 1,25 s) |
+| 0,1 – 1,1 s | Les feuilles techniques se déploient, puis le téléphone monte |
+| 0,7 – 1,1 s | Le compteur « À réaliser aujourd'hui » défile de 0 à 6 |
+| 1,0 – 1,75 s | Les 3 interventions arrivent une à une |
+| 2,0 s | Appui simulé sur « Fuite chaudière » (onde bleue + surlignage) |
+| 2,5 s | Le statut passe de « Urgent » à « Signé » ; à 2,7 s le compteur passe de 6 à 5 |
+| 2,75 s | L'étiquette « Bon d'intervention signé » apparaît, sa pastille verte pulse deux fois |
+| 3,25 – 4,0 s | L'étiquette « Plus de ressaisie » apparaît et le filet de synchronisation se trace |
+
+### Autres pages
+Même entrée (texte échelonné, feuilles, appareil, étiquettes, ≈ 1,5 s). Automatisation & IA : les étapes du flux apparaissent une à une. Web & métier et Maintenance : les lignes du tableau apparaissent une à une.
+
+### Règles d'accessibilité
+- **WCAG 2.2.2** : la séquence dure moins de 5 s et ne boucle pas ; un bouton « Rejouer l'animation » (hors zone `aria-hidden`, 44 px) permet de la relancer.
+- **Réduire les animations** (`prefers-reduced-motion`) : aucune animation, l'état final s'affiche directement, le bouton « Rejouer » est masqué. Même chose si le paramètre change pendant la visite.
+- **Sans JavaScript** : l'état final s'affiche (rien n'est masqué).
+- L'aperçu reste décoratif (`aria-hidden`) : le compteur et les statuts ne sont pas annoncés aux lecteurs d'écran.
+- Pas de flash : l'animation est activée dans le `<head>`, avant le premier rendu.
+
+### Vérifié le 20/11 (Chromium)
+Captures image par image de la séquence de l'accueil ; compteur 0 → 6 → 5 ; bouton « Rejouer » opérationnel ; mode « réduire les animations » : état final, bouton masqué ; axe-core : 0 violation sur les 12 pages ; aucun défilement horizontal à 375 px ; aucune erreur JS.
+
+
 ## v0.3 — 20/11/2026 — B4 : passage en **version claire** (décision TawfiqDev du 20/11) — à valider G3
 Le thème sombre « Graphite » est abandonné. La base devient le papier blanc de **Basis Theory**, avec le canevas gris très clair de **Column** pour les bandes alternées. De **Graphite**, on ne garde que la structure : header flottant bordé, cadres d'aperçu, rayons 10/8 px. Les gabarits HTML sont inchangés ; seuls les tokens et les composants (`src/static/v2/ds.css`, `project.css`) changent.
 
