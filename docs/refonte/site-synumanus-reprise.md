@@ -21,7 +21,7 @@ Sauvegarde du 20/11/2026. À relire en premier à la reprise.
 ## Reste à trancher avant G3
 1. **TawfiqDev** : valider B3 + la version claire (v0.3).
 2. ~~Durées et engagement « Europe »~~ — confirmés le 20/11.
-3. ~~Logos~~ — reçus le 21/11 (PNG 500 px) et intégrés : `assets/v-dark.png`, `v-claire.png`, `favicon-32.png`, `apple-touch-icon.png`, `logo-synumanus-512.png`. Un filigrane « Dol… » (générateur d'images) a été effacé en bas à droite. **Reste à fournir** : le fichier source vectoriel (SVG) sans filigrane, avec confirmation des droits d'usage ; la photo de la page Agence (`/assets/agence/representant.png`).
+3. ~~Logos~~ — reçus le 21/11 (PNG 500 px) et intégrés : `assets/v-dark.png`, `v-claire.png`, `favicon-32.png`, `apple-touch-icon.png`, `logo-synumanus-512.png`. Un filigrane « Dol… » (générateur d'images) a été effacé en bas à droite. Logo **conservé** (celui de l'ancien site, confirmé par TawfiqDev le 21/11) ; un SVG reste souhaitable mais non bloquant. **Reste à fournir** : la photo de la page Agence (`/assets/agence/representant.png`).
 4. **Law** : back-end et nouvelles valeurs « Nature du projet », passage à 4 étapes ; mention RGPD du formulaire.
 5. **TawfiqDev / Law** : la politique de confidentialité cite « Brevo Meetings » alors que le calendrier est systeme.io — à corriger.
 
