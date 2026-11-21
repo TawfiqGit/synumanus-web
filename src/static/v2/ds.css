@@ -233,7 +233,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .site-header.scrolled .header-shell { min-height: 56px; box-shadow: var(--shadow-menu); }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; min-height: 44px; flex: none; color: var(--c-text-strong); }
-.brand .brand-mark { width: 30px; height: 30px; border-radius: 6px; }
+.brand .brand-mark { width: 32px; height: 32px; }
 .brand-name { font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.02em; }
 .nav-desktop { margin-inline: auto; }
 .nav-list { display: flex; align-items: center; gap: 4px; list-style: none; }
