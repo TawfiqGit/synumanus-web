@@ -816,3 +816,35 @@ body.menu-open .whatsapp-float { display: none; }
 @media (hover: none) { .hint-hover { display: none; } .hint-touch { display: inline; } }
 @media (max-width: 959px) { .hero-flow { min-height: 0; max-height: none; } }
 @media (prefers-reduced-motion: reduce) { .flow-hint { visibility: hidden; } }
+
+/* ---------- Agence : plan d'architecte stylisé (illustration, remplace la photo) ---------- */
+.plan-frame { margin: 0; display: grid; gap: 10px; }
+.plan { width: 100%; height: auto; border-radius: var(--r-card); border: 1px solid var(--c-border-strong); box-shadow: var(--shadow-card); background: #fff; }
+.plan-frame figcaption { font-family: var(--font-mono); font-size: var(--fs-caption); color: var(--c-text-2); }
+.plan-zone { fill: #f6f6f8; }
+.plan-zone-main { fill: #f0f9ff; }
+.plan-wall { fill: none; stroke: #18181b; stroke-width: 6; stroke-linejoin: round; }
+.plan-wall-in { stroke-width: 3; }
+.plan-window { fill: none; stroke: #7dd3fc; stroke-width: 6; }
+.plan-door { fill: none; stroke: #71717a; stroke-width: 1.2; stroke-dasharray: 3 3; }
+.plan-furniture { fill: #ffffff; stroke: #3f3f46; stroke-width: 1.4; }
+.plan-screens { fill: #27272a; }
+.plan-plants { fill: #bbf7d0; stroke: #15803d; stroke-width: 1.2; }
+.plan-pin { fill: #0369a1; }
+.plan-pin-halo { fill: rgba(125, 211, 252, .35); stroke: #0284c7; stroke-width: 1; }
+.plan-route { fill: none; stroke: url(#plan-signal); stroke-width: 2; stroke-dasharray: 4 4; }
+.plan-labels text, .plan-dims text, .plan-north text { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; fill: #52525b; }
+.plan-dims path { fill: none; stroke: #71717a; stroke-width: 1; }
+.plan-tag rect { fill: #ffffff; stroke: #d4d4d8; filter: drop-shadow(0 4px 8px rgba(24, 24, 27, .12)); }
+.plan-tag-title { font-family: var(--font-sans); font-size: 13px; font-weight: 600; fill: #18181b; }
+.plan-tag-sub { font-family: var(--font-sans); font-size: 10px; fill: #52525b; }
+.plan-north circle { fill: #fff; stroke: #71717a; }
+.plan-north path { fill: #18181b; }
+.office-facts { list-style: none; }
+/* Apparition : les murs se tracent, le repère pulse (une fois) */
+@keyframes planDraw { from { stroke-dashoffset: 1600; } to { stroke-dashoffset: 0; } }
+@keyframes planPop { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+.motion-ok .plan-wall { stroke-dasharray: 1600; animation: planDraw 1.4s var(--ease) .1s both; }
+.motion-ok .plan-furniture, .motion-ok .plan-zone, .motion-ok .plan-plants, .motion-ok .plan-screens { animation: heroFade .6s ease .9s both; }
+.motion-ok .plan-pin, .motion-ok .plan-pin-halo { transform-box: fill-box; transform-origin: center; animation: planPop .5s var(--ease) 1.4s both; }
+.motion-ok .plan-route, .motion-ok .plan-tag { animation: heroFade .5s ease 1.7s both; }

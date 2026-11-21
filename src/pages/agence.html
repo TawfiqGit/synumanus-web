@@ -9,8 +9,58 @@
           <p class="lead">Je suis développeur mobile depuis 10 ans. J’ai créé Synumanus pour concevoir des applications utiles, simples et durables, avec un interlocuteur que vous connaissez.</p>
           <div class="actions"><a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a></div>
         </div>
-        <figure class="photo-frame">
-          <img src="/assets/agence/representant.png" alt="Le fondateur de Synumanus" width="1200" height="1600" loading="eager" />
+        <figure class="plan-frame">
+          <svg class="plan" viewBox="0 0 480 560" role="img" aria-labelledby="plan-title plan-desc">
+            <title id="plan-title">Illustration : plan stylisé de l’espace Synumanus</title>
+            <desc id="plan-desc">Plan d’architecte simplifié d’un bureau aux Tricolores, à Neuilly-sur-Seine : un espace de travail avec trois postes, une salle de réunion et un coin d’échange. Illustration non contractuelle.</desc>
+            <defs>
+              <pattern id="plan-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#e4e4e7" stroke-width="1"/></pattern>
+              <linearGradient id="plan-signal" x1="0" x2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset=".55" stop-color="#0284c7"/><stop offset="1" stop-color="#0369a1"/></linearGradient>
+            </defs>
+            <rect width="480" height="560" fill="#ffffff"/>
+            <rect width="480" height="560" fill="url(#plan-grid)"/>
+            <!-- zones -->
+            <rect class="plan-zone plan-zone-main" x="60" y="80" width="230" height="250" rx="4"/>
+            <rect class="plan-zone" x="300" y="80" width="120" height="170" rx="4"/>
+            <rect class="plan-zone" x="60" y="340" width="360" height="140" rx="4"/>
+            <!-- murs -->
+            <path class="plan-wall" d="M50 70H430V490H50Z"/>
+            <path class="plan-wall plan-wall-in" d="M295 70V150M295 200V255H430M50 335H180M240 335H430"/>
+            <!-- fenêtres -->
+            <path class="plan-window" d="M90 70H260M330 70H400M90 490H200M260 490H390"/>
+            <!-- portes -->
+            <path class="plan-door" d="M295 150A50 50 0 0 1 345 200M295 150V200"/>
+            <path class="plan-door" d="M180 335V275A60 60 0 0 1 240 335"/>
+            <!-- postes de travail -->
+            <g class="plan-furniture">
+              <rect x="80" y="110" width="80" height="44" rx="3"/><circle cx="120" cy="174" r="11"/>
+              <rect x="190" y="110" width="80" height="44" rx="3"/><circle cx="230" cy="174" r="11"/>
+              <rect x="80" y="220" width="80" height="44" rx="3"/><circle cx="120" cy="284" r="11"/>
+              <rect x="315" y="105" width="90" height="60" rx="30"/>
+              <circle cx="330" cy="188" r="9"/><circle cx="360" cy="190" r="9"/><circle cx="390" cy="188" r="9"/>
+              <rect x="80" y="380" width="120" height="40" rx="8"/>
+              <circle cx="250" cy="410" r="24"/>
+              <rect x="300" y="365" width="100" height="90" rx="6"/>
+            </g>
+            <g class="plan-screens"><rect x="104" y="114" width="32" height="5" rx="1"/><rect x="214" y="114" width="32" height="5" rx="1"/><rect x="104" y="224" width="32" height="5" rx="1"/></g>
+            <g class="plan-plants"><circle cx="270" cy="300" r="10"/><circle cx="410" cy="470" r="9"/><circle cx="408" cy="315" r="8"/></g>
+            <!-- repère Synumanus -->
+            <circle class="plan-pin-halo" cx="230" cy="132" r="22"/>
+            <circle class="plan-pin" cx="230" cy="132" r="7"/>
+            <path class="plan-route" d="M230 132C230 230 330 250 350 300"/>
+            <!-- étiquettes -->
+            <g class="plan-labels">
+              <text x="66" y="318">ESPACE DE TRAVAIL</text>
+              <text x="306" y="242">RÉUNION</text>
+              <text x="66" y="472">COIN D’ÉCHANGE</text>
+            </g>
+            <!-- cotes -->
+            <g class="plan-dims"><path d="M50 40H430M50 34V46M430 34V46"/><text x="240" y="32" text-anchor="middle">LES TRICOLORES · NEUILLY-SUR-SEINE</text></g>
+            <g class="plan-tag" transform="translate(300 290)"><rect width="150" height="44" rx="8"/><text x="14" y="19" class="plan-tag-title">Synumanus</text><text x="14" y="34" class="plan-tag-sub">Bureau · sur rendez-vous</text></g>
+            <!-- rose des vents -->
+            <g class="plan-north" transform="translate(440 525)"><circle r="14"/><path d="M0-10L4 4H-4Z"/><text y="-18" text-anchor="middle">N</text></g>
+          </svg>
+          <figcaption>Illustration — plan stylisé, non contractuel</figcaption>
         </figure>
       </div>
     </div>
@@ -52,6 +102,23 @@
         <article class="card"><h3 class="h-card">Expertise</h3><p>Des technologies éprouvées, choisies pour vos besoins réels.</p></article>
         <article class="card"><h3 class="h-card">Transparence</h3><p>Je travaille avec vous, pas seulement pour vous : avancement visible, choix expliqués.</p></article>
       </div>
+    </div>
+  </section>
+
+  <section class="section band-paper" aria-labelledby="bureaux-title">
+    <div class="container split">
+      <div class="split-text">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Nos bureaux</p>
+        <h2 class="h-section" id="bureaux-title">Aux Tricolores, <em>à Neuilly-sur-Seine</em></h2>
+        <p class="lead">Synumanus est installée dans les locaux des Tricolores, à Neuilly-sur-Seine. Nous vous y recevons sur rendez-vous, et nous travaillons aussi à distance partout en France.</p>
+        <div class="actions"><a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Prendre rendez-vous{{ARROW_SVG}}</a></div>
+      </div>
+      <ul class="grid grid-2 office-facts">
+        <li class="card"><span class="card-index">Lieu</span><h3 class="h-card">Les Tricolores</h3><p>Neuilly-sur-Seine (92), aux portes de Paris.</p></li>
+        <li class="card"><span class="card-index">Accueil</span><h3 class="h-card">Sur rendez-vous</h3><p>Réservez un créneau en ligne, le premier échange est offert.</p></li>
+        <li class="card"><span class="card-index">À distance</span><h3 class="h-card">Partout en France</h3><p>Visioconférence et outils partagés pour suivre votre projet.</p></li>
+        <li class="card"><span class="card-index">Interlocuteur</span><h3 class="h-card">Toujours le même</h3><p>Du premier échange à la maintenance.</p></li>
+      </ul>
     </div>
   </section>
 
