@@ -25,6 +25,18 @@
     { y0: 0.66, y1: 0.36, amp: 0.07, freq: 1.55, width: 0.15, twist: 2.9, speed: 0.42, phase: 2.1, from: [125, 211, 252], to: [3, 105, 161], alpha: 0.45, threads: 24 },
     { y0: 0.95, y1: 0.12, amp: 0.06, freq: 0.75, width: 0.28, twist: 1.5, speed: 0.22, phase: 4.2, from: [224, 242, 254], to: [56, 189, 248], alpha: 0.55, threads: 22 },
   ];
+  // Variante par page (data-flow-seed) : même famille visuelle, tracés différents.
+  const seed = Number(root.dataset.flowSeed || 0);
+  if (seed) {
+    RIBBONS.forEach((r, i) => {
+      r.phase += seed * 1.37 + i;
+      r.freq *= 1 + ((seed * (i + 1)) % 5) * 0.06;
+      r.twist += ((seed + i) % 3) * 0.4;
+      const shift = (((seed * 7 + i * 3) % 9) - 4) * 0.012;
+      r.y0 = Math.min(0.95, Math.max(0.55, r.y0 + shift));
+      r.y1 = Math.min(0.45, Math.max(0.1, r.y1 - shift));
+    });
+  }
   const STEPS = 72;
   const INTRO_MS = 1800;
 

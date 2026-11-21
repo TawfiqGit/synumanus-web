@@ -33,7 +33,7 @@
 
   /* Accent bleu Synumanus */
   --c-accent: #7dd3fc;          /* aplats, pastilles, décor — jamais en texte sur clair (1,5:1) */
-  --c-accent-text: #0369a1;     /* texte et liens en accent : 5,9:1 ✅ (5,6:1 sur #f6f6f8) */
+  --c-accent-text: #003880;     /* bleu nuit du logo — texte et liens en accent : 11,5:1 ✅ (10,6:1 sur #f6f6f8) — décision du 21/11 */
   --c-accent-strong: #0284c7;   /* filets, icônes */
   --c-cta: #7dd3fc;             /* bouton principal : texte #18181b → 11,9:1 ✅ */
   --c-cta-hover: #5cc6fb;
@@ -170,7 +170,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- Liens & boutons ---------- */
 .link {
   color: var(--c-accent-text); text-decoration: underline; text-decoration-thickness: 1px;
-  text-underline-offset: 3px; text-decoration-color: rgba(3, 105, 161, .4);
+  text-underline-offset: 3px; text-decoration-color: rgba(0, 56, 128, .4);
 }
 .link:hover { text-decoration-color: currentColor; }
 .link-arrow {
@@ -462,7 +462,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* Avant / après */
 .compare { position: relative; z-index: 1; display: flex; align-items: center; }
 .compare .phone { width: 210px; }
-.compare .phone-old { transform: translateX(24px) scale(.9) rotate(-4deg); opacity: .6; filter: grayscale(1); z-index: 0; }
+.compare .phone-old { transform: translateX(24px) scale(.9) rotate(-4deg); filter: grayscale(1) contrast(.9); z-index: 0; }
 .compare .phone-old .phone-screen { background: var(--c-bg-raised); }
 .compare .phone:not(.phone-old) { transform: translateX(-24px); }
 
@@ -749,28 +749,28 @@ body.menu-open .whatsapp-float { display: none; }
 .motion-ok .hero .display em { animation: sweep .7s var(--ease) .55s both; }
 
 /* Aperçu — entrée commune à tous les heros */
-.motion-ok .preview:not(.is-reset) .sheet-back { animation: sheetBackIn .8s var(--ease) .1s both; }
-.motion-ok .preview:not(.is-reset) .sheet-mid { animation: sheetMidIn .8s var(--ease) .18s both; }
-.motion-ok .preview:not(.is-reset) > .phone, .motion-ok .preview:not(.is-reset) > .window, .motion-ok .preview:not(.is-reset) > .flow,
-.motion-ok .preview:not(.is-reset) > .compare, .motion-ok .preview:not(.is-reset) > .data-block-preview { animation: deviceIn .8s var(--ease) .3s both; }
-.motion-ok .preview:not(.is-reset) .sheet-label-a { animation: labelPop .5s var(--ease) 1s both; }
-.motion-ok .preview:not(.is-reset) .sheet-label-b { animation: labelPop .5s var(--ease) 1.2s both; }
-.motion-ok .preview:not(.is-reset) .sheet-label .route { transform-origin: left; animation: routeDraw .5s var(--ease) 1.4s both; }
-.motion-ok .preview:not(.is-reset) .preview-caption { animation: heroFade .6s ease 1s both; }
+.motion-ok .preview.is-visible .sheet-back { animation: sheetBackIn .8s var(--ease) .1s both; }
+.motion-ok .preview.is-visible .sheet-mid { animation: sheetMidIn .8s var(--ease) .18s both; }
+.motion-ok .preview.is-visible > .phone, .motion-ok .preview.is-visible > .window, .motion-ok .preview.is-visible > .flow,
+.motion-ok .preview.is-visible > .compare, .motion-ok .preview.is-visible > .data-block-preview { animation: deviceIn .8s var(--ease) .3s both; }
+.motion-ok .preview.is-visible .sheet-label-a { animation: labelPop .5s var(--ease) 1s both; }
+.motion-ok .preview.is-visible .sheet-label-b { animation: labelPop .5s var(--ease) 1.2s both; }
+.motion-ok .preview.is-visible .sheet-label .route { transform-origin: left; animation: routeDraw .5s var(--ease) 1.4s both; }
+.motion-ok .preview.is-visible .preview-caption { animation: heroFade .6s ease 1s both; }
 /* Flux d'automatisation : étapes une à une */
-.motion-ok .preview:not(.is-reset) .flow > * { animation: rowIn .45s var(--ease) both; }
-.motion-ok .preview:not(.is-reset) .flow > :nth-child(1) { animation-delay: .6s; }
-.motion-ok .preview:not(.is-reset) .flow > :nth-child(2) { animation-delay: .8s; animation-name: heroFade; }
-.motion-ok .preview:not(.is-reset) .flow > :nth-child(3) { animation-delay: 1s; }
-.motion-ok .preview:not(.is-reset) .flow > :nth-child(4) { animation-delay: 1.2s; animation-name: heroFade; }
-.motion-ok .preview:not(.is-reset) .flow > :nth-child(5) { animation-delay: 1.4s; }
-.motion-ok .preview:not(.is-reset) .flow > :nth-child(6) { animation-delay: 1.6s; animation-name: heroFade; }
-.motion-ok .preview:not(.is-reset) .flow > :nth-child(7) { animation-delay: 1.8s; }
+.motion-ok .preview.is-visible .flow > * { animation: rowIn .45s var(--ease) both; }
+.motion-ok .preview.is-visible .flow > :nth-child(1) { animation-delay: .6s; }
+.motion-ok .preview.is-visible .flow > :nth-child(2) { animation-delay: .8s; animation-name: heroFade; }
+.motion-ok .preview.is-visible .flow > :nth-child(3) { animation-delay: 1s; }
+.motion-ok .preview.is-visible .flow > :nth-child(4) { animation-delay: 1.2s; animation-name: heroFade; }
+.motion-ok .preview.is-visible .flow > :nth-child(5) { animation-delay: 1.4s; }
+.motion-ok .preview.is-visible .flow > :nth-child(6) { animation-delay: 1.6s; animation-name: heroFade; }
+.motion-ok .preview.is-visible .flow > :nth-child(7) { animation-delay: 1.8s; }
 /* Fenêtres web : lignes du tableau une à une */
-.motion-ok .preview:not(.is-reset) .window-table div { animation: rowIn .4s var(--ease) both; }
-.motion-ok .preview:not(.is-reset) .window-table div:nth-child(2) { animation-delay: .9s; }
-.motion-ok .preview:not(.is-reset) .window-table div:nth-child(3) { animation-delay: 1.05s; }
-.motion-ok .preview:not(.is-reset) .window-table div:nth-child(4) { animation-delay: 1.2s; }
+.motion-ok .preview.is-visible .window-table div { animation: rowIn .4s var(--ease) both; }
+.motion-ok .preview.is-visible .window-table div:nth-child(2) { animation-delay: .9s; }
+.motion-ok .preview.is-visible .window-table div:nth-child(3) { animation-delay: 1.05s; }
+.motion-ok .preview.is-visible .window-table div:nth-child(4) { animation-delay: 1.2s; }
 
 /* Bouton « Rejouer l'animation » (hors de la zone aria-hidden) */
 .preview-wrap { position: relative; display: grid; }
@@ -848,3 +848,5 @@ body.menu-open .whatsapp-float { display: none; }
 .motion-ok .plan-furniture, .motion-ok .plan-zone, .motion-ok .plan-plants, .motion-ok .plan-screens { animation: heroFade .6s ease .9s both; }
 .motion-ok .plan-pin, .motion-ok .plan-pin-halo { transform-box: fill-box; transform-origin: center; animation: planPop .5s var(--ease) 1.4s both; }
 .motion-ok .plan-route, .motion-ok .plan-tag { animation: heroFade .5s ease 1.7s both; }
+.hero + .section-preview { padding-top: var(--s-5); border-top: 0; }
+.hero-sub .hero-flow { max-height: 520px; }

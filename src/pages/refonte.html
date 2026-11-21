@@ -10,7 +10,26 @@
           <div class="actions"><a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a></div>
           <ul class="proof-row" aria-label="Repères"><li>Audit avant décision</li><li>Migration maîtrisée</li><li>UX et technique ensemble</li></ul>
         </div>
-        <div class="preview preview-compare" aria-hidden="true">
+        <div class="hero-flow" data-hero-flow data-flow-seed="6">
+          <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
+          <div class="flow-foot">
+            <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
+            <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-preview" aria-labelledby="apercu-title">
+    <div class="container split">
+      <div class="split-text">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Aperçu</p>
+        <h2 class="h-section" id="apercu-title">Avant, après : <em>la même application, repensée</em></h2>
+        <p class="lead">Exemple de refonte : chargements longs et menus surchargés remplacés par un accueil clair et un suivi en un coup d’œil.</p>
+        <p class="note">Exemple d’interface, données fictives.</p>
+      </div>
+      <div class="preview reveal preview-compare" aria-hidden="true">
           <div class="sheet sheet-back"></div>
           <div class="sheet sheet-mid"></div>
           <div class="compare">
@@ -34,7 +53,6 @@
           </div>
           <p class="preview-caption">Exemple avant / après — données fictives</p>
         </div>
-      </div>
     </div>
   </section>
 

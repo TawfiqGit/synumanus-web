@@ -27,7 +27,9 @@
     "design": "v2",
     "pillar_key": "applications-mobiles",
     "styles": [],
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "structured_data": "",
     "service_key": null,
     "sector_key": null,
@@ -44,7 +46,9 @@
     "design": "v2",
     "pillar_key": "applications-web-metier",
     "styles": [],
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "structured_data": "",
     "service_key": null,
     "sector_key": null,
@@ -61,7 +65,9 @@
     "design": "v2",
     "pillar_key": "automatisation-ia",
     "styles": [],
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "structured_data": "",
     "service_key": null,
     "sector_key": null,
@@ -77,7 +83,9 @@
     "service_key": "cadrage-prototypage",
     "og_title": "Cadrage & prototypage d’application mobile — Synumanus",
     "og_description": "Cadrage et prototypage : clarifier le besoin métier, prioriser la V1, tester les parcours et préparer le développement.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
@@ -93,7 +101,9 @@
     "service_key": "developpement-application-mobile",
     "og_title": "Développement d’application mobile iOS & Android — Synumanus",
     "og_description": "Développement d’applications mobiles métier sur mesure iOS et Android : Flutter, Kotlin, Swift, backend, API et publication.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
@@ -109,7 +119,9 @@
     "service_key": "refonte-application-mobile",
     "og_title": "Refonte d’application mobile — Synumanus",
     "og_description": "Audit et refonte d’applications mobiles : UX, dette technique, architecture, migration et remise à niveau iOS/Android.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
@@ -125,7 +137,9 @@
     "service_key": "maintenance-evolution",
     "og_title": "Maintenance & évolution d’application mobile — Synumanus",
     "og_description": "Maintenance corrective, préventive et évolutive d’applications mobiles iOS et Android.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,

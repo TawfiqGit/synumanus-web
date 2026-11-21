@@ -1,5 +1,14 @@
 # Specs — Refonte du site Synumanus
 
+## v0.7 — 21/11/2026 — Bleu du logo pour le texte ; rubans dans tous les heros — à valider G3
+| Changement | Détail |
+|---|---|
+| `color/accent-text` | `#0369a1` → **`#003880`** (bleu nuit du logo) : 11,5:1 sur blanc, 10,6:1 sur `#f6f6f8` |
+| Heros des 3 piliers et 4 services | Rubans fluides interactifs (`hero-flow.js`), une variante par page (`data-flow-seed` 1 à 7) |
+| Nouvelle section « Aperçu » sous chaque hero | Reprend l'aperçu d'application de la page (téléphone, fenêtre, flux, fiche, avant/après) avec un titre et une phrase d'explication ; il s'anime quand il entre à l'écran |
+| Accessibilité | axe-core : 0 violation sur les 12 pages ; téléphone « avant » de la refonte rendu plus lisible (contraste) |
+
+
 ## v0.6 — 20/11/2026 — Hero de l'accueil : rubans fluides sur dégradé maillé (remplace la sphère v0.5) — à valider G3
 Direction choisie par TawfiqDev : « formes organiques et rubans fluides (fluid / mesh gradients) : surfaces lisses, ondulées ou translucides qui évoquent la circulation des données, l'adaptabilité et l'accompagnement sur mesure ».
 Fichiers : `src/static/v2/hero-flow.js` (accueil uniquement ; `hero-field.js` supprimé), section « Illustration du hero » de `ds.css`, hero de `src/pages/index.html`.

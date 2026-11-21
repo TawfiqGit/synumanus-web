@@ -12,7 +12,26 @@
             <a class="btn btn-ghost btn-lg" href="#services">Voir nos services</a>
           </div>
         </div>
-        <div class="preview" aria-hidden="true">
+        <div class="hero-flow" data-hero-flow data-flow-seed="1">
+          <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
+          <div class="flow-foot">
+            <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
+            <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-preview" aria-labelledby="apercu-title">
+    <div class="container split">
+      <div class="split-text">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Aperçu</p>
+        <h2 class="h-section" id="apercu-title">Une application pensée <em>pour le terrain</em></h2>
+        <p class="lead">Exemple d’application de tournée : elle fonctionne même sans réseau et se synchronise dès que la connexion revient.</p>
+        <p class="note">Exemple d’interface, données fictives.</p>
+      </div>
+      <div class="preview reveal" aria-hidden="true">
           <div class="sheet sheet-back"></div>
           <div class="sheet sheet-mid"></div>
           <div class="phone">
@@ -28,7 +47,6 @@
           <div class="sheet-label sheet-label-a"><span class="dot"></span><div><strong>Fonctionne hors connexion</strong><small>synchronisation au retour du réseau</small></div></div>
           <p class="preview-caption">Exemple d’interface — données fictives</p>
         </div>
-      </div>
     </div>
   </section>
 
