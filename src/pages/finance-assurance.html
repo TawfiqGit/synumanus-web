@@ -1,84 +1,156 @@
-<main id="main" class="finance-redesign">
-
-  <section class="service-hero sector-hero fn-hero">
-    <div class="service-hero-grid" aria-hidden="true"></div>
-    <div class="container fn-hero-layout">
-      <div class="service-copy reveal">
-        <p class="eyebrow eyebrow-light"><span></span> Finance & assurance · applications mobiles sur mesure</p>
-        <h1>Rendez les finances plus lisibles. <em>Donnez à l’IA un rôle utile.</em></h1>
-        <p class="service-lead">Synumanus conçoit des applications mobiles adaptées à vos parcours financiers. Découvrez <strong>IA Finance</strong>, un prototype fonctionnel de gestion budgétaire intégrant un agent IA opérationnel : un exemple concret de notre savoir-faire, pas un logiciel standard que nous cherchons à vous vendre.</p>
-        <div class="hero-actions sector-actions">
-          <a class="button button-primary button-lg" href="/demarrer-un-projet/">Démarrer un projet</a>
-          <a class="button button-ghost-light button-lg" href="#demonstration">Découvrir IA Finance ↓</a>
+<main id="main">
+  <section class="hero hero-sub" aria-labelledby="hero-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li><span>Cas d’usage</span></li><li><span aria-current="page">Finance & assurance</span></li></ol></nav>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Finance & assurance · applications mobiles sur mesure</p>
+          <h1 class="display display-xl" id="hero-title">Rendez les finances plus lisibles. <em>Donnez à l’IA un rôle utile</em></h1>
+          <p class="lead">Synumanus conçoit des applications mobiles adaptées à vos parcours financiers. Découvrez <strong>IA Finance</strong>, un prototype fonctionnel de gestion budgétaire intégrant un agent IA opérationnel : un exemple concret de notre savoir-faire, pas un logiciel standard que nous cherchons à vous vendre.</p>
+          <div class="actions"><a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Démarrer un projet{{ARROW_SVG}}</a><a class="btn btn-ghost btn-lg" href="#solution">Découvrir IA Finance</a></div>
+          <ul class="sector-chips" aria-label="Points clés"><li class="tag">Prototype fonctionnel</li><li class="tag">Agent IA opérationnel</li><li class="tag">Démonstrateur Synumanus</li></ul>
+          <p class="sector-note">La fiche Google Play est publiée sous le nom IA Finance avec B4Digital comme éditeur. Synumanus présente l’application comme démonstrateur de savoir-faire, et non comme une offre de licence.</p>
         </div>
-        <div class="fn-hero-chips" aria-label="Points clés"><span>Prototype fonctionnel</span><span>Agent IA opérationnel</span><span>Démonstrateur Synumanus</span></div>
-        <p class="fn-hero-note">La fiche Google Play est publiée sous le nom IA Finance avec B4Digital comme éditeur. Synumanus présente l’application comme démonstrateur de savoir-faire, et non comme une offre de licence.</p>
-      </div>
-      <div class="fn-hero-visual reveal reveal-delay">
-        <div class="fn-phone" role="img" aria-label="Illustration conceptuelle des fonctionnalités d’IA Finance : budget mensuel, dépenses, objectifs et assistant IA. Ce visuel n’est pas une capture de l’application.">
-          <div class="fn-phone-top"><span class="fn-phone-camera"></span><span>IA Finance</span><span class="fn-signal" aria-hidden="true">●●●</span></div>
-          <div class="fn-phone-inner">
-            <span class="fn-phone-caption">VUE D’ENSEMBLE</span>
-            <h2>Votre budget,<br>en un coup d’œil.</h2>
-            <div class="fn-ui-card"><small>Budget mensuel</small><div class="fn-ui-track"><span></span></div><p>Repères et évolution</p></div>
-            <div class="fn-ui-row"><div><b>↗</b><strong>Dépenses & revenus</strong><small>Suivi des mouvements</small></div><div><b>◎</b><strong>Objectifs</strong><small>Planification</small></div></div>
-            <div class="fn-ui-assistant"><span>✦</span><div><strong>Agent IA</strong><small>Assistant intégré au parcours</small></div></div>
+        <div class="hero-flow-frame">
+        <div class="hero-flow" data-hero-flow data-flow-seed="4">
+          <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
+          <div class="flow-foot">
+            <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
+            <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
           </div>
         </div>
-        <p class="fn-visual-note">Illustration de principe · les véritables captures sont accessibles sur Google Play.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="fn-strip" aria-label="Parcours représentatifs"><div class="container fn-strip-grid"><div><span>01</span><strong>Finances personnelles</strong><small>Dépenses, revenus et budget mensuel.</small></div><div><span>02</span><strong>Objectifs</strong><small>Planifier et visualiser sa progression.</small></div><div><span>03</span><strong>IA contextualisée</strong><small>Un agent opérationnel, sans promesse automatique.</small></div></div></section>
+  <section class="section band-paper" id="enjeux" aria-labelledby="enjeux-title">
+    <div class="container">
+      <div class="section-head section-head-split">
+        <div>
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Problématiques & enjeux</p>
+          <h2 class="h-section" id="enjeux-title">Des données financières disponibles, <em>des décisions encore difficiles</em></h2>
+        </div>
+        <p class="lead">Une application financière doit rendre le quotidien compréhensible, aider à suivre des objectifs et inspirer confiance sans décider à la place de l’utilisateur.</p>
+      </div>
+      <div class="bento">
+        <article class="card"><span class="card-index">01</span><h3 class="h-card">Des dépenses dispersées</h3><p>Comprendre sa situation devient laborieux lorsque revenus, dépenses et catégories sont répartis entre plusieurs outils.</p></article>
+        <article class="card"><span class="card-index">02</span><h3 class="h-card">Un budget difficile à suivre</h3><p>Un objectif financier n’est utile que si sa progression reste facile à consulter et à interpréter.</p></article>
+        <article class="card"><span class="card-index">03</span><h3 class="h-card">Une IA qui doit rester compréhensible</h3><p>Une assistance utile a un périmètre défini, des limites visibles et laisse l’utilisateur maître de ses décisions.</p></article>
+      </div>
+    </div>
+  </section>
 
-  <section class="section fn-problems" id="enjeux"><div class="container">
-    <div class="fn-heading"><p class="eyebrow"><span></span> Problématiques & enjeux</p><h2>Des données financières disponibles. <em>Des décisions encore difficiles à prendre.</em></h2><p>Le problème n’est pas simplement d’afficher des chiffres. Une application financière doit rendre le quotidien compréhensible, aider à suivre des objectifs et inspirer confiance sans prétendre décider à la place de l’utilisateur.</p></div>
-    <div class="fn-card-grid"><article class="fn-card"><span>01</span><h3>Des dépenses dispersées</h3><p>Comprendre sa situation devient laborieux lorsque revenus, dépenses et catégories sont répartis entre plusieurs outils.</p></article><article class="fn-card"><span>02</span><h3>Un budget difficile à suivre</h3><p>Un objectif financier n’est utile que si sa progression reste facile à consulter et à interpréter.</p></article><article class="fn-card"><span>03</span><h3>Une IA qui doit rester compréhensible</h3><p>Une assistance utile doit avoir un périmètre défini, des limites visibles et laisser l’utilisateur maître de ses décisions.</p></article></div>
-  </div></section>
+  <section class="section" id="solution" aria-labelledby="solution-title">
+    <div class="container split">
+      <div class="split-text">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Notre solution · démonstrateur fonctionnel</p>
+        <h2 class="h-section" id="solution-title">IA Finance : un parcours budgétaire <em>avec une assistance IA</em></h2>
+        <p class="lead">IA Finance rassemble dépenses, revenus, budget mensuel, objectifs et rapports visuels. Un agent IA opérationnel complète le parcours ; son fonctionnement détaillé sera montré uniquement avec des captures ou une vidéo authentiques.</p>
+        <div class="actions"><a class="btn btn-primary btn-lg" href="https://play.google.com/store/apps/details?id=com.mb.iafinance&amp;hl=fr" target="_blank" rel="noopener noreferrer">Voir la fiche IA Finance <span class="sr-only">(nouvelle fenêtre)</span>{{ARROW_SVG}}</a></div>
+      </div>
+      <pre class="data-block" aria-label="Parcours fonctionnels d’IA Finance"><span class="data-head"><span>ia-finance.txt</span><span>parcours</span></span><span class="k">01 Dépenses & revenus </span> <span class="v">suivre les mouvements</span>
+<span class="k">02 Budget & objectifs </span> <span class="v">garder ses repères mensuels</span>
+<span class="k">03 Rapports visuels   </span> <span class="v">l’essentiel, sans complexité</span>
+<span class="k">04 Agent IA           </span> <span class="v">opérationnel, périmètre à démontrer</span></pre>
+    </div>
+  </section>
 
-  <section class="section fn-solution" id="solution"><div class="container fn-solution-grid"><div>
-    <p class="eyebrow"><span></span> Notre solution · démonstrateur fonctionnel</p><h2>IA Finance : <em>un parcours budgétaire mobile, avec une assistance IA.</em></h2>
-    <p>IA Finance illustre une application de gestion financière personnelle qui rassemble les dépenses, les revenus, le budget mensuel, les objectifs et les rapports visuels. Un agent IA opérationnel complète le parcours. Son fonctionnement détaillé sera montré uniquement dans des captures ou une vidéo authentiques.</p>
-    <div class="fn-feature-list"><div><strong>01 · Dépenses & revenus</strong><span>Consulter et suivre les mouvements financiers.</span></div><div><strong>02 · Budget & objectifs</strong><span>Planifier et retrouver ses repères mensuels.</span></div><div><strong>03 · Rapports visuels</strong><span>Lire les informations essentielles sans complexité superflue.</span></div><div><strong>04 · Agent IA</strong><span>Assistance déjà opérationnelle ; périmètre précis à présenter en démonstration.</span></div></div>
-    <a class="fn-text-link" href="#application">Voir la fiche IA Finance ↗</a>
-  </div><aside class="fn-solution-visual" aria-label="Schéma explicatif des capacités présentées"><div class="fn-product-board"><span>PARCOURS PRODUIT · ILLUSTRATION</span><h3>Comprendre, organiser, avancer.</h3><div><b>01</b><strong>Visualiser les mouvements</strong><small>Dépenses & revenus</small></div><div><b>02</b><strong>Garder un cap</strong><small>Budget et objectifs</small></div><div><b>03</b><strong>Consulter l’assistant</strong><small>Agent IA opérationnel</small></div><p>Illustration éditoriale, pas une capture réelle ni un exemple de réponse générée par l’agent.</p></div></aside></div></section>
+  <section class="section band-paper" id="vitrine" aria-labelledby="vitrine-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Vitrine · fiche application</p>
+        <h2 class="h-section" id="vitrine-title">IA Finance : <em>une réalisation à découvrir</em></h2>
+      </div>
+      <article class="card app-card">
+        <div class="app-icon" aria-hidden="true">IA</div>
+        <div class="stack">
+          <h3 class="h-feature">IA Finance</h3>
+          <p class="app-meta">Prototype fonctionnel · agent IA opérationnel · Fiche Google Play : B4Digital (B4 SERVICO DE TECNOLOGIA LTDA)</p>
+          <p>La fiche officielle présente le suivi des revenus et dépenses, la planification d’objectifs, les rapports visuels, le contrôle du budget mensuel et un assistant financier.</p>
+          <p class="note">Les captures et la vidéo authentiques d’IA Finance ne sont pas encore intégrées : les écrans officiels restent consultables sur Google Play. Aucun écran fictif n’est présenté comme une capture réelle. IA Finance n’est pas un produit de conseil financier automatisé certifié.</p>
+          <div class="actions"><a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.mb.iafinance&amp;hl=fr" target="_blank" rel="noopener noreferrer">Voir sur Google Play <span class="sr-only">(nouvelle fenêtre)</span></a><a class="btn btn-ghost" href="/demarrer-un-projet/">Concevoir une application similaire</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
 
+  <section class="section section-dark" id="au-dela" aria-labelledby="au-dela-title">
+    <div class="container">
+      <div class="section-head section-head-split">
+        <div>
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Au-delà du démonstrateur</p>
+          <h2 class="h-section" id="au-dela-title">Votre métier mérite <em>son propre produit mobile</em></h2>
+        </div>
+        <p class="lead">D’autres applications peuvent être étudiées pour la finance et l’assurance ; ces parcours ne sont pas des fonctionnalités existantes du démonstrateur.</p>
+      </div>
+      <div class="bento">
+        <article class="card"><span class="card-index">01</span><h3 class="h-card">Parcours client financier</h3><p>Consultation de dossiers, documents et démarches selon les interfaces et autorisations disponibles.</p></article>
+        <article class="card"><span class="card-index">02</span><h3 class="h-card">Parcours assurance</h3><p>Déclarations, suivi de sinistre et échanges avec un conseiller selon le besoin réel.</p></article>
+        <article class="card"><span class="card-index">03</span><h3 class="h-card">Assistant métier ciblé</h3><p>Un agent IA peut être étudié pour un cas d’usage précis, avec contrôle humain et évaluation des risques.</p></article>
+      </div>
+    </div>
+  </section>
 
-<section class="section fn-demo" id="demonstration" aria-labelledby="fn-demo-heading"><div class="container">
-  <div class="fn-heading"><p class="eyebrow"><span></span> Démonstration IA Finance</p><h2 id="fn-demo-heading">Découvrez le produit <em>sans inventer de démo.</em></h2><p>IA Finance est un prototype fonctionnel, mais aucune vidéo réelle n’a encore été transmise. La section affiche un enregistrement uniquement lorsqu’un MP4 authentique est présent.</p></div>
-  <div class="fn-demo-layout"><div class="fn-video-shell"><div class="fn-video-toolbar"><span class="fn-live-dot" aria-hidden="true"></span> DÉMONSTRATEUR IA FINANCE <span>Vidéo authentique uniquement</span></div><div class="fn-player-placeholder" role="status"><span class="fn-placeholder-play" aria-hidden="true">▶</span><strong>Vidéo en préparation</strong><p>Enregistrement authentique de IA Finance à ajouter. En attendant, découvrez les fonctionnalités sur sa fiche officielle.</p></div><div class="fn-video-bottom">Pas de simulation présentée comme un enregistrement réel.</div></div>
-  <aside class="fn-video-aside"><p class="fn-mini-kicker">SCÉNARIO POUR LA FUTURE VIDÉO</p><h3>Du budget à une assistance concrète.</h3><ol class="fn-video-steps"><li><b>01</b><span>Présenter la vue d’ensemble du budget.</span></li><li><b>02</b><span>Consulter dépenses, revenus et objectifs.</span></li><li><b>03</b><span>Montrer un échange réel avec l’agent IA, avec des données fictives.</span></li></ol><a class="fn-aside-link" href="https://play.google.com/store/apps/details?id=com.mb.iafinance&amp;hl=fr" target="_blank" rel="noopener noreferrer">Consulter la fiche Google Play ↗</a></aside></div>
-</div></section>
+  <section class="section band-paper" aria-labelledby="demarche-title">
+    <div class="container">
+      <div class="section-head section-head-split">
+        <div>
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Notre démarche</p>
+          <h2 class="h-section" id="demarche-title">Du besoin métier <em>à une application testable</em></h2>
+        </div>
+        <p class="lead">Chaque projet client exige de préciser les données, les utilisateurs, les risques et les interfaces nécessaires.</p>
+      </div>
+      <ol class="steps">
+        <li class="step"><h3 class="h-card">Comprendre l’usage</h3><p>Problème, public, contraintes financières et rôle attendu de l’IA.</p></li>
+        <li class="step"><h3 class="h-card">Cadrer et prototyper</h3><p>Prioriser une V1, définir les parcours et les données nécessaires.</p></li>
+        <li class="step"><h3 class="h-card">Développer et éprouver</h3><p>Construire les parcours, tester les intégrations et évaluer l’IA retenue.</p></li>
+        <li class="step"><h3 class="h-card">Livrer et faire évoluer</h3><p>Mise en service et maintenance selon le périmètre convenu.</p></li>
+      </ol>
+    </div>
+  </section>
 
-<section class="section fn-app-section" id="application" aria-labelledby="fn-app-heading"><div class="container"><div class="fn-heading"><p class="eyebrow"><span></span> Vitrine application · format Play Store</p><h2 id="fn-app-heading">IA Finance : <em>un démonstrateur mobile concret.</em></h2><p>Une présentation du produit et de ses fonctionnalités, avec un accès à la véritable fiche Google Play. Cette vitrine illustre un savoir-faire de conception mobile ; elle ne propose pas IA Finance sous licence Synumanus.</p></div>
-<article class="fn-app-card"><div class="fn-app-top"><div class="fn-app-icon" aria-hidden="true">IA</div><div><span class="fn-mini-kicker">FICHE APPLICATION</span><h3>IA Finance</h3><span class="fn-app-pill">Prototype fonctionnel · Agent IA opérationnel</span><p class="fn-app-publisher">Fiche Google Play : B4Digital (B4 SERVICO DE TECNOLOGIA LTDA)</p></div></div>
-<div class="fn-gallery-empty" role="note"><strong>Captures authentiques à intégrer</strong><p>Les captures de IA Finance ne sont pas encore présentes dans le projet. Les écrans officiels restent accessibles sur sa fiche Google Play. Aucun écran fictif n’est présenté comme une capture réelle.</p><a href="https://play.google.com/store/apps/details?id=com.mb.iafinance&amp;hl=fr" target="_blank" rel="noopener noreferrer">Voir les captures sur Google Play ↗</a></div>
-<div class="fn-app-layout"><div class="fn-app-description"><h4>Une application mobile pour mieux organiser ses finances.</h4><p>La fiche officielle présente le suivi des revenus et dépenses, la planification d’objectifs, les rapports visuels, le contrôle du budget mensuel et un assistant financier. Le rôle détaillé de l’agent IA sera montré avec une démonstration vérifiable.</p><div class="fn-app-features"><div><b>01</b><span><strong>Budget mensuel</strong><small>Connaître les repères de sa situation.</small></span></div><div><b>02</b><span><strong>Revenus, dépenses & objectifs</strong><small>Suivre et organiser son quotidien.</small></span></div><div><b>03</b><span><strong>Assistant IA</strong><small>Agent opérationnel, sans promesse de conseil financier réglementé.</small></span></div></div><div class="fn-app-actions"><a class="button button-primary" href="https://play.google.com/store/apps/details?id=com.mb.iafinance&amp;hl=fr" target="_blank" rel="noopener noreferrer">Voir IA Finance sur Google Play ↗</a><a class="button button-outline" href="/demarrer-un-projet/">Concevoir une application similaire</a></div></div><aside class="fn-app-highlight"><div class="fn-app-highlight-icon">✦</div><h4>L’IA au service d’un parcours défini.</h4><p>Un agent opérationnel ne dispense ni d’un cadrage métier, ni d’une évaluation des données et des résultats. L’application illustrée ici n’est pas un produit de conseil financier automatisé certifié.</p><a href="#demonstration">Voir le parcours de démonstration ↑</a></aside></div>
-</article></div></section>
+  <section class="section" id="engagements" aria-labelledby="engagements-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Engagements de service</p>
+        <h2 class="h-section" id="engagements-title">Une application convaincante commence <em>par un périmètre clair</em></h2>
+      </div>
+      <div class="bento">
+        <article class="card"><span class="card-index">01</span><h3 class="h-card">Données et accès cadrés</h3><p>Évaluer la sensibilité des informations, les droits et les mesures de sécurité adaptées au projet.</p></article>
+        <article class="card"><span class="card-index">02</span><h3 class="h-card">IA évaluée, pas supposée fiable</h3><p>Définir ce que l’agent peut faire, ses limites et les validations nécessaires avant déploiement.</p></article>
+        <article class="card"><span class="card-index">03</span><h3 class="h-card">Livraison et maintenance explicites</h3><p>Critères de validation et maintenance sur devis, sans promettre une conformité réglementaire automatique.</p></article>
+      </div>
+    </div>
+  </section>
 
+  <section class="section" aria-labelledby="secteurs-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Autres cas d’usage</p>
+        <h2 class="h-section" id="secteurs-title">Une expertise mobile, <em>plusieurs contextes métier</em></h2>
+      </div>
+      <nav class="paths" aria-label="Autres cas d’usage">
+        <a class="path" href="/secteurs/industrie/"><span class="path-index">01</span><span class="path-text"><strong>Industrie</strong><small>Commandes, flux opérationnels et indicateurs</small></span>{{ARROW_SVG}}</a>
+        <a class="path" href="/secteurs/sante/"><span class="path-index">02</span><span class="path-text"><strong>Santé</strong><small>Applications mobiles et réalisation PillCircle</small></span>{{ARROW_SVG}}</a>
+      </nav>
+    </div>
+  </section>
 
+  <section class="section band-paper" aria-labelledby="faq-title">
+    <div class="container faq">
+      <div>
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Questions fréquentes</p>
+        <h2 class="h-section" id="faq-title">Avant de lancer votre projet</h2>
+      </div>
+      <div class="faq-list" data-faq-list>
+        <details class="faq-item" open><summary>IA Finance est-il une application fonctionnelle ?</summary><div><p>IA Finance est présenté comme prototype fonctionnel et démonstrateur du savoir-faire Synumanus. Une fiche est consultable sur Google Play, où B4Digital figure comme éditeur.</p></div></details>
+        <details class="faq-item"><summary>Un agent IA est-il déjà intégré ?</summary><div><p>Oui. IA Finance intègre un agent IA opérationnel. Ses fonctions précises seront illustrées avec des captures ou une vidéo de son fonctionnement réel.</p></div></details>
+        <details class="faq-item"><summary>Peut-on voir une vidéo de l’application ?</summary><div><p>Pas encore : aucun enregistrement n’a été fourni. La démonstration sera mise à jour dès réception d’une vraie vidéo.</p></div></details>
+        <details class="faq-item"><summary>Synumanus peut-il concevoir un projet assurance similaire ?</summary><div><p>Un parcours assurance peut être étudié sur mesure. IA Finance n’est pas une application d’assurance, ni une garantie de conformité réglementaire.</p></div></details>
+      </div>
+    </div>
+  </section>
 
-  <section class="section fn-possibilities"><div class="container"><div class="fn-heading"><p class="eyebrow"><span></span> Au-delà du démonstrateur</p><h2>Votre métier mérite <em>son propre produit mobile.</em></h2><p>IA Finance illustre la gestion budgétaire. D’autres applications peuvent être étudiées pour la finance et l’assurance ; ces parcours ne sont pas présentés comme des fonctionnalités existantes du démonstrateur.</p></div><div class="fn-card-grid"><article class="fn-card"><span>01</span><h3>Parcours client financier</h3><p>Consultation de dossiers, documents et démarches selon les interfaces et autorisations disponibles.</p></article><article class="fn-card"><span>02</span><h3>Parcours assurance</h3><p>Déclarations, suivi de sinistre et échanges avec un conseiller selon le besoin réel.</p></article><article class="fn-card"><span>03</span><h3>Assistant métier ciblé</h3><p>Un agent IA peut être étudié pour un cas d’usage précis, avec contrôle humain et évaluation des risques.</p></article></div></div></section>
-
-  <section class="section service-process fn-method" id="methode"><div class="container"><div class="service-process-heading reveal"><div><p class="eyebrow eyebrow-light"><span></span> Notre démarche</p><h2>Du besoin métier <em>à une application testable.</em></h2></div><p>Un démonstrateur montre des possibilités. Chaque projet client exige de préciser les données, les utilisateurs, les risques et les interfaces nécessaires.</p></div><div class="service-process-list">
-    <article class="service-process-step"><span>01</span><div><h3>Comprendre l’usage</h3><p>Problème, public, contraintes financières et rôle attendu de l’assistance IA.</p></div><small>Explorer</small></article>
-    <article class="service-process-step"><span>02</span><div><h3>Cadrer et prototyper</h3><p>Prioriser une V1, définir les parcours et identifier les données nécessaires.</p></div><small>Décider</small></article>
-    <article class="service-process-step"><span>03</span><div><h3>Développer et éprouver</h3><p>Construire les parcours mobiles, tester les intégrations et évaluer les fonctions IA retenues.</p></div><small>Tester</small></article>
-    <article class="service-process-step"><span>04</span><div><h3>Livrer et faire évoluer</h3><p>Préparer la mise en service et proposer la maintenance selon le périmètre convenu.</p></div><small>Faire durer</small></article>
-  </div></div></section>
-
-  <section class="section fn-commitments"><div class="container"><div class="fn-heading"><p class="eyebrow"><span></span> Engagements de service</p><h2>Une application convaincante <em>commence par un périmètre clair.</em></h2></div><div class="fn-card-grid"><article class="fn-card"><span>01</span><h3>Données et accès cadrés</h3><p>Évaluer la sensibilité des informations, les droits et les mesures de sécurité adaptées au projet.</p></article><article class="fn-card"><span>02</span><h3>IA évaluée, pas supposée fiable</h3><p>Définir ce que l’agent peut faire, ses limites et les validations nécessaires avant déploiement.</p></article><article class="fn-card"><span>03</span><h3>Livraison et maintenance explicites</h3><p>Convenir des critères de validation et d’une maintenance sur devis, sans promettre une conformité réglementaire automatique.</p></article></div></div></section>
-
-  <section class="section sector-related"><div class="container"><div class="sector-related-heading reveal"><p class="eyebrow"><span></span> Autres secteurs</p><h2>Une expertise mobile, <em>plusieurs contextes métier.</em></h2></div><div class="sector-related-grid reveal"><a class="sector-related-card" href="/secteurs/industrie/"><span>01</span><strong>Industrie</strong><small>Commandes, flux opérationnels et indicateurs.</small><b>→</b></a><a class="sector-related-card" href="/secteurs/sante/"><span>03</span><strong>Santé</strong><small>Applications mobiles et démonstrateur PillCircle.</small><b>→</b></a></div></div></section>
-
-  <section class="section service-faq" id="faq"><div class="container faq-layout"><div class="faq-heading reveal"><p class="eyebrow"><span></span> Questions fréquentes</p><h2>Avant de lancer <em>votre projet.</em></h2></div><div class="faq-list reveal" data-faq-list>
-    <details><summary>IA Finance est-il une application fonctionnelle ?<span>+</span></summary><p>IA Finance est présenté comme prototype fonctionnel et démonstrateur du savoir-faire Synumanus. Une fiche est consultable sur Google Play, où B4Digital figure comme éditeur.</p></details>
-    <details><summary>Un agent IA est-il déjà intégré ?<span>+</span></summary><p>Oui. Selon les informations confirmées pour le projet, IA Finance intègre un agent IA opérationnel. Ses fonctions précises seront illustrées avec des captures ou une vidéo de son fonctionnement réel.</p></details>
-    <details><summary>Peut-on voir une vidéo de l’application ?<span>+</span></summary><p>Pas encore : aucun enregistrement de l’application n’a été fourni. La section démonstration sera mise à jour dès réception d’une véritable vidéo MP4.</p></details>
-    <details><summary>Synumanus peut-il concevoir un projet assurance similaire ?<span>+</span></summary><p>Un parcours assurance peut être étudié sur mesure. IA Finance n’est pas présenté comme une application d’assurance, ni comme une garantie de conformité réglementaire.</p></details>
-  </div></div></section>
-
-  <section class="cta-section"><div class="cta-grid" aria-hidden="true"></div><div class="container cta-inner reveal"><p class="eyebrow"><span></span> Votre projet finance & assurance</p><h2 class="home-cta-title">Un parcours financier à simplifier <em>sur mobile ?</em></h2><p>Décrivez votre besoin, les utilisateurs et le rôle éventuel de l’IA. Nous pourrons cadrer une première version, puis choisir un créneau d’échange.</p><div class="cta-actions"><div class="cta-contact-buttons"><a class="button button-white button-lg" href="/demarrer-un-projet/">Décrire mon projet et choisir un créneau</a><a class="button button-ghost-light button-lg" href="#demonstration">Découvrir le démonstrateur</a></div></div></div></section>
-
+{{CTA_BAND}}
 </main>

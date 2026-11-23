@@ -77,7 +77,7 @@ def build_v2_css() -> None:
     # Les sources fusionnées ne sont pas publiées (aucune page ne les charge).
     for source in ('ds.css', 'theme.css'):
         (v2/source).unlink(missing_ok=True)
-    for name in ('home.css', 'demos.css', 'project.css', 'funnel.css', 'editorial.css'):
+    for name in ('home.css', 'demos.css', 'project.css', 'funnel.css', 'editorial.css', 'sector.css'):
         path = v2/name
         if path.exists():
             path.write_text(minify_css(path.read_text(encoding='utf-8')), encoding='utf-8')

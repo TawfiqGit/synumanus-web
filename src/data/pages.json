@@ -157,17 +157,19 @@
     "title": "Applications mobiles pour les flux industriels | Synumanus",
     "description": "Découvrez Supply Chain Agent, prototype fonctionnel de suivi des commandes et indicateurs. Synumanus crée des applications mobiles industrielles sur mesure.",
     "styles": [
-      "service-pages.css",
-      "industry-redesign.css"
+      "v2/sector.css"
     ],
     "sector_key": "industrie",
     "og_title": "Applications mobiles pour les flux industriels | Synumanus",
     "og_description": "Découvrez Supply Chain Agent, prototype fonctionnel de suivi des commandes et indicateurs. Synumanus crée des applications mobiles industrielles sur mesure.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "service_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "secteurs/finance-assurance/index.html": {
     "source": "finance-assurance.html",
@@ -175,18 +177,19 @@
     "title": "Application mobile finance & assurance et IA Finance | Synumanus",
     "description": "Découvrez IA Finance, prototype fonctionnel avec agent IA opérationnel, présenté comme démonstrateur du savoir-faire mobile Synumanus pour la finance.",
     "styles": [
-      "service-pages.css",
-      "finance-reference-sector.css",
-      "finance-redesign.css"
+      "v2/sector.css"
     ],
     "sector_key": "finance-assurance",
     "og_title": "IA Finance, démonstrateur mobile finance & assurance | Synumanus",
     "og_description": "Prototype fonctionnel IA Finance avec agent IA opérationnel : découvrez un savoir-faire de conception mobile orienté finance.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "service_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "secteurs/sante/index.html": {
     "source": "sante.html",
@@ -194,18 +197,19 @@
     "title": "Application mobile santé sur mesure — PillCircle | Synumanus",
     "description": "Découvrez PillCircle, application fonctionnelle de rappels de médicaments sans IA, présentée comme démonstrateur du savoir-faire mobile Synumanus.",
     "styles": [
-      "service-pages.css",
-      "health-reference-sector.css",
-      "finance-redesign.css"
+      "v2/sector.css"
     ],
     "sector_key": "sante",
     "og_title": "Application mobile santé sur mesure — PillCircle | Synumanus",
     "og_description": "Découvrez PillCircle, application fonctionnelle de rappels de médicaments sans IA, présentée comme démonstrateur du savoir-faire mobile Synumanus.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "service_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "conseil-ia-generative/index.html": {
     "source": "conseil-ia-generative.html",
