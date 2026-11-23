@@ -1,31 +1,30 @@
 # Point de reprise — Refonte du site Synumanus
 
-Sauvegarde du 20/11/2026. À relire en premier à la reprise.
+Sauvegarde du 23/11/2026. À relire en premier à la reprise.
 
 ## Où en est-on
 | Livrable | Version | Statut |
 |---|---|---|
-| Fiche projet | v1.1 | Validée |
+| Fiche projet | v1.2 | Validée |
 | B1 Cadrage | v1.0 | Validé le 17/11 |
 | B2 Personas, parcours, arborescence | v1.0 | Validé le 17/11 |
-| B3 Wireframes | v0.2 | ⛔ En attente de validation TawfiqDev |
-| B4 Design system v2 **clair** + prototype HTML + hero rubans fluides (accueil) | v0.6 (specs) | ⛔ À valider — branche `claude/practical-bell-yr0jwk` |
-| Journal des décisions | à jour (19/11) | — |
+| B3 Wireframes | v0.2 (+ écarts tracés au journal) | **Validé le 23/11 — gate G3** |
+| B4 Design system v2 + prototype HTML | v0.9 (specs) | **Validé le 23/11 — gate G3** |
+| B5 Handoff développeurs | — | À faire (Lili) |
+| B6 Préparation de la recette | — | À faire (Lili, testabilité vérifiée par Ace) |
 
-## Ce qui a été produit le 19/11
-- Design system v2 (`src/static/v2/`) : synthèse Graphite × Basis Theory × Column (détail dans les specs v0.2).
-- 12 pages en v2 : accueil, 3 piliers (nouvelles URLs `/applications-mobiles/`, `/applications-web-metier/`, `/automatisation-ia/`), 4 services, agence, formulaire, 2 pages légales.
-- Lot 2 (secteurs, ressources, actus, conseil IA) : ancien design conservé, hors menu, liens dans le footer.
-- Contrôles : axe-core 0 violation, pas de défilement horizontal à 375 px, aucune erreur JS.
+Prototype : branche `claude/practical-bell-yr0jwk` (`python3 build.py && python3 local_server.py`). 12 pages en v2 ; lot 2 (secteurs, ressources, actus, conseil IA) encore dans l'ancien design.
 
-## Reste à trancher avant G3
-1. **TawfiqDev** : valider B3 + la version claire (v0.3).
-2. ~~Durées et engagement « Europe »~~ — confirmés le 20/11.
-3. ~~Logos~~ — reçus le 21/11 (PNG 500 px) et intégrés : `assets/v-dark.png`, `v-claire.png`, `favicon-32.png`, `apple-touch-icon.png`, `logo-synumanus-512.png`. Un filigrane « Dol… » (générateur d'images) a été effacé en bas à droite. Logo **conservé** (celui de l'ancien site, confirmé par TawfiqDev le 21/11) ; un SVG reste souhaitable mais non bloquant. **Reste à fournir** : la photo de la page Agence reste optionnelle : remplacée le 21/11 par un plan stylisé des bureaux aux Tricolores (Neuilly-sur-Seine). Adresse exacte à afficher : à confirmer par TawfiqDev.
-4. **Law** : back-end et nouvelles valeurs « Nature du projet », passage à 4 étapes ; mention RGPD du formulaire.
-5. **TawfiqDev / Law** : la politique de confidentialité cite « Brevo Meetings » alors que le calendrier est systeme.io — à corriger.
+## Reste ouvert
+1. **Law** : back-end du formulaire (nouvelles valeurs « Nature du projet », passage à 4 étapes) ; mention RGPD du formulaire.
+2. **TawfiqDev / Law** : la politique de confidentialité cite « Brevo Meetings » alors que le calendrier est systeme.io.
+3. **TawfiqDev** : adresse exacte des Tricolores à afficher ; logo SVG (souhaitable, non bloquant).
+4. **Dragon** (urgent) : données de prospects versionnées dans `var/` — tâche ClickUp ouverte.
+5. **Lot 2** : preuves sociales (applications en cours, références en attente), assistant IA, restylage des pages du lot 2.
+6. **Shanks** : planning après élargissement du périmètre (tendances 2026, démos).
 
 ## Prochaines actions
-1. Revue visuelle du prototype par TawfiqDev (`python3 build.py && python3 local_server.py`).
-2. Ace : recette accessibilité manuelle (lecteurs d'écran, zoom 200 %, appareils réels) + formulaire de bout en bout en mode mock.
-3. Dragon : retirer du dépôt les bases SQLite et rapports de test de `var/` (données de prospects potentiellement réelles) et purger l'historique si nécessaire.
+1. Lili : B5 handoff (specs par écran, composants, tokens, annotations d'accessibilité) et B6 (critères Gherkin, checklist UX/accessibilité, protocole de test utilisateur).
+2. Ace : vérifie la testabilité des critères B6, puis recette manuelle (clavier, lecteurs d'écran, zoom 200 %, appareils réels).
+3. Law : passage du prototype en version de production (nettoyage CSS hérité, images WebP, formulaire), MR vers `main`.
+4. Dragon : Plausible, `var/`, préparation Hostinger.
