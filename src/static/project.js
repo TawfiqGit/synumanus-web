@@ -1,15 +1,16 @@
 /**
  * setupProjectForm(): void
  * Gère le parcours complet « Démarrer un projet » :
- * 1–4. qualification + coordonnées,
- * 5. calendrier de réservation systeme.io.
+ * 1–3. projet et besoin, budget et calendrier, coordonnées,
+ * 4. calendrier de réservation systeme.io (lot 2, 23/11/2026 : 4 étapes au lieu de 5).
  */
 const setupProjectForm = () => {
   const form = document.querySelector('[data-project-form]');
   if (!form) return;
 
-  const TOTAL_FLOW_STEPS = 5;
-  const BOOKING_STEP = 5;
+  // Étapes de saisie + étape de réservation : calculé depuis le HTML (4 aujourd'hui).
+  const TOTAL_FLOW_STEPS = form.querySelectorAll('[data-step]').length + 1;
+  const BOOKING_STEP = TOTAL_FLOW_STEPS;
   const STORAGE_KEY = 'synumanusProjectSubmitted';
   const randomToken = () => Array.from(crypto.getRandomValues(new Uint8Array(32)), byte => byte.toString(16).padStart(2, '0')).join('');
   const tabId = randomToken();
@@ -228,17 +229,6 @@ const setupProjectForm = () => {
     if (field.type === 'radio' && field.getAttribute('aria-invalid') === 'true') markField(field, false);
   });
 
-  /** redirectLowBudgetProject(): boolean */
-  const redirectLowBudgetProject = () => {
-    const projectType = form.querySelector('input[name="projectType"]:checked')?.value;
-    const budget = form.querySelector('input[name="budget"]:checked')?.value;
-    if (!projectType || projectType === 'Cadrage' || budget !== 'Moins de 7 000 € HT') {
-      return false;
-    }
-    window.location.assign('/ressources/generateur-cahier-des-charges/');
-    return true;
-  };
-
   /** calendarConfirmationUrl(): string */
   const calendarConfirmationUrl = () => {
     const configured = String(window.SYNUMANUS_CONFIG?.systemeIoBookingConfirmationUrl || '').trim();
@@ -324,7 +314,6 @@ const setupProjectForm = () => {
 
   nextButton?.addEventListener('click', () => {
     if (!validateStep(steps[currentStep])) return;
-    if (redirectLowBudgetProject()) return;
     rememberStep(currentStep);
     currentStep = Math.min(currentStep + 1, steps.length - 1);
     renderFormStep();
@@ -367,7 +356,6 @@ const setupProjectForm = () => {
         return;
       }
     }
-    if (redirectLowBudgetProject()) return;
 
     const endpoint = String(window.SYNUMANUS_CONFIG?.projectEndpoint || '').trim();
     if (!endpoint) {
@@ -419,6 +407,15 @@ const setupProjectForm = () => {
       }
     }
   });
+
+  // Compteur de caractères du besoin (B3 : 1 800 caractères maximum).
+  const problem = form.querySelector('#businessProblem');
+  const counter = form.querySelector('[data-char-count]');
+  const fmt = new Intl.NumberFormat('fr-FR');
+  const updateCount = () => { if (problem && counter) counter.textContent = `${fmt.format(problem.value.length)} / ${fmt.format(Number(problem.maxLength))} caractères`; };
+  problem?.addEventListener('input', updateCount);
+  form.addEventListener('reset', () => setTimeout(updateCount));
+  updateCount();
 
   renderFormStep();
 };

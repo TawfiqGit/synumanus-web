@@ -52,7 +52,8 @@
     const sync = () => {
       const bookingVisible = booking && !booking.hidden;
       // Erreur d'envoi serveur : elle survient à la soumission, donc sur l'étape « Vos coordonnées ».
-      const onSubmitStep = !!form.querySelector('[data-step="4"].is-active');
+      const formSteps = form.querySelectorAll('[data-step]');
+      const onSubmitStep = !!formSteps.length && formSteps[formSteps.length - 1].classList.contains('is-active');
       // Seule une erreur d'envoi au serveur réaffiche WhatsApp (pas une simple erreur de saisie).
       const errorVisible = onSubmitStep && error && !error.hidden && error.dataset.kind === 'server';
       whatsapp.hidden = !(bookingVisible || errorVisible);

@@ -12,31 +12,20 @@
     <div class="container form-shell">
       <div class="project-wizard">
         <div class="form-progress-track" role="progressbar" aria-label="Progression du formulaire" aria-valuemin="0"
-          aria-valuemax="5" aria-valuenow="1"><span data-progress-bar></span></div>
+          aria-valuemax="4" aria-valuenow="1"><span data-progress-bar></span></div>
         <aside class="project-history" aria-label="Historique de vos choix">
           <h2>Votre parcours</h2>
           <ol>
-            <li data-history-step="0"><button type="button" data-history-button="0" disabled><span
-                  class="history-number" aria-hidden="true">1</span><span><strong>Votre projet</strong><span
-                    class="history-answer" data-history-answer>À venir</span></span></button></li>
-            <li data-history-step="1"><button type="button" data-history-button="1" disabled><span
-                  class="history-number" aria-hidden="true">2</span><span><strong>Le besoin métier</strong><span
-                    class="history-answer" data-history-answer>À venir</span></span></button></li>
-            <li data-history-step="2"><button type="button" data-history-button="2" disabled><span
-                  class="history-number" aria-hidden="true">3</span><span><strong>Budget et calendrier</strong><span
-                    class="history-answer" data-history-answer>À venir</span></span></button></li>
-            <li data-history-step="3"><button type="button" data-history-button="3" disabled><span
-                  class="history-number" aria-hidden="true">4</span><span><strong>Vos coordonnées</strong><span
-                    class="history-answer" data-history-answer>À venir</span></span></button></li>
-            <li data-history-step="4"><button type="button" data-history-button="4" disabled><span
-                  class="history-number" aria-hidden="true">5</span><span><strong>Choisir un créneau</strong><span
-                    class="history-answer" data-history-answer>À venir</span></span></button></li>
+            <li data-history-step="0"><button type="button" data-history-button="0" disabled><span class="history-number" aria-hidden="true">1</span><span><strong>Projet et besoin</strong><span class="history-answer" data-history-answer>À venir</span></span></button></li>
+            <li data-history-step="1"><button type="button" data-history-button="1" disabled><span class="history-number" aria-hidden="true">2</span><span><strong>Budget et calendrier</strong><span class="history-answer" data-history-answer>À venir</span></span></button></li>
+            <li data-history-step="2"><button type="button" data-history-button="2" disabled><span class="history-number" aria-hidden="true">3</span><span><strong>Vos coordonnées</strong><span class="history-answer" data-history-answer>À venir</span></span></button></li>
+            <li data-history-step="3"><button type="button" data-history-button="3" disabled><span class="history-number" aria-hidden="true">4</span><span><strong>Choisir un créneau</strong><span class="history-answer" data-history-answer>À venir</span></span></button></li>
           </ol>
         </aside>
         <div class="project-workspace">
           <div class="form-progress-wrap" aria-label="Progression du formulaire">
             <div class="form-progress-meta">
-              <span data-step-label>Étape 1 / 5</span>
+              <span data-step-label>Étape 1 / 4</span>
             </div>
           </div>
 
@@ -44,11 +33,11 @@
             <input class="project-honeypot" type="text" name="website" tabindex="-1" autocomplete="off"
               aria-hidden="true" />
 
-            <section class="form-step is-active" data-step="1" data-title="Votre projet">
+            <section class="form-step is-active" data-step="1" data-title="Projet et besoin">
               <div class="form-step-heading">
                 <div>
                   <h2>Quel projet avez-vous en tête&nbsp;?</h2>
-                  <p class="step-description">Commençons par le contexte</p>
+                  <p class="step-description">Le contexte et le besoin, en quelques mots</p>
                 </div>
               </div>
 
@@ -56,10 +45,22 @@
                 <legend>Nature du projet <span>*</span></legend>
                 <div class="choice-grid choice-grid-2">
                   <label class="choice-card">
-                    <input type="radio" name="projectType" value="Nouvelle application" required />
+                    <input type="radio" name="projectType" value="Nouvelle application mobile" required />
                     <span class="choice-indicator"></span>
-                    <strong>Nouvelle application</strong>
-                    <small>Créer un produit mobile ou un nouvel outil métier.</small>
+                    <strong>Nouvelle application mobile</strong>
+                    <small>Une application iOS ou Android pour vos équipes ou vos clients.</small>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="projectType" value="Application web ou métier" required />
+                    <span class="choice-indicator"></span>
+                    <strong>Application web / métier</strong>
+                    <small>Un outil interne, une plateforme ou un site connecté à vos logiciels.</small>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="projectType" value="Automatisation ou IA" required />
+                    <span class="choice-indicator"></span>
+                    <strong>Automatisation ou IA</strong>
+                    <small>Supprimer des tâches répétitives, assister votre équipe.</small>
                   </label>
                   <label class="choice-card">
                     <input type="radio" name="projectType" value="Refonte ou reprise" required />
@@ -71,13 +72,13 @@
                     <input type="radio" name="projectType" value="Evolution" required />
                     <span class="choice-indicator"></span>
                     <strong>Évolution</strong>
-                    <small>Ajouter un nouveau périmètre ou de nouvelles fonctions.</small>
+                    <small>Ajouter des fonctions à un outil existant.</small>
                   </label>
                   <label class="choice-card">
-                    <input type="radio" name="projectType" value="Cadrage" required />
+                    <input type="radio" name="projectType" value="Je ne sais pas encore" required />
                     <span class="choice-indicator"></span>
-                    <strong>Cadrage</strong>
-                    <small>Clarifier l’idée, le périmètre et les priorités avant développement.</small>
+                    <strong>Je ne sais pas encore</strong>
+                    <small>On en parle ensemble pendant l’échange.</small>
                   </label>
                 </div>
               </fieldset>
@@ -85,36 +86,24 @@
               <fieldset class="form-fieldset">
                 <legend>Où en êtes-vous aujourd’hui&nbsp;? <span>*</span></legend>
                 <div class="pill-grid">
-                  <label class="choice-pill"><input type="radio" name="maturity" value="Idée / besoin identifié"
-                      required /><span>Idée / besoin identifié</span></label>
-                  <label class="choice-pill"><input type="radio" name="maturity" value="Périmètre déjà défini"
-                      required /><span>Périmètre déjà défini</span></label>
-                  <label class="choice-pill"><input type="radio" name="maturity" value="Maquettes disponibles"
-                      required /><span>Maquettes disponibles</span></label>
-                  <label class="choice-pill"><input type="radio" name="maturity" value="Application existante"
-                      required /><span>Application existante</span></label>
+                  <label class="choice-pill"><input type="radio" name="maturity" value="Idée / besoin identifié" required /><span>Idée / besoin identifié</span></label>
+                  <label class="choice-pill"><input type="radio" name="maturity" value="Périmètre déjà défini" required /><span>Périmètre déjà défini</span></label>
+                  <label class="choice-pill"><input type="radio" name="maturity" value="Maquettes disponibles" required /><span>Maquettes disponibles</span></label>
+                  <label class="choice-pill"><input type="radio" name="maturity" value="Application existante" required /><span>Application existante</span></label>
                 </div>
               </fieldset>
-            </section>
-
-            <section class="form-step" data-step="2" data-title="Le besoin métier">
-              <div class="form-step-heading">
-                <div>
-                  <h2>Quel problème voulez-vous résoudre&nbsp;?</h2>
-                  <p class="step-description">Le métier avant les écrans</p>
-                </div>
-              </div>
 
               <div class="field-group">
-                <label for="businessProblem">Décrivez le problème ou l’opportunité <span>*</span></label>
-                <textarea id="businessProblem" name="businessProblem" rows="6" minlength="20" maxlength="1800" required
-                  placeholder="Ex. Aujourd’hui, nos équipes saisissent les mêmes informations dans plusieurs outils. Nous voulons centraliser ce parcours sur mobile et réduire les erreurs..."></textarea>
-                <small>Pas besoin d’être technique. Décrivez surtout la situation actuelle et ce qui doit
-                  changer.</small>
+                <label for="businessProblem">Quel problème voulez-vous résoudre&nbsp;? <span>*</span></label>
+                <textarea id="businessProblem" name="businessProblem" rows="5" minlength="20" maxlength="1800" required
+                  aria-describedby="businessProblem-help businessProblem-count"
+                  placeholder="Ex. Nos techniciens remplissent des bons papier, puis le bureau ressaisit tout pour facturer."></textarea>
+                <small id="businessProblem-help">Pas besoin d’être technique : décrivez la situation actuelle et ce qui doit changer.</small>
+                <small class="char-count" id="businessProblem-count" data-char-count>0 / 1 800 caractères</small>
               </div>
             </section>
 
-            <section class="form-step" data-step="3" data-title="Budget et calendrier">
+            <section class="form-step" data-step="2" data-title="Budget et calendrier">
               <div class="form-step-heading">
                 <div>
                   <h2>Quel niveau d’investissement envisagez-vous&nbsp;?</h2>
@@ -124,6 +113,7 @@
 
               <fieldset class="form-fieldset">
                 <legend>Budget envisagé <span>*</span></legend>
+                <p class="fieldset-help">Pas sûr ? Choisissez une fourchette large, on affinera ensemble.</p>
                 <div class="choice-grid choice-grid-2">
                   <label class="choice-card choice-card-short"><input type="radio" name="budget"
                       value="Moins de 7 000 € HT" required /><span class="choice-indicator"></span><strong>Moins de 7
@@ -165,7 +155,7 @@
               </div>
             </section>
 
-            <section class="form-step" data-step="4" data-title="Vos coordonnées">
+            <section class="form-step" data-step="3" data-title="Vos coordonnées">
               <div class="form-step-heading">
                 <div>
                   <h2>Comment vous recontacter&nbsp;?</h2>
@@ -202,9 +192,7 @@
                 <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" pattern="\+?[0-9 .\(\)\-]{10,20}" required
                   placeholder="Ex. 06 12 34 56 78" />
               </div>
-                          <p class="form-rgpd" id="rgpd-notice" data-rgpd-notice>
-              Vos informations sont utilisées par Synumanus, responsable du traitement, uniquement pour étudier votre demande, vous recontacter et organiser le premier échange, y compris par un rappel par e-mail si aucun rendez-vous n’est réservé. Elles sont conservées 3 ans après notre dernier échange, puis supprimées. Elles sont hébergées par Hostinger et traitées par systeme.io pour la prise de rendez-vous et les e-mails. Vous pouvez y accéder, les rectifier, les supprimer ou vous opposer à leur traitement en écrivant à <a href="mailto:contact@synumanus.fr">contact@synumanus.fr</a>. En savoir plus : <a href="/politique-confidentialite/">politique de confidentialité</a>.
-            </p>
+                          <p class="form-rgpd" id="rgpd-notice" data-rgpd-notice>Vos données servent uniquement à traiter votre demande et à vous recontacter, et sont conservées 3&nbsp;ans. Pour y accéder, les corriger ou les supprimer : <a href="mailto:contact@synumanus.fr">contact@synumanus.fr</a>. <a href="/politique-confidentialite/">En savoir plus</a></p>
             </section>
 
             <div class="form-error" data-form-error role="alert" hidden></div>

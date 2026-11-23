@@ -333,7 +333,7 @@ Fonctionnalité: Rubans fluides du hero
 ### US-11 — Demander un échange (formulaire « Démarrer un projet »)
 Préalables : C1 (aucun test au-delà de l'étape 4 avec le vrai calendrier), C2, C3.
 ```gherkin
-Fonctionnalité: Formulaire (back-end inchangé, nombre d'étapes N = 5 aujourd'hui)
+Fonctionnalité: Formulaire (back-end inchangé, N = 4 étapes depuis le lot 2 du 23/11)
 
   Scénario: AC-11.1 Champs obligatoires
     Étant donné l'étape 1 sans réponse
