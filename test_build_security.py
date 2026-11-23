@@ -33,5 +33,22 @@ class BuildSecurityTests(unittest.TestCase):
                                 for p in dist.rglob('*') if p.is_file()))
 
 
+    def test_preprod_uses_test_calendar_and_noindex(self):
+        with tempfile.TemporaryDirectory() as directory:
+            dist = Path(directory)
+            (dist / 'config.js').write_text("x = { systemeIoCalendarUrl: '%s' };" % build.PROD_CALENDAR_URL, encoding='utf-8')
+            (dist / '.htaccess').write_text('ErrorDocument 404 /404.html\n', encoding='utf-8')
+            (dist / 'robots.txt').write_text('User-agent: *\nAllow: /\n', encoding='utf-8')
+            with patch.object(build, 'DIST', dist):
+                for bad in ('', 'http://exemple.fr/cal', build.PROD_CALENDAR_URL):
+                    with self.assertRaises(SystemExit):
+                        build.apply_preprod(bad)
+                self.assertIn(build.PROD_CALENDAR_URL, (dist / 'config.js').read_text())
+                build.apply_preprod('https://studio.synumanus.fr/recette-calendar')
+            self.assertIn("systemeIoCalendarUrl: 'https://studio.synumanus.fr/recette-calendar'", (dist / 'config.js').read_text())
+            self.assertNotIn(build.PROD_CALENDAR_URL, (dist / 'config.js').read_text())
+            self.assertIn('Disallow: /', (dist / 'robots.txt').read_text())
+            self.assertIn('X-Robots-Tag "noindex, nofollow"', (dist / '.htaccess').read_text())
+
 if __name__ == '__main__':
     unittest.main()

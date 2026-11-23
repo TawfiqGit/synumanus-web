@@ -286,5 +286,37 @@ def build() -> None:
     (DIST/'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}/sitemap.xml\n', encoding='utf-8')
     print(f'{len(built_routes)} pages générées dans {DIST}')
 
+PROD_CALENDAR_URL = 'https://studio.synumanus.fr/discovery-call-calendar'
+
+def apply_preprod(calendar_url: str) -> None:
+    """Transforme dist/ en pré-production (B6 §4.1, condition C4).
+
+    - robots.txt interdit tout et .htaccess ajoute X-Robots-Tag noindex : la
+      pré-production n'est jamais indexée en doublon du site ;
+    - config.js pointe vers le calendrier de TEST systeme.io : jamais le vrai.
+    Fermeture sûre : toute anomalie arrête le build au lieu de publier un dist
+    à moitié configuré.
+    """
+    url = calendar_url.strip()
+    if not re.fullmatch(r'https://[^\s\'"]+', url):
+        raise SystemExit('Pré-production : --calendrier-test=https://… obligatoire.')
+    if url.rstrip('/') == PROD_CALENDAR_URL:
+        raise SystemExit('Pré-production : le calendrier de test ne peut pas être le vrai calendrier.')
+    config_path = DIST/'config.js'
+    config, count = re.subn(r"systemeIoCalendarUrl:\s*'[^']*'", f"systemeIoCalendarUrl: '{url}'", config_path.read_text(encoding='utf-8'))
+    if count != 1:
+        raise SystemExit('Pré-production : systemeIoCalendarUrl introuvable dans config.js.')
+    config_path.write_text(config, encoding='utf-8')
+    (DIST/'robots.txt').write_text('User-agent: *\nDisallow: /\n', encoding='utf-8')
+    htaccess = DIST/'.htaccess'
+    htaccess.write_text(htaccess.read_text(encoding='utf-8').rstrip('\n') + '\n\n'
+        '# Pré-production uniquement : ne jamais publier ce bloc en production.\n'
+        '<IfModule mod_headers.c>\n  Header set X-Robots-Tag "noindex, nofollow"\n</IfModule>\n', encoding='utf-8')
+    print(f'Pré-production : calendrier de test {url}, robots.txt Disallow, X-Robots-Tag noindex.')
+
 if __name__ == '__main__':
+    import sys
     build()
+    if '--preprod' in sys.argv:
+        arg = next((a for a in sys.argv if a.startswith('--calendrier-test=')), '')
+        apply_preprod(arg.split('=', 1)[1] if arg else '')

@@ -560,6 +560,12 @@ Priorité 1 : A01, P02, AC-01.2, AC-17.1 ; démos (AC-04, AC-05) ; table de déc
 
 **Préalables (bloquants)** : pré-production Hostinger en ligne (Dragon) ; calendrier de **test** systeme.io créé et renseigné dans le `config.js` de la pré-production (jamais `studio.synumanus.fr/discovery-call-calendar`) ; pré-production non indexable (`Header set X-Robots-Tag "noindex, nofollow"` dans son `.htaccess`, ou protection par mot de passe). Le `.htaccess` de la pré-production ne doit pas partir en production.
 
+**Mise en place (Dragon, 23/11/2026)** :
+- Événement de test systeme.io créé par API : n° 50250 « TEST recette site — ne pas réserver » (30 min, samedi 10 h–12 h hors des disponibilités réelles, du 24/11/2026 au 31/01/2027, 4 réservations par jour au plus, sans Zoom ni rappel). L'événement réel « Appel de découverte » (n° 43565) n'est pas modifié.
+- **À faire dans l'interface systeme.io (TawfiqDev, l'API ne sait pas créer une page avec un bloc calendrier)** : dupliquer le tunnel « Discovery call », remplacer dans la page « Calendrier » l'événement par « TEST recette site — ne pas réserver », publier la page sur `studio.synumanus.fr/recette-calendar`, et régler sa redirection après réservation vers l'adresse de la pré-production.
+- Construire : `python3 build.py --preprod --calendrier-test=https://studio.synumanus.fr/recette-calendar` (le build s'arrête si l'URL manque ou si c'est le vrai calendrier ; ajoute `robots.txt` Disallow et `X-Robots-Tag: noindex`). Un `python3 build.py` simple rétablit la configuration de production.
+- Hostinger (hPanel) : créer le sous-domaine `preprod.synumanus.fr`, y déposer le contenu de `dist/` (fichiers cachés compris : `.htaccess`), et créer hors du dossier public le `.env` de la pré-production avec `SYNUMANUS_LOCAL_MOCK=1` tant que l'envoi réel n'est pas autorisé (le formulaire répond sans créer de contact ni envoyer d'e-mail). Protection par mot de passe du sous-domaine recommandée en plus.
+
 1. **Contrôles automatiques, lecture seule** (aucun formulaire envoyé ; les POST vers `/api/` sont bloqués par le script) :
    `node tests/recette-preprod.cjs https://<pré-production> --calendrier-test=<URL du calendrier de test>`
    Couvre AC-16.1 (vrai code 404), AC-18.1 (URL du sitemap), C1 (pas le vrai calendrier), non-indexation, AC-11.6 (chargement du calendrier de test).
