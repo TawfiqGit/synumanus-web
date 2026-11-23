@@ -13,7 +13,7 @@ Statut au 23/11 : **à exécuter** (aucun test manuel n'a été fait). « ✔ pr
 
 | # | Condition | Responsable | Statut |
 |---|---|---|---|
-| C1 | **Configuration de test sans le vrai calendrier systeme.io** (`systemeIoCalendarUrl` vide ou calendrier de test dédié). Tant qu'elle n'existe pas : **aucun test du formulaire au-delà de l'étape 4** (risque R1 d'Ace : réservation réelle et relances) | Dragon, Law | À faire |
+| C1 | **Configuration de test sans le vrai calendrier systeme.io** (`systemeIoCalendarUrl` vide ou calendrier de test dédié). Tant qu'elle n'existe pas : **aucun test du formulaire au-delà de l'étape 4** (risque R1 d'Ace : réservation réelle et relances) | Dragon, Law | **Prête (23/11)** : `local_server.py` en mode mock sert `config.js` sans le vrai calendrier (`local_router.php`, fermeture sûre) ; AC-11.6 exécuté OK. Pré-production : calendrier de test systeme.io dédié à créer (Dragon, TawfiqDev) |
 | C2 | Site servi par `local_server.py` (mode mock, PHP actif) pour le formulaire et la newsletter ; jamais `python3 -m http.server` | Ace | Disponible |
 | C3 | Procédure de simulation d'erreur serveur (arrêt de PHP, ou `projectEndpoint` de test renvoyant 500) | Law | À faire |
 | C4 | Pré-production sur Hostinger pour les mesures de performance (P01) et la page 404 (AC-16.1) | Dragon | À faire |

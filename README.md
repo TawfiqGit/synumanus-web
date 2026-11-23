@@ -97,6 +97,9 @@ Dans ce mode :
 - `POST /api/project.php` fonctionne sans transport mail ;
 - `GET` est également accepté sur ces deux endpoints uniquement pour les tests locaux ;
 - les données reçues sont écrites dans `var/local-requests.log`, hors du dossier public.
+- **le vrai calendrier systeme.io est désactivé** (condition de recette C1) : `local_router.php` sert `/config.js` avec `systemeIoCalendarUrl` vide, et l'étape « Choisir un créneau » affiche le calendrier simulé (« Simuler la réservation »). Le fichier publié `dist/config.js` n'est pas modifié. Si le remplacement échoue, `config.js` n'est pas servi (erreur 500) plutôt que d'exposer le vrai calendrier. Vérification : `curl -sI http://127.0.0.1:8081/config.js` renvoie l'en-tête `X-Synumanus-Test-Config: calendrier-simule`.
+
+Pour une recette, utilisez une base isolée afin de ne pas toucher `var/` : `SYNUMANUS_PROJECT_DB=/tmp/synumanus-recette.sqlite SYNUMANUS_LOCAL_LOG=/tmp/synumanus-recette.log python3 local_server.py`.
 
 Les endpoints acceptent localement :
 - JSON (`application/json`) ;

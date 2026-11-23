@@ -4,7 +4,9 @@
 Pourquoi ce script existe :
 - ``python -m http.server`` sert les fichiers statiques mais n'exécute pas PHP ;
 - le serveur PHP intégré exécute correctement ``/api/*.php`` ;
-- en mode mock local, les formulaires répondent sans contacter systeme.io ni mail().
+- en mode mock local, les formulaires répondent sans contacter systeme.io ni mail() ;
+- en mode mock local, ``local_router.php`` sert ``config.js`` sans le vrai calendrier
+  systeme.io (condition de recette C1) : le calendrier simulé s'affiche à la place.
 
 Le module ``cgi`` est importé en compatibilité avec les anciens environnements
 Python <= 3.12. Il a été supprimé de la bibliothèque standard en Python 3.13,
@@ -27,6 +29,7 @@ except ModuleNotFoundError:  # Python 3.13+
 
 ROOT = Path(__file__).resolve().parent
 DIST = ROOT / "dist"
+ROUTER = ROOT / "local_router.php"
 
 
 def load_env_file(path: Path) -> None:
@@ -101,6 +104,7 @@ def main() -> int:
     print(f"URL       : {url}")
     print(f"Document  : {DIST}")
     print(f"Mode API  : {mode}")
+    print(f"Calendrier: {'RÉEL (systeme.io)' if args.live else 'simulé — C1, vrai calendrier désactivé'}")
     print(f"Log local : {env['SYNUMANUS_LOCAL_LOG']}")
     if cgi is None:
         print("CGI       : module cgi absent (normal sous Python 3.13+) — non requis")
@@ -115,7 +119,7 @@ def main() -> int:
         except Exception:
             pass
 
-    command = [php, "-S", f"{args.host}:{args.port}", "-t", str(DIST)]
+    command = [php, "-S", f"{args.host}:{args.port}", "-t", str(DIST), str(ROUTER)]
     try:
         return subprocess.call(command, cwd=str(ROOT), env=env)
     except KeyboardInterrupt:

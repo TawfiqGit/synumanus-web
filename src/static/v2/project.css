@@ -111,6 +111,7 @@
 .project-booking-stage[hidden] { display: none; }
 .systemeio-calendar-shell { border-radius: var(--r-card); border: 1px solid var(--c-border); overflow: hidden; background: var(--c-paper); }
 .systemeio-calendar-frame { display: block; width: 100%; min-height: 720px; border: 0; }
+.systemeio-calendar-frame[hidden] { display: none; }
 .calendar-local-mock { padding: var(--s-4); display: grid; gap: var(--s-3); background: var(--c-bg-alt); color: var(--c-text); }
 .calendar-local-mock[hidden] { display: none; }
 .calendar-local-head { display: flex; justify-content: space-between; align-items: center; }
