@@ -1,3 +1,32 @@
+Options -Indexes
+DirectoryIndex index.html
+
 # Synumanus — page d'erreur personnalisée (B5 §4.10, B6 AC-16.1)
 # Apache (Hostinger) : toute adresse inconnue renvoie la page 404 avec le code HTTP 404.
 ErrorDocument 404 /404.html
+
+# Fichiers cachés (.env, .git, .DS_Store…) jamais servis.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Redirections historiques (reprises de l'.htaccess de production du 23/11/2026).
+Redirect 301 /legal/mentions-legales.html /mentions-legales/
+Redirect 301 /legal/politique-confidentialite.html /politique-confidentialite/
+Redirect 301 /form/ /demarrer-un-projet/
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
