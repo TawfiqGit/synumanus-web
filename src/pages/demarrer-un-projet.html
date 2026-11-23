@@ -107,7 +107,7 @@
 
               <div class="field-group">
                 <label for="businessProblem">Décrivez le problème ou l’opportunité <span>*</span></label>
-                <textarea id="businessProblem" name="businessProblem" rows="6" maxlength="1800" required
+                <textarea id="businessProblem" name="businessProblem" rows="6" minlength="20" maxlength="1800" required
                   placeholder="Ex. Aujourd’hui, nos équipes saisissent les mêmes informations dans plusieurs outils. Nous voulons centraliser ce parcours sur mobile et réduire les erreurs..."></textarea>
                 <small>Pas besoin d’être technique. Décrivez surtout la situation actuelle et ce qui doit
                   changer.</small>
@@ -199,9 +199,12 @@
 
               <div class="field-group">
                 <label for="phone">Téléphone <span>*</span></label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" required
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" pattern="\+?[0-9 .\(\)\-]{10,20}" required
                   placeholder="Ex. 06 12 34 56 78" />
               </div>
+                          <p class="form-rgpd" id="rgpd-notice" data-rgpd-notice>
+              Vos informations sont utilisées par Synumanus, responsable du traitement, uniquement pour étudier votre demande, vous recontacter et organiser le premier échange, y compris par un rappel par e-mail si aucun rendez-vous n’est réservé. Elles sont conservées 3 ans après notre dernier échange, puis supprimées. Elles sont hébergées par Hostinger et traitées par systeme.io pour la prise de rendez-vous et les e-mails. Vous pouvez y accéder, les rectifier, les supprimer ou vous opposer à leur traitement en écrivant à <a href="mailto:contact@synumanus.fr">contact@synumanus.fr</a>. En savoir plus : <a href="/politique-confidentialite/">politique de confidentialité</a>.
+            </p>
             </section>
 
             <div class="form-error" data-form-error role="alert" hidden></div>
@@ -221,7 +224,7 @@
                     stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              <button class="button button-primary form-submit" type="submit" data-submit-project hidden>
+              <button class="button button-primary form-submit" type="submit" data-submit-project aria-describedby="rgpd-notice" hidden>
                 Choisir mon créneau
                 <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M3.5 4.5l13 5.5-13 5.5 2-5.5zM5.5 10h6" fill="none" stroke="currentColor" stroke-width="1.6"

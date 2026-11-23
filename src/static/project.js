@@ -110,11 +110,15 @@ const setupProjectForm = () => {
   const params = new URLSearchParams(window.location.search);
   const bookingConfirmed = params.get('booking') === 'confirmed';
 
-  /** setError(message?: string): void */
-  const setError = (message = '') => {
+  /**
+   * setError(message?: string, kind?: 'validation' | 'server'): void
+   * kind = 'server' pour une erreur d'envoi : le bouton WhatsApp réapparaît alors (décision du 17/11).
+   */
+  const setError = (message = '', kind = 'validation') => {
     if (!errorBox) return;
     errorBox.hidden = !message;
     errorBox.textContent = message;
+    errorBox.dataset.kind = message ? kind : '';
   };
 
   /** setProgress(stepNumber: number): void */
@@ -134,29 +138,95 @@ const setupProjectForm = () => {
   const fieldsForStep = (step) => [...step.querySelectorAll('input, textarea, select')]
     .filter((field) => field.type !== 'hidden' && field.name !== 'website');
 
+  /* ---------- Erreurs par champ (B3, B6 AC-11.2 validé le 23/11/2026) ---------- */
+  const FIELD_MESSAGES = {
+    projectType: 'Choisissez la nature de votre projet.',
+    maturity: 'Indiquez où en est votre projet.',
+    businessProblem: 'Décrivez votre besoin en quelques phrases (20 caractères minimum).',
+    budget: 'Choisissez une fourchette, même large : on affinera ensemble.',
+    lastName: 'Indiquez votre nom.',
+    firstName: 'Indiquez votre prénom.',
+    email: 'Indiquez un e-mail valide, par exemple nom@entreprise.fr',
+    phone: 'Indiquez un numéro de téléphone, par exemple 06 12 34 56 78.',
+  };
+
+  /** controlsFor(field): HTMLElement[] — un champ, ou tous les boutons radio du même groupe. */
+  const controlsFor = (field) => (field.type === 'radio'
+    ? [...form.querySelectorAll(`input[type="radio"][name="${CSS.escape(field.name)}"]`)]
+    : [field]);
+
+  /** errorElementFor(field): HTMLElement — message placé sous le champ ou sous le groupe, créé une fois. */
+  const errorElementFor = (field) => {
+    const id = `error-${field.name}`;
+    let el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement('p');
+      el.id = id;
+      el.className = 'field-error';
+      el.hidden = true;
+      const anchor = field.closest('fieldset, .field-group') || field;
+      anchor.append(el);
+    }
+    return el;
+  };
+
+  /** describe(control, id, add): void — ajoute ou retire l'id du message dans aria-describedby. */
+  const describe = (control, id, add) => {
+    const ids = new Set((control.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+    if (add) ids.add(id); else ids.delete(id);
+    if (ids.size) control.setAttribute('aria-describedby', [...ids].join(' '));
+    else control.removeAttribute('aria-describedby');
+  };
+
+  /** markField(field, invalid): void — état visuel + aria-invalid + message relié au champ. */
+  const markField = (field, invalid) => {
+    const message = FIELD_MESSAGES[field.name] || 'Ce champ est obligatoire.';
+    const el = errorElementFor(field);
+    controlsFor(field).forEach((control) => {
+      control.classList.toggle('is-invalid', invalid);
+      if (invalid) control.setAttribute('aria-invalid', 'true'); else control.removeAttribute('aria-invalid');
+      describe(control, el.id, invalid);
+    });
+    el.textContent = invalid ? message : '';
+    el.hidden = !invalid;
+  };
+
   /** validateStep(step: Element): boolean */
   const validateStep = (step) => {
     setError('');
     let firstInvalid = null;
+    const seenGroups = new Set();
 
     fieldsForStep(step).forEach((field) => {
-      field.classList.remove('is-invalid');
-      if (!field.checkValidity()) {
-        if (!firstInvalid) firstInvalid = field;
-        field.classList.add('is-invalid');
+      if (field.type === 'radio') {
+        if (seenGroups.has(field.name)) return;
+        seenGroups.add(field.name);
       }
+      const invalid = !field.checkValidity();
+      markField(field, invalid);
+      if (invalid && !firstInvalid) firstInvalid = field;
     });
 
     if (firstInvalid) {
       setError('Complétez les champs obligatoires avant de continuer.');
-      if (firstInvalid.type !== 'radio' && firstInvalid.type !== 'checkbox') {
-        firstInvalid.focus({ preventScroll: true });
-      }
-      step.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Focus sur le premier champ en erreur (pour un groupe radio : son premier choix).
+      controlsFor(firstInvalid)[0].focus({ preventScroll: true });
+      firstInvalid.closest('fieldset, .field-group')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return false;
     }
     return true;
   };
+
+  // Un champ signalé en erreur est revérifié dès qu'il change ; le message disparaît une fois corrigé.
+  form.addEventListener('input', (event) => {
+    const field = event.target;
+    if (!field.name || !FIELD_MESSAGES[field.name]) return;
+    if (field.getAttribute('aria-invalid') === 'true' && field.checkValidity()) markField(field, false);
+  });
+  form.addEventListener('change', (event) => {
+    const field = event.target;
+    if (field.type === 'radio' && field.getAttribute('aria-invalid') === 'true') markField(field, false);
+  });
 
   /** redirectLowBudgetProject(): boolean */
   const redirectLowBudgetProject = () => {
@@ -301,7 +371,7 @@ const setupProjectForm = () => {
 
     const endpoint = String(window.SYNUMANUS_CONFIG?.projectEndpoint || '').trim();
     if (!endpoint) {
-      setError('Le formulaire est prêt, mais projectEndpoint doit être configuré dans config.js.');
+      setError('Le formulaire est prêt, mais projectEndpoint doit être configuré dans config.js.', 'server');
       return;
     }
 
@@ -331,7 +401,7 @@ const setupProjectForm = () => {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok || !data.ok || !/^[a-f0-9]{64}$/.test(data.trackingToken || '')) {
-        throw new Error(data.message || 'L’enregistrement n’a pas pu être confirmé. Veuillez réessayer.');
+        throw new Error(data.message || 'La demande n’a pas pu être envoyée. Réessayez ou contactez Synumanus par email/WhatsApp.');
       }
       trackingToken = data.trackingToken;
       try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ token: trackingToken })); } catch (_) { /* no-op */ }
@@ -340,7 +410,7 @@ const setupProjectForm = () => {
       showBookingStage();
     } catch (error) {
       console.error('Project form submission failed:', error);
-      setError(error.message || 'La demande n’a pas pu être envoyée. Réessayez ou contactez Synumanus par email/WhatsApp.');
+      setError(error.message || 'La demande n’a pas pu être envoyée. Réessayez ou contactez Synumanus par email/WhatsApp.', 'server');
     } finally {
       sending = false;
       if (submitButton) {

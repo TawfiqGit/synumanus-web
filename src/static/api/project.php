@@ -56,6 +56,11 @@ foreach ($required as $key => $label) {
 }
 
 
+// Le besoin doit être décrit en au moins 20 caractères (B3 / B6 AC-11.2, même règle que le navigateur).
+if (synumanusTextLength(trim((string)$payload['businessProblem'])) < 20) {
+    respond(422, ['message' => 'Décrivez votre besoin en quelques phrases (20 caractères minimum).']);
+}
+
 $email = filter_var(trim((string)$payload['email']), FILTER_VALIDATE_EMAIL);
 if ($email === false) {
     respond(422, ['message' => 'Adresse email invalide.']);

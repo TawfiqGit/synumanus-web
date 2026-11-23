@@ -12,7 +12,7 @@ def main():
     status, info = request_json(base + '/api/newsletter.php?email=probe%40example.invalid&consent=true')
     assert status == 200 and info.get('mock') is True, 'Mock server required'
     token, tab = secrets.token_hex(32), secrets.token_hex(32)
-    payload = dict(projectType='Cadrage', maturity='Idée', businessProblem='Test isolé',
+    payload = dict(projectType='Cadrage', maturity='Idée', businessProblem='Test isolé : description de besoin fictive',
                    budget='7 000 à 10 000 € HT', firstName='Test', lastName='Local',
                    email='project-test@example.invalid', phone='0600000000',
                    submissionToken=token, tabId=tab)

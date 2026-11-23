@@ -138,3 +138,17 @@
   .form-navigation { position: sticky; bottom: 0; background: var(--c-bg); padding-bottom: 12px; z-index: 2; }
   .form-navigation .button { flex: 1; }
 }
+
+/* Erreurs par champ (B6 AC-11.2) : texte + icône, jamais la couleur seule */
+.field-error { margin: 8px 0 0; font-size: var(--fs-control); font-weight: 600; color: var(--c-danger); display: flex; gap: 6px; align-items: flex-start; }
+.field-error::before { content: "⚠"; }
+.field-error[hidden] { display: none; }
+.form-fieldset .field-error { grid-column: 1 / -1; }
+.choice-card.is-invalid, .choice-card:has(input.is-invalid) { border-color: var(--c-danger); }
+.choice-pill input.is-invalid + span { border-color: var(--c-danger); }
+.form-rgpd { margin-top: var(--s-3); padding-top: var(--s-3); border-top: 1px dashed var(--c-border-strong); font-size: var(--fs-caption); line-height: 1.6; color: var(--c-text-2); }
+.form-rgpd a { color: var(--c-accent-text); }
+@media (max-width: 639px) {
+  .form-navigation .button-back { flex: 0 0 auto; padding-inline: 16px; }
+  .form-navigation .button-primary { flex: 1 1 auto; white-space: nowrap; }
+}
