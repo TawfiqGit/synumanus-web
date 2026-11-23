@@ -32,13 +32,13 @@
   --c-text-2: #55524b;           /* 7,1:1 ✅ */
 
   /* Anthracite (sections sombres) */
-  --c-dark: #232326;
-  --c-dark-2: #2c2c30;
-  --c-dark-3: #36363b;
-  --c-dark-border: #45454b;
-  --c-dark-text: #f4f4f5;        /* 14,6:1 sur #232326 ✅ */
-  --c-dark-text-2: #b8b8bf;      /* 8,2:1 ✅ */
-  --c-dark-accent: #7dd3fc;      /* 10,3:1 ✅ */
+  --c-dark: #1e293b;             /* ardoise bleutée — décision TawfiqDev du 23/11 */
+  --c-dark-2: #273449;
+  --c-dark-3: #334155;
+  --c-dark-border: #475569;
+  --c-dark-text: #f4f4f5;        /* 13,3:1 sur #1e293b ✅ */
+  --c-dark-text-2: #cbd5e1;      /* 9,9:1 ; 8,5:1 sur les cartes #273449 ✅ */
+  --c-dark-accent: #7dd3fc;      /* 8,8:1 ✅ */
 
   /* Bouton principal : bleu nuit du logo */
   --c-cta: #003880;              /* texte blanc 11,5:1 ✅ */
@@ -59,7 +59,7 @@ h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.025em; }
 body.v2::after {
   content: ""; position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 30; pointer-events: none;
   width: min(100%, calc(var(--container) + 2 * var(--gutter)));
-  border-inline: 1px dashed rgba(111, 107, 98, .28);
+  border-inline: 1px dashed rgba(100, 116, 139, .3);
 }
 @media (max-width: 767px) { body.v2::after { display: none; } }
 
@@ -138,7 +138,7 @@ body.v2::after {
 .site-footer .brand { color: var(--c-dark-text); }
 .site-footer .footer-top { border-bottom: 1px dashed var(--c-dark-border); }
 .site-footer .footer-bottom { border-top: 1px dashed var(--c-dark-border); }
-.site-footer .input { background: var(--c-dark-2); border-color: #8a8a92; color: var(--c-dark-text); }   /* bordure 4,6:1 ✅ */
+.site-footer .input { background: var(--c-dark-2); border-color: #94a3b8; color: var(--c-dark-text); }   /* bordure 5,4:1 ✅ */
 .site-footer .input::placeholder { color: var(--c-dark-text-2); }
 .site-footer .check { color: var(--c-dark-text-2); }
 .site-footer .btn-secondary { background: var(--c-dark-accent); border-color: var(--c-dark-accent); color: #111113; }

@@ -27,7 +27,7 @@
 /* Bento : carte mise en avant avec un visuel en couches (profondeur légère) */
 .bento-feature { background: radial-gradient(120% 90% at 100% 0%, rgba(125, 211, 252, .16), transparent 55%), var(--c-dark-2) !important; }
 .bento-visual { position: relative; height: 150px; margin: 12px 0; }
-.bento-visual span { position: absolute; border-radius: 14px; border: 1px solid var(--c-dark-border); background: linear-gradient(160deg, #3a3a40, #2a2a2e); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, .8); }
+.bento-visual span { position: absolute; border-radius: 14px; border: 1px solid var(--c-dark-border); background: linear-gradient(160deg, #3b4a63, #273449); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, .8); }
 .bento-visual span:nth-child(1) { width: 34%; height: 100%; left: 8%; transform: rotate(-6deg); }
 .bento-visual span:nth-child(2) { width: 34%; height: 110%; left: 33%; top: -5%; background: linear-gradient(160deg, #0a4fa8, #003880); border-color: #1d5fb8; }
 .bento-visual span:nth-child(3) { width: 34%; height: 100%; left: 58%; transform: rotate(6deg); }

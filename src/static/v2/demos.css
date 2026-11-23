@@ -81,7 +81,7 @@
 .app-row-btns { display: flex; gap: 8px; flex-wrap: wrap; }
 .app-card { padding: 14px; border-radius: 10px; background: var(--c-bg-alt); display: grid; gap: 4px; }
 .app-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.app-kpis div { padding: 10px; border-radius: 10px; background: #1c1c1e; color: #fff; display: grid; }
+.app-kpis div { padding: 10px; border-radius: 10px; background: #1e293b; color: #fff; display: grid; }
 .app-kpis strong { font-size: 1.125rem; color: #7dd3fc; }
 .app-kpis span { font-size: 11px; color: #c4c4cc; }
 .app-table { width: 100%; border-collapse: collapse; font-size: 13px; }

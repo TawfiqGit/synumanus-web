@@ -8,7 +8,7 @@ Arbitrages TawfiqDev du 23/11 : quelques sections anthracite ; pas de simulateur
 |---|---|
 | Police | Plus Jakarta Sans (variable, auto-hébergée, OFL) + JetBrains Mono ; ~92 Ko |
 | Fond | papier chaud `#f7f6f2`, bandes `#efede6`, cartes blanches, angles 4 px |
-| Sections sombres | anthracite `#232326` (texte `#f4f4f5` 14,6:1, secondaire `#b8b8bf` 8,2:1, accent `#7dd3fc` 10,3:1) |
+| Sections sombres | **ardoise bleutée `#1e293b`** (décision du 23/11) — cartes `#273449`, bordures `#475569` ; texte `#f4f4f5` 13,3:1, secondaire `#cbd5e1` 9,9:1, accent `#7dd3fc` 8,8:1 |
 | Bouton principal | bleu nuit du logo `#003880`, capitales mono ; sur anthracite : bleu ciel + texte `#111113` |
 | Repères | pointillés verticaux aux bords du contenu (≥ 768 px), libellés `[ entre crochets ]` |
 | Pied de page | anthracite, grand logotype décoratif, « Les Tricolores · Neuilly-sur-Seine » |
