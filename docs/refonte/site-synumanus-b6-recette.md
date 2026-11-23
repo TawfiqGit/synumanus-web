@@ -556,6 +556,18 @@ Conversion visite → formulaire, formulaire → rendez-vous, abandon par étape
 ## 4. Automatisation recommandée (avis d'Ace, Playwright)
 Priorité 1 : A01, P02, AC-01.2, AC-17.1 ; démos (AC-04, AC-05) ; table de décision du guide (AC-06.2b) ; calculateur (AC-07). Priorité 2 : navigation (AC-02, AC-03, AC-13), mouvement (AC-01.3, AC-08.2, AC-09.1, AC-09.2), non-régression (AC-18). Priorité 3 : formulaire jusqu'à l'étape 4 (dépend de Q1). Restent manuels : lecteurs d'écran, appareils réels, tactile, ouverture du CSV, tests utilisateurs, performance.
 
+### 4.1 Recette en pré-production (C4) — procédure (Ace, 23/11/2026)
+
+**Préalables (bloquants)** : pré-production Hostinger en ligne (Dragon) ; calendrier de **test** systeme.io créé et renseigné dans le `config.js` de la pré-production (jamais `studio.synumanus.fr/discovery-call-calendar`) ; pré-production non indexable (`Header set X-Robots-Tag "noindex, nofollow"` dans son `.htaccess`, ou protection par mot de passe). Le `.htaccess` de la pré-production ne doit pas partir en production.
+
+1. **Contrôles automatiques, lecture seule** (aucun formulaire envoyé ; les POST vers `/api/` sont bloqués par le script) :
+   `node tests/recette-preprod.cjs https://<pré-production> --calendrier-test=<URL du calendrier de test>`
+   Couvre AC-16.1 (vrai code 404), AC-18.1 (URL du sitemap), C1 (pas le vrai calendrier), non-indexation, AC-11.6 (chargement du calendrier de test).
+2. **Performance P01** (Lighthouse mobile, 3 passages, médiane ; LCP < 2,5 s, CLS < 0,1, TBT < 200 ms) sur `/`, `/applications-mobiles/`, `/demarrer-un-projet/` :
+   `npx lighthouse https://<pré-production>/ --only-categories=performance --form-factor=mobile --output=json --output-path=lh-1.json` (× 3 par page).
+3. **Envoi réel du formulaire — uniquement avec l'accord de TawfiqDev** : l'envoi crée un contact systeme.io (étiquette `start-projet`) et peut déclencher les relances. Données fictives sur une adresse de test contrôlée par Synumanus ; réservation sur le calendrier de test ; puis suppression du contact de test dans systeme.io. Vérifier : AC-11.5 (erreur), AC-11.6, AC-11.7, réception de l'e-mail interne.
+4. **Manuel** (TawfiqDev) : lecteurs d'écran NVDA et VoiceOver, iPhone et Android réels, matrice navigateurs du §2.
+
 ---
 
 ## 5. Circuit de validation
