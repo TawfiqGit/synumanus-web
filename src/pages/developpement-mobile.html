@@ -5,17 +5,19 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Service 02 · Développement mobile</p>
-          <h1 class="display" id="hero-title">Une application mobile qui <em>travaille pour votre métier</em></h1>
+          <h1 class="display display-xl" id="hero-title">Une application mobile qui <em>travaille pour votre métier</em></h1>
           <p class="lead">Nous concevons et livrons votre application iOS et Android, avec une version testable toutes les deux semaines et des choix techniques expliqués simplement.</p>
           <div class="actions"><a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a></div>
           <ul class="proof-row" aria-label="Repères"><li>iOS et Android</li><li>Flutter ou natif</li><li>API et back-end si besoin</li></ul>
         </div>
+        <div class="hero-flow-frame">
         <div class="hero-flow" data-hero-flow data-flow-seed="5">
           <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
           <div class="flow-foot">
             <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
             <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -24,7 +26,7 @@
   <section class="section band-paper" aria-labelledby="types-title">
     <div class="container">
       <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Pour qui, quand</p><h2 class="h-section" id="types-title">Le bon type d’application <em>pour votre usage</em></h2></div>
-      <div class="grid grid-3">
+      <div class="bento">
         <article class="card"><span class="tag">Swift · Kotlin</span><h3 class="h-card">Application native</h3><p>Performance et intégration maximales avec le téléphone : capteurs, Bluetooth, matériel spécifique.</p></article>
         <article class="card"><span class="tag">Flutter</span><h3 class="h-card">Application multiplateforme</h3><p>Une base de code pour iOS et Android : le meilleur rapport coût / qualité dans la plupart des cas.</p></article>
         <article class="card"><span class="tag">Web</span><h3 class="h-card">Application web installable</h3><p>Accessible depuis le navigateur, sans passer par les stores, pour des usages simples.</p></article>
@@ -35,7 +37,7 @@
   <section class="section" aria-labelledby="engagements-title">
     <div class="container">
       <div class="section-head section-head-split"><div><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Ce que vous recevez</p><h2 class="h-section" id="engagements-title">Un développement <em>sans zone grise</em></h2></div><p class="lead">Une application qui doit fonctionner aujourd’hui et évoluer demain. Six engagements structurent la prestation.</p></div>
-      <div class="grid grid-3">
+      <div class="bento">
         <article class="card"><h3 class="h-card">Un cap clair dès le départ</h3><p>Fonctionnalités, priorités, livrables : vous savez ce qui sera développé.</p></article>
         <article class="card"><h3 class="h-card">Pensée pour votre métier</h3><p>Chaque fonctionnalité répond à un besoin concret de vos utilisateurs.</p></article>
         <article class="card"><h3 class="h-card">Des choix transparents</h3><p>Vous comprenez les décisions techniques, sans jargon.</p></article>
@@ -46,15 +48,18 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="deroule-title">
-    <div class="container">
-      <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Déroulé</p><h2 class="h-section" id="deroule-title">Une réalisation <em>étape par étape</em></h2></div>
-      <ol class="steps steps-5">
-        <li class="step"><h3 class="h-card">Préparer</h3><p>Architecture, environnements, dépendances et plan de réalisation.</p></li>
-        <li class="step"><h3 class="h-card">Développer</h3><p>Application, intégrations et back-end nécessaires.</p></li>
-        <li class="step"><h3 class="h-card">Tester</h3><p>Parcours vérifiés sur appareils réels, réseau faible, erreurs.</p></li>
-        <li class="step"><h3 class="h-card">Publier</h3><p>Versions iOS et Android, accompagnement sur les stores.</p></li>
-        <li class="step"><h3 class="h-card">Faire évoluer</h3><p>Corrections et évolutions priorisées selon l’usage réel.</p></li>
+  <section class="section section-dark" aria-labelledby="deroule-title">
+    <div class="container scrolly" data-scrolly>
+      <div class="scrolly-aside"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Déroulé</p><h2 class="h-section" id="deroule-title">Une réalisation <em>étape par étape</em></h2>
+        <div class="scrolly-progress" aria-hidden="true"><span data-scrolly-bar></span></div>
+        
+      </div>
+      <ol class="scrolly-steps">
+        <li class="scrolly-step"><span class="scrolly-num">01</span><h3 class="h-feature">Préparer</h3><p>Architecture, environnements, dépendances et plan de réalisation.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">02</span><h3 class="h-feature">Développer</h3><p>Application, intégrations et back-end nécessaires.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">03</span><h3 class="h-feature">Tester</h3><p>Parcours vérifiés sur appareils réels, réseau faible, erreurs.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">04</span><h3 class="h-feature">Publier</h3><p>Versions iOS et Android, accompagnement sur les stores.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">05</span><h3 class="h-feature">Faire évoluer</h3><p>Corrections et évolutions priorisées selon l’usage réel.</p></li>
       </ol>
     </div>
   </section>
@@ -73,7 +78,7 @@
   <section class="section" aria-labelledby="lies-title">
     <div class="container">
       <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Services liés</p><h2 class="h-section" id="lies-title">Avant et après le développement</h2></div>
-      <div class="grid grid-2">
+      <div class="bento bento-2">
         <article class="card card-link"><h3 class="h-feature">Cadrage & prototypage</h3><p>Projet encore flou ? Commencez par prioriser et tester un prototype.</p><p class="card-cta"><a class="link-arrow stretched" href="/services/cadrage-prototypage/">Découvrir le cadrage{{ARROW_SVG}}</a></p></article>
         <article class="card card-link"><h3 class="h-feature">Maintenance & évolution</h3><p>Après la mise en ligne : corrections, mises à jour et nouvelles fonctions.</p><p class="card-cta"><a class="link-arrow stretched" href="/services/maintenance-evolution/">Découvrir la maintenance{{ARROW_SVG}}</a></p></article>
       </div>

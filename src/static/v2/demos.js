@@ -322,5 +322,8 @@
   });
   document.addEventListener('synumanus:demo', (event) => { if (DEMOS[event.detail]) { active = event.detail; render(); } });
 
+  // Lien direct depuis une autre page : /#demo-commerce ouvre la démo Commerce Connect.
+  if (location.hash === '#demo-commerce') { active = 'commerce'; }
   render();
+  if (location.hash === '#demo-commerce') document.getElementById('demos')?.scrollIntoView();
 })();

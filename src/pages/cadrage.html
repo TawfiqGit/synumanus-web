@@ -5,17 +5,19 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Service 01 · Cadrage & prototypage</p>
-          <h1 class="display" id="hero-title">Clarifiez votre projet <em>avant d’investir</em></h1>
+          <h1 class="display display-xl" id="hero-title">Clarifiez votre projet <em>avant d’investir</em></h1>
           <p class="lead">Une première version priorisée, des parcours rendus concrets et un prototype testé par vos utilisateurs : vous décidez sur des faits, pas sur des hypothèses.</p>
           <div class="actions"><a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a></div>
           <ul class="proof-row" aria-label="Ce que vous obtenez"><li>Périmètre de la V1</li><li>Parcours utilisateurs</li><li>Prototype cliquable</li></ul>
         </div>
+        <div class="hero-flow-frame">
         <div class="hero-flow" data-hero-flow data-flow-seed="4">
           <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
           <div class="flow-foot">
             <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
             <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -24,7 +26,7 @@
   <section class="section band-paper" aria-labelledby="quand-title">
     <div class="container">
       <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Pour qui, quand</p><h2 class="h-section" id="quand-title">Le cadrage est fait pour vous <em>si…</em></h2></div>
-      <div class="grid grid-3">
+      <div class="bento">
         <article class="card"><h3 class="h-card">Trop d’idées, pas de priorité claire</h3><p>La liste de fonctionnalités s’allonge, mais vous ne savez pas ce qui doit entrer dans la première version.</p></article>
         <article class="card"><h3 class="h-card">Un budget engagé sur des hypothèses</h3><p>Des règles métier, des données ou des intégrations restent floues : autant d’imprévus pendant le développement.</p></article>
         <article class="card"><h3 class="h-card">Des parcours jamais testés</h3><p>Une idée évidente sur le papier peut devenir compliquée à l’usage. Le prototype le révèle tôt.</p></article>
@@ -35,7 +37,7 @@
   <section class="section" aria-labelledby="livrables-title">
     <div class="container">
       <div class="section-head section-head-split"><div><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Ce que vous recevez</p><h2 class="h-section" id="livrables-title">Des décisions claires, <em>des bases pour construire</em></h2></div><p class="lead">Des livrables concrets, à vous, réutilisables avec Synumanus ou une autre équipe.</p></div>
-      <div class="grid grid-3">
+      <div class="bento">
         <article class="card"><span class="card-index">01</span><h3 class="h-card">Une vision produit partagée</h3><p>Un objectif métier explicite et des critères de réussite.</p></article>
         <article class="card"><span class="card-index">02</span><h3 class="h-card">Une première version maîtrisée</h3><p>Un périmètre priorisé et un hors-périmètre clair.</p></article>
         <article class="card"><span class="card-index">03</span><h3 class="h-card">Un prototype interactif</h3><p>Pour visualiser les usages, présenter le projet et repérer les incompréhensions.</p></article>
@@ -46,15 +48,17 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="deroule-title">
-    <div class="container">
-      <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Déroulé</p><h2 class="h-section" id="deroule-title">Trois étapes <em>pour avancer</em></h2></div>
-      <ol class="steps steps-3">
-        <li class="step"><h3 class="h-card">Clarifier</h3><p>Ateliers sur votre métier, vos utilisateurs, vos contraintes et le résultat attendu.</p></li>
-        <li class="step"><h3 class="h-card">Rendre tangible</h3><p>Parcours, maquettes et prototype cliquable des écrans clés.</p></li>
-        <li class="step"><h3 class="h-card">Valider et planifier</h3><p>Tests avec de vrais utilisateurs, ajustements, puis feuille de route et estimation.</p></li>
+  <section class="section section-dark" aria-labelledby="deroule-title">
+    <div class="container scrolly" data-scrolly>
+      <div class="scrolly-aside"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Déroulé</p><h2 class="h-section" id="deroule-title">Trois étapes <em>pour avancer</em></h2>
+        <div class="scrolly-progress" aria-hidden="true"><span data-scrolly-bar></span></div>
+        <p class="note">La durée dépend du nombre de parcours à concevoir ; elle est fixée avec vous au démarrage.</p>
+      </div>
+      <ol class="scrolly-steps">
+        <li class="scrolly-step"><span class="scrolly-num">01</span><h3 class="h-feature">Clarifier</h3><p>Ateliers sur votre métier, vos utilisateurs, vos contraintes et le résultat attendu.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">02</span><h3 class="h-feature">Rendre tangible</h3><p>Parcours, maquettes et prototype cliquable des écrans clés.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">03</span><h3 class="h-feature">Valider et planifier</h3><p>Tests avec de vrais utilisateurs, ajustements, puis feuille de route et estimation.</p></li>
       </ol>
-      <p class="note mt-5">La durée dépend du nombre de parcours à concevoir ; elle est fixée avec vous au démarrage.</p>
     </div>
   </section>
 
@@ -72,7 +76,7 @@
   <section class="section" aria-labelledby="lies-title">
     <div class="container">
       <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Services liés</p><h2 class="h-section" id="lies-title">Et ensuite ?</h2></div>
-      <div class="grid grid-2">
+      <div class="bento bento-2">
         <article class="card card-link"><h3 class="h-feature">Développement mobile</h3><p>Construire la première version cadrée, une version testable toutes les deux semaines.</p><p class="card-cta"><a class="link-arrow stretched" href="/services/developpement-application-mobile/">Découvrir le développement{{ARROW_SVG}}</a></p></article>
         <article class="card card-link"><h3 class="h-feature">Refonte</h3><p>Vous avez déjà une application ? Le diagnostic remplace alors le cadrage.</p><p class="card-cta"><a class="link-arrow stretched" href="/services/refonte-application-mobile/">Découvrir la refonte{{ARROW_SVG}}</a></p></article>
       </div>

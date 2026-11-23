@@ -63,3 +63,26 @@
   }
 })();
 
+
+/** Méthode au défilement (accueil, services) : l'étape centrée à l'écran s'active. */
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  /* ---------- Méthode : l'étape centrée à l'écran s'active, la barre progresse ---------- */
+  document.querySelectorAll('[data-scrolly]').forEach((scrolly) => {
+    const steps = [...scrolly.querySelectorAll('.scrolly-step')];
+    const bar = scrolly.querySelector('[data-scrolly-bar]');
+    const activate = (index) => {
+      steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
+      if (bar) bar.style.setProperty('--progress', String((index + 1) / steps.length));
+    };
+    if ('IntersectionObserver' in window && !reduce.matches) {
+      activate(0);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => { if (entry.isIntersecting) activate(steps.indexOf(entry.target)); });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      steps.forEach((step) => observer.observe(step));
+    } else {
+      steps.forEach((step) => step.classList.add('is-active'));
+    }
+  });
+})();

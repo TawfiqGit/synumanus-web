@@ -1,5 +1,22 @@
 # Specs — Refonte du site Synumanus
 
+## v0.9 — 23/11/2026 — Logique de l'accueil déclinée sur piliers, services et Agence — à valider G3
+Accueil v0.8 validé par TawfiqDev le 23/11. Sections sombres en ardoise bleutée `#1e293b` (commit `bfb0fe7`, décision TawfiqDev du 23/11).
+
+| Élément | Application |
+|---|---|
+| Hero | Titre XL (`display-xl`, 40 → 64 px), rubans fluides dans un cadre pointillé |
+| Grilles | `grid-*` remplacées par des grilles bento (3 colonnes, 2×2) |
+| Sections sombres | Piliers : section des services/offres ; Agence : « Ma façon de travailler » ; services : la méthode |
+| Méthode des 4 services | Récit au défilement (étape active, barre de progression), comme sur l'accueil |
+| Démos | Pilier mobile → démo CleanPilot (`/#demos`) ; pilier web → Commerce Connect (`/#demo-commerce`, onglet ouvert directement) |
+| Agence | Chiffres en bento (4 cartes) |
+| Appel final | Section anthracite « Parlons de votre projet », commune à toutes les pages intérieures |
+| Code | Composants partagés déplacés de `home.css` / `home.js` vers `theme.css` / `ds.js` |
+
+Vérifié : axe-core 0 violation sur les 12 pages ; aucun défilement horizontal à 375 px ; aucune erreur JS ; récit au défilement et ouverture directe de la démo Commerce Connect testés.
+
+
 ## v0.8 — 23/11/2026 — Tendances web 2026, référence galadrim.fr (accueil) — à valider G3
 Arbitrages TawfiqDev du 23/11 : quelques sections anthracite ; pas de simulateur de prix (diagnostic + calculateur de temps) ; guide de choix sans IA ; preuves sociales en lot 2 ; 2 démos (CleanPilot, Commerce Connect) ; nouvelle police géométrique.
 

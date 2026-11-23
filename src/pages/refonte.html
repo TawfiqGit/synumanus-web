@@ -5,17 +5,19 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Service 03 · Refonte d’application mobile</p>
-          <h1 class="display" id="hero-title">Votre application a vieilli. <em>Pas votre ambition.</em></h1>
+          <h1 class="display display-xl" id="hero-title">Votre application a vieilli. <em>Pas votre ambition.</em></h1>
           <p class="lead">Une refonte utile ne commence pas par « on réécrit tout ». Elle commence par comprendre ce qui fonctionne encore, ce qui freine et ce qui doit vraiment changer.</p>
           <div class="actions"><a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a></div>
           <ul class="proof-row" aria-label="Repères"><li>Audit avant décision</li><li>Migration maîtrisée</li><li>UX et technique ensemble</li></ul>
         </div>
+        <div class="hero-flow-frame">
         <div class="hero-flow" data-hero-flow data-flow-seed="6">
           <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
           <div class="flow-foot">
             <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
             <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -24,7 +26,7 @@
   <section class="section band-paper" aria-labelledby="quand-title">
     <div class="container">
       <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Pour qui, quand</p><h2 class="h-section" id="quand-title">Les signes qu’il est <em>temps d’agir</em></h2></div>
-      <div class="grid grid-2">
+      <div class="bento bento-2">
         <article class="card"><h3 class="h-card">L’application devient lente</h3><p>Démarrages longs, écrans lourds, plantages : l’usage se dégrade et chaque évolution devient risquée.</p></article>
         <article class="card"><h3 class="h-card">L’expérience ne suit plus le métier</h3><p>Le produit a grandi par ajouts successifs ; les parcours reflètent l’historique plutôt que les usages actuels.</p></article>
         <article class="card"><h3 class="h-card">La technique devient fragile</h3><p>Dépendances anciennes, versions de SDK, dette technique : chaque changement coûte plus cher.</p></article>
@@ -36,7 +38,7 @@
   <section class="section" aria-labelledby="strategies-title">
     <div class="container">
       <div class="section-head section-head-split"><div><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Ce que vous recevez</p><h2 class="h-section" id="strategies-title">Conserver, restructurer ou reconstruire : <em>le diagnostic décide</em></h2></div><p class="lead">Le but n’est pas de produire le plus de code neuf possible, mais de retrouver une base saine au coût et au risque raisonnables.</p></div>
-      <div class="grid grid-3">
+      <div class="bento">
         <article class="card"><span class="card-index">Option 01</span><h3 class="h-feature">Moderniser</h3><p>Le socle reste valable : mise à niveau des dépendances, des SDK et des parcours.</p><ul class="chip-list"><li class="tag">Mises à niveau</li><li class="tag">Correctifs ciblés</li></ul></article>
         <article class="card"><span class="card-index">Option 02</span><h3 class="h-feature">Restructurer par zones</h3><p>Les parties qui bloquent sont isolées et remplacées progressivement.</p><ul class="chip-list"><li class="tag">Réduction de dette</li><li class="tag">Service continu</li></ul></article>
         <article class="card"><span class="card-index">Option 03</span><h3 class="h-feature">Reconstruire</h3><p>Si l’existant est trop coûteux, un nouveau socle est préparé avec une migration contrôlée.</p><ul class="chip-list"><li class="tag">Nouveau socle</li><li class="tag">Bascule préparée</li></ul></article>
@@ -44,14 +46,17 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="deroule-title">
-    <div class="container">
-      <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Déroulé</p><h2 class="h-section" id="deroule-title">Auditer <em>avant de remplacer</em></h2></div>
-      <ol class="steps">
-        <li class="step"><h3 class="h-card">Audit</h3><p>Code, parcours, back-end, comptes des stores et principaux irritants.</p></li>
-        <li class="step"><h3 class="h-card">Arbitrage</h3><p>Choisir ce qu’on garde, ce qu’on refait, et dans quel ordre.</p></li>
-        <li class="step"><h3 class="h-card">Migration</h3><p>Avancer par étapes vérifiables, sans « grand soir ».</p></li>
-        <li class="step"><h3 class="h-card">Relance</h3><p>Une base saine, publiée, prête pour les évolutions.</p></li>
+  <section class="section section-dark" aria-labelledby="deroule-title">
+    <div class="container scrolly" data-scrolly>
+      <div class="scrolly-aside"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Déroulé</p><h2 class="h-section" id="deroule-title">Auditer <em>avant de remplacer</em></h2>
+        <div class="scrolly-progress" aria-hidden="true"><span data-scrolly-bar></span></div>
+        
+      </div>
+      <ol class="scrolly-steps">
+        <li class="scrolly-step"><span class="scrolly-num">01</span><h3 class="h-feature">Audit</h3><p>Code, parcours, back-end, comptes des stores et principaux irritants.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">02</span><h3 class="h-feature">Arbitrage</h3><p>Choisir ce qu’on garde, ce qu’on refait, et dans quel ordre.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">03</span><h3 class="h-feature">Migration</h3><p>Avancer par étapes vérifiables, sans « grand soir ».</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">04</span><h3 class="h-feature">Relance</h3><p>Une base saine, publiée, prête pour les évolutions.</p></li>
       </ol>
     </div>
   </section>
@@ -70,7 +75,7 @@
   <section class="section" aria-labelledby="lies-title">
     <div class="container">
       <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Services liés</p><h2 class="h-section" id="lies-title">Maintenir ou repartir de zéro ?</h2></div>
-      <div class="grid grid-2">
+      <div class="bento bento-2">
         <article class="card card-link"><h3 class="h-feature">Maintenance & évolution</h3><p>Si le socle reste viable, une maintenance suivie peut suffire.</p><p class="card-cta"><a class="link-arrow stretched" href="/services/maintenance-evolution/">Découvrir la maintenance{{ARROW_SVG}}</a></p></article>
         <article class="card card-link"><h3 class="h-feature">Cadrage & prototypage</h3><p>Pour repenser les parcours avant la reconstruction.</p><p class="card-cta"><a class="link-arrow stretched" href="/services/cadrage-prototypage/">Découvrir le cadrage{{ARROW_SVG}}</a></p></article>
       </div>

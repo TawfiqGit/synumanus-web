@@ -5,17 +5,19 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Service 04 · Maintenance & évolution</p>
-          <h1 class="display" id="hero-title">Une application publiée <em>n’est pas une application terminée</em></h1>
+          <h1 class="display display-xl" id="hero-title">Une application publiée <em>n’est pas une application terminée</em></h1>
           <p class="lead">Corriger ce qui gêne, suivre les mises à jour iOS et Android, faire évoluer le produit : un suivi organisé plutôt qu’une succession d’urgences.</p>
           <div class="actions"><a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a></div>
           <ul class="proof-row" aria-label="Repères"><li>iOS et Android</li><li>Reprise après diagnostic</li><li>Interlocuteur direct</li></ul>
         </div>
+        <div class="hero-flow-frame">
         <div class="hero-flow" data-hero-flow data-flow-seed="7">
           <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
           <div class="flow-foot">
             <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
             <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -24,7 +26,7 @@
   <section class="section band-paper" aria-labelledby="piliers-title">
     <div class="container">
       <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Pour qui, quand</p><h2 class="h-section" id="piliers-title">Maintenir, prévenir <em>et faire évoluer</em></h2></div>
-      <div class="grid grid-3">
+      <div class="bento">
         <article class="card"><span class="card-index">Corrective</span><h3 class="h-card">Corriger ce qui dégrade l’usage</h3><p>Plantages, anomalies, régressions, problèmes de synchronisation.</p></article>
         <article class="card"><span class="card-index">Préventive</span><h3 class="h-card">Éviter le vieillissement silencieux</h3><p>Versions iOS et Android, SDK, dépendances et exigences des stores suivies.</p></article>
         <article class="card"><span class="card-index">Évolutive</span><h3 class="h-card">Faire progresser le produit</h3><p>Nouvelles fonctions et améliorations intégrées dans une feuille de route.</p></article>
@@ -35,7 +37,7 @@
   <section class="section" aria-labelledby="engagements-title">
     <div class="container">
       <div class="section-head section-head-split"><div><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Ce que vous recevez</p><h2 class="h-section" id="engagements-title">Un cadre clair <em>dans la durée</em></h2></div><p class="lead">Le budget dépend de l’état de l’application, du volume de demandes, de leur criticité et du niveau de service choisi.</p></div>
-      <div class="grid grid-4">
+      <div class="bento bento-2">
         <article class="card"><h3 class="h-card">Continuité</h3><p>Une application compatible et stable au fil des versions.</p></article>
         <article class="card"><h3 class="h-card">Priorisation</h3><p>Chaque demande classée selon son impact et son urgence.</p></article>
         <article class="card"><h3 class="h-card">Traçabilité</h3><p>Demandes, décisions et versions toujours identifiables.</p></article>
@@ -44,15 +46,18 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="deroule-title">
-    <div class="container">
-      <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Déroulé</p><h2 class="h-section" id="deroule-title">Un suivi piloté, <em>pas des urgences</em></h2></div>
-      <ol class="steps steps-5">
-        <li class="step"><h3 class="h-card">Reprendre</h3><p>Code, dépendances, accès et état de publication analysés.</p></li>
-        <li class="step"><h3 class="h-card">Qualifier</h3><p>Incident, anomalie, dette, mise à niveau ou évolution.</p></li>
-        <li class="step"><h3 class="h-card">Prioriser</h3><p>Selon la criticité, l’impact et la valeur.</p></li>
-        <li class="step"><h3 class="h-card">Corriger et tester</h3><p>Interventions validées, régressions limitées.</p></li>
-        <li class="step"><h3 class="h-card">Publier et suivre</h3><p>Nouvelles versions et vision claire des prochaines priorités.</p></li>
+  <section class="section section-dark" aria-labelledby="deroule-title">
+    <div class="container scrolly" data-scrolly>
+      <div class="scrolly-aside"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Déroulé</p><h2 class="h-section" id="deroule-title">Un suivi piloté, <em>pas des urgences</em></h2>
+        <div class="scrolly-progress" aria-hidden="true"><span data-scrolly-bar></span></div>
+        
+      </div>
+      <ol class="scrolly-steps">
+        <li class="scrolly-step"><span class="scrolly-num">01</span><h3 class="h-feature">Reprendre</h3><p>Code, dépendances, accès et état de publication analysés.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">02</span><h3 class="h-feature">Qualifier</h3><p>Incident, anomalie, dette, mise à niveau ou évolution.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">03</span><h3 class="h-feature">Prioriser</h3><p>Selon la criticité, l’impact et la valeur.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">04</span><h3 class="h-feature">Corriger et tester</h3><p>Interventions validées, régressions limitées.</p></li>
+        <li class="scrolly-step"><span class="scrolly-num">05</span><h3 class="h-feature">Publier et suivre</h3><p>Nouvelles versions et vision claire des prochaines priorités.</p></li>
       </ol>
     </div>
   </section>
@@ -71,7 +76,7 @@
   <section class="section" aria-labelledby="lies-title">
     <div class="container">
       <div class="section-head"><p class="eyebrow"><span class="dot" aria-hidden="true"></span>Services liés</p><h2 class="h-section" id="lies-title">Quand la maintenance ne suffit plus</h2></div>
-      <div class="grid grid-2">
+      <div class="bento bento-2">
         <article class="card card-link"><h3 class="h-feature">Refonte</h3><p>Moderniser, restructurer ou reconstruire après diagnostic.</p><p class="card-cta"><a class="link-arrow stretched" href="/services/refonte-application-mobile/">Découvrir la refonte{{ARROW_SVG}}</a></p></article>
         <article class="card card-link"><h3 class="h-feature">Développement mobile</h3><p>Ajouter un nouveau module ou une nouvelle application.</p><p class="card-cta"><a class="link-arrow stretched" href="/services/developpement-application-mobile/">Découvrir le développement{{ARROW_SVG}}</a></p></article>
       </div>

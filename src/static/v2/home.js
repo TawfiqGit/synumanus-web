@@ -5,26 +5,6 @@
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  /* ---------- Méthode : l'étape centrée à l'écran s'active, la barre progresse ---------- */
-  const scrolly = document.querySelector('[data-scrolly]');
-  if (scrolly) {
-    const steps = [...scrolly.querySelectorAll('.scrolly-step')];
-    const bar = scrolly.querySelector('[data-scrolly-bar]');
-    const activate = (index) => {
-      steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
-      if (bar) bar.style.setProperty('--progress', String((index + 1) / steps.length));
-    };
-    if ('IntersectionObserver' in window && !reduce.matches) {
-      activate(0);
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => { if (entry.isIntersecting) activate(steps.indexOf(entry.target)); });
-      }, { rootMargin: '-45% 0px -45% 0px' });
-      steps.forEach((step) => observer.observe(step));
-    } else {
-      steps.forEach((step) => step.classList.add('is-active'));
-    }
-  }
-
   /* ---------- Guide de choix ---------- */
   const RESULTS = {
     cadrage: { title: 'Cadrage & prototypage', why: 'Vous voulez valider l’idée avant d’investir : on priorise la première version et on teste un prototype cliquable avec vos utilisateurs.', href: '/services/cadrage-prototypage/' },
