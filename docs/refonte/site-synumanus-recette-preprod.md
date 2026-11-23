@@ -38,7 +38,23 @@ Exploration de la **version de production** servie en local (la pré-production 
 | Erreurs 4xx | uniquement vers `www.synumanus.fr` (canonicals, image de partage) : **site de production hors ligne, décision CEO** ; les fichiers existent dans le build. À revérifier après la mise en ligne |
 | « Images sans texte alternatif » | logo décoratif à côté du mot « synumanus » (`alt=""` volontaire, conforme WCAG) : pas d'anomalie |
 
-## 4. Restent avant le bilan G4
+## 4. Envoi réel du formulaire (autorisé par TawfiqDev le 23/11/2026)
+
+Pré-production passée en mode réel le temps du test (`SYNUMANUS_LOCAL_MOCK=0`), puis remise en mode simulé (vérifié : l'API répond de nouveau 422 en GET). Données fictives uniquement.
+
+| Contrôle | Résultat |
+|---|---|
+| AC-11.7 champ anti-robot rempli | ✅ réponse `ok` sans enregistrement ni e-mail |
+| AC-11.7 double clic sur « Envoyer » | ✅ une seule requête |
+| Réponse du serveur en mode réel | ✅ 200, `ok`, ni rendez-vous ni relance |
+| Étape 4/4 avec le calendrier de test | ✅ |
+| Erreurs JavaScript | ✅ 0 |
+| Contact créé dans systeme.io (`ace-recette@` et `robot@example.invalid`) | ✅ aucun (la synchronisation n'a lieu que dans le processus de relance, absent de la pré-production) |
+| **E-mail interne reçu sur contact@synumanus.fr** (objet « Nouvelle demande projet — Ace Recette — TEST RECETTE — à ignorer ») | ⏳ **à confirmer par TawfiqDev** (boîte de réception inaccessible à Ace) |
+
+La demande de test reste dans la base de la pré-production (`public_html/preprod/var/`, inaccessible depuis le web) ; elle disparaîtra avec la pré-production.
+
+## 5. Restent avant le bilan G4
 
 - Contrôles humains : NVDA, VoiceOver, iPhone et Android réels (TawfiqDev).
 - Envoi réel du formulaire en pré-production (accord TawfiqDev requis : crée un contact systeme.io).
