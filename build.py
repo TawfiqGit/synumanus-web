@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Générateur statique Synumanus — architecture finale à URLs dossiers."""
 from pathlib import Path
-import json, shutil, html, re, hashlib
+import json, shutil, html, re, hashlib, base64
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / 'src'
@@ -345,6 +345,42 @@ def version_assets() -> int:
             count += n
     return count
 
+CSP_FRAME_SOURCES = ['https://studio.synumanus.fr']  # calendrier systeme.io (iframe du formulaire)
+
+def apply_csp() -> str:
+    """Écrit la Content-Security-Policy dans dist/.htaccess (jeton {{CSP_HEADER}}).
+
+    Aucun 'unsafe-inline' : chaque script en ligne exécutable (hors JSON-LD) est
+    autorisé par son empreinte SHA-256, calculée sur les pages générées. Toute
+    nouvelle source externe (script, cadre, appel réseau) doit être ajoutée ici.
+    """
+    hashes = set()
+    for page in DIST.rglob('*.html'):
+        for attrs, body in re.findall(r'<script([^>]*)>(.*?)</script>', page.read_text(encoding='utf-8'), re.S):
+            if 'src=' in attrs or 'application/ld+json' in attrs or not body.strip():
+                continue
+            hashes.add("'sha256-" + base64.b64encode(hashlib.sha256(body.encode('utf-8')).digest()).decode() + "'")
+    policy = '; '.join([
+        "default-src 'self'",
+        "script-src 'self' " + ' '.join(sorted(hashes)),
+        "style-src 'self'",
+        "img-src 'self' data:",
+        "font-src 'self'",
+        "connect-src 'self'",
+        'frame-src ' + ' '.join(CSP_FRAME_SOURCES),
+        "form-action 'self'",
+        "base-uri 'self'",
+        "object-src 'none'",
+        "frame-ancestors 'self'",
+        'upgrade-insecure-requests',
+    ])
+    htaccess = DIST / '.htaccess'
+    text = htaccess.read_text(encoding='utf-8')
+    if '{{CSP_HEADER}}' not in text:
+        raise SystemExit('CSP : jeton {{CSP_HEADER}} absent de .htaccess.')
+    htaccess.write_text(text.replace('{{CSP_HEADER}}', f'Header always set Content-Security-Policy "{policy}"'), encoding='utf-8')
+    return policy
+
 if __name__ == '__main__':
     import sys
     build()
@@ -352,3 +388,4 @@ if __name__ == '__main__':
         arg = next((a for a in sys.argv if a.startswith('--calendrier-test=')), '')
         apply_preprod(arg.split('=', 1)[1] if arg else '')
     print(f'Versions : {version_assets()} liens CSS/JS horodatés par empreinte.')
+    print(f"CSP : {apply_csp().count('sha256-')} script(s) en ligne autorisé(s) par empreinte.")

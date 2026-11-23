@@ -20,6 +20,9 @@ Redirect 301 /form/ /demarrer-un-projet/
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # Politique de sécurité du contenu : générée au build (empreintes des scripts en ligne).
+  {{CSP_HEADER}}
 </IfModule>
 
 <IfModule mod_expires.c>
