@@ -64,11 +64,23 @@
   if (calc) {
     const out = calc.querySelector('[data-calc-out]');
     const RATE = 0.6;
-    const clamp = (v, min, max) => Math.min(max, Math.max(min, Number.isFinite(v) ? v : min));
+    // Règles (B6 v1.1, AC-07) : nombres entiers, bornes min/max ; une saisie vide, non numérique
+    // ou hors bornes est corrigée quand on quitte le champ, avec un message annoncé.
+    const LIMITS = { people: [1, 500], minutes: [0, 480], days: [1, 365] };
+    const note = calc.querySelector('[data-calc-note]');
+    const sanitize = (name) => {
+      const [min, max] = LIMITS[name];
+      const raw = parseFloat(String(calc[name].value).replace(',', '.'));
+      if (!Number.isFinite(raw)) return { value: min, reason: 'min' };
+      const v = Math.round(raw);
+      if (v < min) return { value: min, reason: 'min' };
+      if (v > max) return { value: max, reason: 'max' };
+      return { value: v, reason: v !== raw ? 'round' : '' };
+    };
     const update = () => {
-      const people = clamp(parseFloat(calc.people.value), 1, 500);
-      const minutes = clamp(parseFloat(calc.minutes.value), 0, 480);
-      const days = clamp(parseFloat(calc.days.value), 1, 365);
+      const people = sanitize('people').value;
+      const minutes = sanitize('minutes').value;
+      const days = sanitize('days').value;
       const hours = Math.round((people * minutes * days * RATE) / 60);
       const workDays = Math.round(hours / 7);
       const fmt = new Intl.NumberFormat('fr-FR');
@@ -77,6 +89,19 @@
       const span = document.createElement('span'); span.textContent = `récupérées par an, soit environ ${fmt.format(workDays)} jours de travail`;
       out.append(strong, span);
     };
+    calc.addEventListener('change', (event) => {
+      const name = event.target.name;
+      if (!LIMITS[name]) return;
+      const { value, reason } = sanitize(name);
+      const label = { people: 'Personnes concernées', minutes: 'Minutes perdues', days: 'Jours travaillés' }[name];
+      if (String(value) !== event.target.value) event.target.value = String(value);
+      if (note) {
+        note.textContent = reason === 'max' ? `${label} : valeur ramenée à ${value}, le maximum.`
+          : reason === 'min' ? `${label} : valeur ramenée à ${value}, le minimum.`
+          : reason === 'round' ? `${label} : valeur arrondie à ${value}.` : '';
+      }
+      update();
+    });
     calc.addEventListener('input', update);
     calc.addEventListener('submit', (e) => e.preventDefault());
     update();

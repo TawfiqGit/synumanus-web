@@ -65,3 +65,5 @@
 .final-cta + .site-footer .footer-top { padding-top: var(--s-6); border-top: 1px dashed var(--c-dark-border); }
 
 .bento .b-half { min-height: 0; }
+.calc-note { min-height: 1.4em; font-size: var(--fs-control); font-weight: 600; color: var(--c-accent-text); }
+.calc-note:empty { min-height: 0; }
