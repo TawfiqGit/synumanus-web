@@ -213,7 +213,7 @@
     "title": "Conseil IA générative pour entreprises — Synumanus",
     "description": "Identifier, cadrer et intégrer des usages d’IA générative utiles : assistants métier, recherche, synthèse, automatisation et gouvernance des données.",
     "styles": [
-      "editorial-pages.css"
+      "v2/editorial.css"
     ],
     "direct_key": "ia",
     "og_title": "Conseil IA générative pour entreprises — Synumanus",
@@ -222,7 +222,8 @@
     "service_key": null,
     "sector_key": null,
     "resource_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "a-propos/agence/index.html": {
     "source": "agence.html",
@@ -247,8 +248,7 @@
     "title": "Générateur de cahier des charges mobile — Synumanus",
     "description": "Créez gratuitement un premier brouillon de cahier des charges pour votre application mobile. Les données restent dans votre navigateur.",
     "styles": [
-      "editorial-pages.css",
-      "resource-tools.css"
+      "v2/editorial.css"
     ],
     "scripts": [
       "requirements-generator.js"
@@ -259,7 +259,8 @@
     "service_key": null,
     "sector_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "ressources/radars-tech/index.html": {
     "source": "radars-tech.html",
@@ -267,8 +268,7 @@
     "title": "Radars Tech — Synumanus",
     "description": "Le radar technologique Synumanus : technologies mobiles, backend, IA et architecture à adopter, évaluer ou surveiller.",
     "styles": [
-      "editorial-pages.css",
-      "resource-tools.css"
+      "v2/editorial.css"
     ],
     "resource_key": "radars-tech",
     "og_title": "Radars Tech — Synumanus",
@@ -277,7 +277,8 @@
     "service_key": null,
     "sector_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "actus/index.html": {
     "source": "actus.html",
@@ -285,7 +286,7 @@
     "title": "Actus & veille mobile, produit et IA — Synumanus",
     "description": "Veille Synumanus sur le développement mobile, le produit, l’IA générative, l’architecture et les changements qui comptent.",
     "styles": [
-      "editorial-pages.css"
+      "v2/editorial.css"
     ],
     "resource_key": "actus",
     "og_title": "Actus & veille mobile, produit et IA — Synumanus",
@@ -294,7 +295,8 @@
     "service_key": null,
     "sector_key": null,
     "direct_key": null,
-    "structured_data": ""
+    "structured_data": "",
+    "design": "v2"
   },
   "demarrer-un-projet/index.html": {
     "source": "demarrer-un-projet.html",
