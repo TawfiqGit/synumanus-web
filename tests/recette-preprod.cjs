@@ -15,6 +15,9 @@
 const { chromium } = require('playwright');
 
 const PROD_CALENDAR = 'https://studio.synumanus.fr/discovery-call-calendar';
+// Événements systeme.io : « Appel de découverte » (réel) et « TEST recette site — ne pas réserver ».
+const PROD_EVENT_ID = '43565';
+const TEST_EVENT_ID = '50250';
 const base = (process.argv[2] || '').replace(/\/$/, '');
 const testCalendar = (process.argv.find((a) => a.startsWith('--calendrier-test=')) || '').split('=').slice(1).join('=');
 if (!/^https?:\/\//.test(base)) {
@@ -53,6 +56,13 @@ const check = (id, ok, info = '') => results.push({ id, ok, info });
   const calendar = (configText.match(/systemeIoCalendarUrl:\s*'([^']*)'/) || [])[1];
   check('C1 config.js sans le vrai calendrier', calendar !== undefined && calendar !== PROD_CALENDAR, `systemeIoCalendarUrl = '${calendar}'`);
   if (testCalendar) check('C1 calendrier de test configuré', calendar === testCalendar, `attendu '${testCalendar}'`);
+  // C1 — la page du calendrier de test doit afficher l'événement de test, jamais l'événement réel.
+  if (calendar) {
+    const pageHtml = await (await context.request.get(calendar)).text();
+    const eventIds = [...new Set([...pageHtml.matchAll(/"eventId"\s*:\s*"?(\d+)/g)].map((m) => m[1]))];
+    check('C1 page de test sur l’événement de test', eventIds.length > 0 && !eventIds.includes(PROD_EVENT_ID),
+      `eventId = ${eventIds.join(', ') || 'introuvable'} (réel : ${PROD_EVENT_ID}, test : ${TEST_EVENT_ID})`);
+  }
 
   // AC-18.1 — toutes les URL du sitemap (le sitemap pointe vers la production : on garde le chemin).
   const sitemap = await (await context.request.get(base + '/sitemap.xml')).text();
