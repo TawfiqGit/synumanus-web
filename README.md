@@ -342,3 +342,7 @@ Conserver aussi les paramètres newsletter et mail existants. La variable DSN s�
 Dans **Sites web → Tableau de bord → Tâches cron**, choisir **PHP**, indiquer le chemin absolu de `scripts/project-reminders.php`, puis régler minute, heure, jour, mois et jour de semaine sur `*` (toutes les minutes). Cette commande ne doit pas utiliser une URL publique. Le script détecte automatiquement le dossier `public_html` voisin. Vérifier le résultat dans la liste des tâches cron ; `errors:0` indique une exécution sans erreur. [Configuration officielle des tâches cron Hostinger](https://www.hostinger.com/support/1583465-how-to-set-up-a-cron-job-at-hostinger/).
 
 La configuration distante des tags/champs a été vérifiée et les champs manquants créés pendant le développement. La connexion MySQL et la tâche cron doivent être validées sur l’hébergement avec ses propres identifiants ; les tests locaux utilisent SQLite et ne prouvent pas que l’accès Hostinger est configuré.
+
+## Versionnement des CSS et JS
+
+`python3 build.py` ajoute à chaque lien CSS/JS local un paramètre `?v=` calculé à partir du contenu du fichier (`version_assets`). Les fichiers peuvent ainsi rester en cache longtemps (Hostinger, `.htaccess`) : toute modification change leur adresse et les visiteurs reçoivent la nouvelle version. Le versionnement est appliqué en dernier, y compris après `--preprod`.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Générateur statique Synumanus — architecture finale à URLs dossiers."""
 from pathlib import Path
-import json, shutil, html, re
+import json, shutil, html, re, hashlib
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / 'src'
@@ -318,9 +318,37 @@ def apply_preprod(calendar_url: str) -> None:
         '<IfModule mod_headers.c>\n  Header set X-Robots-Tag "noindex, nofollow"\n</IfModule>\n', encoding='utf-8')
     print(f"Pré-production : calendrier de test {url or 'désactivé'}, robots.txt Disallow, X-Robots-Tag noindex.")
 
+def version_assets() -> int:
+    """Ajoute ?v=<empreinte du contenu> aux CSS et JS locaux de chaque page HTML.
+
+    Les CSS/JS sont mis en cache de 7 jours à 1 an (Hostinger, .htaccess) : sans
+    version, un visiteur ou le CDN garderait l'ancien fichier après une mise à
+    jour. L'empreinte change dès que le fichier change ; les pages HTML, elles,
+    ne sont pas mises en cache. À appeler en dernier (après --preprod, qui
+    modifie config.js). Une version déjà présente est recalculée.
+    """
+    cache: dict[str, str] = {}
+    def stamp(match: re.Match) -> str:
+        attr, path = match.group(1), match.group(2)
+        target = DIST / path.lstrip('/')
+        if not target.is_file():
+            return match.group(0)
+        if path not in cache:
+            cache[path] = hashlib.sha256(target.read_bytes()).hexdigest()[:10]
+        return f'{attr}="{path}?v={cache[path]}"'
+    count = 0
+    for page in DIST.rglob('*.html'):
+        text = page.read_text(encoding='utf-8')
+        new, n = re.subn(r'(href|src)="(/[^"?#]+\.(?:css|js))(?:\?v=[0-9a-f]+)?"', stamp, text)
+        if n:
+            page.write_text(new, encoding='utf-8')
+            count += n
+    return count
+
 if __name__ == '__main__':
     import sys
     build()
     if '--preprod' in sys.argv:
         arg = next((a for a in sys.argv if a.startswith('--calendrier-test=')), '')
         apply_preprod(arg.split('=', 1)[1] if arg else '')
+    print(f'Versions : {version_assets()} liens CSS/JS horodatés par empreinte.')

@@ -1,4 +1,5 @@
 """Vérifie que les secrets et leurs liens restent hors du build public."""
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -49,6 +50,29 @@ class BuildSecurityTests(unittest.TestCase):
             self.assertNotIn(build.PROD_CALENDAR_URL, (dist / 'config.js').read_text())
             self.assertIn('Disallow: /', (dist / 'robots.txt').read_text())
             self.assertIn('X-Robots-Tag "noindex, nofollow"', (dist / '.htaccess').read_text())
+
+    def test_assets_are_versioned_by_content(self):
+        with tempfile.TemporaryDirectory() as directory:
+            dist = Path(directory)
+            (dist / 'v2').mkdir()
+            (dist / 'v2' / 'site.css').write_text('a{}', encoding='utf-8')
+            (dist / 'config.js').write_text('x=1', encoding='utf-8')
+            page = dist / 'index.html'
+            page.write_text('<link href="/v2/site.css"><script src="/config.js"></script>'
+                            '<script src="/absent.js"></script><a href="/page/">x</a>', encoding='utf-8')
+            with patch.object(build, 'DIST', dist):
+                build.version_assets()
+                first = page.read_text()
+                build.version_assets()
+                self.assertEqual(first, page.read_text())  # idempotent
+                (dist / 'config.js').write_text('x=2', encoding='utf-8')
+                build.version_assets()
+            second = page.read_text()
+            self.assertRegex(first, r'href="/v2/site\.css\?v=[0-9a-f]{10}"')
+            self.assertIn('src="/absent.js"', first)  # fichier absent : inchangé
+            self.assertIn('href="/page/"', first)
+            self.assertNotEqual(re.search(r'config\.js\?v=(\w+)', first).group(1),
+                                re.search(r'config\.js\?v=(\w+)', second).group(1))
 
 if __name__ == '__main__':
     unittest.main()
