@@ -1,5 +1,34 @@
 # Specs — Refonte du site Synumanus
 
+## v0.8 — 23/11/2026 — Tendances web 2026, référence galadrim.fr (accueil) — à valider G3
+Arbitrages TawfiqDev du 23/11 : quelques sections anthracite ; pas de simulateur de prix (diagnostic + calculateur de temps) ; guide de choix sans IA ; preuves sociales en lot 2 ; 2 démos (CleanPilot, Commerce Connect) ; nouvelle police géométrique.
+
+### Thème (`src/static/v2/theme.css`, chargé après `ds.css`, s'applique à toutes les pages v2)
+| Élément | Valeur |
+|---|---|
+| Police | Plus Jakarta Sans (variable, auto-hébergée, OFL) + JetBrains Mono ; ~92 Ko |
+| Fond | papier chaud `#f7f6f2`, bandes `#efede6`, cartes blanches, angles 4 px |
+| Sections sombres | anthracite `#232326` (texte `#f4f4f5` 14,6:1, secondaire `#b8b8bf` 8,2:1, accent `#7dd3fc` 10,3:1) |
+| Bouton principal | bleu nuit du logo `#003880`, capitales mono ; sur anthracite : bleu ciel + texte `#111113` |
+| Repères | pointillés verticaux aux bords du contenu (≥ 768 px), libellés `[ entre crochets ]` |
+| Pied de page | anthracite, grand logotype décoratif, « Les Tricolores · Neuilly-sur-Seine » |
+
+### Accueil — structure
+1. Hero : accroche XXL, bénéfice, 2 boutons, rubans fluides encadrés ; **3 parcours** (créer une application / automatiser mon activité / moderniser mon logiciel).
+2. Solutions en **grille bento** (anthracite), carte « Applications mobiles » avec profondeur légère.
+3. **Démos interactives** (onglets ARIA) :
+   - **CleanPilot** (services à la personne, application mobile) : planning et affectation, application terrain (consignes, compte rendu), validation (contrôles : intervenant affecté, consignes cochées), administration avec **export CSV** ;
+   - **Commerce Connect** (commerce, site web, boutique fictive « Maison Lemoine ») : vitrine mobile-first (avis, horaires, référencement local), commande (retrait, réservation, paiement simulé, créneau), back-office (indicateurs, statuts, catalogue), automatisations (confirmation, relance J+1), **IA optionnelle simulée** (proposition de fiche produit, validation obligatoire du commerçant).
+4. **Méthode au défilement** (anthracite) : l'étape au centre de l'écran s'active, barre de progression ; tout est affiché si « réduire les animations ».
+5. **Guide de choix** sans IA (3 questions → recommandation + lien service + démo + contact humain) et **calculateur de temps gagné** (hypothèse affichée : 60 %).
+6. Engagements et repères chiffrés en bento (expérience du fondateur ; témoignages clients : lot 2).
+7. FAQ (5 questions) + **données structurées** `ProfessionalService` et `FAQPage` (JSON-LD).
+8. Appel final anthracite.
+
+### Vérifié le 23/11 (Chromium)
+axe-core 0 violation sur les 12 pages ; aucun défilement horizontal à 375 px ; aucune erreur JS ; scénarios complets des 2 démos, du guide et du calculateur automatisés et réussis (dont téléchargement CSV).
+
+
 ## v0.7 — 21/11/2026 — Bleu du logo pour le texte ; rubans dans tous les heros — à valider G3
 | Changement | Détail |
 |---|---|

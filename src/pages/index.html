@@ -1,147 +1,206 @@
 <main id="main">
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Applications sur mesure · TPE, PME, entrepreneurs</p>
-        <h1 class="display" id="hero-title">Des applications pensées pour <em>votre métier</em></h1>
-        <p class="lead">Synumanus conçoit les applications mobiles, web et les automatisations qui remplacent le papier, les ressaisies et les tableurs. Simples à utiliser, pour toute votre équipe.</p>
-        <div class="actions">
-          <a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a>
-          <a class="btn btn-ghost btn-lg" href="#methode">Voir la méthode</a>
+  <!-- 1. Hero : accroche XXL, bénéfice, action + 3 parcours personnalisés -->
+  <section class="hero hero-home" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-grid hero-grid-home">
+        <div class="hero-copy">
+          <p class="eyebrow">Applications sur mesure · Neuilly-sur-Seine</p>
+          <h1 class="display display-xxl" id="hero-title">Des applications pensées pour <em>votre métier</em></h1>
+          <p class="lead">Planning, interventions, commandes, relances : nous créons l’application qui fait gagner du temps à votre équipe, dès la première version.</p>
+          <div class="actions">
+            <a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a>
+            <a class="btn btn-ghost btn-lg" href="#demos">Essayer une démo</a>
+          </div>
+          <ul class="proof-row" aria-label="Nos repères">
+            <li>10 ans d’expérience mobile</li>
+            <li>iOS, Android et web</li>
+            <li>Accessibilité incluse</li>
+          </ul>
         </div>
-        <ul class="proof-row" aria-label="Nos repères">
-          <li>10 ans d’expérience mobile</li>
-          <li>iOS, Android et web</li>
-          <li>Accessibilité incluse</li>
-        </ul>
-      </div>
-
-      <div class="hero-flow" data-hero-flow>
-        <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
-        <div class="flow-foot">
-          <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
-          <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
+        <div class="hero-flow-frame">
+          <div class="hero-flow" data-hero-flow>
+            <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
+            <div class="flow-foot">
+              <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
+              <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
+            </div>
+          </div>
         </div>
       </div>
+      <nav class="paths" aria-label="Choisissez votre parcours">
+        <a class="path" href="/applications-mobiles/"><span class="path-index">01</span><span class="path-text"><strong>Je veux créer une application</strong><small>Mobile ou web, pour vos équipes ou vos clients</small></span>{{ARROW_SVG}}</a>
+        <a class="path" href="/automatisation-ia/"><span class="path-index">02</span><span class="path-text"><strong>Je veux automatiser mon activité</strong><small>Relances, devis, comptes rendus, tri des demandes</small></span>{{ARROW_SVG}}</a>
+        <a class="path" href="/services/refonte-application-mobile/"><span class="path-index">03</span><span class="path-text"><strong>Je veux moderniser mon logiciel</strong><small>Reprendre, refondre ou maintenir l’existant</small></span>{{ARROW_SVG}}</a>
+      </nav>
     </div>
   </section>
 
-  <section class="section band-paper" aria-labelledby="pour-qui-title">
+  <!-- 2. Solutions en grille bento (anthracite) -->
+  <section class="section section-dark" aria-labelledby="solutions-title">
     <div class="container">
       <div class="section-head section-head-split">
         <div>
-          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Pour qui</p>
-          <h2 class="h-section" id="pour-qui-title">Vous vous reconnaissez dans <em>l’une de ces situations</em> ?</h2>
+          <p class="eyebrow">Nos solutions</p>
+          <h2 class="h-section" id="solutions-title">Trois expertises, <em>un seul interlocuteur</em></h2>
         </div>
-        <p class="lead">Nous partons de votre quotidien, pas d’une liste de fonctionnalités. Choisissez la situation la plus proche de la vôtre.</p>
+        <p class="lead">Du cadrage à la maintenance, la même personne vous accompagne. Vous choisissez où commencer ; on construit le reste avec vous.</p>
       </div>
-      <div class="grid grid-2">
-        <article class="card card-link">
-          <span class="card-index">Situation 01</span>
-          <h3 class="h-card">Vos bons d’intervention sont encore sur papier</h3>
-          <p>Feuilles perdues, signatures à rattraper, facturation en retard : vos équipes terrain méritent un outil dans leur poche.</p>
+      <div class="bento">
+        <article class="card card-link b-wide b-tall bento-feature">
+          <div class="stack-sm">
+            <ul class="chips" aria-label="Domaines"><li class="tag">iOS</li><li class="tag">Android</li><li class="tag">Flutter</li><li class="tag">Hors connexion</li></ul>
+            <h3 class="h-feature">Applications mobiles</h3>
+            <p>Planning, interventions, signature, réservation : l’outil que vos équipes terrain et vos clients ont dans la poche.</p>
+          </div>
+          <div class="bento-visual" aria-hidden="true"><span></span><span></span><span></span></div>
           <p class="card-cta"><a class="link-arrow stretched" href="/applications-mobiles/">Applications mobiles{{ARROW_SVG}}</a></p>
         </article>
         <article class="card card-link">
-          <span class="card-index">Situation 02</span>
-          <h3 class="h-card">Vos équipes ressaisissent les mêmes données</h3>
-          <p>Le même client existe dans trois tableurs. Un outil web unique fait gagner des heures chaque semaine et limite les erreurs.</p>
-          <p class="card-cta"><a class="link-arrow stretched" href="/applications-web-metier/">Applications web & métier{{ARROW_SVG}}</a></p>
+          <ul class="chips" aria-label="Domaines"><li class="tag">Outils internes</li><li class="tag">Sites</li><li class="tag">API</li></ul>
+          <h3 class="h-feature">Web & métier</h3>
+          <p>Un seul outil au lieu de dix tableurs, connecté à vos logiciels.</p>
+          <p class="card-cta"><a class="link-arrow stretched" href="/applications-web-metier/">Web & métier{{ARROW_SVG}}</a></p>
         </article>
         <article class="card card-link">
-          <span class="card-index">Situation 03</span>
-          <h3 class="h-card">Vous passez vos soirées sur des tâches répétitives</h3>
-          <p>Relances, devis, comptes rendus, tri des demandes : une partie peut être automatisée, avec ou sans IA.</p>
+          <ul class="chips" aria-label="Domaines"><li class="tag">Automatisation</li><li class="tag">IA utile</li></ul>
+          <h3 class="h-feature">Automatisation & IA</h3>
+          <p>Les tâches répétitives tournent seules ; vous validez.</p>
           <p class="card-cta"><a class="link-arrow stretched" href="/automatisation-ia/">Automatisation & IA{{ARROW_SVG}}</a></p>
         </article>
-        <article class="card card-link">
-          <span class="card-index">Situation 04</span>
-          <h3 class="h-card">Votre application vieillit ou n’est plus maintenue</h3>
-          <p>Lenteurs, bugs, prestataire disparu, mises à jour des stores refusées : on reprend, on diagnostique, on fait évoluer.</p>
-          <p class="card-cta"><a class="link-arrow stretched" href="/services/refonte-application-mobile/">Refonte d’application{{ARROW_SVG}}</a></p>
-        </article>
+        <article class="card card-link"><span class="card-index">Avant de coder</span><h3 class="h-card">Cadrage & prototypage</h3><p class="card-cta"><a class="link-arrow stretched" href="/services/cadrage-prototypage/">Découvrir{{ARROW_SVG}}</a></p></article>
+        <article class="card card-link"><span class="card-index">Existant</span><h3 class="h-card">Refonte</h3><p class="card-cta"><a class="link-arrow stretched" href="/services/refonte-application-mobile/">Découvrir{{ARROW_SVG}}</a></p></article>
+        <article class="card card-link"><span class="card-index">Après la livraison</span><h3 class="h-card">Maintenance & évolution</h3><p class="card-cta"><a class="link-arrow stretched" href="/services/maintenance-evolution/">Découvrir{{ARROW_SVG}}</a></p></article>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="solutions-title">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Nos solutions</p>
-        <h2 class="h-section" id="solutions-title">Trois façons de faire travailler <em>le numérique pour vous</em></h2>
-      </div>
-      <div class="pillars">
-        <article class="card card-link card-feature">
-          <div class="stack-sm">
-            <span class="tag tag-accent">Expertise phare</span>
-            <h3 class="h-feature">Applications mobiles</h3>
-            <p>Des applications iOS et Android pour vos équipes terrain ou vos clients : intervention, réservation, suivi, signature.</p>
-            <ul class="check-list">
-              <li>Bons d’intervention et comptes rendus</li>
-              <li>Application client avec réservation</li>
-              <li>Reprise d’une application existante</li>
-            </ul>
-          </div>
-          <p class="card-cta"><a class="link-arrow stretched" href="/applications-mobiles/">Découvrir les applications mobiles{{ARROW_SVG}}</a></p>
-        </article>
-        <article class="card card-link">
-          <h3 class="h-feature">Applications web & métier</h3>
-          <p>Outils internes, plateformes clients, sites professionnels et connexions entre vos logiciels.</p>
-          <p class="card-cta"><a class="link-arrow stretched" href="/applications-web-metier/">Découvrir le web & métier{{ARROW_SVG}}</a></p>
-        </article>
-        <article class="card card-link">
-          <h3 class="h-feature">Automatisation & IA</h3>
-          <p>Supprimer les tâches répétitives et assister vos équipes, en gardant la main sur vos données.</p>
-          <p class="card-cta"><a class="link-arrow stretched" href="/automatisation-ia/">Découvrir l’automatisation{{ARROW_SVG}}</a></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="methode" aria-labelledby="methode-title">
+  <!-- 3. Démonstrations interactives -->
+  <section class="section" id="demos" aria-labelledby="demos-title">
     <div class="container">
       <div class="section-head section-head-split">
         <div>
-          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>La méthode</p>
-          <h2 class="h-section" id="methode-title">Quatre étapes, <em>aucune zone grise</em></h2>
+          <p class="eyebrow">Démos interactives</p>
+          <h2 class="h-section" id="demos-title">Essayez, <em>avant même de nous appeler</em></h2>
         </div>
-        <p class="lead">Chaque étape réduit l’incertitude avant la suivante. Vous voyez l’application avancer toutes les deux semaines et vous gardez la main sur les décisions.</p>
+        <p class="lead">Deux applications d’exemple, utilisables directement ici. Les données sont fictives et rien n’est envoyé.</p>
       </div>
-      <ol class="steps">
-        <li class="step"><h3 class="h-card">Échange gratuit</h3><p>30 minutes pour comprendre votre activité, votre problème et ce que vous attendez.</p><span class="tag">30 min · offert</span></li>
-        <li class="step"><h3 class="h-card">Cadrage</h3><p>Priorités, parcours, maquettes et périmètre de la première version. Le devis arrive après, pas avant.</p><span class="tag">1 à 3 semaines</span></li>
-        <li class="step"><h3 class="h-card">Développement par étapes</h3><p>Une version testable toutes les deux semaines. Vous validez, on ajuste.</p><span class="tag">Sprints de 2 semaines</span></li>
-        <li class="step"><h3 class="h-card">Mise en ligne et suivi</h3><p>Publication sur les stores ou en ligne, puis maintenance et évolutions selon vos besoins.</p><span class="tag">Accompagnement</span></li>
+      <div class="demos" data-demos>
+        <p class="demo-nojs">Activez JavaScript pour essayer les démonstrations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Méthode : récit au défilement (anthracite) -->
+  <section class="section section-dark" id="methode" aria-labelledby="methode-title">
+    <div class="container scrolly" data-scrolly>
+      <div class="scrolly-aside">
+        <p class="eyebrow">La méthode</p>
+        <h2 class="h-section" id="methode-title">Quatre étapes, <em>aucune zone grise</em></h2>
+        <p class="lead">Chaque étape réduit l’incertitude avant la suivante. Vous voyez l’application avancer toutes les deux semaines.</p>
+        <div class="scrolly-progress" aria-hidden="true"><span data-scrolly-bar></span></div>
+        <p class="note">Durée type d’une première version : 2 à 4 mois selon le périmètre (estimation confirmée après cadrage).</p>
+      </div>
+      <ol class="scrolly-steps">
+        <li class="scrolly-step" data-step-index="1"><span class="scrolly-num">01</span><h3 class="h-feature">Échange gratuit</h3><p>30 minutes pour comprendre votre activité, votre problème et ce que vous attendez.</p><span class="tag">30 min · offert</span></li>
+        <li class="scrolly-step" data-step-index="2"><span class="scrolly-num">02</span><h3 class="h-feature">Cadrage</h3><p>Priorités, parcours, maquettes et périmètre de la première version. Le devis arrive après, pas avant.</p><span class="tag">1 à 3 semaines</span></li>
+        <li class="scrolly-step" data-step-index="3"><span class="scrolly-num">03</span><h3 class="h-feature">Développement par étapes</h3><p>Une version testable toutes les deux semaines. Vous validez, on ajuste.</p><span class="tag">Sprints de 2 semaines</span></li>
+        <li class="scrolly-step" data-step-index="4"><span class="scrolly-num">04</span><h3 class="h-feature">Mise en ligne et suivi</h3><p>Publication sur les stores ou en ligne, puis maintenance et évolutions selon vos besoins.</p><span class="tag">Accompagnement</span></li>
       </ol>
-      <p class="note mt-5">Durée type d’une première version : 2 à 4 mois selon le périmètre (estimation indicative, confirmée après cadrage).</p>
     </div>
   </section>
 
+  <!-- 5. Outils de qualification : guide de choix (sans IA) + calculateur de temps gagné -->
+  <section class="section" id="guide" aria-labelledby="guide-title">
+    <div class="container">
+      <div class="section-head section-head-split">
+        <div>
+          <p class="eyebrow">Guide de choix</p>
+          <h2 class="h-section" id="guide-title">Par où commencer ? <em>Trois questions suffisent</em></h2>
+        </div>
+        <p class="lead">Un guide simple, sans inscription, pour savoir quel accompagnement correspond à votre situation. Un humain reste disponible à tout moment.</p>
+      </div>
+      <div class="bento">
+        <form class="card b-wide guide" data-guide novalidate>
+          <fieldset class="guide-q">
+            <legend>1. Votre point de départ</legend>
+            <div class="guide-options">
+              <label><input type="radio" name="start" value="idea" required /><span>J’ai une idée d’application</span></label>
+              <label><input type="radio" name="start" value="modernize" /><span>J’ai un outil à moderniser</span></label>
+              <label><input type="radio" name="start" value="repeat" /><span>Je perds du temps sur des tâches répétitives</span></label>
+              <label><input type="radio" name="start" value="shop" /><span>Je veux vendre ou être trouvé en ligne</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="guide-q">
+            <legend>2. Qui l’utilisera ?</legend>
+            <div class="guide-options">
+              <label><input type="radio" name="users" value="field" required /><span>Mes équipes sur le terrain</span></label>
+              <label><input type="radio" name="users" value="office" /><span>Mon équipe au bureau</span></label>
+              <label><input type="radio" name="users" value="clients" /><span>Mes clients</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="guide-q">
+            <legend>3. Votre priorité</legend>
+            <div class="guide-options">
+              <label><input type="radio" name="priority" value="test" required /><span>Tester l’idée avant d’investir</span></label>
+              <label><input type="radio" name="priority" value="fast" /><span>Être opérationnel rapidement</span></label>
+              <label><input type="radio" name="priority" value="durable" /><span>Un outil fiable sur la durée</span></label>
+            </div>
+          </fieldset>
+          <p class="guide-error" data-guide-error role="alert" hidden></p>
+          <div class="actions"><button class="btn btn-primary" type="submit">Voir ma recommandation</button></div>
+          <div class="guide-result" data-guide-result aria-live="polite" tabindex="-1" hidden></div>
+        </form>
+
+        <form class="card calc" data-calc>
+          <p class="card-index">Calculateur de temps gagné</p>
+          <h3 class="h-card">Combien d’heures récupérer ?</h3>
+          <div class="field">
+            <label class="field-label" for="calc-people">Personnes concernées</label>
+            <input class="input" id="calc-people" name="people" type="number" inputmode="numeric" min="1" max="500" value="5" />
+          </div>
+          <div class="field">
+            <label class="field-label" for="calc-minutes">Minutes perdues par jour et par personne</label>
+            <input class="input" id="calc-minutes" name="minutes" type="number" inputmode="numeric" min="0" max="480" value="30" />
+            <small class="field-help">Ressaisies, papier, recherches, relances…</small>
+          </div>
+          <div class="field">
+            <label class="field-label" for="calc-days">Jours travaillés par an</label>
+            <input class="input" id="calc-days" name="days" type="number" inputmode="numeric" min="1" max="365" value="220" />
+          </div>
+          <output class="calc-out" for="calc-people calc-minutes calc-days" data-calc-out aria-live="polite"><strong>330 h</strong><span>récupérées par an, soit environ 47 jours de travail</span></output>
+          <p class="note">Estimation indicative : on suppose que 60 % de ce temps peut être économisé. Le chiffre réel se mesure pendant le cadrage.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Engagements et repères chiffrés (preuves sociales clients : lot 2) -->
   <section class="section band-paper" aria-labelledby="engagements-title">
-    <div class="container split">
-      <div class="split-text">
-        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Nos engagements</p>
-        <h2 class="h-section" id="engagements-title">Ce que vous pouvez <em>attendre de nous</em></h2>
+    <div class="container">
+      <div class="section-head section-head-split">
+        <div>
+          <p class="eyebrow">Nos engagements</p>
+          <h2 class="h-section" id="engagements-title">Ce que vous pouvez <em>attendre de nous</em></h2>
+        </div>
         <p class="lead">Pas de jargon, pas de dépendance : des règles simples, écrites dès le départ.</p>
-        <ul class="stats stats-3 mt-4">
-          <li><strong>10 ans</strong><span>d’expérience mobile</span></li>
-          <li><strong>1</strong><span>interlocuteur, du début à la fin</span></li>
-          <li><strong>AA</strong><span>niveau d’accessibilité visé (WCAG 2.2)</span></li>
-        </ul>
       </div>
-      <div class="grid grid-2">
-        <article class="card"><h3 class="h-card">Un interlocuteur unique</h3><p>La même personne vous suit du premier échange à la maintenance.</p></article>
-        <article class="card"><h3 class="h-card">Votre code vous appartient</h3><p>Code, comptes des stores et données restent à votre nom.</p></article>
-        <article class="card"><h3 class="h-card">Accessible à toute l’équipe</h3><p>Lisible, utilisable au doigt comme au clavier, même pour les moins à l’aise.</p></article>
-        <article class="card"><h3 class="h-card">Suivi après livraison</h3><p>Corrections, mises à jour des stores et évolutions : on reste là.</p></article>
+      <div class="bento">
+        <div class="card stat-card"><strong>10 ans</strong><span>d’expérience en développement mobile</span></div>
+        <div class="card stat-card"><strong>+14</strong><span>applications développées</span></div>
+        <div class="card stat-card"><strong>+100 k</strong><span>utilisateurs des produits auxquels nous avons contribué</span></div>
+        <article class="card b-half"><h3 class="h-card">Un interlocuteur unique</h3><p>La même personne vous suit du premier échange à la maintenance.</p></article>
+        <article class="card b-half"><h3 class="h-card">Votre code vous appartient</h3><p>Code, comptes des stores et données restent à votre nom.</p></article>
+        <article class="card b-half"><h3 class="h-card">Accessible à toute l’équipe</h3><p>Lisible, utilisable au doigt comme au clavier, même pour les moins à l’aise.</p></article>
+        <article class="card b-half"><h3 class="h-card">Suivi après livraison</h3><p>Corrections, mises à jour des stores et évolutions : on reste là.</p></article>
       </div>
     </div>
   </section>
 
+  <!-- 7. FAQ (réponses précises, balisées pour les moteurs de recherche et les IA) -->
   <section class="section" aria-labelledby="faq-title">
     <div class="container faq">
       <div>
-        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Questions fréquentes</p>
+        <p class="eyebrow">Questions fréquentes</p>
         <h2 class="h-section" id="faq-title">Avant de nous écrire</h2>
         <p class="lead mt-3">Une autre question ? Posez-la pendant l’échange gratuit.</p>
       </div>
@@ -162,9 +221,28 @@
           <summary>Que se passe-t-il après la livraison ?</summary>
           <div><p>Nous proposons une maintenance : corrections, mises à jour iOS et Android, évolutions. Vous restez propriétaire de tout et libre de changer de prestataire.</p></div>
         </details>
+        <details class="faq-item">
+          <summary>Où êtes-vous situés ?</summary>
+          <div><p>Synumanus est installée dans les locaux des Tricolores, à Neuilly-sur-Seine. Nous vous recevons sur rendez-vous et travaillons aussi à distance partout en France.</p></div>
+        </details>
       </div>
     </div>
   </section>
 
-{{CTA_BAND}}
+  <!-- 8. Appel final (anthracite) -->
+  <section class="section section-dark final-cta" aria-labelledby="final-title">
+    <div class="container final-cta-grid">
+      <div>
+        <p class="eyebrow">Nous contacter</p>
+        <h2 class="display" id="final-title">Concrétisons <em>votre projet</em></h2>
+      </div>
+      <div class="stack">
+        <p class="lead">Premier échange de 30 minutes, gratuit et sans engagement. Aux Tricolores à Neuilly-sur-Seine ou en visio.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="/demarrer-un-projet/">Échanger sur mon projet{{ARROW_SVG}}</a>
+          <a class="link-arrow" href="#" data-whatsapp-link>Ou écrivez-nous sur WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>

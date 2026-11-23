@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Synumanus — Thème v0.8 (23/11/2026) — chargé après ds.css
+   Arbitrages TawfiqDev du 23/11 : tendances web 2026, référence galadrim.fr
+   (inspiration : papier chaud, sections anthracite, libellés [ entre crochets ],
+   repères pointillés, grilles bento ; sans reprise de leurs textes ni de leur police).
+   Police géométrique auto-hébergée (Plus Jakarta Sans) + JetBrains Mono, licences OFL.
+   Contrastes calculés (WCAG 2.x) en commentaire.
+   ========================================================================== */
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-display: swap; font-weight: 200 800;
+  src: url("/fonts/plus-jakarta-sans-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-display: swap; font-weight: 200 800;
+  src: url("/fonts/plus-jakarta-sans-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-display: swap; font-weight: 400; src: url("/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-display: swap; font-weight: 500; src: url("/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+
+:root {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Papier chaud */
+  --c-bg: #f7f6f2;
+  --c-bg-alt: #efede6;
+  --c-bg-raised: #ebe8e0;
+  --c-card: #ffffff;
+  --c-border: #e3e0d7;
+  --c-border-strong: #d2cec3;
+  --c-border-control: #6f6b62;   /* 5,0:1 sur #f7f6f2 ✅ */
+  --c-text: #1c1c1e;             /* 16,1:1 ✅ */
+  --c-text-strong: #111113;
+  --c-text-2: #55524b;           /* 7,1:1 ✅ */
+
+  /* Anthracite (sections sombres) */
+  --c-dark: #232326;
+  --c-dark-2: #2c2c30;
+  --c-dark-3: #36363b;
+  --c-dark-border: #45454b;
+  --c-dark-text: #f4f4f5;        /* 14,6:1 sur #232326 ✅ */
+  --c-dark-text-2: #b8b8bf;      /* 8,2:1 ✅ */
+  --c-dark-accent: #7dd3fc;      /* 10,3:1 ✅ */
+
+  /* Bouton principal : bleu nuit du logo */
+  --c-cta: #003880;              /* texte blanc 11,5:1 ✅ */
+  --c-cta-hover: #002a63;
+  --c-cta-text: #ffffff;
+  --c-cta-edge: transparent;
+  --shadow-cta: none;
+
+  --r-card: 4px;
+  --r-btn: 2px;
+  --container: 1200px;
+}
+
+body.v2 { background: var(--c-bg); letter-spacing: -0.005em; }
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.025em; }
+
+/* Repères pointillés aux bords du contenu (inspiration Galadrim / Basis Theory) */
+body.v2::after {
+  content: ""; position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 30; pointer-events: none;
+  width: min(100%, calc(var(--container) + 2 * var(--gutter)));
+  border-inline: 1px dashed rgba(111, 107, 98, .28);
+}
+@media (max-width: 767px) { body.v2::after { display: none; } }
+
+/* Libellés techniques entre crochets */
+.eyebrow { font-size: 12px; font-weight: 500; letter-spacing: .1em; color: var(--c-text-2); gap: 0; }
+.eyebrow .dot { display: none; }
+.eyebrow::before { content: "["; margin-right: .35em; }
+.eyebrow::after { content: "]"; margin-left: .35em; }
+
+/* Boutons : capitales mono, angles vifs */
+.btn { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .05em; font-size: 13px; font-weight: 500; border-radius: var(--r-btn); }
+.btn-lg { font-size: 14px; min-height: 52px; padding: 14px 22px; }
+.btn-primary { box-shadow: none; }
+.btn-ghost { background: var(--c-card); border-color: var(--c-border-strong); box-shadow: none; color: var(--c-text-strong); }
+.btn-ghost:hover { border-color: var(--c-text); }
+.btn-secondary { background: var(--c-dark); border-color: var(--c-dark); box-shadow: none; }
+.link-arrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .05em; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Bandeau d'annonce et header à plat */
+.announce { background: var(--c-dark); border-bottom: 0; }
+.announce-inner { color: var(--c-dark-text); }
+.announce a { color: var(--c-dark-accent); }
+.site-header { padding-block: 0; background: var(--c-bg); border-bottom: 1px dashed var(--c-border-strong); }
+.header-shell { width: min(calc(100% - 2 * var(--gutter)), var(--container)); border: 0; border-radius: 0; box-shadow: none; background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; min-height: 72px; padding-inline: 0; }
+.site-header.scrolled .header-shell { min-height: 60px; box-shadow: none; }
+.nav-link { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; font-size: 12.5px; }
+.nav-menu { border-radius: var(--r-card); }
+
+/* Cartes */
+.card { background: var(--c-card); border-color: var(--c-border); box-shadow: none; }
+.card-link:hover { border-color: var(--c-text); box-shadow: none; }
+.card-raised { background: var(--c-bg-alt); }
+.band-paper { background-color: var(--c-bg-alt); background-image: none; border-block: 1px dashed var(--c-border-strong); }
+.hero::before { display: none; }
+.hero::after { opacity: .7; }
+.tag { border-radius: 2px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; background: var(--c-bg-alt); border-color: var(--c-border); color: var(--c-text-2); }
+
+/* ---------- Sections anthracite ---------- */
+.section-dark { background: var(--c-dark); color: var(--c-dark-text); }
+.section-dark h2, .section-dark h3, .section-dark .h-section, .section-dark .h-feature, .section-dark .h-card { color: var(--c-dark-text); }
+.section-dark .h-section em, .section-dark .display em { color: var(--c-dark-accent); }
+.section-dark .lead, .section-dark .muted, .section-dark p { color: var(--c-dark-text-2); }
+.section-dark .eyebrow { color: var(--c-dark-text-2); }
+.section-dark .card { background: var(--c-dark-2); border-color: var(--c-dark-border); }
+.section-dark .card p { color: var(--c-dark-text-2); }
+.section-dark .card-link:hover { border-color: var(--c-dark-text-2); background: var(--c-dark-3); }
+.section-dark .card-index { color: var(--c-dark-text-2); }
+.section-dark .link-arrow, .section-dark .link { color: var(--c-dark-accent); }
+.section-dark .tag { background: var(--c-dark-3); border-color: var(--c-dark-border); color: var(--c-dark-text); }
+.section-dark .btn-primary { background: var(--c-dark-accent); color: #111113; }      /* 10,8:1 ✅ */
+.section-dark .btn-primary:hover { background: #a5e3fd; }
+.section-dark .btn-ghost { background: transparent; color: var(--c-dark-text); border-color: var(--c-dark-border); }
+.section-dark :where(a, button, input, select, textarea, summary):focus-visible { outline-color: var(--c-dark-accent); }
+.section + .section-dark, .section-dark + .section { border-top: 0; }
+
+/* ---------- Grille bento ---------- */
+.bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.bento > * { grid-column: span 2; min-height: 200px; }
+.bento .b-wide { grid-column: span 4; }
+.bento .b-half { grid-column: span 3; }
+.bento .b-tall { grid-row: span 2; }
+.bento .b-full { grid-column: 1 / -1; }
+@media (max-width: 959px) { .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bento > *, .bento .b-wide, .bento .b-half { grid-column: span 1; } .bento .b-wide, .bento .b-full { grid-column: 1 / -1; } }
+@media (max-width: 639px) { .bento { grid-template-columns: 1fr; } .bento > * { grid-column: 1 / -1 !important; grid-row: auto !important; min-height: 0; } }
+.bento .card { padding: 28px; justify-content: space-between; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+
+/* ---------- Pied de page anthracite + grand logotype ---------- */
+.site-footer { background: var(--c-dark); color: var(--c-dark-text); border-top: 0; overflow: hidden; }
+.site-footer p, .site-footer .footer-text, .site-footer .footer-brand p, .footer-bottom { color: var(--c-dark-text-2); }
+.site-footer .footer-title { color: var(--c-dark-text-2); }
+.site-footer .footer-nav a { color: var(--c-dark-text); }
+.site-footer .footer-nav a:hover, .site-footer .link { color: var(--c-dark-accent); }
+.site-footer .footer-legal a { color: var(--c-dark-text-2); }
+.site-footer .footer-legal a:hover { color: var(--c-dark-text); }
+.site-footer .brand { color: var(--c-dark-text); }
+.site-footer .footer-top { border-bottom: 1px dashed var(--c-dark-border); }
+.site-footer .footer-bottom { border-top: 1px dashed var(--c-dark-border); }
+.site-footer .input { background: var(--c-dark-2); border-color: #8a8a92; color: var(--c-dark-text); }   /* bordure 4,6:1 ✅ */
+.site-footer .input::placeholder { color: var(--c-dark-text-2); }
+.site-footer .check { color: var(--c-dark-text-2); }
+.site-footer .btn-secondary { background: var(--c-dark-accent); border-color: var(--c-dark-accent); color: #111113; }
+.site-footer .footer-social a { background: var(--c-dark-2); border-color: var(--c-dark-border); color: var(--c-dark-text-2); }
+.site-footer :where(a, button, input):focus-visible { outline-color: var(--c-dark-accent); }
+.site-footer .newsletter-status { color: #86efac; }
+.site-footer .newsletter-status.error { color: #fca5a5; }
+.footer-office { margin-top: 4px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--c-dark-text-2); }
+.site-footer::after {
+  content: "synumanus"; display: block; text-align: center; font-weight: 800; letter-spacing: -0.06em; line-height: .78;
+  font-size: clamp(4.5rem, 19vw, 17rem); color: rgba(255, 255, 255, .06); margin: 8px 0 -0.12em; user-select: none;
+}
+
+.cta-band { border-radius: var(--r-card); }
+.whatsapp-float { border-radius: 50%; }
+.eyebrow { display: block; }

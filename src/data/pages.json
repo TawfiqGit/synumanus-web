@@ -4,17 +4,22 @@
     "route": "/",
     "title": "Synumanus — Applications mobiles, web et automatisations sur mesure",
     "description": "Synumanus conçoit des applications mobiles, web et des automatisations sur mesure pour les TPE, PME et entrepreneurs : cadrage, développement, refonte et maintenance.",
-    "styles": [],
+    "styles": [
+      "v2/home.css",
+      "v2/demos.css"
+    ],
     "og_title": "Synumanus — Des applications pensées pour votre métier",
     "og_description": "Applications mobiles, web et automatisations sur mesure pour TPE, PME et entrepreneurs. Premier échange de 30 min offert.",
     "scripts": [
-      "v2/hero-flow.js"
+      "v2/hero-flow.js",
+      "v2/home.js",
+      "v2/demos.js"
     ],
     "service_key": null,
     "sector_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": "",
+    "structured_data": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"ProfessionalService\",\n      \"@id\": \"https://www.synumanus.fr/#organisation\",\n      \"name\": \"Synumanus\",\n      \"url\": \"https://www.synumanus.fr/\",\n      \"logo\": \"https://www.synumanus.fr/assets/logo-synumanus-512.png\",\n      \"email\": \"contact@synumanus.fr\",\n      \"description\": \"Applications mobiles, web et automatisations sur mesure pour les TPE, PME et entrepreneurs.\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"addressLocality\": \"Neuilly-sur-Seine\",\n        \"postalCode\": \"92200\",\n        \"addressCountry\": \"FR\"\n      },\n      \"areaServed\": \"FR\",\n      \"knowsAbout\": [\n        \"Applications mobiles\",\n        \"Applications web métier\",\n        \"Automatisation\",\n        \"Accessibilité numérique\"\n      ]\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Combien coûte une application ?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Le prix dépend du nombre d’écrans, des règles métier, des connexions à vos outils et des plateformes visées. Nous n’affichons pas de tarif : le devis est établi après le cadrage, sur un périmètre précis, pour éviter les mauvaises surprises.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Combien de temps faut-il ?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Comptez en général 2 à 4 mois pour une première version utilisable. Vous voyez une version testable toutes les deux semaines.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Je n’y connais rien en technique, est-ce un problème ?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Non. Vous connaissez votre métier, c’est ce qui compte. Nous traduisons vos besoins et expliquons chaque choix en langage simple.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Que se passe-t-il après la livraison ?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Nous proposons une maintenance : corrections, mises à jour iOS et Android, évolutions. Vous restez propriétaire de tout et libre de changer de prestataire.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Où êtes-vous situés ?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Synumanus est installée dans les locaux des Tricolores, à Neuilly-sur-Seine. Nous vous recevons sur rendez-vous et travaillons aussi à distance partout en France.\"\n          }\n        }\n      ]\n    }\n  ]\n}",
     "design": "v2"
   },
   "applications-mobiles/index.html": {
