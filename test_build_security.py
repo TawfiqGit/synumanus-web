@@ -40,7 +40,7 @@ class BuildSecurityTests(unittest.TestCase):
             (dist / '.htaccess').write_text('ErrorDocument 404 /404.html\n', encoding='utf-8')
             (dist / 'robots.txt').write_text('User-agent: *\nAllow: /\n', encoding='utf-8')
             with patch.object(build, 'DIST', dist):
-                for bad in ('', 'http://exemple.fr/cal', build.PROD_CALENDAR_URL):
+                for bad in ('', 'http://exemple.fr/cal', build.PROD_CALENDAR_URL, 'https://systeme.io/dashboard/calendar/50250'):
                     with self.assertRaises(SystemExit):
                         build.apply_preprod(bad)
                 self.assertIn(build.PROD_CALENDAR_URL, (dist / 'config.js').read_text())

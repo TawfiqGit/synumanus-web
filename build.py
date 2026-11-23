@@ -298,10 +298,14 @@ def apply_preprod(calendar_url: str) -> None:
     à moitié configuré.
     """
     url = calendar_url.strip()
-    if not re.fullmatch(r'https://[^\s\'"]+', url):
-        raise SystemExit('Pré-production : --calendrier-test=https://… obligatoire.')
-    if url.rstrip('/') == PROD_CALENDAR_URL:
-        raise SystemExit('Pré-production : le calendrier de test ne peut pas être le vrai calendrier.')
+    if url == 'aucun':
+        # Calendrier désactivé en attendant la page de test publique : l'étape
+        # « Choisir un créneau » reste vide, aucun rendez-vous possible.
+        url = ''
+    elif not re.fullmatch(r'https://[^\s\'"]+', url):
+        raise SystemExit('Pré-production : --calendrier-test=https://… (ou =aucun) obligatoire.')
+    if url and ('/dashboard/' in url or url.rstrip('/') == PROD_CALENDAR_URL):
+        raise SystemExit('Pré-production : ni le vrai calendrier, ni une page d’administration systeme.io.')
     config_path = DIST/'config.js'
     config, count = re.subn(r"systemeIoCalendarUrl:\s*'[^']*'", f"systemeIoCalendarUrl: '{url}'", config_path.read_text(encoding='utf-8'))
     if count != 1:
@@ -312,7 +316,7 @@ def apply_preprod(calendar_url: str) -> None:
     htaccess.write_text(htaccess.read_text(encoding='utf-8').rstrip('\n') + '\n\n'
         '# Pré-production uniquement : ne jamais publier ce bloc en production.\n'
         '<IfModule mod_headers.c>\n  Header set X-Robots-Tag "noindex, nofollow"\n</IfModule>\n', encoding='utf-8')
-    print(f'Pré-production : calendrier de test {url}, robots.txt Disallow, X-Robots-Tag noindex.')
+    print(f"Pré-production : calendrier de test {url or 'désactivé'}, robots.txt Disallow, X-Robots-Tag noindex.")
 
 if __name__ == '__main__':
     import sys
