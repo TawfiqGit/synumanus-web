@@ -1,0 +1,33 @@
+/* Tunnels (newsletter, campagnes) — complète ds.css / theme.css sans les modifier. */
+
+/* Carte d'inscription ou d'offre placée dans le hero, à droite. */
+.signup-card { padding: var(--s-5); border: 1px solid var(--c-border); border-radius: var(--r-card); background: #fff; box-shadow: 0 18px 40px -28px rgba(15, 23, 42, .35); display: grid; gap: var(--s-3); }
+.signup-card .h-card { margin: 0; }
+.signup-card .newsletter-row { flex-wrap: wrap; }
+.signup-card .newsletter-row .input { min-width: 220px; }
+.signup-card .newsletter-form .check { margin-top: 14px; }
+.hero-copy .signup-meta { margin-top: var(--s-4); }
+.signup-meta { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: var(--fs-control); color: var(--c-text-2); }
+.signup-meta li { list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+.signup-meta li::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--c-accent-text); }
+
+/* Offre de campagne : ce que contient le diagnostic. */
+.offer-card .check-list { margin-top: var(--s-2); }
+.offer-price { font-family: var(--font-mono); font-size: var(--fs-control); letter-spacing: .06em; text-transform: uppercase; color: var(--c-accent-text); }
+
+/* Les étapes du tunnel sur fond papier. */
+.funnel-steps { margin-top: var(--s-6); }
+
+/* Calculateur intégré à une page de campagne : même rendu que l'accueil. */
+.campaign-calc { max-width: 560px; }
+
+/* Pages de remerciement. */
+.thanks { padding-block: var(--s-8); }
+.thanks .lead { margin-top: var(--s-4); max-width: 62ch; }
+.thanks-check { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: var(--c-graphite); color: var(--c-accent); margin-bottom: var(--s-4); }
+.thanks-check svg { width: 28px; height: 28px; }
+.thanks .steps { margin-top: var(--s-6); }
+
+@media (max-width: 959px) {
+  .signup-card { padding: var(--s-4); }
+}

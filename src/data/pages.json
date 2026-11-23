@@ -349,6 +349,104 @@
     "structured_data": "",
     "design": "v2"
   },
+  "newsletter/index.html": {
+    "nav_key": null,
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "design": "v2",
+    "source": "newsletter.html",
+    "route": "/newsletter/",
+    "title": "Newsletter Synumanus — Un conseil concret par mois",
+    "description": "Un e-mail par mois pour les dirigeants de TPE et PME : un cas concret, une méthode et une checklist pour gagner du temps avec le numérique.",
+    "og_title": "La newsletter Synumanus : un conseil concret par mois",
+    "og_description": "Automatisations, applications métier, IA utile : un cas réel, une méthode et une checklist, en 5 minutes.",
+    "styles": [
+      "v2/funnel.css"
+    ]
+  },
+  "newsletter/merci/index.html": {
+    "nav_key": null,
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "design": "v2",
+    "source": "newsletter-merci.html",
+    "route": "/newsletter/merci/",
+    "title": "Inscription confirmée — Newsletter Synumanus",
+    "description": "Votre inscription à la newsletter Synumanus est confirmée.",
+    "og_title": "Inscription confirmée",
+    "og_description": "Votre inscription à la newsletter Synumanus est confirmée.",
+    "robots": "noindex,follow",
+    "sitemap": false,
+    "styles": [
+      "v2/funnel.css"
+    ]
+  },
+  "campagne/diagnostic-automatisation/index.html": {
+    "nav_key": null,
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "design": "v2",
+    "source": "campagne-diagnostic.html",
+    "route": "/campagne/diagnostic-automatisation/",
+    "title": "Diagnostic automatisation offert — Synumanus",
+    "description": "30 minutes pour repérer trois tâches à automatiser et le temps qu’elles vous rendraient. Gratuit, sans engagement, en visio ou à Neuilly-sur-Seine.",
+    "og_title": "Diagnostic automatisation offert : 30 minutes pour gagner des heures",
+    "og_description": "Trois tâches à automatiser, une estimation du temps gagné et un compte rendu sous 48 heures. Gratuit et sans engagement.",
+    "robots": "noindex,follow",
+    "sitemap": false,
+    "styles": [
+      "v2/home.css",
+      "v2/funnel.css"
+    ],
+    "scripts": [
+      "v2/home.js",
+      "v2/funnel.js"
+    ]
+  },
+  "campagne/diagnostic-automatisation/merci/index.html": {
+    "nav_key": null,
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "design": "v2",
+    "source": "campagne-diagnostic-merci.html",
+    "route": "/campagne/diagnostic-automatisation/merci/",
+    "title": "Diagnostic réservé — Synumanus",
+    "description": "Votre diagnostic automatisation est réservé.",
+    "og_title": "Diagnostic réservé",
+    "og_description": "Votre diagnostic automatisation est réservé.",
+    "robots": "noindex,follow",
+    "sitemap": false,
+    "styles": [
+      "v2/funnel.css"
+    ]
+  },
+  "rendez-vous-confirme/index.html": {
+    "nav_key": null,
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "design": "v2",
+    "source": "rendez-vous-confirme.html",
+    "route": "/rendez-vous-confirme/",
+    "title": "Rendez-vous confirmé — Synumanus",
+    "description": "Votre échange avec Synumanus est réservé.",
+    "og_title": "Rendez-vous confirmé",
+    "og_description": "Votre échange avec Synumanus est réservé.",
+    "robots": "noindex,follow",
+    "sitemap": false,
+    "styles": [
+      "v2/funnel.css"
+    ]
+  },
   "404.html": {
     "route": "/404.html",
     "source": "404.html",

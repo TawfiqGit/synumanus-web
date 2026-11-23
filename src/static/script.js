@@ -32,63 +32,74 @@ const setupWhatsAppLinks = () => {
 };
 
 /**
- * setupNewsletterForm(): void
- * Valide le formulaire et envoie les données à l'endpoint configuré.
- * L'endpoint serveur doit accepter un POST JSON { email, consent, source }.
+ * setupNewsletterForms(): void
+ * Gère chaque formulaire [data-newsletter-form] de la page (pied de page, page /newsletter/…).
+ * Chaque formulaire a son propre message d'état [data-newsletter-status] et peut préciser :
+ *  - data-source : origine de l'inscription transmise au serveur (ex. "page-newsletter") ;
+ *  - data-success-url : page de remerciement (chemin interne uniquement) après une inscription réussie.
+ * L'endpoint serveur accepte un POST JSON { email, consent, source }.
  */
-const setupNewsletterForm = () => {
-  const form = document.querySelector('[data-newsletter-form]');
-  const status = document.querySelector('[data-newsletter-status]');
-  if (!form || !status) return;
+const setupNewsletterForms = () => {
+  document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
+    const status = form.querySelector('[data-newsletter-status]');
+    if (!status) return;
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    status.classList.remove('error');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      status.classList.remove('error');
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
-    const endpoint = String(siteConfig.systemeIoNewsletterEndpoint || '').trim();
-    const formData = new FormData(form);
-    const email = formData.get('email');
-    const consent = formData.get('consent') === 'on';
+      const endpoint = String(siteConfig.systemeIoNewsletterEndpoint || '').trim();
+      const formData = new FormData(form);
+      const email = formData.get('email');
+      const consent = formData.get('consent') === 'on';
+      const source = (form.dataset.source || 'synumanus-site').slice(0, 60);
+      // Redirection limitée aux chemins internes (/…), jamais vers un autre site.
+      const successUrl = /^\/[a-z0-9\-\/]*$/i.test(form.dataset.successUrl || '') ? form.dataset.successUrl : '';
 
-    if (!endpoint) {
-      status.textContent = 'Formulaire prêt : renseignez systemeIoNewsletterEndpoint dans config.js pour activer les inscriptions via systeme.io.';
-      return;
-    }
+      if (!endpoint) {
+        status.textContent = 'Formulaire prêt : renseignez systemeIoNewsletterEndpoint dans config.js pour activer les inscriptions via systeme.io.';
+        return;
+      }
 
-    const submitButton = form.querySelector('button[type="submit"]');
-    const initialLabel = submitButton.textContent;
-    submitButton.disabled = true;
-    submitButton.textContent = 'Inscription…';
-    status.textContent = '';
+      const submitButton = form.querySelector('button[type="submit"]');
+      const initialLabel = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Inscription…';
+      status.textContent = '';
 
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, consent, source: 'synumanus-homepage' })
-      });
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, consent, source })
+        });
 
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      form.reset();
-      status.textContent = 'Merci. Votre inscription a bien été prise en compte.';
-    } catch (error) {
-      console.error('Newsletter subscription failed:', error);
-      status.classList.add('error');
-      status.textContent = 'L’inscription n’a pas pu être envoyée. Réessayez ou contactez Synumanus par email.';
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = initialLabel;
-    }
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        form.reset();
+        if (successUrl) {
+          window.location.assign(successUrl);
+          return;
+        }
+        status.textContent = 'Merci. Votre inscription a bien été prise en compte.';
+      } catch (error) {
+        console.error('Newsletter subscription failed:', error);
+        status.classList.add('error');
+        status.textContent = 'L’inscription n’a pas pu être envoyée. Réessayez ou contactez Synumanus par email.';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = initialLabel;
+      }
+    });
   });
 };
 
 setupWhatsAppLinks();
-setupNewsletterForm();
+setupNewsletterForms();
 
 document.documentElement.classList.add('js');
 

@@ -21,7 +21,9 @@ window.SYNUMANUS_CONFIG = {
   // URL publique "Calendrier" systeme.io
   systemeIoCalendarUrl: 'https://studio.synumanus.fr/discovery-call-calendar',
 
-  // À configurer aussi comme redirection personnalisée de l'étape
-  // « Thank You » du calendrier systeme.io.
-  systemeIoBookingConfirmationUrl: '/'
+  // Après une réservation, systeme.io doit rediriger vers
+  // https://www.synumanus.fr/demarrer-un-projet/?booking=confirmed (réglage « Thank You »
+  // de la page calendrier) : project.js envoie alors vers la page de remerciement de la
+  // campagne en cours, sinon vers /rendez-vous-confirme/.
+  systemeIoBookingConfirmationUrl: '/rendez-vous-confirme/'
 };

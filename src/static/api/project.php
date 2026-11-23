@@ -25,7 +25,7 @@ if (!empty($payload['website'])) {
     respond(200, ['ok' => true]);
 }
 
-$allowed = ['projectType', 'maturity', 'businessProblem', 'budget', 'startWindow', 'targetDate', 'company', 'lastName', 'firstName', 'email', 'phone'];
+$allowed = ['projectType', 'maturity', 'businessProblem', 'budget', 'startWindow', 'targetDate', 'company', 'lastName', 'firstName', 'email', 'phone', 'source'];
 foreach ($allowed as $key) {
     if (isset($payload[$key]) && !is_string($payload[$key])) {
         respond(422, ['ok' => false, 'message' => 'Format de champ invalide.']);
@@ -37,6 +37,10 @@ if (!projectTokenValid($token) || !projectTokenValid($tab)) {
     respond(422, ['ok' => false, 'message' => 'Identifiant de demande invalide.']);
 }
 $payload = array_intersect_key($payload, array_flip($allowed));
+// Origine de la demande (campagne, UTM) : facultative, caractères sûrs uniquement, sinon ignorée.
+if (isset($payload['source']) && !preg_match('/^[a-z0-9 _.:;=\/-]{1,200}$/i', (string)$payload['source'])) {
+    unset($payload['source']);
+}
 
 $required = [
     'projectType' => 'nature du projet',
@@ -180,7 +184,7 @@ function buildProjectMessage(array $payload): string
             $lines[] = '';
         }
     }
-    $lines[] = 'Source : formulaire Démarrer un projet';
+    $lines[] = 'Source : formulaire Démarrer un projet' . (!empty($payload['source']) ? ' — ' . (string)$payload['source'] : '');
     return implode("\n", $lines);
 }
 

@@ -111,6 +111,42 @@ const setupProjectForm = () => {
   const params = new URLSearchParams(window.location.search);
   const bookingConfirmed = params.get('booking') === 'confirmed';
 
+  // Tunnels de campagne : liste fermée (aucune redirection vers une adresse reçue dans l'URL).
+  const CAMPAIGNS = {
+    'diagnostic-automatisation': { thanks: '/campagne/diagnostic-automatisation/merci/', projectType: 'Automatisation ou IA' },
+  };
+  const CAMPAIGN_KEY = 'synumanusCampaign';
+  const configuredThanks = String(window.SYNUMANUS_CONFIG?.systemeIoBookingConfirmationUrl || '');
+  const DEFAULT_THANKS = /^\/[a-z0-9\-\/]*$/i.test(configuredThanks) ? configuredThanks : '/rendez-vous-confirme/';
+
+  /** currentCampaign(): string — campagne de l'URL, sinon celle mémorisée pendant la visite. */
+  const currentCampaign = () => {
+    const fromUrl = params.get('campagne') || '';
+    if (CAMPAIGNS[fromUrl]) {
+      try { sessionStorage.setItem(CAMPAIGN_KEY, fromUrl); } catch (_) { /* stockage désactivé */ }
+      return fromUrl;
+    }
+    try {
+      const stored = sessionStorage.getItem(CAMPAIGN_KEY) || '';
+      return CAMPAIGNS[stored] ? stored : '';
+    } catch (_) { return ''; }
+  };
+
+  /** confirmationUrl(): string — page de remerciement après la réservation. */
+  const confirmationUrl = () => CAMPAIGNS[currentCampaign()]?.thanks || DEFAULT_THANKS;
+
+  /** sourceLabel(): string — origine transmise au serveur (campagne et paramètres UTM). */
+  const sourceLabel = () => {
+    const parts = [];
+    const campaign = currentCampaign();
+    if (campaign) parts.push(`campagne=${campaign}`);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach((key) => {
+      const value = (params.get(key) || '').replace(/[^a-z0-9 _.\-]/gi, '').slice(0, 40);
+      if (value) parts.push(`${key}=${value}`);
+    });
+    return parts.join('; ');
+  };
+
   /**
    * setError(message?: string, kind?: 'validation' | 'server'): void
    * kind = 'server' pour une erreur d'envoi : le bouton WhatsApp réapparaît alors (décision du 17/11).
@@ -229,12 +265,6 @@ const setupProjectForm = () => {
     if (field.type === 'radio' && field.getAttribute('aria-invalid') === 'true') markField(field, false);
   });
 
-  /** calendarConfirmationUrl(): string */
-  const calendarConfirmationUrl = () => {
-    const configured = String(window.SYNUMANUS_CONFIG?.systemeIoBookingConfirmationUrl || '').trim();
-    return configured || '/';
-  };
-
   /** mountSystemeIoCalendar(): void */
   const mountSystemeIoCalendar = () => {
     const calendarUrl = String(window.SYNUMANUS_CONFIG?.systemeIoCalendarUrl || '').trim();
@@ -297,20 +327,30 @@ const setupProjectForm = () => {
   // la page redevient same-origin et peut revenir à l’accueil au niveau top.
   if (bookingConfirmed && window.self !== window.top) {
     try {
-      window.top.location.href = '/';
+      window.top.location.href = confirmationUrl();
       return;
     } catch (_) { /* le rendu local prendra le relais */ }
   }
 
   if (bookingConfirmed) {
     try { sessionStorage.removeItem(STORAGE_KEY); } catch (_) { /* no-op */ }
-    window.location.replace('/');
+    window.location.replace(confirmationUrl());
     return;
   }
 
   // Chaque chargement recommence le formulaire, même après une soumission.
   try { sessionStorage.removeItem(STORAGE_KEY); } catch (_) { /* stockage désactivé */ }
   form.reset();
+
+  // Origine de la demande et besoin pré-coché pour une campagne. Les valeurs par défaut
+  // (attribut value, defaultChecked) survivent aux form.reset() suivants.
+  const sourceField = form.querySelector('[data-project-source]');
+  if (sourceField) sourceField.setAttribute('value', sourceLabel());
+  const campaignType = CAMPAIGNS[currentCampaign()]?.projectType;
+  if (campaignType) {
+    const radio = [...form.querySelectorAll('input[name="projectType"]')].find((input) => input.value === campaignType);
+    if (radio) { radio.defaultChecked = true; radio.checked = true; }
+  }
 
   nextButton?.addEventListener('click', () => {
     if (!validateStep(steps[currentStep])) return;
@@ -342,7 +382,7 @@ const setupProjectForm = () => {
 
   localBookingConfirm?.addEventListener('click', () => {
     try { sessionStorage.removeItem(STORAGE_KEY); } catch (_) { /* no-op */ }
-    window.location.assign(calendarConfirmationUrl());
+    window.location.assign(confirmationUrl());
   });
 
   form.addEventListener('submit', async (event) => {
