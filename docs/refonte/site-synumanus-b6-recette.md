@@ -1,6 +1,6 @@
 # B6 — Préparation de la recette — Refonte du site Synumanus
 
-Version 1.1 — 23/11/2026 — Lili (UX/UI). Intègre la revue de testabilité d'Ace (`site-synumanus-b6-revue-testabilite.md`, 23/11). **À valider par TawfiqDev.**
+Version 1.1 — 23/11/2026 — Lili (UX/UI). Intègre la revue de testabilité d'Ace (`site-synumanus-b6-revue-testabilite.md`, 23/11). **Validée par TawfiqDev le 23/11/2026.**
 Historique : v1.0 (23/11) — première rédaction ; v1.1 (23/11) — 24 critères reformulés, 4 critères ajoutés, microcopie des erreurs du formulaire, règle de saisie du calculateur (appliquée au prototype), checklist et protocole précisés.
 Entrées : gate G3 (23/11), B5 Handoff v1.0, prototype v0.9 (branche `claude/practical-bell-yr0jwk`).
 Données utilisées en recette : **fictives uniquement**.
@@ -518,7 +518,7 @@ Préalable : C2 (site servi par `local_server.py`, mode mock).
 
 **Participants** : 5 personnes de la cible primaire (BTP, services, commerce, associations), dont au moins 2 sur mobile et 1 personne peu à l'aise avec le numérique ou utilisant une aide technique. Recrutement par TawfiqDev ; aucun lien avec un projet client en cours.
 
-**Rôles** : un **animateur neutre** lit le script mot pour mot ; TawfiqDev observe sans intervenir et prend des notes (recommandation d'Ace : éviter que le fondateur anime, pour limiter les réponses complaisantes). Choix de l'animateur : à valider par TawfiqDev.
+**Rôles** : un **animateur neutre** lit le script mot pour mot ; TawfiqDev observe sans intervenir et prend des notes (recommandation d'Ace : éviter que le fondateur anime, pour limiter les réponses complaisantes). Principe validé le 23/11 ; personne à désigner par TawfiqDev.
 
 **Format** : 30 minutes, à voix haute, aux Tricolores ou en visio, sur l'environnement de test (C1, C2). Consentement écrit ; enregistrement d'écran **seulement** avec accord ; participants anonymisés (P1 à P5).
 
@@ -535,7 +535,7 @@ Préalable : C2 (site servi par `local_server.py`, mode mock).
 | T7 | « Où se trouvent les bureaux ? » | Cite les Tricolores, à Neuilly-sur-Seine | < 45 s |
 
 **Mesures** : réussite par tâche, temps, erreurs et hésitations, citations marquantes, score **SUS** (questionnaire standard de 10 questions) en fin de séance.
-**Seuils proposés (à valider par TawfiqDev)** : chaque tâche réussie par au moins 4 participants sur 5 ; SUS moyen ≥ 75 ; aucun blocage d'accessibilité.
+**Seuils validés le 23/11** : chaque tâche réussie par au moins 4 participants sur 5 ; SUS moyen ≥ 75 ; aucun blocage d'accessibilité.
 **Résultats** : à mesurer. Synthèse par Lili ; chaque problème est qualifié (bug d'implémentation, trou dans la spec, défaut de conception) et attribué.
 
 ### Script de l'animateur (à lire mot pour mot)
@@ -546,7 +546,7 @@ Préalable : C2 (site servi par `local_server.py`, mode mock).
 5. Après les tâches : questionnaire SUS, puis « Qu'avez-vous préféré ? Qu'est-ce qui vous a gêné ? »
 
 ### Consentement (modèle)
-« J'accepte de participer à un test du site de Synumanus. Je peux arrêter à tout moment. ☐ J'accepte que mon écran et ma voix soient enregistrés (facultatif). Les résultats sont anonymisés et conservés 6 mois, uniquement pour améliorer le site. » — Nom, date, signature. *Durée de conservation à confirmer par TawfiqDev.*
+« J'accepte de participer à un test du site de Synumanus. Je peux arrêter à tout moment. ☐ J'accepte que mon écran et ma voix soient enregistrés (facultatif). Les résultats sont anonymisés et conservés 6 mois, uniquement pour améliorer le site. » — Nom, date, signature. *Durée de conservation validée le 23/11 : 6 mois.*
 
 ### Indicateurs après mise en ligne (Plausible)
 Conversion visite → formulaire, formulaire → rendez-vous, abandon par étape, usage des démos, du guide et du calculateur (événements sans cookie) : **à mesurer**, comparés aux 4 semaines de référence du site actuel (décision du 17/11).
@@ -560,5 +560,5 @@ Priorité 1 : A01, P02, AC-01.2, AC-17.1 ; démos (AC-04, AC-05) ; table de déc
 
 ## 5. Circuit de validation
 1. ~~Ace vérifie la testabilité~~ — fait le 23/11 (revue intégrée dans cette v1.1).
-2. **TawfiqDev** valide la version finale : critères, microcopie des erreurs, règle du calculateur, seuils, animateur, durée de conservation.
+2. ~~TawfiqDev valide la version finale~~ — **validée le 23/11/2026** (critères, microcopie des erreurs, règle du calculateur, seuils 4/5 et SUS ≥ 75, animateur neutre, conservation 6 mois). Reste à désigner nommément l'animateur.
 3. Toute modification ultérieure d'un critère validé passe par TawfiqDev (gestion des changements).

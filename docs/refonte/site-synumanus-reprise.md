@@ -11,7 +11,7 @@ Sauvegarde du 23/11/2026. À relire en premier à la reprise.
 | B3 Wireframes | v0.2 (+ écarts tracés au journal) | **Validé le 23/11 — gate G3** |
 | B4 Design system v2 + prototype HTML | v0.9 (specs) | **Validé le 23/11 — gate G3** |
 | B5 Handoff développeurs | v1.0 (`site-synumanus-b5-handoff.md`) | Livré le 23/11 — en revue (Law, Ace) |
-| B6 Préparation de la recette | v1.1 (`site-synumanus-b6-recette.md`) | Revue d'Ace intégrée le 23/11 — à valider par TawfiqDev |
+| B6 Préparation de la recette | v1.1 (`site-synumanus-b6-recette.md`) | **Validée le 23/11** |
 
 Prototype : branche `claude/practical-bell-yr0jwk` (`python3 build.py && python3 local_server.py`). 12 pages en v2 ; lot 2 (secteurs, ressources, actus, conseil IA) encore dans l'ancien design.
 
@@ -24,7 +24,7 @@ Prototype : branche `claude/practical-bell-yr0jwk` (`python3 build.py && python3
 6. **Shanks** : planning après élargissement du périmètre (tendances 2026, démos).
 
 ## Prochaines actions
-1. TawfiqDev : valider B6 v1.1 (microcopie des erreurs, règle du calculateur, seuils, animateur des tests). Dragon/Law : conditions de recette C1 (calendrier de test), C3, C4.
+1. Cycle de conception B1 → B6 terminé. Law : version de production (B5 + B6, dont erreurs par champ du formulaire, page 404). Dragon : conditions de recette C1 (calendrier de test), C3, C4, C5. TawfiqDev : désigner l'animateur des tests utilisateurs et recruter 5 participants.
 2. Ace : vérifie la testabilité des critères B6, puis recette manuelle (clavier, lecteurs d'écran, zoom 200 %, appareils réels).
 3. Law : passage du prototype en version de production (nettoyage CSS hérité, images WebP, formulaire), MR vers `main`.
 4. Dragon : Plausible, `var/`, préparation Hostinger.
