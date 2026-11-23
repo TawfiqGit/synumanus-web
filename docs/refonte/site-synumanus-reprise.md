@@ -10,7 +10,7 @@ Sauvegarde du 23/11/2026. À relire en premier à la reprise.
 | B2 Personas, parcours, arborescence | v1.0 | Validé le 17/11 |
 | B3 Wireframes | v0.2 (+ écarts tracés au journal) | **Validé le 23/11 — gate G3** |
 | B4 Design system v2 + prototype HTML | v0.9 (specs) | **Validé le 23/11 — gate G3** |
-| B5 Handoff développeurs | — | À faire (Lili) |
+| B5 Handoff développeurs | v1.0 (`site-synumanus-b5-handoff.md`) | Livré le 23/11 — en revue (Law, Ace) |
 | B6 Préparation de la recette | — | À faire (Lili, testabilité vérifiée par Ace) |
 
 Prototype : branche `claude/practical-bell-yr0jwk` (`python3 build.py && python3 local_server.py`). 12 pages en v2 ; lot 2 (secteurs, ressources, actus, conseil IA) encore dans l'ancien design.
@@ -24,7 +24,7 @@ Prototype : branche `claude/practical-bell-yr0jwk` (`python3 build.py && python3
 6. **Shanks** : planning après élargissement du périmètre (tendances 2026, démos).
 
 ## Prochaines actions
-1. Lili : B5 handoff (specs par écran, composants, tokens, annotations d'accessibilité) et B6 (critères Gherkin, checklist UX/accessibilité, protocole de test utilisateur).
+1. Lili : B6 (critères Gherkin, checklist UX/accessibilité, protocole de test utilisateur).
 2. Ace : vérifie la testabilité des critères B6, puis recette manuelle (clavier, lecteurs d'écran, zoom 200 %, appareils réels).
 3. Law : passage du prototype en version de production (nettoyage CSS hérité, images WebP, formulaire), MR vers `main`.
 4. Dragon : Plausible, `var/`, préparation Hostinger.
