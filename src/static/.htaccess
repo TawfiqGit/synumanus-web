@@ -1,0 +1,3 @@
+# Synumanus — page d'erreur personnalisée (B5 §4.10, B6 AC-16.1)
+# Apache (Hostinger) : toute adresse inconnue renvoie la page 404 avec le code HTTP 404.
+ErrorDocument 404 /404.html

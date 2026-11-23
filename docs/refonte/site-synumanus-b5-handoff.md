@@ -192,7 +192,7 @@ HTML et `project.js` **inchangés** (5 étapes) ; style `v2/project.css`. Messag
 ### 4.9 Pages légales
 Hero simple + bande : sommaire ancré (collant en desktop) + texte ≤ 72 caractères par ligne. Contenu juridique inchangé (à compléter, Q3).
 
-### 4.10 Page 404 — **à créer** (prévue en B3 §7, absente du prototype)
+### 4.10 Page 404 — créée au lot 3 (23/11) ; réponse 404 du serveur via `.htaccess` à vérifier en pré-production
 H1 « Cette page n’existe pas ou a été déplacée » + 3 liens : Accueil, Solutions (`/applications-mobiles/`), « Échanger sur mon projet ». Gabarit v2, sans rubans.
 
 ---
@@ -256,8 +256,8 @@ H1 « Cette page n’existe pas ou a été déplacée » + 3 liens : Accueil, So
 | Q1 | Le back-end PHP accepte-t-il les nouvelles valeurs de « Nature du projet » (6 valeurs B3) et le passage à 4 étapes, sans casser le suivi d'étapes ni la relance systeme.io ? | Law |
 | Q2 | Texte de la mention RGPD sous le bouton d'envoi du formulaire | Law, TawfiqDev |
 | Q3 | Politique de confidentialité : remplacer « Brevo Meetings » par systeme.io ; adresse exacte des Tricolores à afficher | TawfiqDev |
-| Q4 | Nettoyage : supprimer le CSS mort de `ds.css` (aperçus téléphone, feuilles, sphère), fusionner `ds.css` + `theme.css`, minifier | Law |
-| Q5 | Anciennes photos de hero : supprimer ou convertir en WebP selon leur usage dans le lot 2 | Law, Dragon |
+| Q4 | ~~Nettoyage CSS~~ — fait au lot 3 (23/11) : CSS mort retiré, `/v2/site.css` fusionné et minifié au build | Law |
+| Q5 | ~~Anciennes photos~~ — supprimées au lot 3 (aucune page ne les utilisait) | Law |
 | Q6 | Contrôles secondaires des démos à 40 px : passer à 44 px ou accepter (cible tactile hors critère 2.5.8, minimum 24 px) | Ace, TawfiqDev |
 | Q7 | Données structurées complémentaires (`FAQPage`, `BreadcrumbList`, `Service`) | Law |
 | Q8 | Plausible (décidé le 17/11) : script à intégrer dans `base-v2.html` sans cookie | Dragon |

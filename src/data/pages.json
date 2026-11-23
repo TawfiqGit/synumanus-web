@@ -158,7 +158,6 @@
     "description": "Découvrez Supply Chain Agent, prototype fonctionnel de suivi des commandes et indicateurs. Synumanus crée des applications mobiles industrielles sur mesure.",
     "styles": [
       "service-pages.css",
-      "industry-reference-sector.css",
       "industry-redesign.css"
     ],
     "sector_key": "industrie",
@@ -197,8 +196,7 @@
     "styles": [
       "service-pages.css",
       "health-reference-sector.css",
-      "finance-redesign.css",
-      "health-model.css"
+      "finance-redesign.css"
     ],
     "sector_key": "sante",
     "og_title": "Application mobile santé sur mesure — PillCircle | Synumanus",
@@ -350,5 +348,23 @@
     "resource_key": null,
     "structured_data": "",
     "design": "v2"
+  },
+  "404.html": {
+    "route": "/404.html",
+    "source": "404.html",
+    "title": "Page introuvable — Synumanus",
+    "og_title": "Page introuvable — Synumanus",
+    "description": "Cette page n’existe pas ou a été déplacée.",
+    "og_description": "Cette page n’existe pas ou a été déplacée.",
+    "design": "v2",
+    "robots": "noindex,follow",
+    "sitemap": false,
+    "styles": [],
+    "scripts": [],
+    "structured_data": "",
+    "service_key": null,
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null
   }
 }

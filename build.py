@@ -59,6 +59,29 @@ def render_v2_footer_items(items: list[dict]) -> str:
     """Liens de colonne de footer (refonte v2)."""
     return ''.join(f'<li><a href="{x["href"]}">{x["title"]}</a></li>' for x in items)
 
+def minify_css(css: str) -> str:
+    """Minification prudente : commentaires retirés, espaces réduits (aucune réécriture de règle).
+    Les sources n'ont pas de « /* » dans des chaînes, et les espaces utiles (calc, sélecteurs) sont conservés."""
+    import re
+    css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+    css = re.sub(r'\s+', ' ', css)
+    css = re.sub(r'\s*([{};])\s*', r'\1', css)
+    css = css.replace(';}', '}')
+    return css.strip() + '\n'
+
+def build_v2_css() -> None:
+    """Lot 3 : /v2/site.css = ds.css + theme.css fusionnés et minifiés ; autres feuilles v2 minifiées."""
+    v2 = DIST/'v2'
+    merged = read(SRC/'static/v2/ds.css') + '\n' + read(SRC/'static/v2/theme.css')
+    (v2/'site.css').write_text(minify_css(merged), encoding='utf-8')
+    # Les sources fusionnées ne sont pas publiées (aucune page ne les charge).
+    for source in ('ds.css', 'theme.css'):
+        (v2/source).unlink(missing_ok=True)
+    for name in ('home.css', 'demos.css', 'project.css'):
+        path = v2/name
+        if path.exists():
+            path.write_text(minify_css(path.read_text(encoding='utf-8')), encoding='utf-8')
+
 def copy_static() -> None:
     """Copie les assets et endpoints, jamais les fichiers d'environnement."""
     static = SRC/'static'
@@ -82,6 +105,7 @@ def build() -> None:
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
     copy_static()
+    build_v2_css()
     pages = json.loads(read(SRC/'data/pages.json'))
     nav = json.loads(read(SRC/'data/navigation.json'))
     base = read(SRC/'templates/base.html')
@@ -132,6 +156,7 @@ def build() -> None:
                 'EXTRA_STYLES': '\n'.join(f'  <link rel="stylesheet" href="/{s}" />' for s in meta.get('styles', [])),
                 'STRUCTURED_DATA': structured,
                 'BODY_CLASS': meta.get('body_class', ''),
+                'ROBOTS': meta.get('robots', 'index,follow'),
                 'HEADER': header,
                 'CONTENT': content,
                 'FOOTER': footer,
@@ -141,7 +166,9 @@ def build() -> None:
             target = DIST/output_rel
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(output, encoding='utf-8')
-            built_routes.append(meta['route'])
+            # Une page peut être exclue du sitemap (ex. 404) avec "sitemap": false.
+            if meta.get('sitemap', True):
+                built_routes.append(meta['route'])
             continue
 
         service_key = meta.get('service_key')
