@@ -16,9 +16,9 @@ Sauvegarde du 23/11/2026. À relire en premier à la reprise.
 Prototype : branche `claude/practical-bell-yr0jwk` (`python3 build.py && python3 local_server.py`). 12 pages en v2 ; lot 2 (secteurs, ressources, actus, conseil IA) encore dans l'ancien design.
 
 ## Reste ouvert
-1. **Law** : back-end du formulaire (nouvelles valeurs « Nature du projet », passage à 4 étapes) ; mention RGPD du formulaire.
+1. ~~Law : back-end du formulaire~~ — Q1 tranchée le 23/11 (aucune modification PHP nécessaire, sauf le minimum de 20 caractères). Reste : mention RGPD du formulaire.
 2. **TawfiqDev / Law** : la politique de confidentialité cite « Brevo Meetings » alors que le calendrier est systeme.io.
-3. **TawfiqDev** : adresse exacte des Tricolores à afficher ; logo SVG (souhaitable, non bloquant).
+3. ~~Adresse des Tricolores~~ — intégrée le 23/11 (99 avenue Achille Peretti). Logo SVG : souhaitable, non bloquant.
 4. **Dragon** (urgent) : données de prospects versionnées dans `var/` — tâche ClickUp ouverte.
 5. **Lot 2** : preuves sociales (applications en cours, références en attente), assistant IA, restylage des pages du lot 2.
 6. **Shanks** : planning après élargissement du périmètre (tendances 2026, démos).
