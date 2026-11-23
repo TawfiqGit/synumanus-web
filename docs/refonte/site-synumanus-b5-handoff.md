@@ -18,7 +18,8 @@ Entrées : gate G3 franchie le 23/11 (B3 v0.2 + B4 v0.9 validés ensemble), spec
 | `src/static/v2/demos.css` / `demos.js` | Démos CleanPilot et Commerce Connect |
 | `src/static/v2/hero-flow.js` | Rubans fluides (canvas) des heros |
 | `src/static/v2/project.css` | Formulaire « Démarrer un projet » (HTML et `project.js` inchangés) |
-| `src/data/pages.json` | Une page v2 = `"design": "v2"` ; styles, scripts et JSON-LD par page |
+| `src/data/pages.json` | Une page v2 = `"design": "v2"` ; styles, scripts et JSON-LD écrit à la main (ex. `ProfessionalService` de l'accueil) |
+| `build.py` → `build_v2_structured_data` | JSON-LD généré au build depuis le contenu visible : `FAQPage` (blocs `details.faq-item`), `BreadcrumbList` (fil d'Ariane), `Service` (pages piliers et services) ; fusionné avec celui de `pages.json` en un seul `@graph` |
 
 Pages v2 (MVP, 12) : `/`, `/applications-mobiles/`, `/applications-web-metier/`, `/automatisation-ia/`, 4 × `/services/…/`, `/a-propos/agence/`, `/demarrer-un-projet/`, `/mentions-legales/`, `/politique-confidentialite/`. Pages du lot 2 : ancien design, hors menu, liens en pied de page (décision B2).
 
@@ -225,8 +226,8 @@ H1 « Cette page n’existe pas ou a été déplacée » + 3 liens : Accueil, So
 
 ## 7. Référencement et visibilité dans les recherches IA
 - Un seul H1 par page, titres hiérarchisés, `title` et `description` uniques dans `pages.json`.
-- Accueil : JSON-LD `ProfessionalService` (nom, logo, e-mail, Neuilly-sur-Seine, zone FR) + `FAQPage` générés à partir des questions de la page.
-- **À ajouter** (Law) : `FAQPage` sur les pages piliers et services, `BreadcrumbList` sur les pages à fil d'Ariane, `Service` sur les 4 pages services (Q7).
+- Accueil : JSON-LD `ProfessionalService` (nom, logo, e-mail, Neuilly-sur-Seine, zone FR, écrit dans `pages.json`) + `FAQPage` généré depuis les questions de la page.
+- Lot 4 (23/11) : `FAQPage` sur les 3 piliers et les 4 services, `BreadcrumbList` sur les 11 pages à fil d'Ariane, `Service` sur les 3 piliers et les 4 services (fournisseur = `#organisation`, zone France). Tout est **généré au build depuis le HTML** : modifier une question ou un fil d'Ariane met à jour les données structurées, sans double saisie. Un niveau sans lien (« Solutions ») est ignoré dans `BreadcrumbList`.
 - `sitemap.xml` et `robots.txt` déjà générés par `build.py`.
 
 ---
@@ -259,7 +260,7 @@ H1 « Cette page n’existe pas ou a été déplacée » + 3 liens : Accueil, So
 | Q4 | ~~Nettoyage CSS~~ — fait au lot 3 (23/11) : CSS mort retiré, `/v2/site.css` fusionné et minifié au build | Law |
 | Q5 | ~~Anciennes photos~~ — supprimées au lot 3 (aucune page ne les utilisait) | Law |
 | Q6 | Contrôles secondaires des démos à 40 px : passer à 44 px ou accepter (cible tactile hors critère 2.5.8, minimum 24 px) | Ace, TawfiqDev |
-| Q7 | Données structurées complémentaires (`FAQPage`, `BreadcrumbList`, `Service`) | Law |
+| Q7 | ~~Données structurées complémentaires~~ — fait au lot 4 (23/11) : `FAQPage`, `BreadcrumbList`, `Service` générés au build | Law |
 | Q8 | Plausible (décidé le 17/11) : script à intégrer dans `base-v2.html` sans cookie | Dragon |
 | Q9 | Données de prospects versionnées dans `var/` : retrait et purge (tâche urgente ouverte) | Dragon, TawfiqDev |
 

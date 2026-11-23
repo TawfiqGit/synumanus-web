@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Générateur statique Synumanus — architecture finale à URLs dossiers."""
 from pathlib import Path
-import json, shutil, html
+import json, shutil, html, re
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / 'src'
@@ -99,6 +99,63 @@ def copy_static() -> None:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(path, target)
 
+ORG_REF = {'@type': 'ProfessionalService', '@id': 'https://www.synumanus.fr/#organisation', 'name': 'Synumanus', 'url': 'https://www.synumanus.fr/'}
+
+def plain_text(fragment: str) -> str:
+    """Texte visible d'un fragment HTML : balises retirées, entités décodées, espaces normalisés."""
+    return ' '.join(html.unescape(re.sub(r'<[^>]+>', ' ', fragment)).split())
+
+def build_v2_structured_data(meta: dict, content: str, canonical: str) -> str:
+    """Lot 4 : JSON-LD généré depuis le contenu visible (FAQPage, BreadcrumbList, Service).
+
+    Les nœuds écrits à la main dans pages.json (ex. ProfessionalService de l'accueil)
+    sont conservés et fusionnés dans un seul @graph. Générer depuis le HTML garantit
+    que les données structurées restent identiques au texte affiché.
+    """
+    graph = []
+    manual = meta.get('structured_data')
+    if manual:
+        data = json.loads(manual)
+        graph.extend(data.get('@graph', [data]))
+        for node in graph:
+            node.pop('@context', None)
+    # Service : pages piliers et services (nom = titre avant « — »).
+    if meta.get('service_key') or meta.get('pillar_key'):
+        graph.append({
+            '@type': 'Service',
+            'name': meta['title'].split(' — ')[0].strip(),
+            'description': meta['description'],
+            'url': canonical,
+            'provider': ORG_REF,
+            'areaServed': {'@type': 'Country', 'name': 'France'},
+        })
+    # BreadcrumbList : depuis le fil d'Ariane ; un niveau sans lien (ex. « Solutions ») est ignoré.
+    nav = re.search(r'<nav class="breadcrumb"[^>]*>(.*?)</nav>', content, re.S)
+    if nav:
+        items = []
+        for li in re.findall(r'<li>(.*?)</li>', nav.group(1), re.S):
+            link = re.search(r'<a href="([^"]+)"', li)
+            current = 'aria-current="page"' in li
+            if not link and not current:
+                continue
+            entry = {'@type': 'ListItem', 'position': len(items) + 1, 'name': plain_text(li)}
+            entry['item'] = canonical if current else BASE_URL + link.group(1)
+            items.append(entry)
+        if len(items) > 1:
+            graph.append({'@type': 'BreadcrumbList', 'itemListElement': items})
+    # FAQPage : depuis les blocs <details class="faq-item">.
+    faqs = re.findall(r'<details class="faq-item"[^>]*>\s*<summary>(.*?)</summary>\s*<div>(.*?)</div>\s*</details>', content, re.S)
+    if faqs:
+        graph.append({'@type': 'FAQPage', 'mainEntity': [
+            {'@type': 'Question', 'name': plain_text(q), 'acceptedAnswer': {'@type': 'Answer', 'text': plain_text(a)}}
+            for q, a in faqs]})
+    if not graph:
+        return ''
+    payload = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, indent=2)
+    # « </ » échappé pour qu'aucun texte ne puisse fermer la balise script.
+    payload = payload.replace('</', '<\\/')
+    return '  <script type="application/ld+json">\n' + payload + '\n  </script>'
+
 def build() -> None:
     """Génère toutes les pages, le sitemap et robots.txt."""
     if DIST.exists():
@@ -144,9 +201,7 @@ def build() -> None:
             whats = replace_tokens(whatsapp_tpl, {'WHATSAPP_SVG': WHATSAPP_SVG})
             content = read(SRC/'pages'/meta['source']).replace('{{CTA_BAND}}', read(SRC/'partials/cta-v2.html'))
             content = replace_tokens(content, {'ARROW_SVG': ARROW_SVG})
-            structured = meta.get('structured_data') or ''
-            if structured:
-                structured = '  <script type="application/ld+json">\n' + structured + '\n  </script>'
+            structured = build_v2_structured_data(meta, content, BASE_URL + meta['route'])
             output = replace_tokens(base_v2, {
                 'TITLE': html.escape(meta['title'], quote=False),
                 'DESCRIPTION': html.escape(meta['description'], quote=True),
