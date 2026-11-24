@@ -32,7 +32,7 @@ Source transmise au serveur : `page-newsletter` ou `pied-de-page` (champ `source
 
 ## 2. Tunnel de campagne « Diagnostic automatisation »
 
-Offre (Lili, à valider par TawfiqDev) : **diagnostic de 30 minutes offert**, trois tâches à automatiser, estimation du temps gagné, solution adaptée, **compte rendu écrit sous 48 heures**. Elle s'appuie sur l'échange gratuit de 30 minutes déjà proposé ; le compte rendu sous 48 h est un engagement nouveau.
+Offre — **validée par TawfiqDev le 24/11/2026, sans engagement de compte rendu écrit** : **diagnostic de 30 minutes offert** ; pendant l'échange, trois tâches à automatiser, l'estimation du temps gagné, la solution adaptée et des pistes d'action. Aucun document écrit ni délai n'est promis. Elle s'appuie sur l'échange gratuit de 30 minutes déjà proposé.
 
 | Étape | Page / outil | Rôle | Mesure |
 |---|---|---|---|
@@ -40,7 +40,7 @@ Offre (Lili, à valider par TawfiqDev) : **diagnostic de 30 minutes offert**, tr
 | 2. Page d'arrivée | `/campagne/diagnostic-automatisation/` (noindex, hors sitemap) : offre, symptômes, calculateur, déroulé, preuves, FAQ | Convaincre, faire estimer son temps perdu | Taux de clic vers le formulaire |
 | 3. Qualification | `/demarrer-un-projet/?campagne=diagnostic-automatisation` : besoin pré-coché « Automatisation ou IA », source envoyée au serveur | Qualifier en 2 minutes | Taux de remplissage |
 | 4. Réservation | Calendrier systeme.io (étape 4) | Fixer le rendez-vous | Taux de réservation |
-| 5. Remerciement | `/campagne/diagnostic-automatisation/merci/` (noindex) : 4 étapes jusqu'au compte rendu | Réduire les absences | Présence au rendez-vous |
+| 5. Remerciement | `/campagne/diagnostic-automatisation/merci/` (noindex) : 4 étapes jusqu'aux pistes d'action | Réduire les absences | Présence au rendez-vous |
 | 6. Relance | Campagne systeme.io existante « Relance Projet » si pas de réservation (mécanisme actuel, inchangé) | Récupérer les hésitants | Réservations après relance |
 
 ### Liens à utiliser (convention UTM)

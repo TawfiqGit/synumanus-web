@@ -28,7 +28,7 @@ Pré-production : **https://preprod.synumanus.fr** (non indexée, mode simulé :
 
 ## À valider par TawfiqDev
 
-1. **L'offre de campagne** : diagnostic de 30 min offert avec **compte rendu écrit sous 48 h** (nouvel engagement).
+1. ~~L'offre de campagne~~ — **validée le 24/11** : tunnel conservé, **sans engagement de compte rendu écrit**.
 2. ~~Les 3 e-mails de bienvenue~~ — remplacés le 24/11 par une newsletter mensuelle (décision TawfiqDev), tunnel newsletter validé.
-3. **Le site complet** sur la pré-production, en particulier les 7 pages migrées (contenu conservé, mise en page nouvelle).
+3. ~~Les 7 pages migrées~~ — **validées le 24/11**.
 4. **La publication** : suivre `site-synumanus-mise-en-production.md` (préalables : téléphone de l'hébergeur, `.env` de production, réception de l'e-mail du formulaire).

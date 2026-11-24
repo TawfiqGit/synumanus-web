@@ -7,7 +7,7 @@ Version 1.0 — 23/11/2026. **À exécuter uniquement après validation de Tawfi
 
 | # | Point | Responsable |
 |---|---|---|
-| P1 | Validation CEO du site, des tunnels et de l'offre « Diagnostic » (compte rendu sous 48 h) | TawfiqDev |
+| P1 | ~~Validation CEO du site, des tunnels et de l'offre « Diagnostic »~~ — validés le 24/11 (offre sans compte rendu écrit) ; reste le feu vert de publication | TawfiqDev |
 | P2 | Téléphone de l'hébergeur dans les mentions légales (obligation LCEN) | TawfiqDev → Law |
 | P3 | Réception de l'e-mail interne du formulaire confirmée (test du 23/11) | TawfiqDev |
 | P4 | `.env` privé de production créé **hors de `public_html`** : `domains/synumanus.fr/.env` (le connecteur ne peut écrire que dans `public_html` → gestionnaire de fichiers hPanel) | TawfiqDev |
