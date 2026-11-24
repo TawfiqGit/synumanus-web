@@ -2,10 +2,21 @@
   <section class="hero hero-sub" aria-labelledby="hero-title">
     <div class="container">
       <nav class="breadcrumb" aria-label="Fil d’Ariane"><ol><li><a href="/">Accueil</a></li><li><span>Ressources</span></li><li><span aria-current="page">Actus & veille</span></li></ol></nav>
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Actus & veille</p>
-        <h1 class="display display-xl" id="hero-title">Ce qui change dans le mobile, le produit et <em>l’IA appliquée</em></h1>
-        <p class="lead">Une veille orientée décision : ce qui mérite réellement d’influencer un produit, une architecture ou une feuille de route.</p>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Actus & veille</p>
+          <h1 class="display display-xl" id="hero-title">Ce qui change dans le mobile, le produit et <em>l’IA appliquée</em></h1>
+          <p class="lead">Une veille orientée décision : ce qui mérite réellement d’influencer un produit, une architecture ou une feuille de route.</p>
+        </div>
+        <div class="hero-flow-frame">
+        <div class="hero-flow" data-hero-flow data-flow-seed="7">
+          <canvas class="hero-flow-canvas" aria-hidden="true"></canvas>
+          <div class="flow-foot">
+            <p class="flow-hint" aria-hidden="true"><span class="hint-hover">Illustration interactive — survolez-la</span><span class="hint-touch">Illustration interactive — touchez-la</span></p>
+            <button class="replay flow-toggle" type="button" data-flow-toggle aria-pressed="false" hidden><svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor"/></svg><span data-flow-toggle-label>Mettre en pause</span></button>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </section>

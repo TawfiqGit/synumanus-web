@@ -222,7 +222,9 @@
     "direct_key": "ia",
     "og_title": "Conseil IA générative pour entreprises — Synumanus",
     "og_description": "Identifier, cadrer et intégrer des usages d’IA générative utiles : assistants métier, recherche, synthèse, automatisation et gouvernance des données.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "service_key": null,
     "sector_key": null,
     "resource_key": null,
@@ -255,6 +257,7 @@
       "v2/editorial.css"
     ],
     "scripts": [
+      "v2/hero-flow.js",
       "requirements-generator.js"
     ],
     "resource_key": "generateur-cahier-des-charges",
@@ -277,7 +280,9 @@
     "resource_key": "radars-tech",
     "og_title": "Radars Tech — Synumanus",
     "og_description": "Le radar technologique Synumanus : technologies mobiles, backend, IA et architecture à adopter, évaluer ou surveiller.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "service_key": null,
     "sector_key": null,
     "direct_key": null,
@@ -295,7 +300,9 @@
     "resource_key": "actus",
     "og_title": "Actus & veille mobile, produit et IA — Synumanus",
     "og_description": "Veille Synumanus sur le développement mobile, le produit, l’IA générative, l’architecture et les changements qui comptent.",
-    "scripts": [],
+    "scripts": [
+      "v2/hero-flow.js"
+    ],
     "service_key": null,
     "sector_key": null,
     "direct_key": null,
