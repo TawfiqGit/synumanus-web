@@ -371,10 +371,10 @@
     "design": "v2",
     "source": "newsletter.html",
     "route": "/newsletter/",
-    "title": "Newsletter Synumanus — Un conseil concret par mois",
-    "description": "Un e-mail par mois pour les dirigeants de TPE et PME : un cas concret, une méthode et une checklist pour gagner du temps avec le numérique.",
-    "og_title": "La newsletter Synumanus : un conseil concret par mois",
-    "og_description": "Automatisations, applications métier, IA utile : un cas réel, une méthode et une checklist, en 5 minutes.",
+    "title": "Newsletter Synumanus — Actualités, conseils et offres chaque mois",
+    "description": "Une newsletter par mois pour les dirigeants de TPE et PME : l’actualité de Synumanus, un conseil concret et nos offres du moment.",
+    "og_title": "La newsletter Synumanus : actualités, conseils et offres",
+    "og_description": "Chaque mois, un e-mail à lire en 5 minutes : actualités, un conseil concret et nos offres du moment.",
     "styles": [
       "v2/funnel.css"
     ]

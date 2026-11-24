@@ -6,7 +6,7 @@ Pré-production : **https://preprod.synumanus.fr** (non indexée, mode simulé :
 
 | Équipe | Livrable |
 |---|---|
-| Lili + Law | Tunnel newsletter : `/newsletter/` → inscription (consentement) → `/newsletter/merci/` ; séquence de bienvenue de 3 e-mails rédigée et créée **inactive** dans systeme.io (campagne 1240869) |
+| Lili + Law | Tunnel newsletter : `/newsletter/` → inscription (consentement) → `/newsletter/merci/` ; envoi mensuel depuis systeme.io › Newsletters (édition n° 1 en brouillon, n° 5644786) — **validé le 24/11** |
 | Lili + Law | Tunnel de campagne « Diagnostic automatisation » : `/campagne/diagnostic-automatisation/` (offre, calculateur, déroulé, preuves, FAQ) → formulaire pré-rempli avec suivi UTM → calendrier → `/campagne/diagnostic-automatisation/merci/` ; page générale `/rendez-vous-confirme/` |
 | Lili + Law | Les 7 pages restantes passées au design v2 (Industrie, Finance & assurance, Santé, Conseil IA, Radar, Générateur, Actus) : **les 21 pages du site sont en v2** ; 8 anciennes feuilles CSS supprimées |
 | Dragon | CSP stricte générée au build (sans `unsafe-inline`), HSTS, procédure de mise en production (`site-synumanus-mise-en-production.md`) |
@@ -29,6 +29,6 @@ Pré-production : **https://preprod.synumanus.fr** (non indexée, mode simulé :
 ## À valider par TawfiqDev
 
 1. **L'offre de campagne** : diagnostic de 30 min offert avec **compte rendu écrit sous 48 h** (nouvel engagement).
-2. **Les 3 e-mails de bienvenue** (texte dans `site-synumanus-tunnels.md`).
+2. ~~Les 3 e-mails de bienvenue~~ — remplacés le 24/11 par une newsletter mensuelle (décision TawfiqDev), tunnel newsletter validé.
 3. **Le site complet** sur la pré-production, en particulier les 7 pages migrées (contenu conservé, mise en page nouvelle).
 4. **La publication** : suivre `site-synumanus-mise-en-production.md` (préalables : téléphone de l'hébergeur, `.env` de production, réception de l'e-mail du formulaire).

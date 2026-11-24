@@ -36,7 +36,7 @@ SYNUMANUS_PROJECT_FROM=site@synumanus.fr
 1. Recette de production : `node tests/recette-preprod.cjs https://www.synumanus.fr` — attendus : vrai 404, 20 URL du sitemap en 200 ; le contrôle « non indexable » doit **échouer** en production (c'est normal : la production doit être indexée).
 2. En-têtes : `Content-Security-Policy`, `Strict-Transport-Security`, `X-Frame-Options` présents ; console du navigateur sans violation CSP.
 3. Tâche planifiée des relances (README §worker) : déposer `scripts/project-reminders.php` dans `domains/synumanus.fr/scripts/` (hors `public_html`), lancer une fois `php scripts/project-reminders.php --check`, puis créer la tâche **chaque minute** (connecteur : `hosting_cron-jobs_create`, utilisateur `u473285295`) : `* * * * * cd ~/domains/synumanus.fr && /usr/bin/php scripts/project-reminders.php` (sans redirection, refusée par le connecteur).
-4. systeme.io : redirection « Thank You » des pages calendrier → `https://www.synumanus.fr/demarrer-un-projet/?booking=confirmed` ; activation de la séquence « Bienvenue newsletter » (voir `site-synumanus-tunnels.md` §3).
+4. systeme.io : redirection « Thank You » des pages calendrier → `https://www.synumanus.fr/demarrer-un-projet/?booking=confirmed` ; newsletter : première édition (brouillon n° 5644786) à compléter puis envoyer depuis systeme.io › Newsletters (voir `site-synumanus-tunnels.md`).
 5. Test réel de bout en bout avec une adresse interne (formulaire, réservation sur le calendrier, newsletter), puis suppression des contacts de test.
 6. Google Search Console : soumettre `https://www.synumanus.fr/sitemap.xml`. Nouvelle exploration Screaming Frog sur la production.
 
