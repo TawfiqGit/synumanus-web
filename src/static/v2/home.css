@@ -52,3 +52,13 @@
 .bento .b-half { min-height: 0; }
 .calc-note { min-height: 1.4em; font-size: var(--fs-control); font-weight: 600; color: var(--c-accent-text); }
 .calc-note:empty { min-height: 0; }
+
+/* Accueil : illustration seule, sans cadre ni bouton (décision TawfiqDev du 25/11).
+   Les bords sont fondus dans le fond papier ; l'animation s'arrête seule après 5 s. */
+.hero-art { position: relative; align-self: stretch; display: grid; align-items: center; }
+.hero-flow-free { margin-bottom: 0; min-height: 420px; max-height: 560px; aspect-ratio: 1 / 1; }
+.hero-flow-free .hero-flow-canvas {
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%);
+}
+@media (max-width: 959px) { .hero-flow-free { min-height: 0; max-height: 300px; aspect-ratio: 16 / 10; margin-block: -8px; } }

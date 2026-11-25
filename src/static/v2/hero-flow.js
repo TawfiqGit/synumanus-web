@@ -4,9 +4,13 @@
  * de données ; ils s'écartent autour du pointeur (souris ou doigt) comme de l'eau et
  * une onde les traverse au clic / tap. Le halo bleu du fond suit le pointeur.
  *
- * Accessibilité : canvas décoratif (aria-hidden). Animation continue → bouton
- * « Mettre en pause » (WCAG 2.2.2). « Réduire les animations » : image fixe, pas
- * d'interaction animée. Boucle arrêtée hors écran, onglet masqué ou en pause.
+ * Accessibilité : canvas décoratif (aria-hidden). Deux modes conformes à WCAG 2.2.2 :
+ *  - par défaut, animation continue + bouton « Mettre en pause » ;
+ *  - data-flow-autostop="5000" (accueil, sans bouton) : le mouvement automatique ralentit
+ *    puis se fige au bout de 5 s ; il ne reprend que sur interaction (survol, toucher),
+ *    puis se refige 5 s après la dernière interaction.
+ * « Réduire les animations » : image fixe, pas d'interaction animée.
+ * Boucle arrêtée hors écran, onglet masqué ou en pause.
  */
 (() => {
   const root = document.querySelector('[data-hero-flow]');
@@ -48,6 +52,11 @@
   let introStart = 0;
   let raf = 0;
   let paused = false;
+  // Arrêt automatique (WCAG 2.2.2 sans bouton) : durée maximale du mouvement non sollicité.
+  const AUTOSTOP_MS = Number(root.dataset.flowAutostop) || 0;
+  const SETTLE_MS = 1200;   // ralentissement progressif avant l'arrêt
+  let lastActivity = performance.now();
+  let idle = false;
   let onScreen = true;
   let pulses = [];
   let introStarted = false;
@@ -154,7 +163,14 @@
     raf = 0;
     const dt = Math.min(0.05, (now - lastNow) / 1000);
     lastNow = now;
-    time += dt;
+    // Mode arrêt automatique : la vitesse décroît pendant SETTLE_MS puis l'animation se fige.
+    let speed = 1;
+    if (AUTOSTOP_MS) {
+      const remaining = AUTOSTOP_MS - (now - lastActivity);
+      speed = Math.max(0, Math.min(1, remaining / SETTLE_MS));
+      if (speed === 0 && pointer.amount < 0.01 && !pulses.length) idle = true;
+    }
+    time += dt * speed;
     // Le pointeur est suivi avec un léger retard (effet fluide).
     pointer.sx += (pointer.x - pointer.sx) * 0.12;
     pointer.sy += (pointer.y - pointer.sy) * 0.12;
@@ -164,7 +180,7 @@
     schedule();
   };
 
-  const canRun = () => !paused && onScreen && !document.hidden && !reduce.matches;
+  const canRun = () => !paused && !idle && onScreen && !document.hidden && !reduce.matches;
   const schedule = () => {
     if (!raf && canRun()) {
       raf = requestAnimationFrame((now) => { if (!lastNow) lastNow = now; frame(now); });
@@ -182,7 +198,13 @@
     const rect = root.getBoundingClientRect();
     return { x: event.clientX - rect.left, y: event.clientY - rect.top };
   };
+  /** wake(): void — une interaction relance l'animation (mode arrêt automatique). */
+  const wake = () => {
+    lastActivity = performance.now();
+    if (idle) { idle = false; schedule(); }
+  };
   root.addEventListener('pointermove', (event) => {
+    if (AUTOSTOP_MS && !reduce.matches && !paused) wake();
     if (!canRun()) return;
     const p = local(event);
     if (pointer.target === 0 && pointer.amount < 0.05) { pointer.sx = p.x; pointer.sy = p.y; }
@@ -195,6 +217,7 @@
   root.addEventListener('pointercancel', release);
   root.addEventListener('pointerup', (event) => { if (event.pointerType !== 'mouse') release(); });
   root.addEventListener('pointerdown', (event) => {
+    if (AUTOSTOP_MS && !reduce.matches && !paused) wake();
     if (!canRun() || event.target.closest('button')) return;
     const p = local(event);
     pulses.push({ x: p.x, y: p.y, born: performance.now() });
@@ -219,7 +242,7 @@
     new IntersectionObserver(([entry]) => {
       onScreen = entry.isIntersecting;
       // L'arrivée des rubans démarre au premier affichage (mobile : sous la ligne de flottaison).
-      if (onScreen && !introStarted) { introStarted = true; introStart = performance.now(); }
+      if (onScreen && !introStarted) { introStarted = true; introStart = performance.now(); lastActivity = introStart; }
       if (onScreen) schedule(); else stop();
     }).observe(root);
   }
