@@ -77,7 +77,7 @@ def build_v2_css() -> None:
     # Les sources fusionnées ne sont pas publiées (aucune page ne les charge).
     for source in ('ds.css', 'theme.css'):
         (v2/source).unlink(missing_ok=True)
-    for name in ('home.css', 'demos.css', 'project.css', 'funnel.css', 'editorial.css', 'sector.css'):
+    for name in ('home.css', 'demos.css', 'project.css', 'funnel.css', 'editorial.css', 'sector.css', 'illus.css'):
         path = v2/name
         if path.exists():
             path.write_text(minify_css(path.read_text(encoding='utf-8')), encoding='utf-8')
@@ -201,6 +201,8 @@ def build() -> None:
             whats = replace_tokens(whatsapp_tpl, {'WHATSAPP_SVG': WHATSAPP_SVG})
             content = read(SRC/'pages'/meta['source']).replace('{{CTA_BAND}}', read(SRC/'partials/cta-v2.html'))
             content = replace_tokens(content, {'ARROW_SVG': ARROW_SVG})
+            # Illustrations explicatives des offres : {{ILLUS:clé}} → src/partials/illustrations/clé.svg
+            content = re.sub(r'\{\{ILLUS:([a-z-]+)\}\}', lambda m: read(SRC/'partials'/'illustrations'/f'{m.group(1)}.svg'), content)
             structured = build_v2_structured_data(meta, content, BASE_URL + meta['route'])
             output = replace_tokens(base_v2, {
                 'TITLE': html.escape(meta['title'], quote=False),

@@ -31,7 +31,9 @@
     "og_description": "Applications mobiles iOS et Android pour vos équipes terrain et vos clients : cadrage, développement, refonte et maintenance.",
     "design": "v2",
     "pillar_key": "applications-mobiles",
-    "styles": [],
+    "styles": [
+      "v2/illus.css"
+    ],
     "scripts": [
       "v2/hero-flow.js"
     ],
@@ -50,7 +52,9 @@
     "og_description": "Outils internes, plateformes clients, sites professionnels et intégration d’API : un seul outil au lieu de dix tableurs.",
     "design": "v2",
     "pillar_key": "applications-web-metier",
-    "styles": [],
+    "styles": [
+      "v2/illus.css"
+    ],
     "scripts": [
       "v2/hero-flow.js"
     ],
@@ -69,7 +73,9 @@
     "og_description": "Automatisez relances, devis et tri des demandes. L’IA uniquement quand elle apporte un vrai gain, avec vos données protégées.",
     "design": "v2",
     "pillar_key": "automatisation-ia",
-    "styles": [],
+    "styles": [
+      "v2/illus.css"
+    ],
     "scripts": [
       "v2/hero-flow.js"
     ],
@@ -84,7 +90,9 @@
     "route": "/services/cadrage-prototypage/",
     "title": "Cadrage & prototypage d’application mobile — Synumanus",
     "description": "Cadrage et prototypage : clarifier le besoin métier, prioriser la V1, tester les parcours et préparer le développement.",
-    "styles": [],
+    "styles": [
+      "v2/illus.css"
+    ],
     "service_key": "cadrage-prototypage",
     "og_title": "Cadrage & prototypage d’application mobile — Synumanus",
     "og_description": "Cadrage et prototypage : clarifier le besoin métier, prioriser la V1, tester les parcours et préparer le développement.",
@@ -102,7 +110,9 @@
     "route": "/services/developpement-application-mobile/",
     "title": "Développement d’application mobile iOS & Android — Synumanus",
     "description": "Développement d’applications mobiles métier sur mesure iOS et Android : Flutter, Kotlin, Swift, backend, API et publication.",
-    "styles": [],
+    "styles": [
+      "v2/illus.css"
+    ],
     "service_key": "developpement-application-mobile",
     "og_title": "Développement d’application mobile iOS & Android — Synumanus",
     "og_description": "Développement d’applications mobiles métier sur mesure iOS et Android : Flutter, Kotlin, Swift, backend, API et publication.",
@@ -120,7 +130,9 @@
     "route": "/services/refonte-application-mobile/",
     "title": "Refonte d’application mobile — Synumanus",
     "description": "Audit et refonte d’applications mobiles : UX, dette technique, architecture, migration et remise à niveau iOS/Android.",
-    "styles": [],
+    "styles": [
+      "v2/illus.css"
+    ],
     "service_key": "refonte-application-mobile",
     "og_title": "Refonte d’application mobile — Synumanus",
     "og_description": "Audit et refonte d’applications mobiles : UX, dette technique, architecture, migration et remise à niveau iOS/Android.",
@@ -138,7 +150,9 @@
     "route": "/services/maintenance-evolution/",
     "title": "Maintenance & évolution d’application mobile — Synumanus",
     "description": "Maintenance corrective, préventive et évolutive d’applications mobiles iOS et Android.",
-    "styles": [],
+    "styles": [
+      "v2/illus.css"
+    ],
     "service_key": "maintenance-evolution",
     "og_title": "Maintenance & évolution d’application mobile — Synumanus",
     "og_description": "Maintenance corrective, préventive et évolutive d’applications mobiles iOS et Android.",

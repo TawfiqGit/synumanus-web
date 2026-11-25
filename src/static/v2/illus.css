@@ -1,0 +1,24 @@
+/* Illustrations explicatives des offres (proposition Lili, 25/11/2026).
+   SVG en ligne : couleurs du système de design, aucun attribut style (CSP). */
+.illus-band .split { align-items: center; }
+.illus { margin: 0; display: grid; gap: 10px; }
+.illus svg { width: 100%; height: auto; display: block; }
+.illus figcaption { font-family: var(--font-mono); font-size: var(--fs-caption); color: var(--c-text-2); }
+.il-guide { fill: none; stroke: var(--c-border-strong); stroke-width: 1.2; stroke-dasharray: 4 5; }
+.il-link { fill: none; stroke: var(--c-accent-text); stroke-width: 1.6; stroke-dasharray: 5 5; stroke-linecap: round; }
+.il-line { fill: none; stroke: var(--c-accent-text); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.il-thin { fill: none; stroke: #a1a1aa; stroke-width: 1.4; stroke-linecap: round; }
+.il-card { fill: var(--c-card); stroke: var(--c-border-strong); stroke-width: 1.5; }
+.il-dark { fill: var(--c-graphite); }
+.il-sky { fill: var(--c-accent); }
+.il-sky-soft { fill: #e0f2fe; }
+.il-navy { fill: var(--c-accent-text); }
+.il-white { fill: #ffffff; }
+.il-label { font-family: var(--font-mono); font-size: 13px; letter-spacing: .08em; fill: var(--c-text-2); }
+.il-label-dark { font-family: var(--font-mono); font-size: 13px; letter-spacing: .08em; fill: #e0f2fe; }
+.il-title { font-family: var(--font-sans); font-size: 14px; font-weight: 600; fill: var(--c-text); }
+/* Apparition douce, une seule fois, jamais si « réduire les animations » */
+@keyframes ilDraw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+.motion-ok .illus .il-line { stroke-dasharray: 400; animation: ilDraw 1.2s var(--ease) .2s both; }
+.il-sky-line { fill: none; stroke: var(--c-accent); stroke-width: 2; stroke-linecap: round; }
+.il-white-line { fill: none; stroke: #ffffff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
