@@ -10,7 +10,7 @@ Version 1.0 — 23/11/2026. **À exécuter uniquement après validation de Tawfi
 | P1 | ~~Validation CEO du site, des tunnels et de l'offre « Diagnostic »~~ — validés le 24/11 (offre sans compte rendu écrit) ; reste le feu vert de publication | TawfiqDev |
 | P2 | ~~Téléphone de l'hébergeur dans les mentions légales~~ — fait le 25/11 (+370 645 03378) | TawfiqDev → Law |
 | P3 | ~~Réception de l'e-mail interne du formulaire~~ — confirmée le 25/11 | TawfiqDev |
-| P4 | **À REFAIRE** : `.env` introuvable sur le serveur le 25/11 (aucun fichier dont le nom contient « env »). Emplacement exact : `/home/u473285295/domains/synumanus.fr/.env`, au même niveau que `public_html` et `scripts` | TawfiqDev |
+| P4 | ~~`.env` privé de production~~ — recréé le 25/11, lu par le serveur (inscription newsletter de test réussie) | TawfiqDev |
 | P5 | ~~Données de prospects retirées de `var/`~~ — retirées du suivi Git le 25/11 (restent dans l'historique) | Dragon |
 
 Contenu du `.env` de production (valeurs secrètes saisies par TawfiqDev, jamais dans le dépôt ni dans une conversation) :
@@ -60,7 +60,7 @@ La production étant vide aujourd'hui, le retour arrière consiste à remettre `
 | En-têtes de sécurité (CSP, HSTS, X-Frame-Options, nosniff), fichiers cachés refusés | ✅ |
 | Recette production 25/28 (3 écarts attendus : site indexable, vrai calendrier) ; Lighthouse 100/100/100/100 ; Screaming Frog 0 anomalie | ✅ |
 | Script des relances déposé dans `domains/synumanus.fr/scripts/` | ✅ |
-| `.env` de production | ❌ introuvable → newsletter en erreur 500 |
+| `.env` de production | ✅ recréé et lu (newsletter testée en production, contact de test supprimé) |
 | Tâche planifiée des relances | ⏳ après le `.env` |
 | systeme.io : redirection « Thank You » des pages calendrier | ⏳ TawfiqDev (interface systeme.io) |
 | Google Search Console : sitemap | ⏳ TawfiqDev |
