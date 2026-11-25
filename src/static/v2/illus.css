@@ -1,6 +1,5 @@
 /* Illustrations explicatives des offres (proposition Lili, 25/11/2026).
    SVG en ligne : couleurs du système de design, aucun attribut style (CSP). */
-.illus-band .split { align-items: center; }
 .illus { margin: 0; display: grid; gap: 10px; }
 .illus svg { width: 100%; height: auto; display: block; }
 .illus figcaption { font-family: var(--font-mono); font-size: var(--fs-caption); color: var(--c-text-2); }
@@ -48,3 +47,8 @@
 .motion-ok .illus.is-playing .il-d4 { animation-delay: 1.05s; }
 .motion-ok .illus.is-playing .il-d5 { animation-delay: 1.35s; }
 .motion-ok .illus.is-playing .il-d6 { animation-delay: 1.65s; }
+
+/* Illustration à la place des rubans, à côté du titre (décision TawfiqDev du 25/11) : sans cadre. */
+.hero-art { position: relative; align-self: stretch; display: grid; align-items: center; }
+.illus-hero svg { max-height: 420px; }
+@media (max-width: 959px) { .hero-art { margin-top: var(--s-4); } }
