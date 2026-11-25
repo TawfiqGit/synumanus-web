@@ -168,7 +168,7 @@ body.v2::after {
 .scrolly-step .tag { justify-self: start; }
 .scrolly-num { font-family: var(--font-mono); font-size: 13px; color: var(--c-dark-accent); }
 .scrolly-step p { color: var(--c-dark-text-2); }
-.js.motion-ok .scrolly-step:not(.is-active) { opacity: .45; transform: translateX(8px); }
+.js.motion-ok .scrolly-step:not(.is-active) { opacity: .7; transform: translateX(8px); } /* 0,7 : contraste ≥ 4,5:1 conservé (WCAG 1.4.3) */
 .scrolly-step.is-active { border-left-color: var(--c-dark-accent); background: var(--c-dark-3); }
 @media (max-width: 959px) { .scrolly { grid-template-columns: 1fr; } .scrolly-aside { position: static; } .scrolly-step { min-height: 0; padding: 24px; } }
 
@@ -209,6 +209,7 @@ body.v2::after {
 .table-scroll { overflow-x: auto; max-width: 100%; }
 .table-scroll table { min-width: 640px; }
 .table-scroll:focus-visible { outline: 2px solid var(--c-accent-text); outline-offset: 2px; }
+.data-block:focus-visible, .generated-brief:focus-visible { outline: 2px solid var(--c-accent-text); outline-offset: 2px; }
 .prose { min-width: 0; }
 
 /* Parcours personnalisés */
