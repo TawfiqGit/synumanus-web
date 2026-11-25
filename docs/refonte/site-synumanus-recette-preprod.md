@@ -50,7 +50,7 @@ Pré-production passée en mode réel le temps du test (`SYNUMANUS_LOCAL_MOCK=0`
 | Étape 4/4 avec le calendrier de test | ✅ |
 | Erreurs JavaScript | ✅ 0 |
 | Contact créé dans systeme.io (`ace-recette@` et `robot@example.invalid`) | ✅ aucun (la synchronisation n'a lieu que dans le processus de relance, absent de la pré-production) |
-| **E-mail interne reçu sur contact@synumanus.fr** (objet « Nouvelle demande projet — Ace Recette — TEST RECETTE — à ignorer ») | ⏳ **à confirmer par TawfiqDev** (boîte de réception inaccessible à Ace) |
+| **E-mail interne reçu sur contact@synumanus.fr** (objet « Nouvelle demande projet — Ace Recette — TEST RECETTE — à ignorer ») | ✅ **reçu** (confirmé par TawfiqDev le 25/11) |
 
 La demande de test reste dans la base de la pré-production (`public_html/preprod/var/`, inaccessible depuis le web) ; elle disparaîtra avec la pré-production.
 
