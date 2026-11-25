@@ -10,6 +10,13 @@ ErrorDocument 404 /404.html
   Require all denied
 </FilesMatch>
 
+# Une seule adresse pour le site : synumanus.fr → www.synumanus.fr (évite le contenu en double).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^synumanus\.fr$ [NC]
+  RewriteRule ^ https://www.synumanus.fr%{REQUEST_URI} [L,R=301]
+</IfModule>
+
 # Redirections historiques (reprises de l'.htaccess de production du 23/11/2026).
 Redirect 301 /legal/mentions-legales.html /mentions-legales/
 Redirect 301 /legal/politique-confidentialite.html /politique-confidentialite/
