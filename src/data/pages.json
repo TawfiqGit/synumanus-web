@@ -35,7 +35,8 @@
       "v2/illus.css"
     ],
     "scripts": [
-      "v2/hero-flow.js"
+      "v2/hero-flow.js",
+      "v2/illus.js"
     ],
     "structured_data": "",
     "service_key": null,
@@ -56,7 +57,8 @@
       "v2/illus.css"
     ],
     "scripts": [
-      "v2/hero-flow.js"
+      "v2/hero-flow.js",
+      "v2/illus.js"
     ],
     "structured_data": "",
     "service_key": null,
@@ -77,7 +79,8 @@
       "v2/illus.css"
     ],
     "scripts": [
-      "v2/hero-flow.js"
+      "v2/hero-flow.js",
+      "v2/illus.js"
     ],
     "structured_data": "",
     "service_key": null,
@@ -97,7 +100,8 @@
     "og_title": "Cadrage & prototypage d’application mobile — Synumanus",
     "og_description": "Cadrage et prototypage : clarifier le besoin métier, prioriser la V1, tester les parcours et préparer le développement.",
     "scripts": [
-      "v2/hero-flow.js"
+      "v2/hero-flow.js",
+      "v2/illus.js"
     ],
     "sector_key": null,
     "resource_key": null,
@@ -117,7 +121,8 @@
     "og_title": "Développement d’application mobile iOS & Android — Synumanus",
     "og_description": "Développement d’applications mobiles métier sur mesure iOS et Android : Flutter, Kotlin, Swift, backend, API et publication.",
     "scripts": [
-      "v2/hero-flow.js"
+      "v2/hero-flow.js",
+      "v2/illus.js"
     ],
     "sector_key": null,
     "resource_key": null,
@@ -137,7 +142,8 @@
     "og_title": "Refonte d’application mobile — Synumanus",
     "og_description": "Audit et refonte d’applications mobiles : UX, dette technique, architecture, migration et remise à niveau iOS/Android.",
     "scripts": [
-      "v2/hero-flow.js"
+      "v2/hero-flow.js",
+      "v2/illus.js"
     ],
     "sector_key": null,
     "resource_key": null,
@@ -157,7 +163,8 @@
     "og_title": "Maintenance & évolution d’application mobile — Synumanus",
     "og_description": "Maintenance corrective, préventive et évolutive d’applications mobiles iOS et Android.",
     "scripts": [
-      "v2/hero-flow.js"
+      "v2/hero-flow.js",
+      "v2/illus.js"
     ],
     "sector_key": null,
     "resource_key": null,
