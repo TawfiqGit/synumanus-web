@@ -61,6 +61,11 @@ La production étant vide aujourd'hui, le retour arrière consiste à remettre `
 | Recette production 25/28 (3 écarts attendus : site indexable, vrai calendrier) ; Lighthouse 100/100/100/100 ; Screaming Frog 0 anomalie | ✅ |
 | Script des relances déposé dans `domains/synumanus.fr/scripts/` | ✅ |
 | `.env` de production | ✅ recréé et lu (newsletter testée en production, contact de test supprimé) |
-| Tâche planifiée des relances | ⏳ après le `.env` |
+| Tâche planifiée des relances | ✅ chaque minute (uid `0wWTqtT4cR`) : `echo RELANCES: \`/usr/bin/php /home/u473285295/domains/synumanus.fr/scripts/project-reminders.php 2>&1 \| paste -s -d ' '\`` ; `--check` OK, 1re exécution : 0 erreur |
 | systeme.io : redirection « Thank You » des pages calendrier | ⏳ TawfiqDev (interface systeme.io) |
 | Google Search Console : sitemap | ⏳ TawfiqDev |
+
+### Notes d'exploitation (Dragon)
+- Résultat de la dernière exécution : connecteur Hostinger `hosting_cron-jobs_output` (uid `0wWTqtT4cR`) → `RELANCES: {"booked":…,"reminded":…,"deferred":…,"errors":0}`.
+- La sortie des tâches planifiées Hostinger n'est lisible que sous la forme `echo …` avec la commande entre accents graves, sans `cd`, sans `$` ni `%` (interprétés par le planificateur).
+- `domains/synumanus.fr/scripts/diag-verrou.php` : diagnostic du 25/11, neutralisé (`exit`), à supprimer depuis le gestionnaire de fichiers hPanel.
