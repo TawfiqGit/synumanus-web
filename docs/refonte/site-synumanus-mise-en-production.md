@@ -10,8 +10,8 @@ Version 1.0 — 23/11/2026. **À exécuter uniquement après validation de Tawfi
 | P1 | ~~Validation CEO du site, des tunnels et de l'offre « Diagnostic »~~ — validés le 24/11 (offre sans compte rendu écrit) ; reste le feu vert de publication | TawfiqDev |
 | P2 | ~~Téléphone de l'hébergeur dans les mentions légales~~ — fait le 25/11 (+370 645 03378) | TawfiqDev → Law |
 | P3 | ~~Réception de l'e-mail interne du formulaire~~ — confirmée le 25/11 | TawfiqDev |
-| P4 | `.env` privé de production créé **hors de `public_html`** : `domains/synumanus.fr/.env` (le connecteur ne peut écrire que dans `public_html` → gestionnaire de fichiers hPanel) | TawfiqDev |
-| P5 | Données de prospects retirées de `var/` dans le dépôt (tâche urgente) | Dragon |
+| P4 | ~~`.env` privé de production~~ — créé par TawfiqDev le 25/11 | TawfiqDev |
+| P5 | ~~Données de prospects retirées de `var/`~~ — retirées du suivi Git le 25/11 (restent dans l'historique) | Dragon |
 
 Contenu du `.env` de production (valeurs secrètes saisies par TawfiqDev, jamais dans le dépôt ni dans une conversation) :
 

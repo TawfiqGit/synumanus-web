@@ -101,3 +101,6 @@
 | 24/11/2026 | **Les 7 pages passées en v2 sont validées** (Industrie, Finance & assurance, Santé, Conseil IA, Radar, Générateur, Actus) | Décision CEO | TawfiqDev |
 | 25/11/2026 | Mentions légales complétées : téléphone de l'hébergeur Hostinger **+370 645 03378** (obligation LCEN). Préalable P2 levé | Information fournie par TawfiqDev | TawfiqDev |
 | 25/11/2026 | E-mail interne du formulaire **bien reçu** sur contact@synumanus.fr (test réel du 23/11) : l'envoi d'e-mails du serveur Hostinger fonctionne. Préalable P3 levé | Confirmation de TawfiqDev | TawfiqDev |
+| 25/11/2026 | `.env` de production créé par TawfiqDev dans hPanel (`domains/synumanus.fr/.env`, hors `public_html`). Préalable P4 levé | Confirmation CEO | TawfiqDev |
+| 25/11/2026 | **`var/` retiré du suivi Git** (18 fichiers, dont bases et rapports de tests réels, non ouverts) et ignoré par `.gitignore`. Fichiers toujours présents dans l'**historique** du dépôt : purge non retenue pour l'instant (décision CEO). Préalable P5 levé | RGPD : aucune donnée de prospect ne doit vivre dans le dépôt | TawfiqDev (décision), Dragon |
+| 25/11/2026 | **Feu vert de publication** donné par TawfiqDev | Gate G4 | TawfiqDev |
