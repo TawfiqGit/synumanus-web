@@ -255,6 +255,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
   opacity: 0; visibility: hidden; transition: opacity .15s var(--ease), transform .15s var(--ease), visibility .15s;
 }
 .nav-hub.open .nav-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+/* Sous-menus courts (Média, Ressources) : une colonne, sous leur bouton. */
+.nav-hub-sm { position: relative; }
+.nav-menu-sm { top: calc(100% + 22px); grid-template-columns: 1fr; width: 300px; }
 .menu-col { display: grid; align-content: start; gap: 2px; padding: 8px; }
 .menu-col + .menu-col { border-left: 1px solid var(--c-border); }
 .menu-label { font-family: var(--font-mono); font-size: var(--fs-caption); text-transform: uppercase; letter-spacing: .08em; color: var(--c-text-2); padding: 4px 10px 8px; }

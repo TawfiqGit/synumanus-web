@@ -444,6 +444,28 @@
     "structured_data": "",
     "design": "v2"
   },
+  "videos/index.html": {
+    "source": "videos.html",
+    "route": "/videos/",
+    "title": "Vidéos — conseils et démonstrations — Synumanus",
+    "description": "Les vidéos Synumanus : conseils et démonstrations sur les applications mobiles, l’automatisation, l’IA et le web.",
+    "styles": [
+      "v2/illus.css",
+      "v2/videos.css"
+    ],
+    "resource_key": "videos",
+    "og_title": "Vidéos Synumanus : nos conseils en vidéo",
+    "og_description": "Conseils et démonstrations sur les applications mobiles, l’automatisation, l’IA et le web.",
+    "scripts": [
+      "v2/illus.js",
+      "v2/videos.js"
+    ],
+    "service_key": null,
+    "sector_key": null,
+    "direct_key": null,
+    "structured_data": "",
+    "design": "v2"
+  },
   "demarrer-un-projet/index.html": {
     "source": "demarrer-un-projet.html",
     "route": "/demarrer-un-projet/",

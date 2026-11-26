@@ -3,6 +3,8 @@
 // Vérifie, sur chaque page (sitemap + pages hors sitemap), sur ordinateur et sur mobile :
 //   - les 4 colonnes et les 14 options du menu sont visibles ;
 //   - seule la page en cours est signalée (aria-current) ;
+//   - l'en-tête affiche Solutions · Média · Ressources · Agence (sans « Méthode ») ;
+//   - Média (Actus, Vidéos) et Ressources (Générateur, Radars Tech) s'ouvrent avec leurs 2 options ;
 // puis que le menu ouvert reste entièrement dans l'écran de 960 à 1920 px de large.
 const { chromium } = require('playwright');
 const B = process.argv[2];
@@ -14,7 +16,7 @@ const EXPECTED = ['/applications-mobiles/','/applications-web-metier/','/automat
   const b = await chromium.launch();
   const sm = await (await fetch(B + '/sitemap.xml')).text();
   const urls = [...sm.matchAll(/<loc>https?:\/\/[^/<]+([^<]*)<\/loc>/g)].map(m => m[1] || '/');
-  urls.push('/404.html', '/newsletter/merci/', '/campagne/diagnostic-automatisation/', '/campagne/diagnostic-automatisation/merci/', '/rendez-vous-confirme/');
+  urls.push('/videos/', '/404.html', '/newsletter/merci/', '/campagne/diagnostic-automatisation/', '/campagne/diagnostic-automatisation/merci/', '/rendez-vous-confirme/');
   let ko = 0;
   for (const [mode, vp] of [['ordinateur', { width: 1440, height: 900 }], ['mobile', { width: 375, height: 800 }]]) {
     const p = await (await b.newContext({ viewport: vp })).newPage();
@@ -22,7 +24,7 @@ const EXPECTED = ['/applications-mobiles/','/applications-web-metier/','/automat
       await p.goto(B + u, { waitUntil: 'domcontentloaded' });
       let menu;
       if (mode === 'ordinateur') { await p.click('.nav-desktop .nav-trigger'); menu = '#solutions-menu'; }
-      else { await p.click('.menu-toggle'); await p.click('.mobile-trigger'); menu = '.mobile-menu'; }
+      else { await p.click('.menu-toggle'); await p.click('.mobile-trigger'); menu = '#mobile-solutions-menu'; }
       await p.waitForTimeout(250);
       const r = await p.evaluate((menu) => {
         const links = [...document.querySelectorAll(menu + ' a')];
@@ -30,11 +32,23 @@ const EXPECTED = ['/applications-mobiles/','/applications-web-metier/','/automat
         return { hrefs: links.filter(vis).map(a => new URL(a.href).pathname), current: links.filter(a => a.getAttribute('aria-current') === 'page').map(a => new URL(a.href).pathname),
                  labels: [...document.querySelectorAll(menu + ' .menu-label')].map(l => l.textContent) };
       }, menu);
+      // En-tête et sous-menus Média / Ressources.
+      const top = await p.evaluate((mode) => [...document.querySelectorAll(mode === 'ordinateur'
+        ? '.nav-desktop .nav-list > li > .nav-link' : '.nav-mobile > .mobile-service-hub > .mobile-trigger, .nav-mobile > .mobile-link')].map(e => e.textContent.trim()), mode);
+      const subs = {};
+      for (const [name, key, want] of [['Média', 'media', ['/actus/', '/videos/']], ['Ressources', 'resource', ['/ressources/generateur-cahier-des-charges/', '/ressources/radars-tech/']]]) {
+        const trigger = mode === 'ordinateur' ? `[data-${key}-hub-trigger]` : `[data-mobile-${key}-hub-trigger]`;
+        const box = mode === 'ordinateur' ? (key === 'media' ? '#media-menu' : '#resources-menu') : (key === 'media' ? '#mobile-media-menu' : '#mobile-resources-menu');
+        await p.click(trigger); await p.waitForTimeout(200);
+        const got = await p.evaluate((box) => [...document.querySelectorAll(box + ' a')].filter(a => { const s = a.getBoundingClientRect(); return s.width > 0 && s.height > 0 && getComputedStyle(a).visibility !== 'hidden'; }).map(a => new URL(a.href).pathname), box);
+        subs[name] = want.every(h => got.includes(h)) && got.length === want.length;
+      }
+      const headerOk = top.join(' · ') === 'Solutions · Média · Ressources · Agence' && subs['Média'] && subs['Ressources'];
       const missing = EXPECTED.filter(h => !r.hrefs.includes(h));
       const badCurrent = EXPECTED.includes(u) ? !(r.current.length === 1 && r.current[0] === u) : r.current.length !== 0;
-      const ok = !missing.length && r.hrefs.length === 14 && !badCurrent && r.labels.length === 4;
+      const ok = !missing.length && r.hrefs.length === 14 && !badCurrent && r.labels.length === 4 && headerOk;
       if (!ok) ko++;
-      console.log(`${ok ? 'OK' : 'KO'} ${mode.padEnd(10)} ${u.padEnd(46)} liens visibles=${r.hrefs.length} colonnes=${r.labels.length} page en cours=${r.current.join(',') || '—'}${missing.length ? ' MANQUE ' + missing.join(',') : ''}`);
+      console.log(`${ok ? 'OK' : 'KO'} ${mode.padEnd(10)} ${u.padEnd(46)} liens visibles=${r.hrefs.length} colonnes=${r.labels.length} page en cours=${r.current.join(',') || '—'} en-tête=${headerOk ? 'OK' : top.join('·') + ' ' + JSON.stringify(subs)}${missing.length ? ' MANQUE ' + missing.join(',') : ''}`);
     }
   }
   for (const w of [960, 1024, 1180, 1280, 1366, 1440, 1920]) {

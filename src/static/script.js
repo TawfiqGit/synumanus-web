@@ -165,7 +165,7 @@ const setupClickHub = ({ desktopHub, desktopTrigger, mobileHub, mobileTrigger })
   });
 };
 
-/** setupNavigationHubs(): void — initialise Service + Secteurs + Ressources. */
+/** setupNavigationHubs(): void — initialise Solutions + Secteurs + Média + Ressources. */
 const setupNavigationHubs = () => {
   setupClickHub({
     desktopHub: '[data-service-hub]', desktopTrigger: '[data-service-hub-trigger]',
@@ -174,6 +174,10 @@ const setupNavigationHubs = () => {
   setupClickHub({
     desktopHub: '[data-sector-hub]', desktopTrigger: '[data-sector-hub-trigger]',
     mobileHub: '[data-mobile-sector-hub]', mobileTrigger: '[data-mobile-sector-hub-trigger]'
+  });
+  setupClickHub({
+    desktopHub: '[data-media-hub]', desktopTrigger: '[data-media-hub-trigger]',
+    mobileHub: '[data-mobile-media-hub]', mobileTrigger: '[data-mobile-media-hub-trigger]'
   });
   setupClickHub({
     desktopHub: '[data-resource-hub]', desktopTrigger: '[data-resource-hub-trigger]',

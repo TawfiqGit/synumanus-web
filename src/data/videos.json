@@ -1,0 +1,5 @@
+{
+  "_aide": "Vidéos affichées sur /videos/. Ajouter une entrée par vidéo YouTube : id = les 11 caractères après « v= » dans l'adresse de la vidéo. Tant que la liste est vide, la page affiche « bientôt » et n'est ni indexée ni dans le sitemap.",
+  "chaine": "https://www.youtube.com/@tawfiq6869",
+  "videos": []
+}

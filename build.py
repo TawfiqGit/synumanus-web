@@ -58,6 +58,48 @@ def render_v2_menu(nav: dict, current_key: str | None, mobile: bool=False) -> st
                    + ''.join(link(x, cls) for x in nav[group]) + '</div>'
                    for label, group, cls in columns)
 
+def render_v2_simple_menu(items: list[dict], current_key: str | None, mobile: bool=False) -> str:
+    """Sous-menu court à une colonne (Média, Ressources)."""
+    links = ''
+    for item in items:
+        is_current = item['key'] == current_key
+        aria = ' aria-current="page"' if is_current else ''
+        desc = '' if mobile else f'<small>{item["description"]}</small>'
+        links += (f'<a class="menu-link{" is-current" if is_current else ""}" href="{item["href"]}"{aria}>'
+                  f'<span class="menu-link-title">{item["title"]}</span>{desc}</a>')
+    return f'<div class="menu-col">{links}</div>'
+
+PLAY_SVG = '<svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="35" fill="rgba(255,255,255,.12)" stroke="currentColor" stroke-width="2"/><path d="M29 24v24l20-12Z" fill="currentColor"/></svg>'
+
+def render_videos(data: dict) -> str:
+    """Page Vidéos : une carte par vidéo YouTube (lecteur chargé au clic), ou « bientôt » si la liste est vide."""
+    channel = data.get('chaine', '')
+    if not re.fullmatch(r'https://www\.youtube\.com/@[A-Za-z0-9_.-]+', channel):
+        raise ValueError('videos.json : adresse de chaîne YouTube invalide')
+    cards = []
+    for video in data.get('videos', []):
+        vid = video.get('id', '')
+        if not re.fullmatch(r'[A-Za-z0-9_-]{11}', vid):
+            raise ValueError(f'videos.json : identifiant YouTube invalide « {vid} »')
+        title = html.escape(video['titre'], quote=True)
+        meta = ' · '.join(html.escape(x) for x in (video.get('theme', ''), video.get('duree', '')) if x)
+        cards.append(
+            f'<article class="video-card"><div class="video-frame" data-video data-video-id="{vid}" data-video-title="{title}">'
+            f'<button class="video-play" type="button" aria-label="Lire la vidéo : {title}">{PLAY_SVG}</button></div>'
+            + (f'<p class="video-meta">{meta}</p>' if meta else '')
+            + f'<h3 class="h-card">{title}</h3><p>{html.escape(video.get("description", ""))}</p></article>')
+    channel_link = (f'<a class="btn btn-ghost btn-lg" href="{channel}" target="_blank" rel="noopener noreferrer">'
+                    'Voir notre chaîne YouTube<span class="sr-only"> (nouvel onglet)</span></a>')
+    if not cards:
+        return ('      <div class="video-empty card"><h3 class="h-feature">Les premières vidéos arrivent bientôt</h3>'
+                '<p>Nous préparons des vidéos courtes sur les applications mobiles, l’automatisation, l’IA et le web. '
+                'Inscrivez-vous à la newsletter pour être prévenu de leur sortie.</p>'
+                f'<div class="actions"><a class="btn btn-primary btn-lg" href="/newsletter/">S’inscrire à la newsletter{ARROW_SVG}</a>{channel_link}</div></div>')
+    return ('      <div class="video-grid">' + ''.join(cards) + '</div>\n'
+            '      <p class="video-privacy">La vidéo est lue avec le lecteur de YouTube (Google) en mode de confidentialité renforcée. '
+            'Rien n’est chargé depuis YouTube avant votre clic sur « Lire ». Voir la <a class="link" href="/politique-confidentialite/">politique de confidentialité</a>.</p>\n'
+            f'      <p class="actions">{channel_link}</p>')
+
 def render_v2_footer_items(items: list[dict]) -> str:
     """Liens de colonne de footer (refonte v2)."""
     return ''.join(f'<li><a href="{x["href"]}">{x["title"]}</a></li>' for x in items)
@@ -80,7 +122,7 @@ def build_v2_css() -> None:
     # Les sources fusionnées ne sont pas publiées (aucune page ne les charge).
     for source in ('ds.css', 'theme.css'):
         (v2/source).unlink(missing_ok=True)
-    for name in ('home.css', 'demos.css', 'project.css', 'funnel.css', 'editorial.css', 'sector.css', 'illus.css'):
+    for name in ('home.css', 'demos.css', 'project.css', 'funnel.css', 'editorial.css', 'sector.css', 'illus.css', 'videos.css'):
         path = v2/name
         if path.exists():
             path.write_text(minify_css(path.read_text(encoding='utf-8')), encoding='utf-8')
@@ -184,12 +226,22 @@ def build() -> None:
             nav_key = meta.get('nav_key')
             in_solutions = bool(meta.get('service_key') or meta.get('pillar_key'))
             current = meta.get('service_key') or meta.get('pillar_key')
+            # Média (Actus, Vidéos) et Ressources : la clé de la page signale l'entrée en cours.
+            page_key = meta.get('resource_key')
+            media_keys = {x['key'] for x in nav['media']}
+            resource_keys = {x['key'] for x in nav['resources']}
             header = replace_tokens(header_v2_tpl, {
                 'BRAND_ICON': BRAND_ICON,
                 'CHEVRON_SVG': CHEVRON_SVG,
                 'ARROW_SVG': ARROW_SVG,
                 'SOLUTIONS_CURRENT': ' is-current' if in_solutions else '',
                 'AGENCE_ARIA': ' aria-current="page"' if nav_key == 'agence' else '',
+                'MEDIA_CURRENT': ' is-current' if page_key in media_keys else '',
+                'RESOURCES_CURRENT': ' is-current' if page_key in resource_keys else '',
+                'MEDIA_MENU': render_v2_simple_menu(nav['media'], page_key),
+                'MOBILE_MEDIA_MENU': render_v2_simple_menu(nav['media'], page_key, True),
+                'RESOURCES_MENU': render_v2_simple_menu(nav['resources'], page_key),
+                'MOBILE_RESOURCES_MENU': render_v2_simple_menu(nav['resources'], page_key, True),
                 'SOLUTIONS_MENU': render_v2_menu(nav, current),
                 'MOBILE_SOLUTIONS_MENU': render_v2_menu(nav, current, True),
             })
@@ -202,9 +254,16 @@ def build() -> None:
                 'FOOTER_AI_ITEMS': render_v2_footer_items(nav['ai_services']),
                 'FOOTER_SECTOR_ITEMS': render_v2_footer_items(nav['sectors']),
                 'FOOTER_RESOURCE_ITEMS': render_v2_footer_items(nav['resources']),
+                'FOOTER_MEDIA_ITEMS': render_v2_footer_items(nav['media']),
             })
             whats = replace_tokens(whatsapp_tpl, {'WHATSAPP_SVG': WHATSAPP_SVG})
             content = read(SRC/'pages'/meta['source']).replace('{{CTA_BAND}}', read(SRC/'partials/cta-v2.html'))
+            if '{{VIDEOS}}' in content:
+                videos = json.loads(read(SRC/'data/videos.json'))
+                content = content.replace('{{VIDEOS}}', render_videos(videos))
+                # Page vide (aucune vidéo) : ni indexée ni dans le sitemap.
+                if not videos.get('videos'):
+                    meta = {**meta, 'robots': 'noindex,follow', 'sitemap': False}
             content = replace_tokens(content, {'ARROW_SVG': ARROW_SVG})
             # Illustrations explicatives des offres : {{ILLUS:clé}} → src/partials/illustrations/clé.svg
             content = re.sub(r'\{\{ILLUS:([a-z-]+)\}\}', lambda m: read(SRC/'partials'/'illustrations'/f'{m.group(1)}.svg'), content)
@@ -352,7 +411,8 @@ def version_assets() -> int:
             count += n
     return count
 
-CSP_FRAME_SOURCES = ['https://studio.synumanus.fr']  # calendrier systeme.io (iframe du formulaire)
+CSP_FRAME_SOURCES = ['https://studio.synumanus.fr',  # calendrier systeme.io (iframe du formulaire)
+                     'https://www.youtube-nocookie.com']  # page Vidéos : lecteur chargé au clic
 
 def apply_csp() -> str:
     """Écrit la Content-Security-Policy dans dist/.htaccess (jeton {{CSP_HEADER}}).

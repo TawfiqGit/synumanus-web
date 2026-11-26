@@ -69,3 +69,8 @@ La production étant vide aujourd'hui, le retour arrière consiste à remettre `
 - Résultat de la dernière exécution : connecteur Hostinger `hosting_cron-jobs_output` (uid `0wWTqtT4cR`) → `RELANCES: {"booked":…,"reminded":…,"deferred":…,"errors":0}`.
 - La sortie des tâches planifiées Hostinger n'est lisible que sous la forme `echo …` avec la commande entre accents graves, sans `cd`, sans `$` ni `%` (interprétés par le planificateur).
 - `domains/synumanus.fr/scripts/diag-verrou.php` : diagnostic du 25/11, neutralisé (`exit`), à supprimer depuis le gestionnaire de fichiers hPanel.
+
+### Ajouter une vidéo (page `/videos/`)
+1. Dans `src/data/videos.json`, ajouter une entrée : `{"id": "<11 caractères après v= dans l'adresse YouTube>", "titre": "…", "theme": "…", "duree": "3 min", "description": "…"}`.
+2. `python3 build.py` : un identifiant ou une adresse de chaîne invalide arrête le build. Dès la 1re vidéo, la page devient indexable et entre dans le sitemap.
+3. Avant la 1re vidéo publiée : ajouter à la politique de confidentialité un paragraphe « Vidéos YouTube » (lecteur de Google chargé au clic, mode confidentialité renforcée) — à valider par TawfiqDev.

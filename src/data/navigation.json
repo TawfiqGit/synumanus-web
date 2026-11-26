@@ -66,13 +66,6 @@
       "title": "Radars Tech",
       "href": "/ressources/radars-tech/",
       "description": "Suivre les technologies que Synumanus adopte ou évalue."
-    },
-    {
-      "key": "actus",
-      "number": "03",
-      "title": "Actus & veille",
-      "href": "/actus/",
-      "description": "Mobile, produit, IA générative et architecture."
     }
   ],
   "pillars": [
@@ -150,6 +143,22 @@
       "title": "Conseil & Transformation",
       "href": "/services/conseil-transformation/",
       "description": "Feuille de route numérique et IA, adaptée à votre taille."
+    }
+  ],
+  "media": [
+    {
+      "key": "actus",
+      "number": "01",
+      "title": "Actus",
+      "href": "/actus/",
+      "description": "Veille mobile, produit, IA et architecture."
+    },
+    {
+      "key": "videos",
+      "number": "02",
+      "title": "Vidéos",
+      "href": "/videos/",
+      "description": "Nos conseils et démonstrations en vidéo."
     }
   ]
 }

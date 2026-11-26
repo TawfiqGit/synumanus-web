@@ -10,7 +10,14 @@
           <button class="nav-link nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="solutions-menu" data-service-hub-trigger>Solutions{{CHEVRON_SVG}}</button>
           <div class="nav-menu" id="solutions-menu">{{SOLUTIONS_MENU}}</div>
         </li>
-        <li><a class="nav-link" href="/#methode">Méthode</a></li>
+        <li class="nav-hub nav-hub-sm{{MEDIA_CURRENT}}" data-media-hub>
+          <button class="nav-link nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="media-menu" data-media-hub-trigger>Média{{CHEVRON_SVG}}</button>
+          <div class="nav-menu nav-menu-sm" id="media-menu">{{MEDIA_MENU}}</div>
+        </li>
+        <li class="nav-hub nav-hub-sm{{RESOURCES_CURRENT}}" data-resource-hub>
+          <button class="nav-link nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="resources-menu" data-resource-hub-trigger>Ressources{{CHEVRON_SVG}}</button>
+          <div class="nav-menu nav-menu-sm" id="resources-menu">{{RESOURCES_MENU}}</div>
+        </li>
         <li><a class="nav-link" href="/a-propos/agence/"{{AGENCE_ARIA}}>Agence</a></li>
       </ul>
     </nav>
@@ -22,7 +29,14 @@
       <button class="mobile-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-solutions-menu" data-mobile-service-hub-trigger>Solutions{{CHEVRON_SVG}}</button>
       <div class="mobile-menu" id="mobile-solutions-menu">{{MOBILE_SOLUTIONS_MENU}}</div>
     </div>
-    <a class="mobile-link" href="/#methode">Méthode</a>
+    <div class="mobile-service-hub{{MEDIA_CURRENT}}" data-mobile-media-hub>
+      <button class="mobile-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-media-menu" data-mobile-media-hub-trigger>Média{{CHEVRON_SVG}}</button>
+      <div class="mobile-menu" id="mobile-media-menu">{{MOBILE_MEDIA_MENU}}</div>
+    </div>
+    <div class="mobile-service-hub{{RESOURCES_CURRENT}}" data-mobile-resource-hub>
+      <button class="mobile-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-resources-menu" data-mobile-resource-hub-trigger>Ressources{{CHEVRON_SVG}}</button>
+      <div class="mobile-menu" id="mobile-resources-menu">{{MOBILE_RESOURCES_MENU}}</div>
+    </div>
     <a class="mobile-link" href="/a-propos/agence/"{{AGENCE_ARIA}}>Agence</a>
     <a class="btn btn-primary btn-block" href="/demarrer-un-projet/">Échanger sur mon projet</a>
   </nav>
