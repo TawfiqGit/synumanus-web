@@ -15,7 +15,7 @@ Ce projet implémente l’architecture URL finale validée, avec des pages gén�
 │   ├── industrie/
 │   ├── finance-assurance/
 │   └── sante/
-├── conseil-ia-generative/
+├── services/conseil-transformation/
 ├── a-propos/
 │   └── agence/
 ├── ressources/

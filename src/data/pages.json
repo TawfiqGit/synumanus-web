@@ -165,6 +165,147 @@
     "structured_data": "",
     "design": "v2"
   },
+  "services/geo-referencement-ia/index.html": {
+    "source": "geo.html",
+    "route": "/services/geo-referencement-ia/",
+    "title": "GEO : être cité par les moteurs de réponse IA — Synumanus",
+    "description": "Generative Engine Optimization : rendre votre entreprise claire, vérifiable et citable par ChatGPT, Perplexity ou les réponses IA de Google.",
+    "styles": [
+      "v2/illus.css"
+    ],
+    "service_key": "geo",
+    "og_title": "GEO : soyez cité quand vos clients interrogent une IA",
+    "og_description": "Generative Engine Optimization : rendre votre entreprise claire, vérifiable et citable par ChatGPT, Perplexity ou les réponses IA de Google.",
+    "scripts": [
+      "v2/illus.js"
+    ],
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "structured_data": "",
+    "design": "v2"
+  },
+  "services/agent-ia/index.html": {
+    "source": "agent-ia.html",
+    "route": "/services/agent-ia/",
+    "title": "Agent IA pour entreprise, connecté à vos outils — Synumanus",
+    "description": "Un agent IA qui trie les demandes, prépare des réponses et enchaîne des tâches simples dans vos outils, avec validation humaine et données protégées.",
+    "styles": [
+      "v2/illus.css"
+    ],
+    "service_key": "agent-ia",
+    "og_title": "Un agent IA qui prépare le travail, vous gardez la décision",
+    "og_description": "Un agent IA qui trie les demandes, prépare des réponses et enchaîne des tâches simples dans vos outils, avec validation humaine et données protégées.",
+    "scripts": [
+      "v2/illus.js"
+    ],
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "structured_data": "",
+    "design": "v2"
+  },
+  "services/conseil-transformation/index.html": {
+    "source": "conseil-transformation.html",
+    "route": "/services/conseil-transformation/",
+    "title": "Conseil & Transformation numérique et IA — Synumanus",
+    "description": "Diagnostic de vos processus, choix des outils, place de l’IA générative et accompagnement des équipes : une feuille de route réaliste pour les TPE et PME.",
+    "styles": [
+      "v2/illus.css",
+      "v2/editorial.css"
+    ],
+    "service_key": "conseil-transformation",
+    "og_title": "Conseil & Transformation : le bon niveau de numérique pour votre activité",
+    "og_description": "Diagnostic de vos processus, choix des outils, place de l’IA générative et accompagnement des équipes : une feuille de route réaliste pour les TPE et PME.",
+    "scripts": [
+      "v2/illus.js"
+    ],
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "structured_data": "",
+    "design": "v2"
+  },
+  "services/site-vitrine/index.html": {
+    "source": "site-vitrine.html",
+    "route": "/services/site-vitrine/",
+    "title": "Création de site vitrine professionnel — Synumanus",
+    "description": "Un site vitrine clair, rapide, accessible à tous et prêt pour le référencement, pour présenter votre activité et générer des demandes.",
+    "styles": [
+      "v2/illus.css"
+    ],
+    "service_key": "site-vitrine",
+    "og_title": "Un site vitrine clair, rapide et facile à faire vivre",
+    "og_description": "Un site vitrine clair, rapide, accessible à tous et prêt pour le référencement, pour présenter votre activité et générer des demandes.",
+    "scripts": [
+      "v2/illus.js"
+    ],
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "structured_data": "",
+    "design": "v2"
+  },
+  "services/referencement-seo/index.html": {
+    "source": "seo.html",
+    "route": "/services/referencement-seo/",
+    "title": "Référencement naturel SEO pour TPE et PME — Synumanus",
+    "description": "Audit technique, contenus utiles, référencement local et suivi des résultats : un référencement naturel durable, sans promesse de première place garantie.",
+    "styles": [
+      "v2/illus.css"
+    ],
+    "service_key": "seo",
+    "og_title": "SEO : être trouvé sur Google par les bons clients",
+    "og_description": "Audit technique, contenus utiles, référencement local et suivi des résultats : un référencement naturel durable, sans promesse de première place garantie.",
+    "scripts": [
+      "v2/illus.js"
+    ],
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "structured_data": "",
+    "design": "v2"
+  },
+  "services/e-commerce/index.html": {
+    "source": "e-commerce.html",
+    "route": "/services/e-commerce/",
+    "title": "Création de boutique e-commerce — Synumanus",
+    "description": "Catalogue, paiement, livraison, stocks et facturation reliés : une boutique en ligne simple à gérer, rapide sur mobile et accessible.",
+    "styles": [
+      "v2/illus.css"
+    ],
+    "service_key": "e-commerce",
+    "og_title": "Une boutique en ligne pensée pour vendre",
+    "og_description": "Catalogue, paiement, livraison, stocks et facturation reliés : une boutique en ligne simple à gérer, rapide sur mobile et accessible.",
+    "scripts": [
+      "v2/illus.js"
+    ],
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "structured_data": "",
+    "design": "v2"
+  },
+  "services/logiciel-saas/index.html": {
+    "source": "logiciel-saas.html",
+    "route": "/services/logiciel-saas/",
+    "title": "Développement de logiciel SaaS — Synumanus",
+    "description": "Conception et développement de votre logiciel SaaS : comptes clients, abonnements, sécurité et hébergement en Europe, en commençant par une première version testée.",
+    "styles": [
+      "v2/illus.css"
+    ],
+    "service_key": "logiciel-saas",
+    "og_title": "Votre logiciel SaaS, de la première version aux premiers abonnés",
+    "og_description": "Conception et développement de votre logiciel SaaS : comptes clients, abonnements, sécurité et hébergement en Europe, en commençant par une première version testée.",
+    "scripts": [
+      "v2/illus.js"
+    ],
+    "sector_key": null,
+    "resource_key": null,
+    "direct_key": null,
+    "structured_data": "",
+    "design": "v2"
+  },
   "secteurs/industrie/index.html": {
     "source": "industrie.html",
     "route": "/secteurs/industrie/",
@@ -222,26 +363,6 @@
     "service_key": null,
     "resource_key": null,
     "direct_key": null,
-    "structured_data": "",
-    "design": "v2"
-  },
-  "conseil-ia-generative/index.html": {
-    "source": "conseil-ia-generative.html",
-    "route": "/conseil-ia-generative/",
-    "title": "Conseil IA générative pour entreprises — Synumanus",
-    "description": "Identifier, cadrer et intégrer des usages d’IA générative utiles : assistants métier, recherche, synthèse, automatisation et gouvernance des données.",
-    "styles": [
-      "v2/editorial.css"
-    ],
-    "direct_key": "ia",
-    "og_title": "Conseil IA générative pour entreprises — Synumanus",
-    "og_description": "Identifier, cadrer et intégrer des usages d’IA générative utiles : assistants métier, recherche, synthèse, automatisation et gouvernance des données.",
-    "scripts": [
-      "v2/hero-flow.js"
-    ],
-    "service_key": null,
-    "sector_key": null,
-    "resource_key": null,
     "structured_data": "",
     "design": "v2"
   },

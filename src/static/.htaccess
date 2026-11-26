@@ -21,6 +21,7 @@ ErrorDocument 404 /404.html
 Redirect 301 /legal/mentions-legales.html /mentions-legales/
 Redirect 301 /legal/politique-confidentialite.html /politique-confidentialite/
 Redirect 301 /form/ /demarrer-un-projet/
+Redirect 301 /conseil-ia-generative/ /services/conseil-transformation/
 
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"

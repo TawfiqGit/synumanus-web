@@ -24,13 +24,15 @@
    (WCAG 2.2.2). Sans JavaScript ou avec « réduire les animations » : dessin fixe et complet. */
 .il-travel, .il-ring { opacity: 0; }
 .il-ring { fill: none; stroke: var(--c-accent-text); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 120 634; }
-.motion-ok .illus.is-armed .il-pop, .motion-ok .illus.is-armed .il-ping, .motion-ok .illus.is-armed .il-grow, .motion-ok .illus.is-armed .il-scan { opacity: 0; }
-.il-pop, .il-ping, .il-scan, .il-grow { transform-box: fill-box; transform-origin: center; }
+.motion-ok .illus.is-armed .il-pop, .motion-ok .illus.is-armed .il-ping, .motion-ok .illus.is-armed .il-grow, .motion-ok .illus.is-armed .il-scan, .motion-ok .illus.is-armed .il-rise { opacity: 0; }
+.il-pop, .il-ping, .il-scan, .il-grow, .il-rise { transform-box: fill-box; transform-origin: center; }
 .il-grow { transform-origin: 50% 100%; }
 @keyframes ilPop { from { opacity: 0; transform: translateY(10px) scale(.94); } to { opacity: 1; transform: none; } }
 @keyframes ilGrow { from { opacity: 0; transform: scaleY(0); } to { opacity: 1; transform: none; } }
 @keyframes ilPing { 0% { opacity: 0; transform: scale(.4); } 60% { opacity: 1; transform: scale(1.25); } 100% { opacity: 1; transform: none; } }
 @keyframes ilScan { 0% { opacity: 0; transform: translateX(-24px); } 25% { opacity: 1; } 55% { transform: translateX(22px); } 100% { opacity: 1; transform: none; } }
+/* Un élément qui remonte en tête de liste (ex. résultat de recherche). */
+@keyframes ilRise { 0% { opacity: 0; transform: translateY(162px); } 20% { opacity: 1; transform: translateY(162px); } 100% { opacity: 1; transform: none; } }
 @keyframes ilFlow { to { stroke-dashoffset: -20; } }
 @keyframes ilTravel { 0% { opacity: 0; transform: translate(100px, 175px); } 8% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translate(600px, 175px); } }
 @keyframes ilRing { 0% { opacity: 0; stroke-dashoffset: 754; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { opacity: 0; stroke-dashoffset: 0; } }
@@ -38,6 +40,7 @@
 .motion-ok .illus.is-playing .il-grow { animation: ilGrow .55s var(--ease) both; }
 .motion-ok .illus.is-playing .il-ping { animation: ilPing .6s var(--ease) both; }
 .motion-ok .illus.is-playing .il-scan { animation: ilScan 1.6s var(--ease) both; }
+.motion-ok .illus.is-playing .il-rise { animation: ilRise 1.4s var(--ease) both; }
 .motion-ok .illus.is-playing .il-flow { animation: ilFlow 1s linear .6s 3; }
 .motion-ok .illus.is-playing .il-travel { animation: ilTravel 2.6s var(--ease) .5s both; }
 .motion-ok .illus.is-playing .il-ring { animation: ilRing 3s var(--ease) .3s both; }

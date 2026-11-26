@@ -42,7 +42,7 @@ def render_footer_items(items: list[dict]) -> str:
 ARROW_SVG = '<svg class="icon-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 
 def render_v2_menu(nav: dict, current_key: str | None, mobile: bool=False) -> str:
-    """Construit le sous-menu « Solutions » (refonte v2) : 3 piliers + 4 services mobiles."""
+    """Construit le sous-menu « Solutions » (refonte v2) : 3 piliers + les services de chaque pilier."""
     def link(item: dict, cls: str) -> str:
         is_current = item['key'] == current_key
         aria = ' aria-current="page"' if is_current else ''
@@ -50,10 +50,13 @@ def render_v2_menu(nav: dict, current_key: str | None, mobile: bool=False) -> st
         desc = '' if mobile else f'<small>{item["description"]}</small>'
         return (f'<a class="{cls}{" is-current" if is_current else ""}" href="{item["href"]}"{aria}>'
                 f'<span class="menu-link-title">{item["title"]}{badge}</span>{desc}</a>')
-    pillars = ''.join(link(x, 'menu-link menu-link-pillar') for x in nav['pillars'])
-    services = ''.join(link(x, 'menu-link') for x in nav['services'])
-    return (f'<div class="menu-col"><p class="menu-label">Nos solutions</p>{pillars}</div>'
-            f'<div class="menu-col"><p class="menu-label">Applications mobiles</p>{services}</div>')
+    columns = (('Nos solutions', 'pillars', 'menu-link menu-link-pillar'),
+               ('Applications mobiles', 'services', 'menu-link'),
+               ('Web & métier', 'web_services', 'menu-link'),
+               ('Automatisation & IA', 'ai_services', 'menu-link'))
+    return ''.join(f'<div class="menu-col"><p class="menu-label">{label}</p>'
+                   + ''.join(link(x, cls) for x in nav[group]) + '</div>'
+                   for label, group, cls in columns)
 
 def render_v2_footer_items(items: list[dict]) -> str:
     """Liens de colonne de footer (refonte v2)."""
@@ -195,6 +198,8 @@ def build() -> None:
                 'ARROW_SVG': ARROW_SVG,
                 'FOOTER_PILLAR_ITEMS': render_v2_footer_items(nav['pillars']),
                 'FOOTER_SERVICE_ITEMS': render_v2_footer_items(nav['services']),
+                'FOOTER_WEB_ITEMS': render_v2_footer_items(nav['web_services']),
+                'FOOTER_AI_ITEMS': render_v2_footer_items(nav['ai_services']),
                 'FOOTER_SECTOR_ITEMS': render_v2_footer_items(nav['sectors']),
                 'FOOTER_RESOURCE_ITEMS': render_v2_footer_items(nav['resources']),
             })

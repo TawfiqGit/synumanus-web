@@ -245,8 +245,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav-hub { position: relative; }
 .nav-menu {
   position: absolute; top: calc(100% + 12px); left: 50%; transform: translate(-50%, -4px);
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-  width: min(720px, 90vw); padding: 12px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
+  width: min(1120px, 94vw); padding: 12px;
   background: var(--c-bg); border: 1px solid var(--c-border); border-radius: var(--r-card);
   box-shadow: var(--shadow-menu);
   opacity: 0; visibility: hidden; transition: opacity .15s var(--ease), transform .15s var(--ease), visibility .15s;
@@ -507,7 +507,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .newsletter-form .check { margin-top: 12px; }
 .newsletter-status { margin-top: 8px; font-size: var(--fs-control); color: var(--c-success); min-height: 1.5em; }
 .newsletter-status.error { color: var(--c-danger); }
-.footer-nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--s-4); padding-block: var(--s-6); }
+.footer-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4); padding-block: var(--s-6); }
 .footer-nav ul { list-style: none; display: grid; gap: 2px; }
 .footer-nav a { display: inline-block; padding-block: 6px; color: var(--c-text); text-decoration: none; font-size: var(--fs-control); min-height: 32px; }
 .footer-nav a:hover { color: var(--c-accent-text); text-decoration: underline; text-underline-offset: 3px; }

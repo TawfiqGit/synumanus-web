@@ -98,5 +98,58 @@
       "href": "/automatisation-ia/",
       "description": "Supprimer les ressaisies, assister vos équipes."
     }
+  ],
+  "web_services": [
+    {
+      "key": "site-vitrine",
+      "number": "01",
+      "title": "Site vitrine",
+      "href": "/services/site-vitrine/",
+      "description": "Un site professionnel clair, rapide et accessible."
+    },
+    {
+      "key": "seo",
+      "number": "02",
+      "title": "SEO",
+      "href": "/services/referencement-seo/",
+      "description": "Être trouvé sur Google par les bons clients."
+    },
+    {
+      "key": "e-commerce",
+      "number": "03",
+      "title": "E-commerce",
+      "href": "/services/e-commerce/",
+      "description": "Une boutique en ligne simple à gérer."
+    },
+    {
+      "key": "logiciel-saas",
+      "number": "04",
+      "title": "Logiciel SaaS",
+      "href": "/services/logiciel-saas/",
+      "description": "Votre logiciel en ligne, vendu par abonnement."
+    }
+  ],
+  "ai_services": [
+    {
+      "key": "geo",
+      "number": "01",
+      "title": "GEO",
+      "href": "/services/geo-referencement-ia/",
+      "description": "Être cité par les moteurs de réponse IA."
+    },
+    {
+      "key": "agent-ia",
+      "number": "02",
+      "title": "Agent IA",
+      "href": "/services/agent-ia/",
+      "description": "Un assistant connecté à vos outils, sous contrôle."
+    },
+    {
+      "key": "conseil-transformation",
+      "number": "03",
+      "title": "Conseil & Transformation",
+      "href": "/services/conseil-transformation/",
+      "description": "Feuille de route numérique et IA, adaptée à votre taille."
+    }
   ]
 }
