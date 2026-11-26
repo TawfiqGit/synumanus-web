@@ -217,6 +217,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- Header flottant bordé ---------- */
 .site-header { position: sticky; top: 0; z-index: 50; padding-block: 12px; background: linear-gradient(var(--c-bg) 40%, rgba(255, 255, 255, 0)); }
 .header-shell {
+  position: relative; /* repère du menu Solutions : centré sur l'en-tête, jamais coupé */
   display: flex; align-items: center; gap: var(--s-3);
   min-height: var(--header-h);
   width: min(calc(100% - 2 * var(--gutter)), var(--container));
@@ -242,11 +243,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav-link:hover, .nav-hub.open .nav-link { color: var(--c-text-strong); background: var(--c-bg-raised); }
 .nav-hub.open .nav-trigger svg { transform: rotate(180deg); }
 .nav-link[aria-current="page"], .nav-hub.is-current > .nav-link { color: var(--c-text-strong); text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--c-accent-strong); text-decoration-thickness: 2px; }
-.nav-hub { position: relative; }
+/* Menu à 4 colonnes : positionné par rapport à l'en-tête (et non au bouton « Solutions »),
+   pour rester entièrement visible sur les écrans d'ordinateur étroits (960–1366 px). */
+.nav-hub { position: static; }
 .nav-menu {
-  position: absolute; top: calc(100% + 12px); left: 50%; transform: translate(-50%, -4px);
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translate(-50%, -4px);
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
-  width: min(1120px, 94vw); padding: 12px;
+  width: min(1120px, calc(100vw - 24px)); padding: 12px;
   background: var(--c-bg); border: 1px solid var(--c-border); border-radius: var(--r-card);
   box-shadow: var(--shadow-menu);
   opacity: 0; visibility: hidden; transition: opacity .15s var(--ease), transform .15s var(--ease), visibility .15s;
